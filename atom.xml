@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2018-09-20T02:27:52.000Z</updated>
+  <updated>2018-09-20T07:27:00.000Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iterm2快捷键</title>
+    <link href="https://frostbelt.github.io/2018/09/20/iterm2%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    <id>https://frostbelt.github.io/2018/09/20/iterm2快捷键/</id>
+    <published>2018-09-20T07:20:56.000Z</published>
+    <updated>2018-09-20T07:27:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="iterm2-快捷键"><a href="#iterm2-快捷键" class="headerlink" title="iterm2 快捷键"></a>iterm2 快捷键</h2><h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">新建标签：command + t</span><br><span class="line">关闭标签：command + w</span><br><span class="line">切换标签：command + 数字 或 command + 左右方向键</span><br><span class="line">切换全屏：command + enter</span><br></pre></td></tr></table></figure><h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command + f</span><br></pre></td></tr></table></figure><h3 id="分屏"><a href="#分屏" class="headerlink" title="分屏"></a>分屏</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">垂直分屏：command + d</span><br><span class="line">水平分屏：command + shift + d</span><br><span class="line">切换屏幕：command + option + 方向键 command + [ 或 command + ]</span><br><span class="line">查看历史命令：command + ;</span><br><span class="line">查看剪贴板历史：command + shift + h</span><br></pre></td></tr></table></figure><h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">清除当前行：ctrl + u 或 ctrl + c</span><br><span class="line">到行首：ctrl + a</span><br><span class="line">到行尾：ctrl + e</span><br><span class="line">前进后退：ctrl + f/b (相当于左右方向键)</span><br><span class="line">上一条命令：ctrl + p</span><br><span class="line">搜索命令历史：ctrl + r</span><br><span class="line">删除当前光标的字符：ctrl + d</span><br><span class="line">删除光标之前的字符：ctrl + h</span><br><span class="line">删除光标之前的单词：ctrl + w</span><br><span class="line">删除到文本末尾：ctrl + k</span><br><span class="line">交换光标处文本：ctrl + t</span><br><span class="line">清屏：command + r 或 ctrl + l</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;iterm2-快捷键&quot;&gt;&lt;a href=&quot;#iterm2-快捷键&quot; class=&quot;headerlink&quot; title=&quot;iterm2 快捷键&quot;&gt;&lt;/a&gt;iterm2 快捷键&lt;/h2&gt;&lt;h3 id=&quot;标签&quot;&gt;&lt;a href=&quot;#标签&quot; class=&quot;headerli
+      
+    
+    </summary>
+    
+    
+      <category term="工具" scheme="https://frostbelt.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="iterm" scheme="https://frostbelt.github.io/tags/iterm/"/>
+    
+      <category term="快捷键" scheme="https://frostbelt.github.io/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>hexo常用命令</title>
