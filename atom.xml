@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>frostbelt&#39;s home</title>
+  
+  <subtitle>想学更多有意思的东西，想做自己的网站，想学画画</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://frostbelt.github.io/"/>
+  <updated>2018-09-20T02:27:52.000Z</updated>
+  <id>https://frostbelt.github.io/</id>
+  
+  <author>
+    <name>frostbelt</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo常用命令</title>
+    <link href="https://frostbelt.github.io/2018/09/20/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>https://frostbelt.github.io/2018/09/20/hexo常用命令/</id>
+    <published>2018-09-20T01:41:49.000Z</published>
+    <updated>2018-09-20T02:27:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="hexo常用命令及简写"><a href="#hexo常用命令及简写" class="headerlink" title="hexo常用命令及简写"></a>hexo常用命令及简写</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;文章标题&quot; (新建文章)</span><br><span class="line">    =&gt; hexo n &quot;文章标题&quot;</span><br><span class="line">hexo publish (发布草稿)</span><br><span class="line">    =&gt; hexo p</span><br><span class="line">hexo generate (生成静态网页)</span><br><span class="line">    =&gt; hexo g</span><br><span class="line">hexo server (启动服务)</span><br><span class="line">    =&gt; hexo s</span><br><span class="line">hexo deploy (部署)</span><br><span class="line">    =&gt; hexo d</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;hexo常用命令及简写&quot;&gt;&lt;a href=&quot;#hexo常用命令及简写&quot; class=&quot;headerlink&quot; title=&quot;hexo常用命令及简写&quot;&gt;&lt;/a&gt;hexo常用命令及简写&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;tabl
+      
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="https://frostbelt.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>markdown语法</title>
+    <link href="https://frostbelt.github.io/2016/12/22/markdown%E8%AF%AD%E6%B3%95/"/>
+    <id>https://frostbelt.github.io/2016/12/22/markdown语法/</id>
+    <published>2016-12-22T07:45:58.000Z</published>
+    <updated>2016-12-22T08:16:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>学习一下 markdown 语法<br><a id="more"></a><br><em>斜体</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">*斜体*</div></pre></td></tr></table></figure></p><p><strong>粗体</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">**粗体**</div></pre></td></tr></table></figure></p><p><a href="/">这是一个链接</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[这是一个链接](/)</div></pre></td></tr></table></figure></p><p><img src="http://p8.yx-s.com/d/inn/d3ac1740/me_500.png" alt="图片: 我的头像"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![图片: 我的头像](http://p8.yx-s.com/d/inn/d3ac1740/me_500.png)</div></pre></td></tr></table></figure></p><h1 id="标题1"><a href="#标题1" class="headerlink" title="标题1"></a>标题1</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">标题1</div><div class="line">===</div></pre></td></tr></table></figure><h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">标题2</div><div class="line">---</div></pre></td></tr></table></figure><h1 id="标题1-1"><a href="#标题1-1" class="headerlink" title="标题1"></a>标题1</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># 标题1</div></pre></td></tr></table></figure><h2 id="标题2-1"><a href="#标题2-1" class="headerlink" title="标题2"></a>标题2</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">## 标题2</div></pre></td></tr></table></figure><h6 id="标题6"><a href="#标题6" class="headerlink" title="标题6"></a>标题6</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">###### 标题6</div></pre></td></tr></table></figure><ol><li>有序列表</li><li>有序列表<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1. 有序列表</div><div class="line">2. 有序列表</div></pre></td></tr></table></figure></li></ol><ul><li>无序列表</li><li>无序列表<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- 无序列表</div><div class="line">- 无序列表</div></pre></td></tr></table></figure></li></ul><blockquote><p>这是引用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; 这是引用</div><div class="line">好吧，在 sublime 中也显示为引用，其实前面是一个 &amp;gt;</div></pre></td></tr></table></figure></p></blockquote><p>这是一句行内代码 <code>var a = a;</code>，以下是代码区块：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">console.log(a);</div><div class="line">行内代码用 ` 包围</div><div class="line">代码区块用 3个` 包围</div><div class="line">注：行内代码的两个`之间不能换行</div></pre></td></tr></table></figure></p><table><thead><tr><th style="text-align:left">姓名</th><th style="text-align:right">年龄</th><th style="text-align:center">身高</th></tr></thead><tbody><tr><td style="text-align:left">张三</td><td style="text-align:right">12</td><td style="text-align:center">150</td></tr></tbody></table><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">| 姓名    |   年龄 | 身高 |</div><div class="line">| :---  |   ---: | :---: |</div><div class="line">| 张三    |   12 | 150 |</div><div class="line"></div><div class="line">:--- 左对齐</div><div class="line">---: 右对齐</div><div class="line">:---: 居中</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;学习一下 markdown 语法&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="markdown" scheme="https://frostbelt.github.io/tags/markdown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>frostbelt&#39;s home</title>
+    <link href="https://frostbelt.github.io/2016/12/20/index/"/>
+    <id>https://frostbelt.github.io/2016/12/20/index/</id>
+    <published>2016-12-20T10:12:16.000Z</published>
+    <updated>2018-09-19T11:01:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>欢迎来到 frostbelt’s home，frostbelt 是一名 Web Developer，他将会在这里记录自己遇到的有趣的东西。<br><a id="more"></a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;欢迎来到 frostbelt’s home，frostbelt 是一名 Web Developer，他将会在这里记录自己遇到的有趣的东西。&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
