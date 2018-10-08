@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2018-09-26T08:12:26.000Z</updated>
+  <updated>2018-10-08T07:51:35.000Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vscode 同步配置到 github</title>
+    <link href="https://frostbelt.github.io/2018/10/08/vscode-%E5%90%8C%E6%AD%A5%E9%85%8D%E7%BD%AE%E5%88%B0-github/"/>
+    <id>https://frostbelt.github.io/2018/10/08/vscode-同步配置到-github/</id>
+    <published>2018-10-08T07:28:51.000Z</published>
+    <updated>2018-10-08T07:51:35.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>多台终端的 vscode 配置、扩展、代码版本同步</p></blockquote><h3 id="安装扩展-Setting-Sync"><a href="#安装扩展-Setting-Sync" class="headerlink" title="安装扩展 Setting Sync"></a>安装扩展 Setting Sync</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">点击 vscode 左侧导航栏扩展图标，在商店中搜索扩展 Setting Sync，安装，重启</span><br></pre></td></tr></table></figure><h3 id="生成-github-access-token"><a href="#生成-github-access-token" class="headerlink" title="生成 github access token"></a>生成 github access token</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在 https://github.com/settings/tokens 新建一个 Personal access tokens</span><br><span class="line">Personal access tokens -&gt; Generate new token</span><br><span class="line">自定义 gist 名称，授权选中 gist 即可</span><br><span class="line">生成 token，自己保存下来</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="同步配置到-github"><a href="#同步配置到-github" class="headerlink" title="同步配置到 github"></a>同步配置到 github</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">在 vscode 中，command + shift + p，输入 sync，选择 sync:上传设置</span><br><span class="line">输入上一步得到的 token，点 enter</span><br><span class="line">控制台输出类似以下内容，即为同步成功：</span><br><span class="line">GitHub Token: &quot;your token&quot;</span><br><span class="line">GitHub Gist: &quot;your gist id&quot;</span><br><span class="line">GitHub Gist Type: Secret</span><br><span class="line"></span><br><span class="line">Restarting Visual Studio Code may be required to apply color and file icon theme.</span><br><span class="line">--------------------</span><br><span class="line">Files Uploaded:</span><br><span class="line">  extensions.json &gt; extensions.json</span><br><span class="line">  keybindings.json &gt; keybindingsMac.json</span><br><span class="line">  settings.json &gt; settings.json</span><br><span class="line">  global.code-snippets &gt; snippets|global.code-snippets</span><br><span class="line">  html.json &gt; snippets|html.json</span><br><span class="line">  javascript.json &gt; snippets|javascript.json</span><br><span class="line">  markdown.json &gt; snippets|markdown.json</span><br><span class="line">  php.json &gt; snippets|php.json</span><br><span class="line">  scss.json &gt; snippets|scss.json</span><br><span class="line">  vue.json &gt; snippets|vue.json</span><br><span class="line"></span><br><span class="line">Extensions Ignored:</span><br><span class="line">  No extensions ignored.</span><br><span class="line"></span><br><span class="line">Extensions Removed:</span><br><span class="line">  No extensions removed.</span><br><span class="line"></span><br><span class="line">Extensions Added:</span><br><span class="line">  cocos-creator v0.0.1</span><br><span class="line">  cocos-debug v0.0.1</span><br><span class="line">  code-settings-sync v3.1.2</span><br><span class="line">  ftp-sync v0.3.3</span><br><span class="line">  jsbox v0.0.16</span><br><span class="line">  swig v0.0.5</span><br><span class="line">  vetur v0.13.0</span><br><span class="line">  vscode-language-pack-zh-hans v1.27.2</span><br><span class="line">--------------------</span><br><span class="line">Done.</span><br></pre></td></tr></table></figure><h3 id="在其它终端下载配置"><a href="#在其它终端下载配置" class="headerlink" title="在其它终端下载配置"></a>在其它终端下载配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">在其它终端下载配置时，需要上一步中输出的信息</span><br><span class="line">GitHub Token: &quot;your token&quot;</span><br><span class="line">GitHub Gist: &quot;your gist id&quot;</span><br><span class="line">同样先安装 Setting Sync 扩展，重启</span><br><span class="line">command + shift + p，输入 sync，选择 sync:下载设置</span><br><span class="line">输入 your token，点 enter</span><br><span class="line">输入 your gist id，点 enter</span><br><span class="line">自动安装扩展、同步配置，控制台显示 done 时，下载完成</span><br></pre></td></tr></table></figure><h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">上传 : Shift + Alt + U</span><br><span class="line">下载 : Shift + Alt + D</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;多台终端的 vscode 配置、扩展、代码版本同步&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;安装扩展-Setting-Sync&quot;&gt;&lt;a href=&quot;#安装扩展-Setting-Sync&quot; class=&quot;headerlink&quot; title=&quot;安装扩展 Setting Sync&quot;&gt;&lt;/a&gt;安装扩展 Setting Sync&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;点击 vscode 左侧导航栏扩展图标，在商店中搜索扩展 Setting Sync，安装，重启&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;生成-github-access-token&quot;&gt;&lt;a href=&quot;#生成-github-access-token&quot; class=&quot;headerlink&quot; title=&quot;生成 github access token&quot;&gt;&lt;/a&gt;生成 github access token&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;在 https://github.com/settings/tokens 新建一个 Personal access tokens&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Personal access tokens -&amp;gt; Generate new token&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;自定义 gist 名称，授权选中 gist 即可&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;生成 token，自己保存下来&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="工具" scheme="https://frostbelt.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="vscode" scheme="https://frostbelt.github.io/tags/vscode/"/>
+    
+      <category term="github" scheme="https://frostbelt.github.io/tags/github/"/>
+    
+      <category term="gist" scheme="https://frostbelt.github.io/tags/gist/"/>
+    
+  </entry>
   
   <entry>
     <title>sketch 切片快速导出切图</title>
