@@ -1824,7 +1824,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #9cffff;
+  background: #b9ffee;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2905,5 +2905,10 @@ hr {
   .footer-inner {
     width: auto;
     text-align: center;
+  }
+  .footer-inner img.flagcounter {
+    margin: 0 auto;
+    position: relative;
+    left: 24px;
   }
 }
