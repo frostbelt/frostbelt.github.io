@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="frostbelt&#39;s home">
 <meta property="og:description" content="crontab 是 linux 上执行定时任务的工具，本文是 Mac OS 上 crontab 的应用  新建 crontab 文件1sudo touch /etc/crontab 查看所有 crontab 任务1crontab -l">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-09T11:21:41.000Z">
+<meta property="og:updated_time" content="2018-10-10T01:59:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux 命令 crontab">
 <meta name="twitter:description" content="crontab 是 linux 上执行定时任务的工具，本文是 Mac OS 上 crontab 的应用  新建 crontab 文件1sudo touch /etc/crontab 查看所有 crontab 任务1crontab -l">
@@ -348,7 +348,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  222
+                  235
                 </span>
               
 
@@ -393,9 +393,10 @@
 <a id="more"></a>
 <h3 id="新建-crontab-任务"><a href="#新建-crontab-任务" class="headerlink" title="新建 crontab 任务"></a>新建 crontab 任务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br><span class="line">打开 vi 编辑器，保存退出后自动加到 crontab 列表中执行</span><br><span class="line">显示 crontab: installing new crontab 表示新建成功</span><br></pre></td></tr></table></figure>
 <h3 id="crontab-文件格式"><a href="#crontab-文件格式" class="headerlink" title="crontab 文件格式"></a>crontab 文件格式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">第1列分钟0～59</span><br><span class="line">第2列小时0～23（0表示子夜）</span><br><span class="line">第3列日1～31</span><br><span class="line">第4列月1～12</span><br><span class="line">第5列星期0～7（0和7表示星期天）</span><br><span class="line">第6列要运行的命令</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">示例：（每分钟输出当前时间到cron.log）</span><br><span class="line">* * * * * /bin/date &gt;&gt; /Users/(你的用户名)/log/cron.log</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">示例：（每分钟输出当前时间到cron.log）</span><br><span class="line">*/1 * * * * /bin/date &gt;&gt; /Users/(你的用户名)/log/cron.log</span><br></pre></td></tr></table></figure>
 <h3 id="启动-cron"><a href="#启动-cron" class="headerlink" title="启动 cron"></a>启动 cron</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/sbin/cron start</span><br><span class="line">sudo /usr/sbin/cron restart</span><br><span class="line">sudo /usr/sbin/cron stop</span><br></pre></td></tr></table></figure>
 <h3 id="清空-crontab"><a href="#清空-crontab" class="headerlink" title="清空 crontab"></a>清空 crontab</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -r</span><br></pre></td></tr></table></figure>
+<h3 id="删除指定-cron"><a href="#删除指定-cron" class="headerlink" title="删除指定 cron"></a>删除指定 cron</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br><span class="line">编辑删除即可</span><br></pre></td></tr></table></figure>
 <h3 id="新建-crontab-任务报错-crontab-“-usr-bin-vi”-exited-with-status-1-解决"><a href="#新建-crontab-任务报错-crontab-“-usr-bin-vi”-exited-with-status-1-解决" class="headerlink" title="新建 crontab 任务报错 crontab: “/usr/bin/vi” exited with status 1 解决"></a>新建 crontab 任务报错 crontab: “/usr/bin/vi” exited with status 1 解决</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在 ~/.vimrc 中加入以下内容：</span><br><span class="line">&quot; 解决 crontab 编译失败问题</span><br><span class="line">autocmd filetype crontab setlocal nobackup nowritebackup</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -586,7 +587,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#新建-crontab-文件"><span class="nav-text">新建 crontab 文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看所有-crontab-任务"><span class="nav-text">查看所有 crontab 任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建-crontab-任务"><span class="nav-text">新建 crontab 任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#crontab-文件格式"><span class="nav-text">crontab 文件格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动-cron"><span class="nav-text">启动 cron</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清空-crontab"><span class="nav-text">清空 crontab</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建-crontab-任务报错-crontab-“-usr-bin-vi”-exited-with-status-1-解决"><span class="nav-text">新建 crontab 任务报错 crontab: “/usr/bin/vi” exited with status 1 解决</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#新建-crontab-文件"><span class="nav-text">新建 crontab 文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看所有-crontab-任务"><span class="nav-text">查看所有 crontab 任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建-crontab-任务"><span class="nav-text">新建 crontab 任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#crontab-文件格式"><span class="nav-text">crontab 文件格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动-cron"><span class="nav-text">启动 cron</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清空-crontab"><span class="nav-text">清空 crontab</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除指定-cron"><span class="nav-text">删除指定 cron</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建-crontab-任务报错-crontab-“-usr-bin-vi”-exited-with-status-1-解决"><span class="nav-text">新建 crontab 任务报错 crontab: “/usr/bin/vi” exited with status 1 解决</span></a></li></ol></div>
             
 
           </div>
