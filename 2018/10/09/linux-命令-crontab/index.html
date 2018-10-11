@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="frostbelt&#39;s home">
 <meta property="og:description" content="crontab 是 linux 上执行定时任务的工具，本文是 Mac OS 上 crontab 的应用  新建 crontab 文件1sudo touch /etc/crontab 查看所有 crontab 任务1crontab -l">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-11T07:46:53.522Z">
+<meta property="og:updated_time" content="2018-10-11T07:55:10.091Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux 命令 crontab">
 <meta name="twitter:description" content="crontab 是 linux 上执行定时任务的工具，本文是 Mac OS 上 crontab 的应用  新建 crontab 文件1sudo touch /etc/crontab 查看所有 crontab 任务1crontab -l">
@@ -348,7 +348,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  454
+                  455
                 </span>
               
 
@@ -402,23 +402,10 @@
 <h3 id="删除指定-cron"><a href="#删除指定-cron" class="headerlink" title="删除指定 cron"></a>删除指定 cron</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br><span class="line">编辑删除即可</span><br></pre></td></tr></table></figure>
 <h3 id="新建-crontab-任务报错-crontab-“-usr-bin-vi”-exited-with-status-1-解决"><a href="#新建-crontab-任务报错-crontab-“-usr-bin-vi”-exited-with-status-1-解决" class="headerlink" title="新建 crontab 任务报错 crontab: “/usr/bin/vi” exited with status 1 解决"></a>新建 crontab 任务报错 crontab: “/usr/bin/vi” exited with status 1 解决</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在 ~/.vimrc 中加入以下内容：</span><br><span class="line">&quot; 解决 crontab 编译失败问题</span><br><span class="line">autocmd filetype crontab setlocal nobackup nowritebackup</span><br></pre></td></tr></table></figure>
 <h3 id="加锁"><a href="#加锁" class="headerlink" title="加锁"></a>加锁</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">crontab 定时执行任务，如果判断上一次任务未执行完，本次不执行</span><br><span class="line">用 flock 命令加锁</span><br><span class="line">编辑任务：</span><br><span class="line">* * * * * flock -xn /tmp/mytest.lock -c &apos;php /home/xxx/php/test.php &gt;&gt; /home/xxx/php/test.log&apos;</span><br><span class="line">原理：</span><br><span class="line">任务开始时，判断 /tmp/mytest.lock 文件是否被锁定</span><br><span class="line">if 被锁定，判断为加锁中，跳过</span><br><span class="line">if 未被锁定，锁定 /tmp/mytest.lock，并执行任务，任务完成后解锁 /tmp/mytest.lock</span><br><span class="line">注：没找到 MacOS 上使用 flock 命令的方法</span><br></pre></td></tr></table></figure>
-<p>参见<a href="https://blog.csdn.net/fdipzone/article/details/38284009" target="_blank" rel="noopener">linux使用flock文件锁解决crontab冲突问题</a><br>&lt;!–<br>todo<br>MacOS 安装 flock<br><a href="https://github.com/discoteq/flock" target="_blank" rel="noopener">https://github.com/discoteq/flock</a><br>flock /tmp/cron_date.lock -c /usr/bin/php /Users/yamei/codes/php_space/cron.php &gt;&gt; /Users/yamei/log/cron.log<br>可以执行<br>但放在 crontab 里没有执行</p>
-<ul>
-<li><ul>
-<li><ul>
-<li><ul>
-<li><ul>
-<li>flock -xn /tmp/cron_date.lock -c ‘/usr/bin/php /Users/yamei/codes/php_space/cron.php &gt;&gt; /Users/yamei/log/cron.log’</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>MacOS 可以尝试 launchctl<br><a href="https://my.oschina.net/shede333/blog/470377" target="_blank" rel="noopener">https://my.oschina.net/shede333/blog/470377</a><br>–&gt;</p>
+<p>参见<a href="https://blog.csdn.net/fdipzone/article/details/38284009" target="_blank" rel="noopener">linux使用flock文件锁解决crontab冲突问题</a></p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">todo</span><br><span class="line">MacOS 安装 flock</span><br><span class="line">https://github.com/discoteq/flock</span><br><span class="line">flock /tmp/cron_date.lock -c /usr/bin/php /Users/yamei/codes/php_space/cron.php &gt;&gt; /Users/yamei/log/cron.log</span><br><span class="line">可以执行</span><br><span class="line">但放在 crontab 里没有执行</span><br><span class="line">* * * * * flock -xn /tmp/cron_date.lock -c &apos;/usr/bin/php /Users/yamei/codes/php_space/cron.php &gt;&gt; /Users/yamei/log/cron.log&apos;</span><br><span class="line">MacOS 可以尝试 launchctl </span><br><span class="line">https://my.oschina.net/shede333/blog/470377</span><br></pre></td></tr></table></figure>
+<hr>
 
       
     </div>
