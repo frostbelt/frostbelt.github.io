@@ -102,18 +102,18 @@
 
 
 
-<meta name="description" content="使用 zlib.js 实现 js zlib 解压/压缩 python12345678pythonimport zlibfrom base64 import urlsafe_b64encodefrom base64 import urlsafe_b64decodeprint urlsafe_b64encode(zlib.compress(&amp;apos;li:8,tj:mixing&amp;apos;))# 输">
+<meta name="description" content="使用 zlib.js 实现 js zlib 解压/压缩">
 <meta name="keywords" content="js,zlib,压缩">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js zlib 压缩">
 <meta property="og:url" content="https://frostbelt.github.io/2018/10/12/js-zlib-压缩/index.html">
 <meta property="og:site_name" content="frostbelt&#39;s home">
-<meta property="og:description" content="使用 zlib.js 实现 js zlib 解压/压缩 python12345678pythonimport zlibfrom base64 import urlsafe_b64encodefrom base64 import urlsafe_b64decodeprint urlsafe_b64encode(zlib.compress(&amp;apos;li:8,tj:mixing&amp;apos;))# 输">
+<meta property="og:description" content="使用 zlib.js 实现 js zlib 解压/压缩">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-12T06:57:37.811Z">
+<meta property="og:updated_time" content="2018-10-12T06:57:55.080Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js zlib 压缩">
-<meta name="twitter:description" content="使用 zlib.js 实现 js zlib 解压/压缩 python12345678pythonimport zlibfrom base64 import urlsafe_b64encodefrom base64 import urlsafe_b64decodeprint urlsafe_b64encode(zlib.compress(&amp;apos;li:8,tj:mixing&amp;apos;))# 输">
+<meta name="twitter:description" content="使用 zlib.js 实现 js zlib 解压/压缩">
 
 
 
@@ -386,6 +386,7 @@
 
       
         <p>使用 <a href="https://github.com/imaya/zlib.js" target="_blank" rel="noopener">zlib.js</a> 实现 js zlib 解压/压缩</p>
+<a id="more"></a>
 <h3 id="python"><a href="#python" class="headerlink" title="python"></a>python</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">python</span><br><span class="line">import zlib</span><br><span class="line">from base64 import urlsafe_b64encode</span><br><span class="line">from base64 import urlsafe_b64decode</span><br><span class="line">print urlsafe_b64encode(zlib.compress(&apos;li:8,tj:mixing&apos;))</span><br><span class="line"># 输出：eJzLybSy0CnJssrNrMjMSwcAJBYFGA==</span><br><span class="line">print zlib.decompress(urlsafe_b64decode(&apos;eJzLybSy0CnJssrNrMjMSwcAJBYFGA==&apos;))</span><br><span class="line"># 输出：li:8,tj:mixing</span><br></pre></td></tr></table></figure>
 <h3 id="js-对-python-的压缩结果解压"><a href="#js-对-python-的压缩结果解压" class="headerlink" title="js 对 python 的压缩结果解压"></a>js 对 python 的压缩结果解压</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var zlib_result = atob(&quot;eJzLybSy0CnJssrNrMjMSwcAJBYFGA==&quot;);</span><br><span class="line">var data = new Array(zlib_result.length);</span><br><span class="line">for (i = 0, il = zlib_result.length; i &lt; il; ++i) &#123;</span><br><span class="line">    data[i] = zlib_result.charCodeAt(i);</span><br><span class="line">&#125;</span><br><span class="line">var inflate = new Zlib.Inflate(data);</span><br><span class="line">var decompress = inflate.decompress();</span><br><span class="line">var plain = new TextDecoder(&quot;utf-8&quot;).decode(decompress);</span><br><span class="line">console.log(plain);</span><br><span class="line">// 输出：li:8,tj:mixing</span><br></pre></td></tr></table></figure>
 <h3 id="js-压缩同样的内容"><a href="#js-压缩同样的内容" class="headerlink" title="js 压缩同样的内容"></a>js 压缩同样的内容</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var str = &apos;li:8,tj:mixing&apos;;</span><br><span class="line">var plain = new TextEncoder(&apos;utf-8&apos;).encode(str);</span><br><span class="line">var deflate = new Zlib.Deflate(plain);</span><br><span class="line">var compressed = deflate.compress();</span><br><span class="line">var data = [];</span><br><span class="line">for(var i = 0, len = compressed.length; i &lt; len; i++)&#123;</span><br><span class="line">    data.push(String.fromCharCode(compressed[i]));</span><br><span class="line">&#125;</span><br><span class="line">data = data.join(&quot;&quot;);</span><br><span class="line">console.log(btoa(data));</span><br><span class="line">// 输出：eJwFgEEJAEAIBAsZQLaQzKG+fFz8pVHGPQ2fLQMkFgUY</span><br></pre></td></tr></table></figure>
