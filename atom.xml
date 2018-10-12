@@ -343,10 +343,10 @@
   
   <entry>
     <title>Mac配置adb</title>
-    <link href="https://frostbelt.github.io/2018/09/20/Mac%E9%85%8D%E7%BD%AEadb/"/>
-    <id>https://frostbelt.github.io/2018/09/20/Mac配置adb/</id>
+    <link href="https://frostbelt.github.io/2018/09/20/Mac-%E9%85%8D%E7%BD%AEadb/"/>
+    <id>https://frostbelt.github.io/2018/09/20/Mac-配置adb/</id>
     <published>2018-09-20T07:48:34.000Z</published>
-    <updated>2018-09-20T10:14:10.000Z</updated>
+    <updated>2018-10-12T06:34:02.955Z</updated>
     
     <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 下载 platform-tools.zip 并解压，注意路径中不能有中文</span><br><span class="line">2. 在 ~/.bash_profile 中环境变量 </span><br><span class="line">    $ export PATH=$PATH:youpath/platform-tools/</span><br><span class="line">3. 执行 source ~/.bash_profile</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -360,7 +360,7 @@
     </summary>
     
     
-      <category term="Mac" scheme="https://frostbelt.github.io/tags/Mac/"/>
+      <category term="mac" scheme="https://frostbelt.github.io/tags/mac/"/>
     
       <category term="adb" scheme="https://frostbelt.github.io/tags/adb/"/>
     
@@ -399,7 +399,7 @@
     <link href="https://frostbelt.github.io/2018/09/20/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
     <id>https://frostbelt.github.io/2018/09/20/hexo常用命令/</id>
     <published>2018-09-20T01:41:49.000Z</published>
-    <updated>2018-09-20T10:16:21.000Z</updated>
+    <updated>2018-10-12T06:33:02.813Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>hexo常用命令及简写</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;文章标题&quot; (新建文章)</span><br><span class="line">    =&gt; hexo n &quot;文章标题&quot;</span><br><span class="line">hexo publish (发布草稿)</span><br><span class="line">    =&gt; hexo p</span><br><span class="line">hexo generate (生成静态网页)</span><br><span class="line">    =&gt; hexo g</span><br><span class="line">hexo server (启动服务)</span><br><span class="line">    =&gt; hexo s</span><br><span class="line">hexo deploy (部署)</span><br><span class="line">    =&gt; hexo d</span><br></pre></td></tr></table></figure>]]></content>
     
