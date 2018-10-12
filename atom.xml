@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2018-10-12T06:57:55.080Z</updated>
+  <updated>2018-10-12T07:33:03.899Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,100 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux 搭建 git 服务器</title>
+    <link href="https://frostbelt.github.io/2018/10/12/linux-%E6%90%AD%E5%BB%BA-git-%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <id>https://frostbelt.github.io/2018/10/12/linux-搭建-git-服务器/</id>
+    <published>2018-10-12T07:24:17.000Z</published>
+    <updated>2018-10-12T07:33:03.899Z</updated>
+    
+    <content type="html"><![CDATA[<p>引自<a href="https://www.cnblogs.com/herd/p/7063091.html" target="_blank" rel="noopener">在阿里云上搭建自己的git服务器</a></p><h3 id="新建一个用户，专门用来搭建-git-服务器"><a href="#新建一个用户，专门用来搭建-git-服务器" class="headerlink" title="新建一个用户，专门用来搭建 git 服务器"></a>新建一个用户，专门用来搭建 git 服务器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adduser git</span><br></pre></td></tr></table></figure><h3 id="不允许该用户-ssh-到服务器"><a href="#不允许该用户-ssh-到服务器" class="headerlink" title="不允许该用户 ssh 到服务器"></a>不允许该用户 ssh 到服务器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/passwd</span><br><span class="line"></span><br><span class="line">将</span><br><span class="line">git:x:1001:1001:,,,:/home/git:/bin/bash</span><br><span class="line">修改为</span><br><span class="line">git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="设置提交代码时的密码"><a href="#设置提交代码时的密码" class="headerlink" title="设置提交代码时的密码"></a>设置提交代码时的密码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">passwd git</span><br><span class="line"># 输入密码</span><br></pre></td></tr></table></figure><h3 id="生成公钥（在编辑代码的电脑上-客户端-）"><a href="#生成公钥（在编辑代码的电脑上-客户端-）" class="headerlink" title="生成公钥（在编辑代码的电脑上[客户端]）"></a>生成公钥（在编辑代码的电脑上[客户端]）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line">ssh-keygen -t rsa</span><br><span class="line"># 一路回车</span><br><span class="line"># 查看公钥</span><br><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure><h3 id="将公钥加到-git-用户-authorized-keys-中"><a href="#将公钥加到-git-用户-authorized-keys-中" class="headerlink" title="将公钥加到 git 用户 authorized_keys 中"></a>将公钥加到 git 用户 authorized_keys 中</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /home/git</span><br><span class="line">mkdir .ssh</span><br><span class="line">cd .ssh</span><br><span class="line">vi authorized_keys</span><br><span class="line"># 将客户端的公钥加到 authorized_keys 中</span><br></pre></td></tr></table></figure><h3 id="初始化一个-git-仓库"><a href="#初始化一个-git-仓库" class="headerlink" title="初始化一个 git 仓库"></a>初始化一个 git 仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd /var  # 可以放到任意可访问的位置</span><br><span class="line">mkdir git</span><br><span class="line">chown -R git:git git  # 这个目录属于 git 用户</span><br><span class="line">chmod -R 777 git</span><br><span class="line">cd git</span><br><span class="line">git init --bare xxx.git</span><br><span class="line"># 注意 git 文件夹下的所有目录应该是 777</span><br></pre></td></tr></table></figure><h3 id="克隆仓库（在客户端）"><a href="#克隆仓库（在客户端）" class="headerlink" title="克隆仓库（在客户端）"></a>克隆仓库（在客户端）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@服务器IP:/var/git/xxx.git</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;引自&lt;a href=&quot;https://www.cnblogs.com/herd/p/7063091.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;在阿里云上搭建自己的git服务器&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;新建一个用户，专门用来搭建-git-服务器&quot;&gt;&lt;a href=&quot;#新建一个用户，专门用来搭建-git-服务器&quot; class=&quot;headerlink&quot; title=&quot;新建一个用户，专门用来搭建 git 服务器&quot;&gt;&lt;/a&gt;新建一个用户，专门用来搭建 git 服务器&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;adduser git&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;不允许该用户-ssh-到服务器&quot;&gt;&lt;a href=&quot;#不允许该用户-ssh-到服务器&quot; class=&quot;headerlink&quot; title=&quot;不允许该用户 ssh 到服务器&quot;&gt;&lt;/a&gt;不允许该用户 ssh 到服务器&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;vi /etc/passwd&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;将&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git:x:1001:1001:,,,:/home/git:/bin/bash&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;修改为&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="git" scheme="https://frostbelt.github.io/tags/git/"/>
+    
+      <category term="linux" scheme="https://frostbelt.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux 安装 mysql</title>
+    <link href="https://frostbelt.github.io/2018/10/12/linux-%E5%AE%89%E8%A3%85-mysql/"/>
+    <id>https://frostbelt.github.io/2018/10/12/linux-安装-mysql/</id>
+    <published>2018-10-12T07:13:46.000Z</published>
+    <updated>2018-10-12T07:23:36.290Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="查看有没有安装过-mysql"><a href="#查看有没有安装过-mysql" class="headerlink" title="查看有没有安装过 mysql"></a>查看有没有安装过 mysql</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum list installed mysql*</span><br><span class="line">rpm -qa | grep mysql*</span><br></pre></td></tr></table></figure><h3 id="查看有没有安装包"><a href="#查看有没有安装包" class="headerlink" title="查看有没有安装包"></a>查看有没有安装包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list mysql*</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="安装-mysql-客户端"><a href="#安装-mysql-客户端" class="headerlink" title="安装 mysql 客户端"></a>安装 mysql 客户端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install mysql-server</span><br><span class="line">yum install mysql-devel</span><br></pre></td></tr></table></figure><h3 id="如果报错-mysql-community-repo-not-find"><a href="#如果报错-mysql-community-repo-not-find" class="headerlink" title="如果报错 mysql-community.repo not find"></a>如果报错 mysql-community.repo not find</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm</span><br><span class="line">rpm -ivh mysql-community-release-el7-5.noarch.rpm</span><br><span class="line">ls -1 /etc/yum.repos.d/mysql-community*</span><br><span class="line">&gt; /etc/yum.repos.d/mysql-community.repo</span><br><span class="line">&gt; /etc/yum.repos.d/mysql-community-source.repo</span><br><span class="line">yum install mysql-server</span><br></pre></td></tr></table></figure><h3 id="mysql-初始化"><a href="#mysql-初始化" class="headerlink" title="mysql 初始化"></a>mysql 初始化</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/mysql_install_db --user=mysql  &amp;</span><br></pre></td></tr></table></figure><h3 id="启动-mysql"><a href="#启动-mysql" class="headerlink" title="启动 mysql"></a>启动 mysql</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld start</span><br></pre></td></tr></table></figure><h3 id="停止-mysql"><a href="#停止-mysql" class="headerlink" title="停止 mysql"></a>停止 mysql</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld stop</span><br></pre></td></tr></table></figure><h3 id="设置密码"><a href="#设置密码" class="headerlink" title="设置密码"></a>设置密码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -u root password xxx</span><br></pre></td></tr></table></figure><h3 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure><h3 id="相关目录"><a href="#相关目录" class="headerlink" title="相关目录"></a>相关目录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">数据库目录：      /var/lib/mysql/</span><br><span class="line">配置文件：        /usr/share /mysql（mysql.server命令及配置文件）</span><br><span class="line">相关命令：        /usr/bin（mysqladmin mysqldump等命令）</span><br><span class="line">启动脚本：        /etc/rc.d/init.d/（启动脚本文件mysql的目录）</span><br></pre></td></tr></table></figure><h3 id="错误排查"><a href="#错误排查" class="headerlink" title="错误排查"></a>错误排查</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">配置文件：</span><br><span class="line">/etc/my.cnf</span><br><span class="line">其中设置的错误日志地址：</span><br><span class="line">log-error=/var/log/mysqld.log</span><br><span class="line"></span><br><span class="line">查看 /var/log/mysqld.log 中的错误信息：</span><br><span class="line">grep -i &quot;error&quot; /var/log/mysqld.log</span><br></pre></td></tr></table></figure><h3 id="安装-php-mysql-扩展"><a href="#安装-php-mysql-扩展" class="headerlink" title="安装 php mysql 扩展"></a>安装 php mysql 扩展</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget http://cn2.php.net/distributions/php-7.0.28.tar.gz</span><br><span class="line">tar zxvf php-7.0.28.tar.gz</span><br><span class="line">cd php-7.0.28</span><br><span class="line">./configure --with-php-config=/usr/local/php/bin/php-config --with-mysqli=/usr/bin/mysql_config</span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"># with-php-config 和 with-mysqli 为 php-config 和 mysql_config 的路径</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;查看有没有安装过-mysql&quot;&gt;&lt;a href=&quot;#查看有没有安装过-mysql&quot; class=&quot;headerlink&quot; title=&quot;查看有没有安装过 mysql&quot;&gt;&lt;/a&gt;查看有没有安装过 mysql&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum list installed mysql*&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rpm -qa | grep mysql*&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;查看有没有安装包&quot;&gt;&lt;a href=&quot;#查看有没有安装包&quot; class=&quot;headerlink&quot; title=&quot;查看有没有安装包&quot;&gt;&lt;/a&gt;查看有没有安装包&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum list mysql*&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://frostbelt.github.io/tags/linux/"/>
+    
+      <category term="mysql" scheme="https://frostbelt.github.io/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux 安装 redis</title>
+    <link href="https://frostbelt.github.io/2018/10/12/linux-%E5%AE%89%E8%A3%85-redis/"/>
+    <id>https://frostbelt.github.io/2018/10/12/linux-安装-redis/</id>
+    <published>2018-10-12T07:09:29.000Z</published>
+    <updated>2018-10-12T07:13:00.822Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="安装-redis"><a href="#安装-redis" class="headerlink" title="安装 redis"></a>安装 redis</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install redis</span><br></pre></td></tr></table></figure><h3 id="启动-redis"><a href="#启动-redis" class="headerlink" title="启动 redis"></a>启动 redis</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service redis start</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep redis</span><br></pre></td></tr></table></figure><h3 id="进入-redis-服务"><a href="#进入-redis-服务" class="headerlink" title="进入 redis 服务"></a>进入 redis 服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli</span><br></pre></td></tr></table></figure><h3 id="关闭-redis-服务"><a href="#关闭-redis-服务" class="headerlink" title="关闭 redis 服务"></a>关闭 redis 服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli shutdown</span><br></pre></td></tr></table></figure><h3 id="开放端口的防火墙"><a href="#开放端口的防火墙" class="headerlink" title="开放端口的防火墙"></a>开放端口的防火墙</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/sbin/iptables -I INPUT -p tcp --dport 6379  -j ACCEPT</span><br><span class="line">/sbin/iptables -I INPUT -p tcp --dport 6380 -j ACCEPT</span><br></pre></td></tr></table></figure><h3 id="安装-php-redis-扩展"><a href="#安装-php-redis-扩展" class="headerlink" title="安装 php redis 扩展"></a>安装 php redis 扩展</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 查看 php 版本</span><br><span class="line">php -v</span><br><span class="line"># 查找对应的 redis 扩展版本</span><br><span class="line">yum list | grep php55w*</span><br><span class="line">yum list | grep &quot;php&quot; | grep &quot;redis&quot;</span><br><span class="line"># 安装扩展</span><br><span class="line">yum -y install php-pecl-redis.x86_64</span><br><span class="line"># 重启 php-fpm</span><br><span class="line">service php-fpm restart</span><br></pre></td></tr></table></figure><h3 id="查看是否成功"><a href="#查看是否成功" class="headerlink" title="查看是否成功"></a>查看是否成功</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">redis-cli</span><br><span class="line">&gt;set test-frostbelt-name frostbelt</span><br><span class="line">OK</span><br><span class="line">&gt;get test-frostbelt-name</span><br><span class="line">&quot;frostbelt&quot;</span><br><span class="line"></span><br><span class="line">php -r &apos;$redis=new Redis();$redis-&gt;connect(&quot;127.0.0.1&quot;,6379);echo $redis-&gt;get(&quot;test-frostbelt-name&quot;);&apos;</span><br><span class="line">frostbelt#</span><br></pre></td></tr></table></figure><h3 id="注："><a href="#注：" class="headerlink" title="注："></a>注：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果 php 不是由 yum 安装的，需要下载 phpredis 扩展，手动安装</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;安装-redis&quot;&gt;&lt;a href=&quot;#安装-redis&quot; class=&quot;headerlink&quot; title=&quot;安装 redis&quot;&gt;&lt;/a&gt;安装 redis&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum install redis&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;启动-redis&quot;&gt;&lt;a href=&quot;#启动-redis&quot; class=&quot;headerlink&quot; title=&quot;启动 redis&quot;&gt;&lt;/a&gt;启动 redis&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;service redis start&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://frostbelt.github.io/tags/linux/"/>
+    
+      <category term="php" scheme="https://frostbelt.github.io/tags/php/"/>
+    
+      <category term="redis" scheme="https://frostbelt.github.io/tags/redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux 卸载重装 php</title>
+    <link href="https://frostbelt.github.io/2018/10/12/linux-%E5%8D%B8%E8%BD%BD%E9%87%8D%E8%A3%85-php/"/>
+    <id>https://frostbelt.github.io/2018/10/12/linux-卸载重装-php/</id>
+    <published>2018-10-12T07:06:48.000Z</published>
+    <updated>2018-10-12T07:08:35.699Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="卸载-php"><a href="#卸载-php" class="headerlink" title="卸载 php"></a>卸载 php</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># 查看已安装的 php 相关包</span><br><span class="line">rpm -qa|grep php</span><br><span class="line">php-pecl-igbinary-1.2.1-1.el7.x86_64</span><br><span class="line">php-xml-5.4.16-43.el7_4.x86_64</span><br><span class="line">php-pecl-redis-2.2.8-1.el7.x86_64</span><br><span class="line">php-common-5.4.16-43.el7_4.x86_64</span><br><span class="line">php-process-5.4.16-43.el7_4.x86_64</span><br><span class="line">php-cli-5.4.16-43.el7_4.x86_64</span><br><span class="line">php-fpm-5.4.16-43.el7_4.x86_64</span><br><span class="line">php-pear-1.9.4-21.el7.noarch</span><br><span class="line"></span><br><span class="line"># 依次卸载</span><br><span class="line">rpm -e xxx</span><br><span class="line"></span><br><span class="line">如果某个包被依赖不能卸载，如：</span><br><span class="line">➜  src rpm -e php-cli-5.4.16-43.el7_4.x86_64</span><br><span class="line">错误：依赖检测失败：</span><br><span class="line">    php-cli 被 (已安裝) php-pear-1:1.9.4-21.el7.noarch 需要</span><br><span class="line">先卸载 php-pear-1.9.4-21.el7.noarch</span><br><span class="line"></span><br><span class="line">如果还有不能卸载的，可以加 参数强制卸载，如：</span><br><span class="line">rpm -e php-4.3.9-3.15 --nodeps</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="安装-php7"><a href="#安装-php7" class="headerlink" title="安装 php7"></a>安装 php7</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rpm -Uvh https://mirror.webtatic.com/yum/el7/epel-release.rpm</span><br><span class="line">rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm</span><br><span class="line"></span><br><span class="line">yum install php70w</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;卸载-php&quot;&gt;&lt;a href=&quot;#卸载-php&quot; class=&quot;headerlink&quot; title=&quot;卸载 php&quot;&gt;&lt;/a&gt;卸载 php&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# 查看已安装的 php 相关包&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rpm -qa|grep php&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;php-pecl-igbinary-1.2.1-1.el7.x86_64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;php-xml-5.4.16-43.el7_4.x86_64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;php-pecl-redis-2.2.8-1.el7.x86_64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;php-common-5.4.16-43.el7_4.x86_64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;php-process-5.4.16-43.el7_4.x86_64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;php-cli-5.4.16-43.el7_4.x86_64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;php-fpm-5.4.16-43.el7_4.x86_64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;php-pear-1.9.4-21.el7.noarch&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# 依次卸载&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rpm -e xxx&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;如果某个包被依赖不能卸载，如：&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;➜  src rpm -e php-cli-5.4.16-43.el7_4.x86_64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;错误：依赖检测失败：&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    php-cli 被 (已安裝) php-pear-1:1.9.4-21.el7.noarch 需要&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;先卸载 php-pear-1.9.4-21.el7.noarch&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;如果还有不能卸载的，可以加 参数强制卸载，如：&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rpm -e php-4.3.9-3.15 --nodeps&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://frostbelt.github.io/tags/linux/"/>
+    
+      <category term="php" scheme="https://frostbelt.github.io/tags/php/"/>
+    
+  </entry>
   
   <entry>
     <title>js zlib 压缩</title>
@@ -434,97 +528,6 @@
       <category term="调试" scheme="https://frostbelt.github.io/tags/%E8%B0%83%E8%AF%95/"/>
     
       <category term="前端" scheme="https://frostbelt.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iterm2快捷键</title>
-    <link href="https://frostbelt.github.io/2018/09/20/iterm2%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-    <id>https://frostbelt.github.io/2018/09/20/iterm2快捷键/</id>
-    <published>2018-09-20T07:20:56.000Z</published>
-    <updated>2018-09-20T10:14:44.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">新建标签：command + t</span><br><span class="line">关闭标签：command + w</span><br><span class="line">切换标签：command + 数字 或 command + 左右方向键</span><br><span class="line">切换全屏：command + enter</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command + f</span><br></pre></td></tr></table></figure><h3 id="分屏"><a href="#分屏" class="headerlink" title="分屏"></a>分屏</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">垂直分屏：command + d</span><br><span class="line">水平分屏：command + shift + d</span><br><span class="line">切换屏幕：command + option + 方向键 command + [ 或 command + ]</span><br><span class="line">查看历史命令：command + ;</span><br><span class="line">查看剪贴板历史：command + shift + h</span><br></pre></td></tr></table></figure><h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">清除当前行：ctrl + u 或 ctrl + c</span><br><span class="line">到行首：ctrl + a</span><br><span class="line">到行尾：ctrl + e</span><br><span class="line">前进后退：ctrl + f/b (相当于左右方向键)</span><br><span class="line">上一条命令：ctrl + p</span><br><span class="line">搜索命令历史：ctrl + r</span><br><span class="line">删除当前光标的字符：ctrl + d</span><br><span class="line">删除光标之前的字符：ctrl + h</span><br><span class="line">删除光标之前的单词：ctrl + w</span><br><span class="line">删除到文本末尾：ctrl + k</span><br><span class="line">交换光标处文本：ctrl + t</span><br><span class="line">清屏：command + r 或 ctrl + l</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;标签&quot;&gt;&lt;a href=&quot;#标签&quot; class=&quot;headerlink&quot; title=&quot;标签&quot;&gt;&lt;/a&gt;标签&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;新建标签：command + t&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;关闭标签：command + w&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;切换标签：command + 数字 或 command + 左右方向键&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;切换全屏：command + enter&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="工具" scheme="https://frostbelt.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="iterm" scheme="https://frostbelt.github.io/tags/iterm/"/>
-    
-      <category term="快捷键" scheme="https://frostbelt.github.io/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo常用命令</title>
-    <link href="https://frostbelt.github.io/2018/09/20/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-    <id>https://frostbelt.github.io/2018/09/20/hexo常用命令/</id>
-    <published>2018-09-20T01:41:49.000Z</published>
-    <updated>2018-10-12T06:33:02.813Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>hexo常用命令及简写</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;文章标题&quot; (新建文章)</span><br><span class="line">    =&gt; hexo n &quot;文章标题&quot;</span><br><span class="line">hexo publish (发布草稿)</span><br><span class="line">    =&gt; hexo p</span><br><span class="line">hexo generate (生成静态网页)</span><br><span class="line">    =&gt; hexo g</span><br><span class="line">hexo server (启动服务)</span><br><span class="line">    =&gt; hexo s</span><br><span class="line">hexo deploy (部署)</span><br><span class="line">    =&gt; hexo d</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;hexo常用命令及简写&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;
-      
-    
-    </summary>
-    
-    
-      <category term="hexo" scheme="https://frostbelt.github.io/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>markdown语法</title>
-    <link href="https://frostbelt.github.io/2016/12/22/markdown%E8%AF%AD%E6%B3%95/"/>
-    <id>https://frostbelt.github.io/2016/12/22/markdown语法/</id>
-    <published>2016-12-22T07:45:58.000Z</published>
-    <updated>2018-09-26T02:32:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><em>斜体</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*斜体*</span><br></pre></td></tr></table></figure></p><p><strong>粗体</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">**粗体**</span><br></pre></td></tr></table></figure></p><a id="more"></a><p><a href="/">这是一个链接</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[这是一个链接](/)</span><br></pre></td></tr></table></figure></p><p><img src="http://p8.yx-s.com/d/inn/d3ac1740/me_500.png" alt="图片: 我的头像"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![图片: 我的头像](http://p8.yx-s.com/d/inn/d3ac1740/me_500.png)</span><br></pre></td></tr></table></figure></p><h1 id="标题1"><a href="#标题1" class="headerlink" title="标题1"></a>标题1</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">标题1</span><br><span class="line">===</span><br></pre></td></tr></table></figure><h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">标题2</span><br><span class="line">---</span><br></pre></td></tr></table></figure><h1 id="标题1-1"><a href="#标题1-1" class="headerlink" title="标题1"></a>标题1</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># 标题1</span><br></pre></td></tr></table></figure><h2 id="标题2-1"><a href="#标题2-1" class="headerlink" title="标题2"></a>标题2</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## 标题2</span><br></pre></td></tr></table></figure><h6 id="标题6"><a href="#标题6" class="headerlink" title="标题6"></a>标题6</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">###### 标题6</span><br></pre></td></tr></table></figure><ol><li>有序列表</li><li>有序列表<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. 有序列表</span><br><span class="line">2. 有序列表</span><br></pre></td></tr></table></figure></li></ol><ul><li>无序列表</li><li>无序列表<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- 无序列表</span><br><span class="line">- 无序列表</span><br></pre></td></tr></table></figure></li></ul><blockquote><p>这是引用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; 这是引用</span><br><span class="line">好吧，在 sublime 中也显示为引用，其实前面是一个 &amp;gt;</span><br></pre></td></tr></table></figure></p></blockquote><p>这是一句行内代码 <code>var a = a;</code>，也可以用作强调，高亮。以下是代码区块：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">console.log(a);</span><br><span class="line">行内代码用 ` 包围</span><br><span class="line">代码区块用 3个` 包围</span><br><span class="line">注：行内代码的两个`之间不能换行</span><br></pre></td></tr></table></figure></p><table><thead><tr><th style="text-align:left">姓名</th><th style="text-align:right">年龄</th><th style="text-align:center">身高</th></tr></thead><tbody><tr><td style="text-align:left">张三</td><td style="text-align:right">12</td><td style="text-align:center">150</td></tr></tbody></table><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">| 姓名    |   年龄 | 身高 |</span><br><span class="line">| :---  |   ---: | :---: |</span><br><span class="line">| 张三    |   12 | 150 |</span><br><span class="line"></span><br><span class="line">:--- 左对齐</span><br><span class="line">---: 右对齐</span><br><span class="line">:---: 居中</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;em&gt;斜体&lt;/em&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;*斜体*&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;粗体&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;**粗体**&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="markdown" scheme="https://frostbelt.github.io/tags/markdown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>frostbelt&#39;s home</title>
-    <link href="https://frostbelt.github.io/2016/12/20/index/"/>
-    <id>https://frostbelt.github.io/2016/12/20/index/</id>
-    <published>2016-12-20T10:12:16.000Z</published>
-    <updated>2018-09-20T10:16:33.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>欢迎来到 frostbelt’s home，frostbelt 是一名 Web Developer，他将会在这里记录自己遇到的有趣的东西。</p></blockquote><a id="more"></a>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;欢迎来到 frostbelt’s home，frostbelt 是一名 Web Developer，他将会在这里记录自己遇到的有趣的东西。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
     
   </entry>
   
