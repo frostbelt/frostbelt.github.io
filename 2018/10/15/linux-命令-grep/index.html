@@ -84,7 +84,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="mac,环境变量,bash_profile,bashrc," />
+  <meta name="keywords" content="linux,grep," />
 
 
 
@@ -102,20 +102,18 @@
 
 
 
-<meta name="description" content="12vim ~/.bash_profilesource ~/.bash_profile .bash_profile 内容如下123456export RUBYOPT=-KUexport PATH=$PATH:/Users/xxx/Documents/platform-tools/export PATH=$&amp;#123;PATH&amp;#125;:/usr/local/mysql/bin/:/usr/loc">
-<meta name="keywords" content="mac,环境变量,bash_profile,bashrc">
+<meta name="description" content="grep（global search regular expression(RE) and print out the line，全面搜索正则表达式并把行打印出来）是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹配的行打印出来。  匹配字符串 grep xxx file_namegrep &amp;quot;xxx&amp;quot; file_name">
+<meta name="keywords" content="linux,grep">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac 环境变量">
-<meta property="og:url" content="https://frostbelt.github.io/2018/10/12/Mac-环境变量/index.html">
+<meta property="og:title" content="linux 命令 grep">
+<meta property="og:url" content="https://frostbelt.github.io/2018/10/15/linux-命令-grep/index.html">
 <meta property="og:site_name" content="frostbelt&#39;s home">
-<meta property="og:description" content="12vim ~/.bash_profilesource ~/.bash_profile .bash_profile 内容如下123456export RUBYOPT=-KUexport PATH=$PATH:/Users/xxx/Documents/platform-tools/export PATH=$&amp;#123;PATH&amp;#125;:/usr/local/mysql/bin/:/usr/loc">
+<meta property="og:description" content="grep（global search regular expression(RE) and print out the line，全面搜索正则表达式并把行打印出来）是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹配的行打印出来。  匹配字符串 grep xxx file_namegrep &amp;quot;xxx&amp;quot; file_name">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://frostbelt.github.io/images/iterm_sendtext.png">
-<meta property="og:updated_time" content="2018-10-12T06:32:44.885Z">
+<meta property="og:updated_time" content="2018-10-15T06:35:59.562Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac 环境变量">
-<meta name="twitter:description" content="12vim ~/.bash_profilesource ~/.bash_profile .bash_profile 内容如下123456export RUBYOPT=-KUexport PATH=$PATH:/Users/xxx/Documents/platform-tools/export PATH=$&amp;#123;PATH&amp;#125;:/usr/local/mysql/bin/:/usr/loc">
-<meta name="twitter:image" content="https://frostbelt.github.io/images/iterm_sendtext.png">
+<meta name="twitter:title" content="linux 命令 grep">
+<meta name="twitter:description" content="grep（global search regular expression(RE) and print out the line，全面搜索正则表达式并把行打印出来）是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹配的行打印出来。  匹配字符串 grep xxx file_namegrep &amp;quot;xxx&amp;quot; file_name">
 
 
 
@@ -144,13 +142,13 @@
 
 
 
-  <link rel="canonical" href="https://frostbelt.github.io/2018/10/12/Mac-环境变量/"/>
+  <link rel="canonical" href="https://frostbelt.github.io/2018/10/15/linux-命令-grep/"/>
 
 
 
 
 
-  <title>Mac 环境变量 | frostbelt's home</title>
+  <title>linux 命令 grep | frostbelt's home</title>
   
 
 
@@ -276,7 +274,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://frostbelt.github.io/2018/10/12/Mac-环境变量/">
+    <link itemprop="mainEntityOfPage" href="https://frostbelt.github.io/2018/10/15/linux-命令-grep/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="frostbelt">
@@ -293,7 +291,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Mac 环境变量</h1>
+          <h1 class="post-title" itemprop="name headline">linux 命令 grep</h1>
         
 
         <div class="post-meta">
@@ -305,8 +303,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-12T14:24:17+08:00">
-                2018-10-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-15T14:14:16+08:00">
+                2018-10-15
               </time>
             
 
@@ -323,7 +321,7 @@
 
           
           
-             <span id="/2018/10/12/Mac-环境变量/" class="leancloud_visitors" data-flag-title="Mac 环境变量">
+             <span id="/2018/10/15/linux-命令-grep/" class="leancloud_visitors" data-flag-title="linux 命令 grep">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -350,7 +348,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  137
+                  585
                 </span>
               
 
@@ -366,7 +364,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -387,12 +385,61 @@
       
 
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bash_profile</span><br><span class="line">source ~/.bash_profile</span><br></pre></td></tr></table></figure>
-<p>.bash_profile 内容如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export RUBYOPT=-KU</span><br><span class="line">export PATH=$PATH:/Users/xxx/Documents/platform-tools/</span><br><span class="line">export PATH=$&#123;PATH&#125;:/usr/local/mysql/bin/:/usr/local/opt/php56/bin</span><br><span class="line"></span><br><span class="line">alias ll=&apos;ls -l&apos;</span><br><span class="line">alias gotosh=&apos;cd ~/sh&apos;</span><br></pre></td></tr></table></figure></p>
+        <blockquote>
+<p>grep（global search regular expression(RE) and print out the line，全面搜索正则表达式并把行打印出来）是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹配的行打印出来。</p>
+</blockquote>
+<h3 id="匹配字符串"><a href="#匹配字符串" class="headerlink" title="匹配字符串"></a>匹配字符串</h3><blockquote>
+<p>grep <code>xxx</code> file_name<br>grep <code>&quot;xxx&quot;</code> file_name</p>
+</blockquote>
 <a id="more"></a>
-<p>但 .bash_profile 只在用户登录时加载一次，新开终端时不会再次加载<br>借助 iterms 的 Send text as start 实现新开终端加载<br><img src="/images/iterm_sendtext.png" alt="iterm"></p>
-<p>后来环境变量和其它分开放<br>.bash_profile<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">export RUBYOPT=-KU</span><br><span class="line">export PATH=$PATH:/Users/xxx/Documents/platform-tools/</span><br><span class="line">export PATH=$&#123;PATH&#125;:/usr/local/mysql/bin/:/usr/local/opt/php56/bin</span><br><span class="line"></span><br><span class="line">if test -f ~/.bashrc ; then</span><br><span class="line">    source ~/.bashrc</span><br><span class="line">fi</span><br></pre></td></tr></table></figure></p>
-<p>.bashrc<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alias ll=&apos;ls -l&apos;</span><br><span class="line">alias gotosh=&apos;cd ~/sh&apos;</span><br></pre></td></tr></table></figure></p>
+<h3 id="在多个文件中查找"><a href="#在多个文件中查找" class="headerlink" title="在多个文件中查找"></a>在多个文件中查找</h3><blockquote>
+<p>grep <code>&quot;xxx&quot;</code> file_1 file_2 file_3 …</p>
+</blockquote>
+<h3 id="输出除-xxx-之外的所有行"><a href="#输出除-xxx-之外的所有行" class="headerlink" title="输出除 xxx 之外的所有行"></a>输出除 xxx 之外的所有行</h3><blockquote>
+<p>grep <code>-v &quot;xxx&quot;</code> file_name</p>
+</blockquote>
+<h3 id="使用正则表达式"><a href="#使用正则表达式" class="headerlink" title="使用正则表达式"></a>使用正则表达式</h3><blockquote>
+<p>grep <code>-E &quot;[1-9]+&quot;</code> file_name</p>
+</blockquote>
+<h3 id="只输出文件中匹配到的部分"><a href="#只输出文件中匹配到的部分" class="headerlink" title="只输出文件中匹配到的部分"></a>只输出文件中匹配到的部分</h3><blockquote>
+<p>grep -E <code>-o &quot;03-06 14:30&quot;</code> mysqld.log</p>
+</blockquote>
+<h3 id="统计文件或者文本中包含匹配字符串的行数"><a href="#统计文件或者文本中包含匹配字符串的行数" class="headerlink" title="统计文件或者文本中包含匹配字符串的行数"></a>统计文件或者文本中包含匹配字符串的行数</h3><blockquote>
+<p>grep -E <code>-c &quot;03-06 14:30&quot;</code> mysqld.log</p>
+</blockquote>
+<h3 id="输出包含匹配字符串的行号"><a href="#输出包含匹配字符串的行号" class="headerlink" title="输出包含匹配字符串的行号"></a>输出包含匹配字符串的行号</h3><blockquote>
+<p>grep -E <code>-n &quot;03-06 14:30&quot;</code> mysqld.log</p>
+</blockquote>
+<h3 id="打印样式匹配所位于的字符或字节偏移"><a href="#打印样式匹配所位于的字符或字节偏移" class="headerlink" title="打印样式匹配所位于的字符或字节偏移"></a>打印样式匹配所位于的字符或字节偏移</h3><blockquote>
+<p>grep -E <code>-b &quot;03-06 14:30&quot;</code> mysqld.log</p>
+</blockquote>
+<h3 id="o-b-经常配合使用"><a href="#o-b-经常配合使用" class="headerlink" title="-o, -b 经常配合使用"></a>-o, -b 经常配合使用</h3><blockquote>
+<p>grep -E <code>-b -o &quot;03-06 14:30&quot;</code> mysqld.log</p>
+</blockquote>
+<h3 id="直接使用正则式"><a href="#直接使用正则式" class="headerlink" title="直接使用正则式"></a>直接使用正则式</h3><blockquote>
+<p>以 u 开头的日志<br><code>grep ^u mysqld.log</code><br>不以 u 开头的日志<br><code>grep ^[^u] mysqld.log</code><br>以 <code>&quot;</code> 结尾的日志<br><code>grep \&quot;$ mysqld.log</code><br>其它正则<br><code>grep &#39;app\.k.*feedback&#39; k2.access.log</code></p>
+</blockquote>
+<h3 id="搜索多个文件并查找匹配文本在哪些文件中"><a href="#搜索多个文件并查找匹配文本在哪些文件中" class="headerlink" title="搜索多个文件并查找匹配文本在哪些文件中"></a>搜索多个文件并查找匹配文本在哪些文件中</h3><blockquote>
+<p>grep <code>-l &quot;text&quot;</code> file1 file2 file3…</p>
+</blockquote>
+<h3 id="在多级目录中对文本进行递归搜索"><a href="#在多级目录中对文本进行递归搜索" class="headerlink" title="在多级目录中对文本进行递归搜索"></a>在多级目录中对文本进行递归搜索</h3><blockquote>
+<p>grep <code>&quot;text&quot; . -r -n</code></p>
+</blockquote>
+<h3 id="忽略匹配样式中的字符大小写"><a href="#忽略匹配样式中的字符大小写" class="headerlink" title="忽略匹配样式中的字符大小写"></a>忽略匹配样式中的字符大小写</h3><blockquote>
+<p>grep <code>-i &quot;HELLO&quot;</code> file_name</p>
+</blockquote>
+<h3 id="匹配多项-的关系"><a href="#匹配多项-的关系" class="headerlink" title="匹配多项 (|| 的关系)"></a>匹配多项 (|| 的关系)</h3><blockquote>
+<p>grep <code>-E &quot;03-06 14:30&quot;</code> mysqld.log | grep <code>-i &quot;incorrect&quot;</code></p>
+</blockquote>
+<h3 id="在grep搜索结果中包括或者排除指定文件"><a href="#在grep搜索结果中包括或者排除指定文件" class="headerlink" title="在grep搜索结果中包括或者排除指定文件"></a>在grep搜索结果中包括或者排除指定文件</h3><blockquote>
+<p>只在目录中所有的.php和.html文件中递归搜索字符<code>&quot;main()&quot;</code><br>grep <code>&quot;main()&quot;</code> . -r <code>--include=&#39;*.php&#39;</code> <code>--include=&#39;*.html&#39;</code><br>在搜索结果中排除所有.log文件<br>grep <code>-E &quot;03-06 14:30&quot;</code> . -r <code>--exclude=&#39;*.log&#39;</code></p>
+</blockquote>
+<h3 id="打印出匹配文本之前或者之后的行"><a href="#打印出匹配文本之前或者之后的行" class="headerlink" title="打印出匹配文本之前或者之后的行"></a>打印出匹配文本之前或者之后的行</h3><blockquote>
+<p>匹配结果行及之后的3行<br><code>grep -i -n &quot;incorrect&quot; -A 3 mysqld.log</code><br>匹配结果行及之前的3行<br><code>grep -i -n &quot;incorrect&quot; -B 3 mysqld.log</code><br>匹配结果行及前后的3行<br><code>grep -i -n &quot;incorrect&quot; -C 3 mysqld.log</code><br>注：如果匹配结果有多个，会用<code>&quot;--&quot;</code>作为各匹配结果之间的分隔符</p>
+</blockquote>
+<h3 id="只显示第1个匹配结果"><a href="#只显示第1个匹配结果" class="headerlink" title="只显示第1个匹配结果"></a>只显示第1个匹配结果</h3><blockquote>
+<p>grep -i -n <code>-m 1 &quot;incorrect&quot;</code> -A 3 mysqld.log</p>
+</blockquote>
 
       
     </div>
@@ -422,13 +469,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/mac/" rel="tag"><i class="fa fa-tag"></i> mac</a>
+            <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
           
-            <a href="/tags/环境变量/" rel="tag"><i class="fa fa-tag"></i> 环境变量</a>
-          
-            <a href="/tags/bash-profile/" rel="tag"><i class="fa fa-tag"></i> bash_profile</a>
-          
-            <a href="/tags/bashrc/" rel="tag"><i class="fa fa-tag"></i> bashrc</a>
+            <a href="/tags/grep/" rel="tag"><i class="fa fa-tag"></i> grep</a>
           
         </div>
       
@@ -441,8 +484,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/12/Mac-屏幕录制/" rel="next" title="Mac 屏幕录制">
-                <i class="fa fa-chevron-left"></i> Mac 屏幕录制
+              <a href="/2018/10/12/git-merge-“解决”冲突/" rel="next" title="git merge “解决”冲突">
+                <i class="fa fa-chevron-left"></i> git merge “解决”冲突
               </a>
             
           </div>
@@ -450,10 +493,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/12/git-常用别名/" rel="prev" title="git 常用别名">
-                git 常用别名 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -505,8 +544,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/default_avatar.png"
@@ -566,6 +614,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#匹配字符串"><span class="nav-text">匹配字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在多个文件中查找"><span class="nav-text">在多个文件中查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出除-xxx-之外的所有行"><span class="nav-text">输出除 xxx 之外的所有行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用正则表达式"><span class="nav-text">使用正则表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#只输出文件中匹配到的部分"><span class="nav-text">只输出文件中匹配到的部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#统计文件或者文本中包含匹配字符串的行数"><span class="nav-text">统计文件或者文本中包含匹配字符串的行数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出包含匹配字符串的行号"><span class="nav-text">输出包含匹配字符串的行号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打印样式匹配所位于的字符或字节偏移"><span class="nav-text">打印样式匹配所位于的字符或字节偏移</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#o-b-经常配合使用"><span class="nav-text">-o, -b 经常配合使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#直接使用正则式"><span class="nav-text">直接使用正则式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索多个文件并查找匹配文本在哪些文件中"><span class="nav-text">搜索多个文件并查找匹配文本在哪些文件中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在多级目录中对文本进行递归搜索"><span class="nav-text">在多级目录中对文本进行递归搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#忽略匹配样式中的字符大小写"><span class="nav-text">忽略匹配样式中的字符大小写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匹配多项-的关系"><span class="nav-text">匹配多项 (|| 的关系)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在grep搜索结果中包括或者排除指定文件"><span class="nav-text">在grep搜索结果中包括或者排除指定文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打印出匹配文本之前或者之后的行"><span class="nav-text">打印出匹配文本之前或者之后的行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#只显示第1个匹配结果"><span class="nav-text">只显示第1个匹配结果</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
