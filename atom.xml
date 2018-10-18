@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2018-10-18T04:19:44.688Z</updated>
+  <updated>2018-10-18T09:09:30.363Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PS 扣图练习</title>
+    <link href="https://frostbelt.github.io/2018/10/18/PS-%E6%89%A3%E5%9B%BE%E7%BB%83%E4%B9%A0/"/>
+    <id>https://frostbelt.github.io/2018/10/18/PS-扣图练习/</id>
+    <published>2018-10-18T09:01:37.000Z</published>
+    <updated>2018-10-18T09:09:30.363Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="先上效果"><a href="#先上效果" class="headerlink" title="先上效果"></a>先上效果</h4><blockquote><p>原图</p></blockquote><p><img src="/images/人像2.jpg" alt="原图"></p><blockquote><p>完成后</p></blockquote><p><img src="/images/人像2_fixed.jpg" alt="完成后"></p><a id="more"></a><p>给自己打 <code>59</code> 分吧，细节丢失太多，发根处理得也不到位，扣个证件照差不多够了</p><p>参考：<a href="https://www.uisdc.com/photoshop-matting-techniques" target="_blank" rel="noopener">从菜鸟到高手！Photoshop抠图全方位攻略</a></p><p>自己做时的参数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">蓝色通道</span><br><span class="line">减淡 硬度 20，曝光度 20%，高光</span><br><span class="line">加深 硬度 20，曝光度 20%，阴影</span><br><span class="line">处理“灰白灰白”时加深 硬度 0，曝光度 2%，高光</span><br><span class="line">背景色 #3c8cdc</span><br></pre></td></tr></table></figure></p><p>附<a href="/images/人像2.psd">psd</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;先上效果&quot;&gt;&lt;a href=&quot;#先上效果&quot; class=&quot;headerlink&quot; title=&quot;先上效果&quot;&gt;&lt;/a&gt;先上效果&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;原图&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;/images/人像2.jpg&quot; alt=&quot;原图&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;完成后&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;/images/人像2_fixed.jpg&quot; alt=&quot;完成后&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="ps" scheme="https://frostbelt.github.io/tags/ps/"/>
+    
+      <category term="扣图" scheme="https://frostbelt.github.io/tags/%E6%89%A3%E5%9B%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>linux 乱码问题</title>
@@ -184,9 +213,9 @@
     </summary>
     
     
-      <category term="git" scheme="https://frostbelt.github.io/tags/git/"/>
-    
       <category term="linux" scheme="https://frostbelt.github.io/tags/linux/"/>
+    
+      <category term="git" scheme="https://frostbelt.github.io/tags/git/"/>
     
   </entry>
   
@@ -232,9 +261,9 @@
     
       <category term="linux" scheme="https://frostbelt.github.io/tags/linux/"/>
     
-      <category term="php" scheme="https://frostbelt.github.io/tags/php/"/>
-    
       <category term="redis" scheme="https://frostbelt.github.io/tags/redis/"/>
+    
+      <category term="php" scheme="https://frostbelt.github.io/tags/php/"/>
     
   </entry>
   
@@ -522,32 +551,6 @@
     <summary type="html">
     
       &lt;h3 id=&quot;1-选择要导出的图层&quot;&gt;&lt;a href=&quot;#1-选择要导出的图层&quot; class=&quot;headerlink&quot; title=&quot;1. 选择要导出的图层&quot;&gt;&lt;/a&gt;1. 选择要导出的图层&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;/images/sketch_切片_1.png&quot; alt=&quot;1&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="工具" scheme="https://frostbelt.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="sketch" scheme="https://frostbelt.github.io/tags/sketch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>sketch 中的对齐、分布功能</title>
-    <link href="https://frostbelt.github.io/2018/09/26/sketch-%E4%B8%AD%E7%9A%84%E5%AF%B9%E9%BD%90%E3%80%81%E5%88%86%E5%B8%83%E5%8A%9F%E8%83%BD/"/>
-    <id>https://frostbelt.github.io/2018/09/26/sketch-中的对齐、分布功能/</id>
-    <published>2018-09-26T02:08:31.000Z</published>
-    <updated>2018-09-26T02:32:59.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>引自<a href="http://www.360doc.com/content/16/0802/15/26382555_580260767.shtml" target="_blank" rel="noopener">Sketch中的「对齐」，「分布」功能，你真的都掌握了？</a></p><h3 id="1-对齐一个元素到画板"><a href="#1-对齐一个元素到画板" class="headerlink" title="1. 对齐一个元素到画板"></a>1. 对齐一个元素到画板</h3><blockquote><p>靠右边的六个按钮，分别是左对齐，居中对齐，右对齐，上对齐，垂直居中对齐，下对齐</p></blockquote><p><img src="/images/sketch_对齐_1.gif" alt="对齐一个元素到画板"></p><a id="more"></a><h3 id="2-对齐多个元素到画板"><a href="#2-对齐多个元素到画板" class="headerlink" title="2. 对齐多个元素到画板"></a>2. 对齐多个元素到画板</h3><blockquote><p>a. 可以将多个元素编成一组，再将它们与画板对齐<br>b. 也可以选择这些元素，按住 alt 后对齐多个元素到画板</p></blockquote><p><img src="/images/sketch_对齐_2.gif" alt="对齐多个元素到画板"></p><h3 id="3-对齐到特定元素"><a href="#3-对齐到特定元素" class="headerlink" title="3. 对齐到特定元素"></a>3. 对齐到特定元素</h3><blockquote><p>另一种情况：我想要让每个元素都对齐到某个特定的元素。你首先需要理解的是，默认情况下， Sketch 总是将所有元素对齐到最外端那个元素上。这个元素被称为「关键元素」。<br>因此，当你将所有元素对齐到顶端时，最顶端的那个元素就会变看作「关键元素」。这是我对齐三个元素到右上方的例子（红色的方块就是我们的「关键元素」）：</p></blockquote><p><img src="/images/sketch_对齐_3.gif" alt="对齐到特定元素"></p><blockquote><p>如果我们能自己选择「关键元素」该多好呀，是吧？技巧在这儿：将你想要当做「关键元素」的元素锁定起来（选择元素，按 Shift+CMD+L），之后再选择其他所有元素。<br>在下面的例子中，蓝色的方块已经被锁定了，所以它就是我们新的「关键元素」。现在我们再次对齐元素们到右上方：</p></blockquote><p><img src="/images/sketch_对齐_4.gif" alt="对齐到特定元素"></p><h3 id="4-对齐向量点"><a href="#4-对齐向量点" class="headerlink" title="4. 对齐向量点"></a>4. 对齐向量点</h3><blockquote><p>小提示：当你在向量编辑模式下时，你同样可以用对齐按钮来对齐多个向量点。选择元素，双击进入向量编辑模式，然后选择所有你想要对齐的向量点。</p></blockquote><p><img src="/images/sketch_对齐_5.gif" alt="对齐向量点"></p><h3 id="5-分布元素"><a href="#5-分布元素" class="headerlink" title="5. 分布元素"></a>5. 分布元素</h3><blockquote><p>你会发现我还没有提到左边两个对齐按钮。它们是用来垂直分布元素和水平分布元素的。我们也可以很简单地平均地分布它们。打比方说，我们选择了一些元素，然后想要在水平方向上分布它们。我们可以用<code>水平方向分布按钮</code>或者点击<code>Arrange &gt; Distribute &gt; Horizontally</code>。</p></blockquote><p><img src="/images/sketch_分布_1.gif" alt="分布元素"></p><blockquote><p>最左边和最右边的元素会待在原本的位置，中间的元素会平均分布在它们之间。使用<code>垂直方向分布按钮</code>，你可以在垂直方向上做相同的操作。</p></blockquote><h3 id="6-按固定间距来分布元素"><a href="#6-按固定间距来分布元素" class="headerlink" title="6. 按固定间距来分布元素"></a>6. 按固定间距来分布元素</h3><blockquote><p>那如果我想元素之间都相隔20px呢？水平方向分布按钮和垂直方向分布按钮都帮不上忙了。<br>这种情况下，我们可以使用<code>Make Grid</code>工具（<code>Arrange &gt; Make Grid</code>）来设定元素间垂直和水平的间距。一开始可能有点难懂，让我给你展示另一个动画释例：</p></blockquote><p><img src="/images/sketch_分布_2.gif" alt="按固定间距来分布元素"></p><blockquote><p>这里，我想按照20px的间距来分布这四个元素。我创建了一个一排四列的网格。然后我将每列间隔设为20px。如果我想在垂直方向上来分布这些元素，我就得创建一个四排（20px的间隔）一列的网格。（用来做雪碧图很方便）</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;引自&lt;a href=&quot;http://www.360doc.com/content/16/0802/15/26382555_580260767.shtml&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Sketch中的「对齐」，「分布」功能，你真的都掌握了？&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;1-对齐一个元素到画板&quot;&gt;&lt;a href=&quot;#1-对齐一个元素到画板&quot; class=&quot;headerlink&quot; title=&quot;1. 对齐一个元素到画板&quot;&gt;&lt;/a&gt;1. 对齐一个元素到画板&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;靠右边的六个按钮，分别是左对齐，居中对齐，右对齐，上对齐，垂直居中对齐，下对齐&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/images/sketch_对齐_1.gif&quot; alt=&quot;对齐一个元素到画板&quot;&gt;&lt;/p&gt;
     
     </summary>
     
