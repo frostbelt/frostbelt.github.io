@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2018-10-18T09:09:30.363Z</updated>
+  <updated>2018-10-18T10:26:50.771Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://frostbelt.github.io/2018/10/18/PS-%E6%89%A3%E5%9B%BE%E7%BB%83%E4%B9%A0/"/>
     <id>https://frostbelt.github.io/2018/10/18/PS-扣图练习/</id>
     <published>2018-10-18T09:01:37.000Z</published>
-    <updated>2018-10-18T09:09:30.363Z</updated>
+    <updated>2018-10-18T10:26:50.771Z</updated>
     
     <content type="html"><![CDATA[<h4 id="先上效果"><a href="#先上效果" class="headerlink" title="先上效果"></a>先上效果</h4><blockquote><p>原图</p></blockquote><p><img src="/images/人像2.jpg" alt="原图"></p><blockquote><p>完成后</p></blockquote><p><img src="/images/人像2_fixed.jpg" alt="完成后"></p><a id="more"></a><p>给自己打 <code>59</code> 分吧，细节丢失太多，发根处理得也不到位，扣个证件照差不多够了</p><p>参考：<a href="https://www.uisdc.com/photoshop-matting-techniques" target="_blank" rel="noopener">从菜鸟到高手！Photoshop抠图全方位攻略</a></p><p>自己做时的参数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">蓝色通道</span><br><span class="line">减淡 硬度 20，曝光度 20%，高光</span><br><span class="line">加深 硬度 20，曝光度 20%，阴影</span><br><span class="line">处理“灰白灰白”时加深 硬度 0，曝光度 2%，高光</span><br><span class="line">背景色 #3c8cdc</span><br></pre></td></tr></table></figure></p><p>附<a href="/images/人像2.psd">psd</a></p>]]></content>
     
@@ -261,9 +261,9 @@
     
       <category term="linux" scheme="https://frostbelt.github.io/tags/linux/"/>
     
-      <category term="redis" scheme="https://frostbelt.github.io/tags/redis/"/>
-    
       <category term="php" scheme="https://frostbelt.github.io/tags/php/"/>
+    
+      <category term="redis" scheme="https://frostbelt.github.io/tags/redis/"/>
     
   </entry>
   

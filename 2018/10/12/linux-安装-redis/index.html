@@ -84,7 +84,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="linux,redis,php," />
+  <meta name="keywords" content="linux,php,redis," />
 
 
 
@@ -103,7 +103,7 @@
 
 
 <meta name="description" content="安装 redis1yum install redis 启动 redis1service redis start">
-<meta name="keywords" content="linux,redis,php">
+<meta name="keywords" content="linux,php,redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux 安装 redis">
 <meta property="og:url" content="https://frostbelt.github.io/2018/10/12/linux-安装-redis/index.html">
@@ -425,9 +425,9 @@
           
             <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
           
-            <a href="/tags/redis/" rel="tag"><i class="fa fa-tag"></i> redis</a>
-          
             <a href="/tags/php/" rel="tag"><i class="fa fa-tag"></i> php</a>
+          
+            <a href="/tags/redis/" rel="tag"><i class="fa fa-tag"></i> redis</a>
           
         </div>
       
@@ -739,6 +739,8 @@
 
 
 
+	
+
 
 
 
@@ -749,6 +751,32 @@
 
 
 
+  
+
+
+
+
+
+
+  
+    
+      <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+      <script type="text/javascript">
+        const gitalk = new Gitalk({
+          clientID: '1242b93b2bdc125169ba',
+          clientSecret: '73879072f45187f0860db1b370476c694c74e51c',
+          repo: 'Gitalk',
+          owner: 'frostbelt',
+          admin: 'frostbelt'.split(','),
+          id: '1539328169000', #这个是基于文章时间创建 Issues ，默认是以文章标题作为标签创建 Issues 会导致长标题初始化失败。
+          pagerDirection: 'first',
+          // facebook-like distraction free mode
+          distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+      </script>
+    
+  
 
   
 

@@ -537,6 +537,8 @@
 
 
 
+	
+
 
 
 
@@ -547,6 +549,32 @@
 
 
 
+  
+
+
+
+
+
+
+  
+    
+      <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+      <script type="text/javascript">
+        const gitalk = new Gitalk({
+          clientID: '1242b93b2bdc125169ba',
+          clientSecret: '73879072f45187f0860db1b370476c694c74e51c',
+          repo: 'Gitalk',
+          owner: 'frostbelt',
+          admin: 'frostbelt'.split(','),
+          id: '1537353864000', #这个是基于文章时间创建 Issues ，默认是以文章标题作为标签创建 Issues 会导致长标题初始化失败。
+          pagerDirection: 'first',
+          // facebook-like distraction free mode
+          distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+      </script>
+    
+  
 
   
 
