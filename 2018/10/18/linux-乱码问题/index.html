@@ -84,7 +84,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="git," />
+  <meta name="keywords" content="linux,乱码,utf8," />
 
 
 
@@ -102,18 +102,18 @@
 
 
 
-<meta name="description" content="引自git filter-branch应用  git clone 的 next 主题，自己修改后想保存到 github，但发现 committer 显示为原作者。用 filter-branch 修改为自己">
-<meta name="keywords" content="git">
+<meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243$ git st# ???? master??????,??????$ localelocale: Cannot set LC_CTYPE to default locale: No such file or directorylocale: C">
+<meta name="keywords" content="linux,乱码,utf8">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git filter-branch修改author和committer">
-<meta property="og:url" content="https://frostbelt.github.io/2018/09/21/git-filter-branch修改author和committer/index.html">
+<meta property="og:title" content="linux 乱码问题">
+<meta property="og:url" content="https://frostbelt.github.io/2018/10/18/linux-乱码问题/index.html">
 <meta property="og:site_name" content="frostbelt&#39;s home">
-<meta property="og:description" content="引自git filter-branch应用  git clone 的 next 主题，自己修改后想保存到 github，但发现 committer 显示为原作者。用 filter-branch 修改为自己">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243$ git st# ???? master??????,??????$ localelocale: Cannot set LC_CTYPE to default locale: No such file or directorylocale: C">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-21T04:27:29.000Z">
+<meta property="og:updated_time" content="2018-10-18T04:03:57.336Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git filter-branch修改author和committer">
-<meta name="twitter:description" content="引自git filter-branch应用  git clone 的 next 主题，自己修改后想保存到 github，但发现 committer 显示为原作者。用 filter-branch 修改为自己">
+<meta name="twitter:title" content="linux 乱码问题">
+<meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243$ git st# ???? master??????,??????$ localelocale: Cannot set LC_CTYPE to default locale: No such file or directorylocale: C">
 
 
 
@@ -142,13 +142,13 @@
 
 
 
-  <link rel="canonical" href="https://frostbelt.github.io/2018/09/21/git-filter-branch修改author和committer/"/>
+  <link rel="canonical" href="https://frostbelt.github.io/2018/10/18/linux-乱码问题/"/>
 
 
 
 
 
-  <title>git filter-branch修改author和committer | frostbelt's home</title>
+  <title>linux 乱码问题 | frostbelt's home</title>
   
 
 
@@ -274,7 +274,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://frostbelt.github.io/2018/09/21/git-filter-branch修改author和committer/">
+    <link itemprop="mainEntityOfPage" href="https://frostbelt.github.io/2018/10/18/linux-乱码问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="frostbelt">
@@ -291,7 +291,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">git filter-branch修改author和committer</h1>
+          <h1 class="post-title" itemprop="name headline">linux 乱码问题</h1>
         
 
         <div class="post-meta">
@@ -303,8 +303,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-21T11:27:49+08:00">
-                2018-09-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-18T12:01:40+08:00">
+                2018-10-18
               </time>
             
 
@@ -321,7 +321,7 @@
 
           
           
-             <span id="/2018/09/21/git-filter-branch修改author和committer/" class="leancloud_visitors" data-flag-title="git filter-branch修改author和committer">
+             <span id="/2018/10/18/linux-乱码问题/" class="leancloud_visitors" data-flag-title="linux 乱码问题">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -348,7 +348,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  299
+                  199
                 </span>
               
 
@@ -385,17 +385,7 @@
       
 
       
-        <p>引自<a href="https://www.cnblogs.com/mengff/p/7852694.html" target="_blank" rel="noopener">git filter-branch应用</a></p>
-<blockquote>
-<p>git clone 的 next 主题，自己修改后想保存到 github，但发现 committer 显示为原作者。用 filter-branch 修改为自己</p>
-</blockquote>
-<a id="more"></a>
-<h2 id="filter-branch修改author和committer"><a href="#filter-branch修改author和committer" class="headerlink" title="filter-branch修改author和committer"></a>filter-branch修改author和committer</h2><p>只修改当前项目，不会影响本机 global 设置及其它项目</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">git filter-branch --commit-filter &apos;</span><br><span class="line">export GIT_AUTHOR_EMAIL=me@example.com;</span><br><span class="line">export GIT_AUTHOR_NAME=me;</span><br><span class="line">export GIT_COMMITTER_EMAIL=me@example.com;</span><br><span class="line">export GIT_COMMITTER_NAME=me;</span><br><span class="line">git commit-tree &quot;$@&quot;</span><br><span class="line">&apos;</span><br><span class="line"></span><br><span class="line">// 强制推送到远端</span><br><span class="line">git push origin master --force</span><br></pre></td></tr></table></figure>
-<p>注：上面的方法只能重写历史，再次提交时，还是显示原作者。解决此问题见<a href="/2018/09/21/同一台电脑不同账号提交github/">同一台电脑不同账号提交github</a></p>
-<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><h3 id="删除误提交的文件"><a href="#删除误提交的文件" class="headerlink" title="删除误提交的文件"></a>删除误提交的文件</h3><p>用 git filter-branch 对所有分支上的 commit 执行命令操作，忽略对该文件的追踪，将其从 git 仓库中移除，并重写每一条记录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 从指定的 commit 中删除误操作文件的记录</span><br><span class="line">git filter-branch --tree-filter &apos;git rm -f --ignore-unmatch &#123;&#123;文件名&#125;&#125;&apos; [commit1..commit2]</span><br><span class="line"></span><br><span class="line">// 或 </span><br><span class="line"></span><br><span class="line">// 从当前分支的前 30 次提交开始遍历，删除误操作文件的引用</span><br><span class="line">git filter-branch --tree-filter &apos;git rm -f &#123;&#123;文件名&#125;&#125;&apos; HEAD~30..HEAD</span><br><span class="line"></span><br><span class="line">// 强制推送到远端</span><br><span class="line">git push origin master --force</span><br></pre></td></tr></table></figure>
-
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">$ git st</span><br><span class="line"># ???? master</span><br><span class="line">??????,??????</span><br><span class="line"></span><br><span class="line">$ locale</span><br><span class="line">locale: Cannot set LC_CTYPE to default locale: No such file or directory</span><br><span class="line">locale: Cannot set LC_ALL to default locale: ?????????</span><br><span class="line">LANG=zh_CN.UTF-8</span><br><span class="line">LC_CTYPE=UTF-8</span><br><span class="line">LC_NUMERIC=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_TIME=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_COLLATE=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_MONETARY=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_MESSAGES=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_PAPER=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_NAME=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_ADDRESS=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_TELEPHONE=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_MEASUREMENT=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_IDENTIFICATION=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_ALL=</span><br><span class="line"></span><br><span class="line">$ export LC_ALL=&quot;zh_CN.UTF-8&quot;</span><br><span class="line"></span><br><span class="line">$ locale</span><br><span class="line">LANG=zh_CN.UTF-8</span><br><span class="line">LC_CTYPE=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_NUMERIC=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_TIME=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_COLLATE=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_MONETARY=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_MESSAGES=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_PAPER=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_NAME=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_ADDRESS=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_TELEPHONE=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_MEASUREMENT=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_IDENTIFICATION=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_ALL=zh_CN.UTF-8</span><br><span class="line"></span><br><span class="line">$ git st</span><br><span class="line"># 位于分支 master</span><br><span class="line">无文件要提交，干净的工作区</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -424,7 +414,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/git/" rel="tag"><i class="fa fa-tag"></i> git</a>
+            <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+          
+            <a href="/tags/乱码/" rel="tag"><i class="fa fa-tag"></i> 乱码</a>
+          
+            <a href="/tags/utf8/" rel="tag"><i class="fa fa-tag"></i> utf8</a>
           
         </div>
       
@@ -437,8 +431,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/21/vscode支持swig/" rel="next" title="vscode支持swig">
-                <i class="fa fa-chevron-left"></i> vscode支持swig
+              <a href="/2018/10/18/解决-FastCGI-sent-in-stderr-“Primary-script-unknown”-while-reading-response-head/" rel="next" title="解决 FastCGI sent in stderr: "Primary script unknown" while reading response head...">
+                <i class="fa fa-chevron-left"></i> 解决 FastCGI sent in stderr: "Primary script unknown" while reading response head...
               </a>
             
           </div>
@@ -446,10 +440,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/21/同一台电脑不同账号提交github/" rel="prev" title="同一台电脑不同账号提交github">
-                同一台电脑不同账号提交github <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -501,17 +491,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/default_avatar.png"
@@ -571,22 +552,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#filter-branch修改author和committer"><span class="nav-text">filter-branch修改author和committer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它"><span class="nav-text">其它</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#删除误提交的文件"><span class="nav-text">删除误提交的文件</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
