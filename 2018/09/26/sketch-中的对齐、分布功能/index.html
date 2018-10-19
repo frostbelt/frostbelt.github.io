@@ -806,7 +806,8 @@
           repo: 'Gitalk',
           owner: 'frostbelt',
           admin: 'frostbelt'.split(','),
-          id: location.pathname,    // id: '1537927711000',
+          // id: location.pathname,     // 超长会报错，使用 location.pathname 需要 md5 下
+          id: '1537927711000',
           pagerDirection: 'first',
           distractionFreeMode: false
         })
