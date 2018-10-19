@@ -478,7 +478,7 @@
   <div class="comments" id="comments">
     
       <div id="gitalk-container"></div>
-      <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+      <link rel="stylesheet" href="/plugins/gitalk/gitalk.css">
     
   </div>
 
@@ -758,17 +758,16 @@
 
   
     
-      <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+      <script src="/plugins/gitalk/gitalk.js"></script>
       <script type="text/javascript">
-        const gitalk = new Gitalk({
+        var gitalk = new Gitalk({
           clientID: '1242b93b2bdc125169ba',
           clientSecret: '73879072f45187f0860db1b370476c694c74e51c',
           repo: 'Gitalk',
           owner: 'frostbelt',
           admin: 'frostbelt'.split(','),
-          id: '1537428056000',
+          id: location.pathname,    // id: '1537428056000',
           pagerDirection: 'first',
-          // facebook-like distraction free mode
           distractionFreeMode: false
         })
         gitalk.render('gitalk-container')
