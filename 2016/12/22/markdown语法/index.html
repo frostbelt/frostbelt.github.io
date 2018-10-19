@@ -796,6 +796,8 @@
     
       
       <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+      <script src="/js/md5.js"></script>
+      <script src=""></script>
       <script type="text/javascript">
         var gitalk = new Gitalk({
           clientID: '1242b93b2bdc125169ba',
@@ -803,8 +805,8 @@
           repo: 'Gitalk',
           owner: 'frostbelt',
           admin: 'frostbelt'.split(','),
-          // id: location.pathname,     // 超长会报错，使用 location.pathname 需要 md5 下
-          id: '1482392758000',
+          id: md5(location.pathname),
+          // id: '1482392758000',
           pagerDirection: 'first',
           distractionFreeMode: false
         })
