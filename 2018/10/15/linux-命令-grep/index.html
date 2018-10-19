@@ -818,7 +818,9 @@
           repo: 'Gitalk',
           owner: 'frostbelt',
           admin: 'frostbelt'.split(','),
+          // 如果使用 location.pathname，md5 下，否则超长会报错
           id: md5(location.pathname),
+          // 使用 page.date 也可以
           // id: '1539584056000',
           pagerDirection: 'first',
           distractionFreeMode: false
