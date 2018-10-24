@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2018-10-19T09:11:23.701Z</updated>
+  <updated>2018-10-24T02:29:14.455Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo next 加搜索功能(algolia)</title>
+    <link href="https://frostbelt.github.io/2018/10/24/hexo-next-%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD-algolia/"/>
+    <id>https://frostbelt.github.io/2018/10/24/hexo-next-加搜索功能-algolia/</id>
+    <published>2018-10-24T01:57:06.000Z</published>
+    <updated>2018-10-24T02:29:14.455Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="algolia-创建账号"><a href="#algolia-创建账号" class="headerlink" title="algolia 创建账号"></a>algolia 创建账号</h3><p>在 <a href="https://www.algolia.com/" target="_blank" rel="noopener">algolia</a> 注册登录后，打开 <code>dashboard</code><br>Indices -&gt; new index，注意 indexName 中不要有英文引号，避免不必要的麻烦<br><img src="/images/algolia_新建index.png" alt="algolia_新建index"></p><a id="more"></a><p>API Keys 中查看 id/keys，需要：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Application ID</span><br><span class="line">Search-Only API Key</span><br><span class="line">Admin API Key</span><br></pre></td></tr></table></figure></p><p><img src="/images/algolia_查看keys.png" alt="algolia_查看keys"><br>API Keys -&gt; ALL API KEYS 中修改配置，勾选 Add records/Delete records/List indices/Delete index<br><img src="/images/algolia_编辑keys.png" alt="algolia_编辑keys"></p><h3 id="hexo-配置"><a href="#hexo-配置" class="headerlink" title="hexo 配置"></a>hexo 配置</h3><p>在 <code>_config.yml</code> 中添加配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">algolia:</span><br><span class="line">  applicationID: 上面的 Application ID</span><br><span class="line">  apiKey: 上面的 Search-Only API Key</span><br><span class="line">  indexName: 上面创建的 new index 的 indexName</span><br></pre></td></tr></table></figure></p><h3 id="安装-hexo-algolia"><a href="#安装-hexo-algolia" class="headerlink" title="安装 hexo-algolia"></a>安装 hexo-algolia</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-algolia --save</span><br></pre></td></tr></table></figure><h3 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h3><p>algolia 官网声明，Admin API Key 不能写在配置里，会有风险，写到环境变量中(Mac):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bash_profile</span><br><span class="line"></span><br><span class="line"># algolia Admin API Key</span><br><span class="line">export HEXO_ALGOLIA_INDEXING_KEY=你的 Admin API Key</span><br></pre></td></tr></table></figure></p><h3 id="生成-algolia-索引"><a href="#生成-algolia-索引" class="headerlink" title="生成 algolia 索引"></a>生成 algolia 索引</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo algolia</span><br></pre></td></tr></table></figure><p>提示成功后可以在 algolia Indices 中看到你的博客记录</p><h3 id="修改-next-配置"><a href="#修改-next-配置" class="headerlink" title="修改 next 配置"></a>修改 next 配置</h3><p>themes/next/_config.yml 中修改：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># Algolia Search</span><br><span class="line">algolia_search:</span><br><span class="line">  enable: true</span><br><span class="line">  hits:</span><br><span class="line">    per_page: 10</span><br><span class="line">  labels:</span><br><span class="line">    input_placeholder: 请输入关键字</span><br><span class="line">    hits_empty: &quot;没有找到与 $&#123;query&#125; 相关的内容&quot;</span><br><span class="line">    hits_stats: &quot;$&#123;hits&#125; 条相关记录，共耗时 $&#123;time&#125;ms&quot;</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;algolia-创建账号&quot;&gt;&lt;a href=&quot;#algolia-创建账号&quot; class=&quot;headerlink&quot; title=&quot;algolia 创建账号&quot;&gt;&lt;/a&gt;algolia 创建账号&lt;/h3&gt;&lt;p&gt;在 &lt;a href=&quot;https://www.algolia.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;algolia&lt;/a&gt; 注册登录后，打开 &lt;code&gt;dashboard&lt;/code&gt;&lt;br&gt;Indices -&amp;gt; new index，注意 indexName 中不要有英文引号，避免不必要的麻烦&lt;br&gt;&lt;img src=&quot;/images/algolia_新建index.png&quot; alt=&quot;algolia_新建index&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="https://frostbelt.github.io/tags/hexo/"/>
+    
+      <category term="next" scheme="https://frostbelt.github.io/tags/next/"/>
+    
+      <category term="搜索" scheme="https://frostbelt.github.io/tags/%E6%90%9C%E7%B4%A2/"/>
+    
+      <category term="algolia" scheme="https://frostbelt.github.io/tags/algolia/"/>
+    
+  </entry>
   
   <entry>
     <title>PS 钢笔抠图技巧</title>
@@ -532,32 +558,6 @@
       <category term="树" scheme="https://frostbelt.github.io/tags/%E6%A0%91/"/>
     
       <category term="目录" scheme="https://frostbelt.github.io/tags/%E7%9B%AE%E5%BD%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux 命令 tail</title>
-    <link href="https://frostbelt.github.io/2018/10/09/linux-%E5%91%BD%E4%BB%A4-tail/"/>
-    <id>https://frostbelt.github.io/2018/10/09/linux-命令-tail/</id>
-    <published>2018-10-09T08:11:29.000Z</published>
-    <updated>2018-10-09T08:16:29.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="循环读取文件内容（很常用，用于查看新生成的日志）"><a href="#循环读取文件内容（很常用，用于查看新生成的日志）" class="headerlink" title="循环读取文件内容（很常用，用于查看新生成的日志）"></a>循环读取文件内容（很常用，用于查看新生成的日志）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -f k2.access.log</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="显示文件最后-5-行内容"><a href="#显示文件最后-5-行内容" class="headerlink" title="显示文件最后 5 行内容"></a>显示文件最后 5 行内容</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -n 5 k2.access.log</span><br></pre></td></tr></table></figure><h3 id="从文件第-5-行内容开始显示到结束"><a href="#从文件第-5-行内容开始显示到结束" class="headerlink" title="从文件第 5 行内容开始显示到结束"></a>从文件第 5 行内容开始显示到结束</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -n +5 k2.access.log</span><br></pre></td></tr></table></figure><p>其它参数可参考<a href="http://www.cnblogs.com/peida/archive/2012/11/07/2758084.html" target="_blank" rel="noopener">每天一个linux命令（15）：tail 命令</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;循环读取文件内容（很常用，用于查看新生成的日志）&quot;&gt;&lt;a href=&quot;#循环读取文件内容（很常用，用于查看新生成的日志）&quot; class=&quot;headerlink&quot; title=&quot;循环读取文件内容（很常用，用于查看新生成的日志）&quot;&gt;&lt;/a&gt;循环读取文件内容（很常用，用于查看新生成的日志）&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;tail -f k2.access.log&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="https://frostbelt.github.io/tags/linux/"/>
-    
-      <category term="命令" scheme="https://frostbelt.github.io/tags/%E5%91%BD%E4%BB%A4/"/>
-    
-      <category term="tail" scheme="https://frostbelt.github.io/tags/tail/"/>
-    
-      <category term="日志" scheme="https://frostbelt.github.io/tags/%E6%97%A5%E5%BF%97/"/>
     
   </entry>
   
