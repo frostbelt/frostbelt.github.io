@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2018-10-26T06:09:27.544Z</updated>
+  <updated>2018-10-26T07:44:23.049Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>切个图，想用 sass</title>
+    <link href="https://frostbelt.github.io/2018/10/26/%E5%88%87%E4%B8%AA%E5%9B%BE%EF%BC%8C%E6%83%B3%E7%94%A8-sass/"/>
+    <id>https://frostbelt.github.io/2018/10/26/切个图，想用-sass/</id>
+    <published>2018-10-26T07:23:40.000Z</published>
+    <updated>2018-10-26T07:44:23.049Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>切个专题页，不想搭环境，但想用 sass</p></blockquote><h3 id="使用-sass"><a href="#使用-sass" class="headerlink" title="使用 sass"></a>使用 sass</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 安装 sass</span><br><span class="line">gem install sass -v &apos;&gt;=3.3.0alpha&apos; --pre</span><br><span class="line"># 监听编译 scss，生成 sourcemap，控制台里看到的是编译前的 scss</span><br><span class="line">sass --watch --sourcemap scss.scss:scss.css</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="在-chrome-中实时修改-scss"><a href="#在-chrome-中实时修改-scss" class="headerlink" title="在 chrome 中实时修改 scss"></a>在 chrome 中实时修改 scss</h3><p>需要给 Devtools 授权可访问你的工作目录，然后在 Devtools 中修改 scss 就可以实时生效了，同时修改你的本地文件<br><img src="/images/chrome_实时修改scss.png" alt="chrome_实时修改scss"></p><h3 id="如果不想生成额外的文件，可以用"><a href="#如果不想生成额外的文件，可以用" class="headerlink" title="如果不想生成额外的文件，可以用"></a>如果不想生成额外的文件，可以用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 监听编译 scss，不生成 sourcemap，控制台里看到的是编译后的 css</span><br><span class="line">sass --watch --sourcemap=none -C scss.scss:scss.css</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;切个专题页，不想搭环境，但想用 sass&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;使用-sass&quot;&gt;&lt;a href=&quot;#使用-sass&quot; class=&quot;headerlink&quot; title=&quot;使用 sass&quot;&gt;&lt;/a&gt;使用 sass&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# 安装 sass&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gem install sass -v &amp;apos;&amp;gt;=3.3.0alpha&amp;apos; --pre&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# 监听编译 scss，生成 sourcemap，控制台里看到的是编译前的 scss&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sass --watch --sourcemap scss.scss:scss.css&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="切图" scheme="https://frostbelt.github.io/tags/%E5%88%87%E5%9B%BE/"/>
+    
+      <category term="css" scheme="https://frostbelt.github.io/tags/css/"/>
+    
+      <category term="sass" scheme="https://frostbelt.github.io/tags/sass/"/>
+    
+      <category term="scss" scheme="https://frostbelt.github.io/tags/scss/"/>
+    
+  </entry>
   
   <entry>
     <title>vscode sftp 工具</title>
@@ -519,38 +548,6 @@
       <category term="quicktime" scheme="https://frostbelt.github.io/tags/quicktime/"/>
     
       <category term="mojava" scheme="https://frostbelt.github.io/tags/mojava/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux 命令 crontab</title>
-    <link href="https://frostbelt.github.io/2018/10/09/linux-%E5%91%BD%E4%BB%A4-crontab/"/>
-    <id>https://frostbelt.github.io/2018/10/09/linux-命令-crontab/</id>
-    <published>2018-10-09T11:12:29.000Z</published>
-    <updated>2018-10-11T08:02:41.702Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>crontab 是 linux 上执行定时任务的工具，本文是 Mac OS 上 crontab 的应用</p></blockquote><h3 id="新建-crontab-文件"><a href="#新建-crontab-文件" class="headerlink" title="新建 crontab 文件"></a>新建 crontab 文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo touch /etc/crontab</span><br></pre></td></tr></table></figure><h3 id="查看所有-crontab-任务"><a href="#查看所有-crontab-任务" class="headerlink" title="查看所有 crontab 任务"></a>查看所有 crontab 任务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -l</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="新建-crontab-任务"><a href="#新建-crontab-任务" class="headerlink" title="新建 crontab 任务"></a>新建 crontab 任务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br><span class="line">打开 vi 编辑器，保存退出后自动加到 crontab 列表中执行</span><br><span class="line">显示 crontab: installing new crontab 表示新建成功</span><br></pre></td></tr></table></figure><h3 id="crontab-文件格式"><a href="#crontab-文件格式" class="headerlink" title="crontab 文件格式"></a>crontab 文件格式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">第1列分钟0～59</span><br><span class="line">第2列小时0～23（0表示子夜）</span><br><span class="line">第3列日1～31</span><br><span class="line">第4列月1～12</span><br><span class="line">第5列星期0～7（0和7表示星期天）</span><br><span class="line">第6列要运行的命令</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">示例：（每分钟输出当前时间到cron.log）</span><br><span class="line">*/1 * * * * /bin/date &gt;&gt; /Users/(你的用户名)/log/cron.log</span><br></pre></td></tr></table></figure><h3 id="启动-cron"><a href="#启动-cron" class="headerlink" title="启动 cron"></a>启动 cron</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/sbin/cron start</span><br><span class="line">sudo /usr/sbin/cron restart</span><br><span class="line">sudo /usr/sbin/cron stop</span><br></pre></td></tr></table></figure><h3 id="清空-crontab"><a href="#清空-crontab" class="headerlink" title="清空 crontab"></a>清空 crontab</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -r</span><br></pre></td></tr></table></figure><h3 id="删除指定-cron"><a href="#删除指定-cron" class="headerlink" title="删除指定 cron"></a>删除指定 cron</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br><span class="line">编辑删除即可</span><br></pre></td></tr></table></figure><h3 id="新建-crontab-任务报错-crontab-“-usr-bin-vi”-exited-with-status-1-解决"><a href="#新建-crontab-任务报错-crontab-“-usr-bin-vi”-exited-with-status-1-解决" class="headerlink" title="新建 crontab 任务报错 crontab: “/usr/bin/vi” exited with status 1 解决"></a>新建 crontab 任务报错 crontab: “/usr/bin/vi” exited with status 1 解决</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在 ~/.vimrc 中加入以下内容：</span><br><span class="line">&quot; 解决 crontab 编译失败问题</span><br><span class="line">autocmd filetype crontab setlocal nobackup nowritebackup</span><br></pre></td></tr></table></figure><h3 id="加锁"><a href="#加锁" class="headerlink" title="加锁"></a>加锁</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">crontab 定时执行任务，如果判断上一次任务未执行完，本次不执行</span><br><span class="line">用 flock 命令加锁</span><br><span class="line">编辑任务：</span><br><span class="line">* * * * * flock -xn /tmp/mytest.lock -c &apos;php /home/xxx/php/test.php &gt;&gt; /home/xxx/php/test.log&apos;</span><br><span class="line">原理：</span><br><span class="line">任务开始时，判断 /tmp/mytest.lock 文件是否被锁定</span><br><span class="line">if 被锁定，判断为加锁中，跳过</span><br><span class="line">if 未被锁定，锁定 /tmp/mytest.lock，并执行任务，任务完成后解锁 /tmp/mytest.lock</span><br><span class="line">注：没找到 MacOS 上使用 flock 命令的方法</span><br></pre></td></tr></table></figure><p>参见<a href="https://blog.csdn.net/fdipzone/article/details/38284009" target="_blank" rel="noopener">linux使用flock文件锁解决crontab冲突问题</a></p><hr><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">todo</span><br><span class="line">MacOS 安装 flock</span><br><span class="line">https://github.com/discoteq/flock</span><br><span class="line">flock /tmp/cron_date.lock /usr/bin/php /Users/xxx/codes/php_space/cron.php &gt;&gt; /Users/xxx/log/cron.log</span><br><span class="line">可以执行</span><br><span class="line">但放在 crontab 里没有执行</span><br><span class="line">* * * * * flock -xn /tmp/cron_date.lock /usr/bin/php /Users/xxx/codes/php_space/cron.php &gt;&gt; /Users/xxx/log/cron.log</span><br><span class="line">MacOS 可以尝试 launchctl </span><br><span class="line">https://my.oschina.net/shede333/blog/470377</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;crontab 是 linux 上执行定时任务的工具，本文是 Mac OS 上 crontab 的应用&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;新建-crontab-文件&quot;&gt;&lt;a href=&quot;#新建-crontab-文件&quot; class=&quot;headerlink&quot; title=&quot;新建 crontab 文件&quot;&gt;&lt;/a&gt;新建 crontab 文件&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo touch /etc/crontab&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;查看所有-crontab-任务&quot;&gt;&lt;a href=&quot;#查看所有-crontab-任务&quot; class=&quot;headerlink&quot; title=&quot;查看所有 crontab 任务&quot;&gt;&lt;/a&gt;查看所有 crontab 任务&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;crontab -l&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="https://frostbelt.github.io/tags/linux/"/>
-    
-      <category term="命令" scheme="https://frostbelt.github.io/tags/%E5%91%BD%E4%BB%A4/"/>
-    
-      <category term="cron" scheme="https://frostbelt.github.io/tags/cron/"/>
-    
-      <category term="crontab" scheme="https://frostbelt.github.io/tags/crontab/"/>
-    
-      <category term="vim" scheme="https://frostbelt.github.io/tags/vim/"/>
     
   </entry>
   
