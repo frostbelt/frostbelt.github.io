@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2018-10-24T02:29:14.455Z</updated>
+  <updated>2018-10-26T06:09:27.544Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vscode sftp 工具</title>
+    <link href="https://frostbelt.github.io/2018/10/26/vscode-sftp-%E5%B7%A5%E5%85%B7/"/>
+    <id>https://frostbelt.github.io/2018/10/26/vscode-sftp-工具/</id>
+    <published>2018-10-26T06:05:57.000Z</published>
+    <updated>2018-10-26T06:09:27.544Z</updated>
+    
+    <content type="html"><![CDATA[<p>一个很火的游戏，怎么会没有强大的周边呢？<br>一直认为 <code>vscode</code> 的 <code>ftp</code> 功能弱爆，今天找到个 <code>sftp</code>，试了下很不错</p><a id="more"></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;protocol&quot;: &quot;sftp&quot;,</span><br><span class="line">    &quot;host&quot;: &quot;xx.xx.xx.xx&quot;,</span><br><span class="line">    &quot;port&quot;: 22,</span><br><span class="line">    &quot;username&quot;: &quot;xxx&quot;,</span><br><span class="line">    &quot;password&quot;: &quot;xxx&quot;,</span><br><span class="line">    &quot;remotePath&quot;: &quot;/home/xxx/xxx&quot;,</span><br><span class="line">    &quot;uploadOnSave&quot;: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一个很火的游戏，怎么会没有强大的周边呢？&lt;br&gt;一直认为 &lt;code&gt;vscode&lt;/code&gt; 的 &lt;code&gt;ftp&lt;/code&gt; 功能弱爆，今天找到个 &lt;code&gt;sftp&lt;/code&gt;，试了下很不错&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="vscode" scheme="https://frostbelt.github.io/tags/vscode/"/>
+    
+      <category term="sftp" scheme="https://frostbelt.github.io/tags/sftp/"/>
+    
+      <category term="ftp" scheme="https://frostbelt.github.io/tags/ftp/"/>
+    
+  </entry>
   
   <entry>
     <title>hexo next 加搜索功能(algolia)</title>
@@ -527,37 +551,6 @@
       <category term="crontab" scheme="https://frostbelt.github.io/tags/crontab/"/>
     
       <category term="vim" scheme="https://frostbelt.github.io/tags/vim/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux 命令 以树形结构显示文件目录</title>
-    <link href="https://frostbelt.github.io/2018/10/09/linux-%E5%91%BD%E4%BB%A4-%E4%BB%A5%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84%E6%98%BE%E7%A4%BA%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95/"/>
-    <id>https://frostbelt.github.io/2018/10/09/linux-命令-以树形结构显示文件目录/</id>
-    <published>2018-10-09T08:26:21.000Z</published>
-    <updated>2018-10-11T07:34:26.564Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="安装-tree"><a href="#安装-tree" class="headerlink" title="安装 tree"></a>安装 tree</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install tree</span><br></pre></td></tr></table></figure><h3 id="以树形结构显示文件目录"><a href="#以树形结构显示文件目录" class="headerlink" title="以树形结构显示文件目录"></a>以树形结构显示文件目录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 以树形结构显示当前目录</span><br><span class="line">tree ./</span><br><span class="line"># 以树形结构显示当前目录，子目录显示到第 2 层</span><br><span class="line">tree -L 2</span><br></pre></td></tr></table></figure><h3 id="用-pbcopy-命令复制树形结构"><a href="#用-pbcopy-命令复制树形结构" class="headerlink" title="用 pbcopy 命令复制树形结构"></a>用 pbcopy 命令复制树形结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pbcopy 命令可以复制终端输出的内容，结合以上 tree 命令：</span><br><span class="line">tree -L 2 | pbcopy</span><br><span class="line">就已经复制了树形目录</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;安装-tree&quot;&gt;&lt;a href=&quot;#安装-tree&quot; class=&quot;headerlink&quot; title=&quot;安装 tree&quot;&gt;&lt;/a&gt;安装 tree&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=
-      
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="https://frostbelt.github.io/tags/linux/"/>
-    
-      <category term="命令" scheme="https://frostbelt.github.io/tags/%E5%91%BD%E4%BB%A4/"/>
-    
-      <category term="tree" scheme="https://frostbelt.github.io/tags/tree/"/>
-    
-      <category term="树" scheme="https://frostbelt.github.io/tags/%E6%A0%91/"/>
-    
-      <category term="目录" scheme="https://frostbelt.github.io/tags/%E7%9B%AE%E5%BD%95/"/>
     
   </entry>
   
