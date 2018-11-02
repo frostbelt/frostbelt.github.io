@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2018-11-01T07:35:41.588Z</updated>
+  <updated>2018-11-02T01:36:04.221Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -21,16 +21,14 @@
     <link href="https://frostbelt.github.io/2018/11/01/Mac-finder-%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
     <id>https://frostbelt.github.io/2018/11/01/Mac-finder-使用技巧/</id>
     <published>2018-11-01T07:27:52.000Z</published>
-    <updated>2018-11-01T07:35:41.588Z</updated>
+    <updated>2018-11-02T01:36:04.221Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="设置-finder-默认大小"><a href="#设置-finder-默认大小" class="headerlink" title="设置 finder 默认大小"></a>设置 finder 默认大小</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">按住 option 拖动修改 finder 大小，再次打开时就保持这个尺寸</span><br></pre></td></tr></table></figure><h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">各种颜色的标签，是可以重全名的，比较红色的命名为“公司相关”</span><br><span class="line">在 finder 右键重命名没生效，是在“所有标签”中操作的</span><br></pre></td></tr></table></figure><h3 id="“近期”常用文件夹"><a href="#“近期”常用文件夹" class="headerlink" title="“近期”常用文件夹"></a>“近期”常用文件夹</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">做一个临时项目时，把这个项目文件资源文件拖到左侧个人收藏里</span><br><span class="line">完事了再删掉</span><br></pre></td></tr></table></figure><h3 id="设置打开的默认文件夹"><a href="#设置打开的默认文件夹" class="headerlink" title="设置打开的默认文件夹"></a>设置打开的默认文件夹</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">finder -&gt; 偏好设置 -&gt; 通用</span><br><span class="line">里可以设置开启里打开的默认文件夹</span><br><span class="line">顺便提一下，在高级里可以设置搜索时默认搜索当前文件夹，默认是搜索整个电脑</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h3 id="设置-finder-默认大小"><a href="#设置-finder-默认大小" class="headerlink" title="设置 finder 默认大小"></a>设置 finder 默认大小</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">按住 option 拖动修改 finder 大小，再次打开时就保持这个尺寸</span><br></pre></td></tr></table></figure><h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">各种颜色的标签，是可以重全名的，比较红色的命名为“公司相关”</span><br><span class="line">在 finder 右键重命名没生效，是在“所有标签”中操作的</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="“近期”常用文件夹"><a href="#“近期”常用文件夹" class="headerlink" title="“近期”常用文件夹"></a>“近期”常用文件夹</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">做一个临时项目时，把这个项目文件资源文件拖到左侧个人收藏里</span><br><span class="line">完事了再删掉</span><br></pre></td></tr></table></figure><h3 id="设置打开的默认文件夹"><a href="#设置打开的默认文件夹" class="headerlink" title="设置打开的默认文件夹"></a>设置打开的默认文件夹</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">finder -&gt; 偏好设置 -&gt; 通用</span><br><span class="line">里可以设置开启里打开的默认文件夹</span><br><span class="line">顺便提一下，在高级里可以设置搜索时默认搜索当前文件夹，默认是搜索整个电脑</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;h3 id=&quot;设置-finder-默认大小&quot;&gt;&lt;a href=&quot;#设置-finder-默认大小&quot; class=&quot;headerlink&quot; title=&quot;设置 finder 默认大小&quot;&gt;&lt;/a&gt;设置 finder 默认大小&lt;/h3&gt;&lt;figure class=&quot;highlight 
-      
+      &lt;h3 id=&quot;设置-finder-默认大小&quot;&gt;&lt;a href=&quot;#设置-finder-默认大小&quot; class=&quot;headerlink&quot; title=&quot;设置 finder 默认大小&quot;&gt;&lt;/a&gt;设置 finder 默认大小&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;按住 option 拖动修改 finder 大小，再次打开时就保持这个尺寸&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;标签&quot;&gt;&lt;a href=&quot;#标签&quot; class=&quot;headerlink&quot; title=&quot;标签&quot;&gt;&lt;/a&gt;标签&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;各种颜色的标签，是可以重全名的，比较红色的命名为“公司相关”&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;在 finder 右键重命名没生效，是在“所有标签”中操作的&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
