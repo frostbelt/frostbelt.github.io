@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2018-11-02T01:36:04.221Z</updated>
+  <updated>2018-11-09T07:23:04.362Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac 安装 Fiddler</title>
+    <link href="https://frostbelt.github.io/2018/11/09/Mac-%E5%AE%89%E8%A3%85-Fiddler/"/>
+    <id>https://frostbelt.github.io/2018/11/09/Mac-安装-Fiddler/</id>
+    <published>2018-11-09T07:09:41.000Z</published>
+    <updated>2018-11-09T07:23:04.362Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>今天看到 Fidder 官网上说可以在 Mac 上使用，十分兴奋，尝试了一下</p></blockquote><p>见<a href="https://www.telerik.com/download/fiddler/fiddler-osx-beta" target="_blank" rel="noopener">这里</a></p><h3 id="1-先安装-mono"><a href="#1-先安装-mono" class="headerlink" title="1. 先安装 mono"></a>1. 先安装 mono</h3><p>在<a href="http://www.mono-project.com/download/#download-mac" target="_blank" rel="noopener">这里</a>下载 MonoFramework-MDK-5.10.1.57.macos10.xamarin.universal.pkg 并安装</p><a id="more"></a><h3 id="2-将-mono-加入环境变量"><a href="#2-将-mono-加入环境变量" class="headerlink" title="2. 将 mono 加入环境变量"></a>2. 将 mono 加入环境变量</h3><p>加不加都行，如何以后还准备用的话<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$PATH:/Library/Frameworks/Mono.framework/Versions/5.10.1/Commands/</span><br></pre></td></tr></table></figure></p><h3 id="3-下载-fiddler-mac-zip-并解压"><a href="#3-下载-fiddler-mac-zip-并解压" class="headerlink" title="3. 下载 fiddler-mac.zip 并解压"></a>3. 下载 fiddler-mac.zip 并解压</h3><h3 id="4-安装-Fiddler"><a href="#4-安装-Fiddler" class="headerlink" title="4. 安装 Fiddler"></a>4. 安装 Fiddler</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /xxx/fiddler-mac</span><br><span class="line">mono --arch=32 Fiddler.exe</span><br></pre></td></tr></table></figure><h3 id="5-Fiddler-功能正常，然而…"><a href="#5-Fiddler-功能正常，然而…" class="headerlink" title="5. Fiddler 功能正常，然而…"></a>5. Fiddler 功能正常，然而…</h3><p><img src="/images/Mac安装Fiddler.jpg" alt="卖像太惨了"><br>卖像太惨了，怎么用的下去</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;今天看到 Fidder 官网上说可以在 Mac 上使用，十分兴奋，尝试了一下&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;见&lt;a href=&quot;https://www.telerik.com/download/fiddler/fiddler-osx-beta&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;1-先安装-mono&quot;&gt;&lt;a href=&quot;#1-先安装-mono&quot; class=&quot;headerlink&quot; title=&quot;1. 先安装 mono&quot;&gt;&lt;/a&gt;1. 先安装 mono&lt;/h3&gt;&lt;p&gt;在&lt;a href=&quot;http://www.mono-project.com/download/#download-mac&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;这里&lt;/a&gt;下载 MonoFramework-MDK-5.10.1.57.macos10.xamarin.universal.pkg 并安装&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="mac" scheme="https://frostbelt.github.io/tags/mac/"/>
+    
+      <category term="fiddler" scheme="https://frostbelt.github.io/tags/fiddler/"/>
+    
+      <category term="mono" scheme="https://frostbelt.github.io/tags/mono/"/>
+    
+  </entry>
   
   <entry>
     <title>Mac finder 使用技巧</title>
@@ -507,37 +535,6 @@
     
     
       <category term="git" scheme="https://frostbelt.github.io/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mac 环境变量</title>
-    <link href="https://frostbelt.github.io/2018/10/12/Mac-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"/>
-    <id>https://frostbelt.github.io/2018/10/12/Mac-环境变量/</id>
-    <published>2018-10-12T06:24:17.000Z</published>
-    <updated>2018-10-18T04:23:32.194Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bash_profile</span><br><span class="line">source ~/.bash_profile</span><br></pre></td></tr></table></figure><p>.bash_profile 内容如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export RUBYOPT=-KU</span><br><span class="line">export PATH=$PATH:/Users/xxx/Documents/platform-tools/</span><br><span class="line">export PATH=$&#123;PATH&#125;:/usr/local/mysql/bin/:/usr/local/opt/php56/bin</span><br><span class="line"></span><br><span class="line">alias ll=&apos;ls -l&apos;</span><br><span class="line">alias gotosh=&apos;cd ~/sh&apos;</span><br></pre></td></tr></table></figure></p><a id="more"></a><p>但 .bash_profile 只在用户登录时加载一次，新开终端时不会再次加载<br>借助 iterms 的 Send text as start 实现新开终端加载<br><img src="/images/iterm_sendtext.png" alt="iterm"></p><p>后来环境变量和其它分开放<br>.bash_profile<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">export RUBYOPT=-KU</span><br><span class="line">export PATH=$PATH:/Users/xxx/Documents/platform-tools/</span><br><span class="line">export PATH=$&#123;PATH&#125;:/usr/local/mysql/bin/:/usr/local/opt/php56/bin</span><br><span class="line"></span><br><span class="line">if test -f ~/.bashrc ; then</span><br><span class="line">    source ~/.bashrc</span><br><span class="line">fi</span><br></pre></td></tr></table></figure></p><p>.bashrc<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alias ll=&apos;ls -l&apos;</span><br><span class="line">alias gotosh=&apos;cd ~/sh&apos;</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;vim ~/.bash_profile&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;source ~/.bash_profile&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;.bash_profile 内容如下&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;export RUBYOPT=-KU&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;export PATH=$PATH:/Users/xxx/Documents/platform-tools/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;export PATH=$&amp;#123;PATH&amp;#125;:/usr/local/mysql/bin/:/usr/local/opt/php56/bin&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;alias ll=&amp;apos;ls -l&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;alias gotosh=&amp;apos;cd ~/sh&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="mac" scheme="https://frostbelt.github.io/tags/mac/"/>
-    
-      <category term="环境变量" scheme="https://frostbelt.github.io/tags/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"/>
-    
-      <category term="bash_profile" scheme="https://frostbelt.github.io/tags/bash-profile/"/>
-    
-      <category term="bashrc" scheme="https://frostbelt.github.io/tags/bashrc/"/>
-    
-      <category term="linux" scheme="https://frostbelt.github.io/tags/linux/"/>
-    
-      <category term="export" scheme="https://frostbelt.github.io/tags/export/"/>
     
   </entry>
   
