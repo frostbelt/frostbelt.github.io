@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2018-11-13T06:30:43.194Z</updated>
+  <updated>2018-11-20T04:13:23.251Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>adb shell&amp;logcat</title>
+    <link href="https://frostbelt.github.io/2018/11/20/adb-shell&amp;logcat/"/>
+    <id>https://frostbelt.github.io/2018/11/20/adb-shell&amp;logcat/</id>
+    <published>2018-11-20T02:15:55.000Z</published>
+    <updated>2018-11-20T04:13:23.251Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><blockquote><p>手机输入框 focus 时<br>$ adb shell input text “hello,world”<br>输入 hello<br>注：空格、’、&amp;都是特殊字符，需要用 keyevent 输入。且只能输入 ascii 码的字符<br>$ adb shell input keyevent 61<br>tab 跳到下一个输入框<br>$ adb shell input keyevent KEYCODE_SPACE<br>输入空格</p></blockquote><p><a href="http://www.360doc.com/content/13/0807/13/5224731_305347225.shtml" target="_blank" rel="noopener">KEYCODE列表</a></p><a id="more"></a><h3 id="查看-H5-日志"><a href="#查看-H5-日志" class="headerlink" title="查看 H5 日志"></a>查看 H5 日志</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">所有日志</span><br><span class="line">$ adb logcat | grep &quot;http&quot;</span><br><span class="line"></span><br><span class="line">console 输出</span><br><span class="line">$ adb logcat | grep -E &apos;CONSOLE.*kan.com&apos; # 有高亮</span><br><span class="line">$ adb shell &quot;logcat | grep -E &apos;CONSOLE.*kan.com&apos;&quot; # 没有高亮</span><br><span class="line">注：类似 tail -f</span><br></pre></td></tr></table></figure><h3 id="点击"><a href="#点击" class="headerlink" title="点击"></a>点击</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在(x,y)处点击</span><br><span class="line">$ adb shell input tap 100 400</span><br></pre></td></tr></table></figure><h3 id="滑动"><a href="#滑动" class="headerlink" title="滑动"></a>滑动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">从屏幕(0,20)滑动到(300,500)</span><br><span class="line">$ adb shell input swipe 0 20 300 500</span><br></pre></td></tr></table></figure><h3 id="操作剪贴板"><a href="#操作剪贴板" class="headerlink" title="操作剪贴板"></a>操作剪贴板</h3><p>已经不可行了，参考<a href="https://likfe.com/2018/01/17/android-adb-set-clipboard/" target="_blank" rel="noopener">Android 必知必会 - 使用 ADB 操作 Clipboard</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;输入&quot;&gt;&lt;a href=&quot;#输入&quot; class=&quot;headerlink&quot; title=&quot;输入&quot;&gt;&lt;/a&gt;输入&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;手机输入框 focus 时&lt;br&gt;$ adb shell input text “hello,world”&lt;br&gt;输入 hello&lt;br&gt;注：空格、’、&amp;amp;都是特殊字符，需要用 keyevent 输入。且只能输入 ascii 码的字符&lt;br&gt;$ adb shell input keyevent 61&lt;br&gt;tab 跳到下一个输入框&lt;br&gt;$ adb shell input keyevent KEYCODE_SPACE&lt;br&gt;输入空格&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.360doc.com/content/13/0807/13/5224731_305347225.shtml&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;KEYCODE列表&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="adb" scheme="https://frostbelt.github.io/tags/adb/"/>
+    
+      <category term="shell" scheme="https://frostbelt.github.io/tags/shell/"/>
+    
+      <category term="logcat" scheme="https://frostbelt.github.io/tags/logcat/"/>
+    
+  </entry>
   
   <entry>
     <title>git 查看上一次提交的修改</title>
@@ -517,26 +544,6 @@
       <category term="zlib" scheme="https://frostbelt.github.io/tags/zlib/"/>
     
       <category term="压缩" scheme="https://frostbelt.github.io/tags/%E5%8E%8B%E7%BC%A9/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git 全局配置</title>
-    <link href="https://frostbelt.github.io/2018/10/12/git-%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE/"/>
-    <id>https://frostbelt.github.io/2018/10/12/git-全局配置/</id>
-    <published>2018-10-12T06:37:03.000Z</published>
-    <updated>2018-10-12T06:58:16.453Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="设置用户信息"><a href="#设置用户信息" class="headerlink" title="设置用户信息"></a>设置用户信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --add user.email &quot;your email&quot;</span><br><span class="line">git config --global --add user.name &quot;your name&quot;</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="设置别名"><a href="#设置别名" class="headerlink" title="设置别名"></a>设置别名</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git config --global alias.co checkout</span><br><span class="line">git config --global alias.br branch</span><br><span class="line">git config --global alias.ci commit</span><br><span class="line">git config --global alias.st status -s</span><br><span class="line">git config --global alias.l log --oneline --decorate -12</span><br></pre></td></tr></table></figure><h3 id="git-config-文件"><a href="#git-config-文件" class="headerlink" title="git config 文件"></a>git config 文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git 配置存储在 ~/.gitconfig 文件中</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;设置用户信息&quot;&gt;&lt;a href=&quot;#设置用户信息&quot; class=&quot;headerlink&quot; title=&quot;设置用户信息&quot;&gt;&lt;/a&gt;设置用户信息&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git config --global --add user.email &amp;quot;your email&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git config --global --add user.name &amp;quot;your name&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="git" scheme="https://frostbelt.github.io/tags/git/"/>
     
   </entry>
   
