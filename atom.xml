@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2018-11-22T10:28:43.642Z</updated>
+  <updated>2018-11-27T06:43:37.133Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>dva alias</title>
+    <link href="https://frostbelt.github.io/2018/11/27/dva-alias/"/>
+    <id>https://frostbelt.github.io/2018/11/27/dva-alias/</id>
+    <published>2018-11-27T06:40:13.000Z</published>
+    <updated>2018-11-27T06:43:37.133Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>roadhog2.0 去掉了 .roadhogrc，改用 .webpackrc</p></blockquote><h3 id="设置-alias"><a href="#设置-alias" class="headerlink" title="设置 alias"></a>设置 alias</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">安装 module-resolver</span><br><span class="line">$ npm install --save-dev babel-plugin-module-resolver</span><br><span class="line"></span><br><span class="line">.webpackrc 文件中添加 extraBabelPlugins</span><br><span class="line">&#123;</span><br><span class="line">    &quot;extraBabelPlugins&quot; : [</span><br><span class="line">        [&quot;module-resolver&quot;, &#123;</span><br><span class="line">            &quot;root&quot;: [&quot;./&quot;],</span><br><span class="line">            &quot;alias&quot;: &#123;</span><br><span class="line">              &quot;components&quot;:&quot;./src/components&quot;,</span><br><span class="line">              &quot;utils&quot;:&quot;./src/utils&quot;,</span><br><span class="line">              &quot;services&quot;:&quot;./src/services&quot;,</span><br><span class="line">              &quot;models&quot;:&quot;./src/models&quot;, </span><br><span class="line">              &quot;src&quot;: &quot;./src&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;]</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">import helper from &apos;utils/helper&apos;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;roadhog2.0 去掉了 .roadhogrc，改用 .webpackrc&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;设置-alias&quot;&gt;&lt;a href=&quot;#设置-alias&quot; class=&quot;headerlink&quot; title=&quot;设置
+      
+    
+    </summary>
+    
+    
+      <category term="alias" scheme="https://frostbelt.github.io/tags/alias/"/>
+    
+      <category term="dva" scheme="https://frostbelt.github.io/tags/dva/"/>
+    
+      <category term="react" scheme="https://frostbelt.github.io/tags/react/"/>
+    
+      <category term="antd" scheme="https://frostbelt.github.io/tags/antd/"/>
+    
+  </entry>
   
   <entry>
     <title>求大神解--华为浏览器视频小窗播放</title>
@@ -529,28 +561,6 @@
       <category term="php" scheme="https://frostbelt.github.io/tags/php/"/>
     
       <category term="redis" scheme="https://frostbelt.github.io/tags/redis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux 卸载重装 php</title>
-    <link href="https://frostbelt.github.io/2018/10/12/linux-%E5%8D%B8%E8%BD%BD%E9%87%8D%E8%A3%85-php/"/>
-    <id>https://frostbelt.github.io/2018/10/12/linux-卸载重装-php/</id>
-    <published>2018-10-12T07:06:48.000Z</published>
-    <updated>2018-10-12T07:08:35.699Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="卸载-php"><a href="#卸载-php" class="headerlink" title="卸载 php"></a>卸载 php</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># 查看已安装的 php 相关包</span><br><span class="line">rpm -qa|grep php</span><br><span class="line">php-pecl-igbinary-1.2.1-1.el7.x86_64</span><br><span class="line">php-xml-5.4.16-43.el7_4.x86_64</span><br><span class="line">php-pecl-redis-2.2.8-1.el7.x86_64</span><br><span class="line">php-common-5.4.16-43.el7_4.x86_64</span><br><span class="line">php-process-5.4.16-43.el7_4.x86_64</span><br><span class="line">php-cli-5.4.16-43.el7_4.x86_64</span><br><span class="line">php-fpm-5.4.16-43.el7_4.x86_64</span><br><span class="line">php-pear-1.9.4-21.el7.noarch</span><br><span class="line"></span><br><span class="line"># 依次卸载</span><br><span class="line">rpm -e xxx</span><br><span class="line"></span><br><span class="line">如果某个包被依赖不能卸载，如：</span><br><span class="line">➜  src rpm -e php-cli-5.4.16-43.el7_4.x86_64</span><br><span class="line">错误：依赖检测失败：</span><br><span class="line">    php-cli 被 (已安裝) php-pear-1:1.9.4-21.el7.noarch 需要</span><br><span class="line">先卸载 php-pear-1.9.4-21.el7.noarch</span><br><span class="line"></span><br><span class="line">如果还有不能卸载的，可以加 参数强制卸载，如：</span><br><span class="line">rpm -e php-4.3.9-3.15 --nodeps</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="安装-php7"><a href="#安装-php7" class="headerlink" title="安装 php7"></a>安装 php7</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rpm -Uvh https://mirror.webtatic.com/yum/el7/epel-release.rpm</span><br><span class="line">rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm</span><br><span class="line"></span><br><span class="line">yum install php70w</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;卸载-php&quot;&gt;&lt;a href=&quot;#卸载-php&quot; class=&quot;headerlink&quot; title=&quot;卸载 php&quot;&gt;&lt;/a&gt;卸载 php&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# 查看已安装的 php 相关包&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rpm -qa|grep php&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;php-pecl-igbinary-1.2.1-1.el7.x86_64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;php-xml-5.4.16-43.el7_4.x86_64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;php-pecl-redis-2.2.8-1.el7.x86_64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;php-common-5.4.16-43.el7_4.x86_64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;php-process-5.4.16-43.el7_4.x86_64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;php-cli-5.4.16-43.el7_4.x86_64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;php-fpm-5.4.16-43.el7_4.x86_64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;php-pear-1.9.4-21.el7.noarch&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# 依次卸载&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rpm -e xxx&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;如果某个包被依赖不能卸载，如：&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;➜  src rpm -e php-cli-5.4.16-43.el7_4.x86_64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;错误：依赖检测失败：&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    php-cli 被 (已安裝) php-pear-1:1.9.4-21.el7.noarch 需要&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;先卸载 php-pear-1.9.4-21.el7.noarch&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;如果还有不能卸载的，可以加 参数强制卸载，如：&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rpm -e php-4.3.9-3.15 --nodeps&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="https://frostbelt.github.io/tags/linux/"/>
-    
-      <category term="php" scheme="https://frostbelt.github.io/tags/php/"/>
     
   </entry>
   
