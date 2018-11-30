@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2018-11-27T06:43:37.133Z</updated>
+  <updated>2018-11-30T04:10:46.255Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vscode tab&amp;space</title>
+    <link href="https://frostbelt.github.io/2018/11/30/vscode-tab-space/"/>
+    <id>https://frostbelt.github.io/2018/11/30/vscode-tab-space/</id>
+    <published>2018-11-30T04:06:28.000Z</published>
+    <updated>2018-11-30T04:10:46.255Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>之前一直习惯 1 tab = 4 space，现在发现很多脚手架都是 2 space</p></blockquote><a id="more"></a><h3 id="将-vscode-默认修改为-1-tab-2-space"><a href="#将-vscode-默认修改为-1-tab-2-space" class="headerlink" title="将 vscode 默认修改为 1 tab = 2 space"></a>将 vscode 默认修改为 1 tab = 2 space</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vscode 首选项 -&gt; 设置</span><br><span class="line">搜索 editor.detectIndentation</span><br><span class="line">修改为:</span><br><span class="line">&quot;editor.detectIndentation&quot;: false,</span><br><span class="line">&quot;editor.tabSize&quot;: 2,</span><br></pre></td></tr></table></figure><h3 id="将原来-4-space-的文件转为-2-space"><a href="#将原来-4-space-的文件转为-2-space" class="headerlink" title="将原来 4 space 的文件转为 2 space"></a>将原来 4 space 的文件转为 2 space</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vscode 代码自己缩进</span><br><span class="line">alt + shift + f</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;之前一直习惯 1 tab = 4 space，现在发现很多脚手架都是 2 space&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="vscode" scheme="https://frostbelt.github.io/tags/vscode/"/>
+    
+  </entry>
   
   <entry>
     <title>dva alias</title>
@@ -536,31 +558,6 @@
       <category term="linux" scheme="https://frostbelt.github.io/tags/linux/"/>
     
       <category term="mysql" scheme="https://frostbelt.github.io/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux 安装 redis</title>
-    <link href="https://frostbelt.github.io/2018/10/12/linux-%E5%AE%89%E8%A3%85-redis/"/>
-    <id>https://frostbelt.github.io/2018/10/12/linux-安装-redis/</id>
-    <published>2018-10-12T07:09:29.000Z</published>
-    <updated>2018-10-12T07:13:00.822Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="安装-redis"><a href="#安装-redis" class="headerlink" title="安装 redis"></a>安装 redis</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install redis</span><br></pre></td></tr></table></figure><h3 id="启动-redis"><a href="#启动-redis" class="headerlink" title="启动 redis"></a>启动 redis</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service redis start</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep redis</span><br></pre></td></tr></table></figure><h3 id="进入-redis-服务"><a href="#进入-redis-服务" class="headerlink" title="进入 redis 服务"></a>进入 redis 服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli</span><br></pre></td></tr></table></figure><h3 id="关闭-redis-服务"><a href="#关闭-redis-服务" class="headerlink" title="关闭 redis 服务"></a>关闭 redis 服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli shutdown</span><br></pre></td></tr></table></figure><h3 id="开放端口的防火墙"><a href="#开放端口的防火墙" class="headerlink" title="开放端口的防火墙"></a>开放端口的防火墙</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/sbin/iptables -I INPUT -p tcp --dport 6379  -j ACCEPT</span><br><span class="line">/sbin/iptables -I INPUT -p tcp --dport 6380 -j ACCEPT</span><br></pre></td></tr></table></figure><h3 id="安装-php-redis-扩展"><a href="#安装-php-redis-扩展" class="headerlink" title="安装 php redis 扩展"></a>安装 php redis 扩展</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 查看 php 版本</span><br><span class="line">php -v</span><br><span class="line"># 查找对应的 redis 扩展版本</span><br><span class="line">yum list | grep php55w*</span><br><span class="line">yum list | grep &quot;php&quot; | grep &quot;redis&quot;</span><br><span class="line"># 安装扩展</span><br><span class="line">yum -y install php-pecl-redis.x86_64</span><br><span class="line"># 重启 php-fpm</span><br><span class="line">service php-fpm restart</span><br></pre></td></tr></table></figure><h3 id="查看是否成功"><a href="#查看是否成功" class="headerlink" title="查看是否成功"></a>查看是否成功</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">redis-cli</span><br><span class="line">&gt;set test-frostbelt-name frostbelt</span><br><span class="line">OK</span><br><span class="line">&gt;get test-frostbelt-name</span><br><span class="line">&quot;frostbelt&quot;</span><br><span class="line"></span><br><span class="line">php -r &apos;$redis=new Redis();$redis-&gt;connect(&quot;127.0.0.1&quot;,6379);echo $redis-&gt;get(&quot;test-frostbelt-name&quot;);&apos;</span><br><span class="line">frostbelt#</span><br></pre></td></tr></table></figure><h3 id="注："><a href="#注：" class="headerlink" title="注："></a>注：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果 php 不是由 yum 安装的，需要下载 phpredis 扩展，手动安装</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;安装-redis&quot;&gt;&lt;a href=&quot;#安装-redis&quot; class=&quot;headerlink&quot; title=&quot;安装 redis&quot;&gt;&lt;/a&gt;安装 redis&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum install redis&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;启动-redis&quot;&gt;&lt;a href=&quot;#启动-redis&quot; class=&quot;headerlink&quot; title=&quot;启动 redis&quot;&gt;&lt;/a&gt;启动 redis&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;service redis start&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="https://frostbelt.github.io/tags/linux/"/>
-    
-      <category term="php" scheme="https://frostbelt.github.io/tags/php/"/>
-    
-      <category term="redis" scheme="https://frostbelt.github.io/tags/redis/"/>
     
   </entry>
   
