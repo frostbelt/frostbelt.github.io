@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2018-12-07T07:01:36.329Z</updated>
+  <updated>2018-12-08T06:52:33.321Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>word 中如何输入对勾</title>
+    <link href="https://frostbelt.github.io/2018/12/08/word-%E4%B8%AD%E5%A6%82%E4%BD%95%E8%BE%93%E5%85%A5%E5%AF%B9%E5%8B%BE/"/>
+    <id>https://frostbelt.github.io/2018/12/08/word-中如何输入对勾/</id>
+    <published>2018-12-08T06:51:37.000Z</published>
+    <updated>2018-12-08T06:52:33.321Z</updated>
+    
+    <content type="html"><![CDATA[<p>输入R<br>选中R，修改字体为 Wingdings 2</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;输入R&lt;br&gt;选中R，修改字体为 Wingdings 2&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="word" scheme="https://frostbelt.github.io/tags/word/"/>
+    
+  </entry>
   
   <entry>
     <title>laravel 初始化</title>
@@ -526,33 +550,6 @@
       <category term="用户" scheme="https://frostbelt.github.io/tags/%E7%94%A8%E6%88%B7/"/>
     
       <category term="user" scheme="https://frostbelt.github.io/tags/user/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux 命令 grep</title>
-    <link href="https://frostbelt.github.io/2018/10/15/linux-%E5%91%BD%E4%BB%A4-grep/"/>
-    <id>https://frostbelt.github.io/2018/10/15/linux-命令-grep/</id>
-    <published>2018-10-15T06:14:16.000Z</published>
-    <updated>2018-10-15T06:35:59.562Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>grep（global search regular expression(RE) and print out the line，全面搜索正则表达式并把行打印出来）是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹配的行打印出来。</p></blockquote><h3 id="匹配字符串"><a href="#匹配字符串" class="headerlink" title="匹配字符串"></a>匹配字符串</h3><blockquote><p>grep <code>xxx</code> file_name<br>grep <code>&quot;xxx&quot;</code> file_name</p></blockquote><a id="more"></a><h3 id="在多个文件中查找"><a href="#在多个文件中查找" class="headerlink" title="在多个文件中查找"></a>在多个文件中查找</h3><blockquote><p>grep <code>&quot;xxx&quot;</code> file_1 file_2 file_3 …</p></blockquote><h3 id="输出除-xxx-之外的所有行"><a href="#输出除-xxx-之外的所有行" class="headerlink" title="输出除 xxx 之外的所有行"></a>输出除 xxx 之外的所有行</h3><blockquote><p>grep <code>-v &quot;xxx&quot;</code> file_name</p></blockquote><h3 id="使用正则表达式"><a href="#使用正则表达式" class="headerlink" title="使用正则表达式"></a>使用正则表达式</h3><blockquote><p>grep <code>-E &quot;[1-9]+&quot;</code> file_name</p></blockquote><h3 id="只输出文件中匹配到的部分"><a href="#只输出文件中匹配到的部分" class="headerlink" title="只输出文件中匹配到的部分"></a>只输出文件中匹配到的部分</h3><blockquote><p>grep -E <code>-o &quot;03-06 14:30&quot;</code> mysqld.log</p></blockquote><h3 id="统计文件或者文本中包含匹配字符串的行数"><a href="#统计文件或者文本中包含匹配字符串的行数" class="headerlink" title="统计文件或者文本中包含匹配字符串的行数"></a>统计文件或者文本中包含匹配字符串的行数</h3><blockquote><p>grep -E <code>-c &quot;03-06 14:30&quot;</code> mysqld.log</p></blockquote><h3 id="输出包含匹配字符串的行号"><a href="#输出包含匹配字符串的行号" class="headerlink" title="输出包含匹配字符串的行号"></a>输出包含匹配字符串的行号</h3><blockquote><p>grep -E <code>-n &quot;03-06 14:30&quot;</code> mysqld.log</p></blockquote><h3 id="打印样式匹配所位于的字符或字节偏移"><a href="#打印样式匹配所位于的字符或字节偏移" class="headerlink" title="打印样式匹配所位于的字符或字节偏移"></a>打印样式匹配所位于的字符或字节偏移</h3><blockquote><p>grep -E <code>-b &quot;03-06 14:30&quot;</code> mysqld.log</p></blockquote><h3 id="o-b-经常配合使用"><a href="#o-b-经常配合使用" class="headerlink" title="-o, -b 经常配合使用"></a>-o, -b 经常配合使用</h3><blockquote><p>grep -E <code>-b -o &quot;03-06 14:30&quot;</code> mysqld.log</p></blockquote><h3 id="直接使用正则式"><a href="#直接使用正则式" class="headerlink" title="直接使用正则式"></a>直接使用正则式</h3><blockquote><p>以 u 开头的日志<br><code>grep ^u mysqld.log</code><br>不以 u 开头的日志<br><code>grep ^[^u] mysqld.log</code><br>以 <code>&quot;</code> 结尾的日志<br><code>grep \&quot;$ mysqld.log</code><br>其它正则<br><code>grep &#39;app\.k.*feedback&#39; k2.access.log</code></p></blockquote><h3 id="搜索多个文件并查找匹配文本在哪些文件中"><a href="#搜索多个文件并查找匹配文本在哪些文件中" class="headerlink" title="搜索多个文件并查找匹配文本在哪些文件中"></a>搜索多个文件并查找匹配文本在哪些文件中</h3><blockquote><p>grep <code>-l &quot;text&quot;</code> file1 file2 file3…</p></blockquote><h3 id="在多级目录中对文本进行递归搜索"><a href="#在多级目录中对文本进行递归搜索" class="headerlink" title="在多级目录中对文本进行递归搜索"></a>在多级目录中对文本进行递归搜索</h3><blockquote><p>grep <code>&quot;text&quot; . -r -n</code></p></blockquote><h3 id="忽略匹配样式中的字符大小写"><a href="#忽略匹配样式中的字符大小写" class="headerlink" title="忽略匹配样式中的字符大小写"></a>忽略匹配样式中的字符大小写</h3><blockquote><p>grep <code>-i &quot;HELLO&quot;</code> file_name</p></blockquote><h3 id="匹配多项-的关系"><a href="#匹配多项-的关系" class="headerlink" title="匹配多项 (|| 的关系)"></a>匹配多项 (|| 的关系)</h3><blockquote><p>grep <code>-E &quot;03-06 14:30&quot;</code> mysqld.log | grep <code>-i &quot;incorrect&quot;</code></p></blockquote><h3 id="在grep搜索结果中包括或者排除指定文件"><a href="#在grep搜索结果中包括或者排除指定文件" class="headerlink" title="在grep搜索结果中包括或者排除指定文件"></a>在grep搜索结果中包括或者排除指定文件</h3><blockquote><p>只在目录中所有的.php和.html文件中递归搜索字符<code>&quot;main()&quot;</code><br>grep <code>&quot;main()&quot;</code> . -r <code>--include=&#39;*.php&#39;</code> <code>--include=&#39;*.html&#39;</code><br>在搜索结果中排除所有.log文件<br>grep <code>-E &quot;03-06 14:30&quot;</code> . -r <code>--exclude=&#39;*.log&#39;</code></p></blockquote><h3 id="打印出匹配文本之前或者之后的行"><a href="#打印出匹配文本之前或者之后的行" class="headerlink" title="打印出匹配文本之前或者之后的行"></a>打印出匹配文本之前或者之后的行</h3><blockquote><p>匹配结果行及之后的3行<br><code>grep -i -n &quot;incorrect&quot; -A 3 mysqld.log</code><br>匹配结果行及之前的3行<br><code>grep -i -n &quot;incorrect&quot; -B 3 mysqld.log</code><br>匹配结果行及前后的3行<br><code>grep -i -n &quot;incorrect&quot; -C 3 mysqld.log</code><br>注：如果匹配结果有多个，会用<code>&quot;--&quot;</code>作为各匹配结果之间的分隔符</p></blockquote><h3 id="只显示第1个匹配结果"><a href="#只显示第1个匹配结果" class="headerlink" title="只显示第1个匹配结果"></a>只显示第1个匹配结果</h3><blockquote><p>grep -i -n <code>-m 1 &quot;incorrect&quot;</code> -A 3 mysqld.log</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;grep（global search regular expression(RE) and print out the line，全面搜索正则表达式并把行打印出来）是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹配的行打印出来。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;匹配字符串&quot;&gt;&lt;a href=&quot;#匹配字符串&quot; class=&quot;headerlink&quot; title=&quot;匹配字符串&quot;&gt;&lt;/a&gt;匹配字符串&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;grep &lt;code&gt;xxx&lt;/code&gt; file_name&lt;br&gt;grep &lt;code&gt;&amp;quot;xxx&amp;quot;&lt;/code&gt; file_name&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="https://frostbelt.github.io/tags/linux/"/>
-    
-      <category term="grep" scheme="https://frostbelt.github.io/tags/grep/"/>
     
   </entry>
   
