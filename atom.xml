@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2018-12-10T04:13:00.250Z</updated>
+  <updated>2018-12-11T09:22:23.005Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>阿里云ECS服务器支持HTTPS</title>
+    <link href="https://frostbelt.github.io/2018/12/11/%E9%98%BF%E9%87%8C%E4%BA%91ECS%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%94%AF%E6%8C%81HTTPS/"/>
+    <id>https://frostbelt.github.io/2018/12/11/阿里云ECS服务器支持HTTPS/</id>
+    <published>2018-12-11T09:08:01.000Z</published>
+    <updated>2018-12-11T09:22:23.005Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>当前环境<br>阿里云ECS服务器<br>域名在阿里云解析<br>服务器使用nginx</p></blockquote><h3 id="申请-SSL证书"><a href="#申请-SSL证书" class="headerlink" title="申请 SSL证书"></a>申请 SSL证书</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">https://yundunnext.console.aliyun.com/?p=casnext#/overview/cn-hangzhou</span><br><span class="line">购买证书（免费版）</span><br><span class="line">选择品牌: Symantec</span><br><span class="line">证书类型: 免费型DV SSL</span><br><span class="line">其它默认，立即购买</span><br><span class="line">输入域名，支付0元，等待申请通过</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="安装证书"><a href="#安装证书" class="headerlink" title="安装证书"></a>安装证书</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">申请通过后，下载证书 zip 包</span><br><span class="line">解压到服务器 nginx 目录下，如:</span><br><span class="line">/etc/nginx/ssl/</span><br><span class="line">即:</span><br><span class="line">/etc/nginx/ssl/xxx.key</span><br><span class="line">/etc/nginx/ssl/xxx.pem</span><br><span class="line"></span><br><span class="line">修改 nginx 配置并重启 nginx</span><br><span class="line">server &#123;</span><br><span class="line">listen 80;</span><br><span class="line">listen 443 ssl;</span><br><span class="line">ssl on;</span><br><span class="line">access_log /xxx.log  main;  # 访问日志</span><br><span class="line">error_log /xxx.log;         # 错误日志</span><br><span class="line">root /xxx;                  # 项目根目录</span><br><span class="line">server_name xxx.xxx.com;    # 域名</span><br><span class="line"></span><br><span class="line">ssl_certificate /etc/nginx/ssl/xxx.pem;     # 上一步得到的证书文件</span><br><span class="line">ssl_certificate_key /etc/nginx/ssl/xxx.key;</span><br><span class="line">ssl_session_timeout 5m;</span><br><span class="line">ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!3DES:!aNULL:!MD5:!ADH:!RC4;</span><br><span class="line">ssl_prefer_server_ciphers on;</span><br><span class="line"></span><br><span class="line">location / &#123;</span><br><span class="line">try_files $uri $uri /index.php?$query_string;</span><br><span class="line">&#125;</span><br><span class="line">location ~* \.php &#123;</span><br><span class="line">include fastcgi_params;</span><br><span class="line">fastcgi_index index.php;</span><br><span class="line">fastcgi_pass 127.0.0.1:9000;</span><br><span class="line">fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="安全组放行下443端口"><a href="#安全组放行下443端口" class="headerlink" title="安全组放行下443端口"></a>安全组放行下443端口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">控制台-&gt;云服务器 ECS-&gt;网络和安全-&gt;安全组-&gt;配置规则</span><br><span class="line">网卡类型: 内网</span><br><span class="line">规则方向: 入方向</span><br><span class="line">授权策略: 允许</span><br><span class="line">协议类型: HTTPS(443)</span><br><span class="line">端口范围: 443/443</span><br><span class="line">优先级: 1</span><br><span class="line">授权类型: IPv4地址段访问</span><br><span class="line">授权对象: 0.0.0.0/0</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;当前环境&lt;br&gt;阿里云ECS服务器&lt;br&gt;域名在阿里云解析&lt;br&gt;服务器使用nginx&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;申请-SSL证书&quot;&gt;&lt;a href=&quot;#申请-SSL证书&quot; class=&quot;headerlink&quot; title=&quot;申请 SSL证书&quot;&gt;&lt;/a&gt;申请 SSL证书&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;https://yundunnext.console.aliyun.com/?p=casnext#/overview/cn-hangzhou&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;购买证书（免费版）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;选择品牌: Symantec&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;证书类型: 免费型DV SSL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;其它默认，立即购买&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;输入域名，支付0元，等待申请通过&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="ali" scheme="https://frostbelt.github.io/tags/ali/"/>
+    
+      <category term="https" scheme="https://frostbelt.github.io/tags/https/"/>
+    
+      <category term="ssl" scheme="https://frostbelt.github.io/tags/ssl/"/>
+    
+  </entry>
   
   <entry>
     <title>laravel 创建数据表</title>
@@ -514,33 +541,6 @@
       <category term="ps" scheme="https://frostbelt.github.io/tags/ps/"/>
     
       <category term="扣图" scheme="https://frostbelt.github.io/tags/%E6%89%A3%E5%9B%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux 乱码问题</title>
-    <link href="https://frostbelt.github.io/2018/10/18/linux-%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/"/>
-    <id>https://frostbelt.github.io/2018/10/18/linux-乱码问题/</id>
-    <published>2018-10-18T04:01:40.000Z</published>
-    <updated>2018-10-18T04:19:44.688Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">$ git st</span><br><span class="line"># ???? master</span><br><span class="line">??????,??????</span><br><span class="line"></span><br><span class="line">$ locale</span><br><span class="line">locale: Cannot set LC_CTYPE to default locale: No such file or directory</span><br><span class="line">locale: Cannot set LC_ALL to default locale: ?????????</span><br><span class="line">LANG=zh_CN.UTF-8</span><br><span class="line">LC_CTYPE=UTF-8</span><br><span class="line">LC_NUMERIC=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_TIME=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_COLLATE=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_MONETARY=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_MESSAGES=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_PAPER=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_NAME=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_ADDRESS=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_TELEPHONE=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_MEASUREMENT=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_IDENTIFICATION=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_ALL=</span><br><span class="line"></span><br><span class="line"># 临时解决</span><br><span class="line">$ export LC_ALL=&quot;zh_CN.UTF-8&quot;</span><br><span class="line"></span><br><span class="line">$ locale</span><br><span class="line">LANG=zh_CN.UTF-8</span><br><span class="line">LC_CTYPE=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_NUMERIC=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_TIME=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_COLLATE=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_MONETARY=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_MESSAGES=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_PAPER=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_NAME=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_ADDRESS=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_TELEPHONE=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_MEASUREMENT=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_IDENTIFICATION=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_ALL=zh_CN.UTF-8</span><br><span class="line"></span><br><span class="line">$ git st</span><br><span class="line"># 位于分支 master</span><br><span class="line">无文件要提交，干净的工作区</span><br><span class="line"></span><br><span class="line"># 永久解决</span><br><span class="line">在 ~/.bashrc 中添加</span><br><span class="line">export LC_ALL=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">并执行</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class
-      
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="https://frostbelt.github.io/tags/linux/"/>
-    
-      <category term="乱码" scheme="https://frostbelt.github.io/tags/%E4%B9%B1%E7%A0%81/"/>
-    
-      <category term="utf8" scheme="https://frostbelt.github.io/tags/utf8/"/>
     
   </entry>
   
