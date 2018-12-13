@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2018-12-13T01:54:18.689Z</updated>
+  <updated>2018-12-13T08:58:39.967Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -17,13 +17,59 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>php 下载 csv utf8</title>
+    <link href="https://frostbelt.github.io/2018/12/13/php-%E4%B8%8B%E8%BD%BD-csv-utf8/"/>
+    <id>https://frostbelt.github.io/2018/12/13/php-下载-csv-utf8/</id>
+    <published>2018-12-13T08:58:01.000Z</published>
+    <updated>2018-12-13T08:58:39.967Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">header(&apos;Expires: 0&apos;);</span><br><span class="line">header(&apos;Cache-control: private&apos;);</span><br><span class="line">header(&apos;Cache-Control: must-revalidate, post-check=0, pre-check=0&apos;);</span><br><span class="line">header(&apos;Content-Description: File Transfer&apos;);</span><br><span class="line">header(&apos;Content-Encoding: UTF-8&apos;);</span><br><span class="line">header(&apos;Content-type: text/csv; charset=UTF-8&apos;);</span><br><span class="line">header(&apos;Content-Disposition: attachment; filename=download.csv&apos;);</span><br><span class="line"></span><br><span class="line">$content = implode(&quot;\n&quot;, $content);</span><br><span class="line">echo &quot;\xEF\xBB\xBF&quot;; // UTF-8 BOM</span><br><span class="line">echo $content;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class
+      
+    
+    </summary>
+    
+    
+      <category term="php" scheme="https://frostbelt.github.io/tags/php/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git 添加远程仓库</title>
+    <link href="https://frostbelt.github.io/2018/12/13/git-%E6%B7%BB%E5%8A%A0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/"/>
+    <id>https://frostbelt.github.io/2018/12/13/git-添加远程仓库/</id>
+    <published>2018-12-13T02:34:50.000Z</published>
+    <updated>2018-12-13T02:36:47.483Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin 远程仓库地址</span><br><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="git" scheme="https://frostbelt.github.io/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
     <title>css scrollbar 滚动条样式</title>
     <link href="https://frostbelt.github.io/2018/12/13/css-scrollbar-%E6%BB%9A%E5%8A%A8%E6%9D%A1%E6%A0%B7%E5%BC%8F/"/>
     <id>https://frostbelt.github.io/2018/12/13/css-scrollbar-滚动条样式/</id>
     <published>2018-12-13T01:49:40.000Z</published>
-    <updated>2018-12-13T01:54:18.689Z</updated>
+    <updated>2018-12-13T02:30:22.569Z</updated>
     
-    <content type="html"><![CDATA[<p>效果：<br><img src="/images/css_scrollbar.png" alt="scrollbar"></p><a id="more"></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 滑块</span><br><span class="line">.list-scroll::-webkit-scrollbar-thumb&#123; </span><br><span class="line">  background-color: #fff; </span><br><span class="line">  border-radius: px(9); </span><br><span class="line">&#125;</span><br><span class="line">// 滚动条</span><br><span class="line">.list-scroll::-webkit-scrollbar&#123; </span><br><span class="line">  width: px(13); </span><br><span class="line">  height: px(13); </span><br><span class="line">  display: block; </span><br><span class="line">  border-radius: px(13);</span><br><span class="line">&#125; </span><br><span class="line">// 轨道</span><br><span class="line">.list-scroll::-webkit-scrollbar-track&#123; </span><br><span class="line">  background-color: #cd6624; </span><br><span class="line">  border-radius: px(13); </span><br><span class="line">  @include webkit(box-shadow, inset 0 0 px(4) rgba(0,0,0,0.3));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>效果：<br><img src="/images/css_scrollbar.png" alt="scrollbar"></p><a id="more"></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 滑块</span><br><span class="line">.list-scroll::-webkit-scrollbar-thumb&#123; </span><br><span class="line">  background-color: #fff; </span><br><span class="line">  border-radius: px(9); </span><br><span class="line">&#125;</span><br><span class="line">// 如果需要 hover 态</span><br><span class="line">.list-scroll::-webkit-scrollbar-thumb:hover&#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line">// 滚动条</span><br><span class="line">.list-scroll::-webkit-scrollbar&#123; </span><br><span class="line">  width: px(13); </span><br><span class="line">  height: px(13); </span><br><span class="line">  display: block; </span><br><span class="line">  border-radius: px(13);</span><br><span class="line">&#125; </span><br><span class="line">// 轨道</span><br><span class="line">.list-scroll::-webkit-scrollbar-track&#123; </span><br><span class="line">  background-color: #cd6624; </span><br><span class="line">  border-radius: px(13); </span><br><span class="line">  @include webkit(box-shadow, inset 0 0 px(4) rgba(0,0,0,0.3));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -480,58 +526,6 @@
       <category term="搜索" scheme="https://frostbelt.github.io/tags/%E6%90%9C%E7%B4%A2/"/>
     
       <category term="algolia" scheme="https://frostbelt.github.io/tags/algolia/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PS 钢笔抠图技巧</title>
-    <link href="https://frostbelt.github.io/2018/10/19/PS-%E9%92%A2%E7%AC%94%E6%8A%A0%E5%9B%BE%E6%8A%80%E5%B7%A7/"/>
-    <id>https://frostbelt.github.io/2018/10/19/PS-钢笔抠图技巧/</id>
-    <published>2018-10-19T09:02:04.000Z</published>
-    <updated>2018-10-24T03:54:00.950Z</updated>
-    
-    <content type="html"><![CDATA[<p>引自<a href="https://jingyan.baidu.com/article/ceb9fb1004f9eb8cad2ba01b.html" target="_blank" rel="noopener">用PS中的钢笔抠图（初级教程，面向广大菜鸟）</a></p><h3 id="拐点"><a href="#拐点" class="headerlink" title="拐点"></a>拐点</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">每一个锚点默认都是两端对称的</span><br><span class="line">为了“截断”曲线，调整完上一条曲线的弧度后，按住 alt 单击锚点(鼠标显示白色折线箭头时)，再添加下一个锚点</span><br></pre></td></tr></table></figure><h3 id="羽化"><a href="#羽化" class="headerlink" title="羽化"></a>羽化</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">根据路径建立选区时，羽化半径设为 1px，即选区扩大一个 size</span><br></pre></td></tr></table></figure><h3 id="修改已有路径"><a href="#修改已有路径" class="headerlink" title="修改已有路径"></a>修改已有路径</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">选择已有路径(鼠标显示白色空心箭头时)</span><br><span class="line">command + click</span><br><span class="line">删除已有锚点</span><br><span class="line">click</span><br><span class="line">移动已有锚点(鼠标显示白色空心箭头时)</span><br><span class="line">command + mousemove</span><br><span class="line">修改锚点路径弧度(鼠标显示白色折线箭头时)</span><br><span class="line">alt + mousemove</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;引自&lt;a href=&quot;https://jingyan.baidu.com/article/ceb9fb1004f9eb8cad2ba01b.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;用PS中的钢笔抠图（初级教程，面向广大菜鸟）&lt;/a&gt;&lt;/p&gt;
-      
-    
-    </summary>
-    
-    
-      <category term="ps" scheme="https://frostbelt.github.io/tags/ps/"/>
-    
-      <category term="钢笔" scheme="https://frostbelt.github.io/tags/%E9%92%A2%E7%AC%94/"/>
-    
-      <category term="抠图" scheme="https://frostbelt.github.io/tags/%E6%8A%A0%E5%9B%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>测试下全英文的 .md，gitalk 能正常初始化吗？</title>
-    <link href="https://frostbelt.github.io/2018/10/19/test-gitalk/"/>
-    <id>https://frostbelt.github.io/2018/10/19/test-gitalk/</id>
-    <published>2018-10-19T01:59:03.000Z</published>
-    <updated>2018-10-19T02:28:33.144Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="结论是…"><a href="#结论是…" class="headerlink" title="结论是…"></a>结论是…</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">没有成功</span><br><span class="line">还是显示“未找到相关的 Issues 进行评论”</span><br><span class="line">难道真的每遍都得初始化？不能自动生成 issues 吗</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;结论是…&quot;&gt;&lt;a href=&quot;#结论是…&quot; class=&quot;headerlink&quot; title=&quot;结论是…&quot;&gt;&lt;/a&gt;结论是…&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pr
-      
-    
-    </summary>
-    
-    
-      <category term="test" scheme="https://frostbelt.github.io/tags/test/"/>
-    
-      <category term="gitalk" scheme="https://frostbelt.github.io/tags/gitalk/"/>
     
   </entry>
   
