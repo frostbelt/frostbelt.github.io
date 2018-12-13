@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2018-12-11T09:22:23.005Z</updated>
+  <updated>2018-12-13T01:54:18.689Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>css scrollbar 滚动条样式</title>
+    <link href="https://frostbelt.github.io/2018/12/13/css-scrollbar-%E6%BB%9A%E5%8A%A8%E6%9D%A1%E6%A0%B7%E5%BC%8F/"/>
+    <id>https://frostbelt.github.io/2018/12/13/css-scrollbar-滚动条样式/</id>
+    <published>2018-12-13T01:49:40.000Z</published>
+    <updated>2018-12-13T01:54:18.689Z</updated>
+    
+    <content type="html"><![CDATA[<p>效果：<br><img src="/images/css_scrollbar.png" alt="scrollbar"></p><a id="more"></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 滑块</span><br><span class="line">.list-scroll::-webkit-scrollbar-thumb&#123; </span><br><span class="line">  background-color: #fff; </span><br><span class="line">  border-radius: px(9); </span><br><span class="line">&#125;</span><br><span class="line">// 滚动条</span><br><span class="line">.list-scroll::-webkit-scrollbar&#123; </span><br><span class="line">  width: px(13); </span><br><span class="line">  height: px(13); </span><br><span class="line">  display: block; </span><br><span class="line">  border-radius: px(13);</span><br><span class="line">&#125; </span><br><span class="line">// 轨道</span><br><span class="line">.list-scroll::-webkit-scrollbar-track&#123; </span><br><span class="line">  background-color: #cd6624; </span><br><span class="line">  border-radius: px(13); </span><br><span class="line">  @include webkit(box-shadow, inset 0 0 px(4) rgba(0,0,0,0.3));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;效果：&lt;br&gt;&lt;img src=&quot;/images/css_scrollbar.png&quot; alt=&quot;scrollbar&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="css" scheme="https://frostbelt.github.io/tags/css/"/>
+    
+  </entry>
   
   <entry>
     <title>阿里云ECS服务器支持HTTPS</title>
@@ -512,35 +532,6 @@
       <category term="test" scheme="https://frostbelt.github.io/tags/test/"/>
     
       <category term="gitalk" scheme="https://frostbelt.github.io/tags/gitalk/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PS 扣图练习</title>
-    <link href="https://frostbelt.github.io/2018/10/18/PS-%E6%89%A3%E5%9B%BE%E7%BB%83%E4%B9%A0/"/>
-    <id>https://frostbelt.github.io/2018/10/18/PS-扣图练习/</id>
-    <published>2018-10-18T09:01:37.000Z</published>
-    <updated>2018-10-18T10:35:02.191Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="先上效果"><a href="#先上效果" class="headerlink" title="先上效果"></a>先上效果</h4><blockquote><p>原图</p></blockquote><p><img src="/images/人像2.jpg" alt="原图"></p><blockquote><p>完成后</p></blockquote><p><img src="/images/人像2_fixed.jpg" alt="完成后"></p><a id="more"></a><p>给自己打 <code>59</code> 分吧，细节丢失太多，发根处理得也不到位，扣个证件照差不多够了</p><p>参考：<a href="https://www.uisdc.com/photoshop-matting-techniques" target="_blank" rel="noopener">从菜鸟到高手！Photoshop抠图全方位攻略</a></p><p>自己做时的参数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">蓝色通道</span><br><span class="line">减淡 硬度 20，曝光度 20%，高光</span><br><span class="line">加深 硬度 20，曝光度 20%，阴影</span><br><span class="line">处理“灰白灰白”情况时 加深 硬度 0，曝光度 2%，高光</span><br><span class="line">背景色 #3c8cdc</span><br></pre></td></tr></table></figure></p><p>附<a href="/images/人像2.psd">psd</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;先上效果&quot;&gt;&lt;a href=&quot;#先上效果&quot; class=&quot;headerlink&quot; title=&quot;先上效果&quot;&gt;&lt;/a&gt;先上效果&lt;/h4&gt;&lt;blockquote&gt;
-&lt;p&gt;原图&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/images/人像2.jpg&quot; alt=&quot;原图&quot;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;完成后&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/images/人像2_fixed.jpg&quot; alt=&quot;完成后&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="ps" scheme="https://frostbelt.github.io/tags/ps/"/>
-    
-      <category term="扣图" scheme="https://frostbelt.github.io/tags/%E6%89%A3%E5%9B%BE/"/>
     
   </entry>
   
