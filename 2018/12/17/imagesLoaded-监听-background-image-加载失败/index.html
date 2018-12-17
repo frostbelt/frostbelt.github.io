@@ -84,7 +84,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="linux,mysql," />
+  <meta name="keywords" content="imagesloaded," />
 
 
 
@@ -102,18 +102,18 @@
 
 
 
-<meta name="description" content="需要 root 权限  查看有没有安装过 mysql12yum list installed mysql*rpm -qa | grep mysql* 查看有没有安装包1yum list mysql*">
-<meta name="keywords" content="linux,mysql">
+<meta name="description" content="见imagesloaded文档">
+<meta name="keywords" content="imagesloaded">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux 安装 mysql">
-<meta property="og:url" content="https://frostbelt.github.io/2018/10/12/linux-安装-mysql/index.html">
+<meta property="og:title" content="imagesLoaded 监听 background-image 加载失败">
+<meta property="og:url" content="https://frostbelt.github.io/2018/12/17/imagesLoaded-监听-background-image-加载失败/index.html">
 <meta property="og:site_name" content="frostbelt&#39;s home">
-<meta property="og:description" content="需要 root 权限  查看有没有安装过 mysql12yum list installed mysql*rpm -qa | grep mysql* 查看有没有安装包1yum list mysql*">
+<meta property="og:description" content="见imagesloaded文档">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-07T03:26:28.364Z">
+<meta property="og:updated_time" content="2018-12-17T08:45:07.583Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux 安装 mysql">
-<meta name="twitter:description" content="需要 root 权限  查看有没有安装过 mysql12yum list installed mysql*rpm -qa | grep mysql* 查看有没有安装包1yum list mysql*">
+<meta name="twitter:title" content="imagesLoaded 监听 background-image 加载失败">
+<meta name="twitter:description" content="见imagesloaded文档">
 
 
 
@@ -143,13 +143,13 @@
 
 
 
-  <link rel="canonical" href="https://frostbelt.github.io/2018/10/12/linux-安装-mysql/"/>
+  <link rel="canonical" href="https://frostbelt.github.io/2018/12/17/imagesLoaded-监听-background-image-加载失败/"/>
 
 
 
 
 
-  <title>linux 安装 mysql | frostbelt's home</title>
+  <title>imagesLoaded 监听 background-image 加载失败 | frostbelt's home</title>
   
 
 
@@ -275,7 +275,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://frostbelt.github.io/2018/10/12/linux-安装-mysql/">
+    <link itemprop="mainEntityOfPage" href="https://frostbelt.github.io/2018/12/17/imagesLoaded-监听-background-image-加载失败/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="frostbelt">
@@ -292,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">linux 安装 mysql</h1>
+          <h1 class="post-title" itemprop="name headline">imagesLoaded 监听 background-image 加载失败</h1>
         
 
         <div class="post-meta">
@@ -304,8 +304,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-12T15:13:46+08:00">
-                2018-10-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-17T16:42:43+08:00">
+                2018-12-17
               </time>
             
 
@@ -322,7 +322,7 @@
 
           
           
-             <span id="/2018/10/12/linux-安装-mysql/" class="leancloud_visitors" data-flag-title="linux 安装 mysql">
+             <span id="/2018/12/17/imagesLoaded-监听-background-image-加载失败/" class="leancloud_visitors" data-flag-title="imagesLoaded 监听 background-image 加载失败">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -349,7 +349,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  317
+                  118
                 </span>
               
 
@@ -386,22 +386,10 @@
       
 
       
-        <blockquote>
-<p>需要 root 权限</p>
-</blockquote>
-<h3 id="查看有没有安装过-mysql"><a href="#查看有没有安装过-mysql" class="headerlink" title="查看有没有安装过 mysql"></a>查看有没有安装过 mysql</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum list installed mysql*</span><br><span class="line">rpm -qa | grep mysql*</span><br></pre></td></tr></table></figure>
-<h3 id="查看有没有安装包"><a href="#查看有没有安装包" class="headerlink" title="查看有没有安装包"></a>查看有没有安装包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list mysql*</span><br></pre></td></tr></table></figure>
+        <p>见<a href="https://imagesloaded.desandro.com/#background" target="_blank" rel="noopener">imagesloaded文档</a></p>
 <a id="more"></a>
-<h3 id="安装-mysql-客户端"><a href="#安装-mysql-客户端" class="headerlink" title="安装 mysql 客户端"></a>安装 mysql 客户端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install mysql-server</span><br><span class="line">yum install mysql-devel</span><br></pre></td></tr></table></figure>
-<h3 id="如果报错-mysql-community-repo-not-find"><a href="#如果报错-mysql-community-repo-not-find" class="headerlink" title="如果报错 mysql-community.repo not find"></a>如果报错 mysql-community.repo not find</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm</span><br><span class="line">rpm -ivh mysql-community-release-el7-5.noarch.rpm</span><br><span class="line">ls -1 /etc/yum.repos.d/mysql-community*</span><br><span class="line">&gt; /etc/yum.repos.d/mysql-community.repo</span><br><span class="line">&gt; /etc/yum.repos.d/mysql-community-source.repo</span><br><span class="line">yum install mysql-server</span><br><span class="line">注：安装完毕后需要回车</span><br></pre></td></tr></table></figure>
-<h3 id="mysql-初始化"><a href="#mysql-初始化" class="headerlink" title="mysql 初始化"></a>mysql 初始化</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/mysql_install_db --user=mysql  &amp;</span><br></pre></td></tr></table></figure>
-<h3 id="启动-mysql"><a href="#启动-mysql" class="headerlink" title="启动 mysql"></a>启动 mysql</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld start</span><br></pre></td></tr></table></figure>
-<h3 id="停止-mysql"><a href="#停止-mysql" class="headerlink" title="停止 mysql"></a>停止 mysql</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld stop</span><br></pre></td></tr></table></figure>
-<h3 id="设置密码"><a href="#设置密码" class="headerlink" title="设置密码"></a>设置密码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -u root password xxx</span><br></pre></td></tr></table></figure>
-<h3 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
-<h3 id="相关目录"><a href="#相关目录" class="headerlink" title="相关目录"></a>相关目录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">数据库目录：      /var/lib/mysql/</span><br><span class="line">配置文件：        /usr/share /mysql（mysql.server命令及配置文件）</span><br><span class="line">相关命令：        /usr/bin（mysqladmin mysqldump等命令）</span><br><span class="line">启动脚本：        /etc/rc.d/init.d/（启动脚本文件mysql的目录）</span><br></pre></td></tr></table></figure>
-<h3 id="错误排查"><a href="#错误排查" class="headerlink" title="错误排查"></a>错误排查</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">配置文件：</span><br><span class="line">/etc/my.cnf</span><br><span class="line">其中设置的错误日志地址：</span><br><span class="line">log-error=/var/log/mysqld.log</span><br><span class="line"></span><br><span class="line">查看 /var/log/mysqld.log 中的错误信息：</span><br><span class="line">grep -i &quot;error&quot; /var/log/mysqld.log</span><br></pre></td></tr></table></figure>
-<h3 id="安装-php-mysql-扩展"><a href="#安装-php-mysql-扩展" class="headerlink" title="安装 php mysql 扩展"></a>安装 php mysql 扩展</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget http://cn2.php.net/distributions/php-7.0.28.tar.gz</span><br><span class="line">tar zxvf php-7.0.28.tar.gz</span><br><span class="line">cd php-7.0.28</span><br><span class="line">./configure --with-php-config=/usr/local/php/bin/php-config --with-mysqli=/usr/bin/mysql_config</span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"># with-php-config 和 with-mysqli 为 php-config 和 mysql_config 的路径</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;js-cover-loaded&quot; data-cover=&quot;静态图&quot; style=&quot;background-image:url(动态图)&quot;&gt;&lt;/div&gt;</span><br><span class="line">// 加载动图失败时尝试加载静态图</span><br><span class="line">var imgLoad = imagesLoaded(&quot;.js-cover-loaded&quot;, &#123; background: true &#125;);</span><br><span class="line">imgLoad.on(&quot;always&quot;, function()&#123;</span><br><span class="line">  for ( var i = 0, len = imgLoad.images.length; i &lt; len; i++ ) &#123;</span><br><span class="line">    var image = imgLoad.images[i];</span><br><span class="line">    var $ele = $(imgLoad.elements[i]);</span><br><span class="line">    $ele.removeClass(&quot;js-cover-loaded&quot;);</span><br><span class="line">    if(!image.isLoaded)&#123;</span><br><span class="line">      $ele.css(&#123;</span><br><span class="line">        backgroundImage : &quot;url(&quot; + $ele.data(&quot;cover&quot;) + &quot;)&quot;,</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -430,9 +418,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
-          
-            <a href="/tags/mysql/" rel="tag"><i class="fa fa-tag"></i> mysql</a>
+            <a href="/tags/imagesloaded/" rel="tag"><i class="fa fa-tag"></i> imagesloaded</a>
           
         </div>
       
@@ -445,8 +431,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/12/linux-安装-redis/" rel="next" title="linux 安装 redis">
-                <i class="fa fa-chevron-left"></i> linux 安装 redis
+              <a href="/2018/12/17/img-border-不均匀问题解决/" rel="next" title="img border 不均匀问题解决">
+                <i class="fa fa-chevron-left"></i> img border 不均匀问题解决
               </a>
             
           </div>
@@ -454,10 +440,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/12/linux-搭建-git-服务器/" rel="prev" title="linux 搭建 git 服务器">
-                linux 搭建 git 服务器 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -513,17 +495,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/default_avatar.png"
@@ -583,22 +556,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看有没有安装过-mysql"><span class="nav-text">查看有没有安装过 mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看有没有安装包"><span class="nav-text">查看有没有安装包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-mysql-客户端"><span class="nav-text">安装 mysql 客户端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果报错-mysql-community-repo-not-find"><span class="nav-text">如果报错 mysql-community.repo not find</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql-初始化"><span class="nav-text">mysql 初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动-mysql"><span class="nav-text">启动 mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#停止-mysql"><span class="nav-text">停止 mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置密码"><span class="nav-text">设置密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#登录"><span class="nav-text">登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关目录"><span class="nav-text">相关目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误排查"><span class="nav-text">错误排查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-php-mysql-扩展"><span class="nav-text">安装 php mysql 扩展</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -782,7 +739,7 @@
           // 如果使用 location.pathname，md5 下，否则超长会报错
           id: md5(location.pathname),
           // 使用 page.date 也可以
-          // id: '1539328426000',
+          // id: '1545036163000',
           pagerDirection: 'first',
           distractionFreeMode: false
         })
