@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2018-12-19T01:37:25.748Z</updated>
+  <updated>2018-12-19T01:52:52.045Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Alfred 剪贴板</title>
+    <link href="https://frostbelt.github.io/2018/12/19/Alfred-%E5%89%AA%E8%B4%B4%E6%9D%BF/"/>
+    <id>https://frostbelt.github.io/2018/12/19/Alfred-剪贴板/</id>
+    <published>2018-12-19T01:48:35.000Z</published>
+    <updated>2018-12-19T01:52:52.045Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>不得不说，Alfred 真是个了不起的工具，相知恨晚</p></blockquote><h3 id="打开剪贴板功能"><a href="#打开剪贴板功能" class="headerlink" title="打开剪贴板功能"></a>打开剪贴板功能</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">由于隐私的原因，Alfred 的剪切板历史记录功能默认是关闭的。</span><br><span class="line">打开方式：</span><br><span class="line">Preferences-&gt;Clipboard</span><br><span class="line">勾选你想要打开的剪贴板功能，设置快捷键</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;不得不说，Alfred 真是个了不起的工具，相知恨晚&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;打开剪贴板功能&quot;&gt;&lt;a href=&quot;#打开剪贴板功能&quot; class=&quot;headerlink&quot; title=&quot;打开剪贴板功能&quot;&gt;&lt;/a&gt;打开剪贴
+      
+    
+    </summary>
+    
+    
+      <category term="alfred" scheme="https://frostbelt.github.io/tags/alfred/"/>
+    
+  </entry>
   
   <entry>
     <title>禁用 eslint</title>
@@ -488,31 +514,6 @@
       <category term="shell" scheme="https://frostbelt.github.io/tags/shell/"/>
     
       <category term="logcat" scheme="https://frostbelt.github.io/tags/logcat/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git 查看上一次提交的修改</title>
-    <link href="https://frostbelt.github.io/2018/11/13/git-%E6%9F%A5%E7%9C%8B%E4%B8%8A%E4%B8%80%E6%AC%A1%E6%8F%90%E4%BA%A4%E7%9A%84%E4%BF%AE%E6%94%B9/"/>
-    <id>https://frostbelt.github.io/2018/11/13/git-查看上一次提交的修改/</id>
-    <published>2018-11-13T06:23:52.000Z</published>
-    <updated>2018-11-13T06:30:43.194Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">查看上一次提交的全部修改</span><br><span class="line">git diff head^ head</span><br><span class="line"></span><br><span class="line">查看上一次提交的某目录或文件的修改</span><br><span class="line">git diff head^ head src</span><br><span class="line"></span><br><span class="line">加个 alias</span><br><span class="line">git config --global alias.diff2 &quot;diff head^ head&quot;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class
-      
-    
-    </summary>
-    
-    
-      <category term="alias" scheme="https://frostbelt.github.io/tags/alias/"/>
-    
-      <category term="git" scheme="https://frostbelt.github.io/tags/git/"/>
     
   </entry>
   
