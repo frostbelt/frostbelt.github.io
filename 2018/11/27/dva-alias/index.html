@@ -102,18 +102,18 @@
 
 
 
-<meta name="description" content="roadhog2.0 去掉了 .roadhogrc，改用 .webpackrc  设置 alias1234567891011121314151617181920安装 module-resolver$ npm install --save-dev babel-plugin-module-resolver.webpackrc 文件中添加 extraBabelPlugins&amp;#123;    &amp;quo">
+<meta name="description" content="roadhog2.0 去掉了 .roadhogrc，改用 .webpackrc  设置 alias1234567891011121314151617181920安装 module-resolver$ npm install --save-dev babel-plugin-module-resolver.webpackrc 文件中添加 extraBabelPlugins&amp;#123;  &amp;quot;">
 <meta name="keywords" content="alias,antd,dva,react">
 <meta property="og:type" content="article">
 <meta property="og:title" content="dva alias">
 <meta property="og:url" content="https://frostbelt.github.io/2018/11/27/dva-alias/index.html">
 <meta property="og:site_name" content="frostbelt&#39;s home">
-<meta property="og:description" content="roadhog2.0 去掉了 .roadhogrc，改用 .webpackrc  设置 alias1234567891011121314151617181920安装 module-resolver$ npm install --save-dev babel-plugin-module-resolver.webpackrc 文件中添加 extraBabelPlugins&amp;#123;    &amp;quo">
+<meta property="og:description" content="roadhog2.0 去掉了 .roadhogrc，改用 .webpackrc  设置 alias1234567891011121314151617181920安装 module-resolver$ npm install --save-dev babel-plugin-module-resolver.webpackrc 文件中添加 extraBabelPlugins&amp;#123;  &amp;quot;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-27T06:43:37.133Z">
+<meta property="og:updated_time" content="2018-12-19T06:28:58.613Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="dva alias">
-<meta name="twitter:description" content="roadhog2.0 去掉了 .roadhogrc，改用 .webpackrc  设置 alias1234567891011121314151617181920安装 module-resolver$ npm install --save-dev babel-plugin-module-resolver.webpackrc 文件中添加 extraBabelPlugins&amp;#123;    &amp;quo">
+<meta name="twitter:description" content="roadhog2.0 去掉了 .roadhogrc，改用 .webpackrc  设置 alias1234567891011121314151617181920安装 module-resolver$ npm install --save-dev babel-plugin-module-resolver.webpackrc 文件中添加 extraBabelPlugins&amp;#123;  &amp;quot;">
 
 
 
@@ -389,7 +389,7 @@
         <blockquote>
 <p>roadhog2.0 去掉了 .roadhogrc，改用 .webpackrc</p>
 </blockquote>
-<h3 id="设置-alias"><a href="#设置-alias" class="headerlink" title="设置 alias"></a>设置 alias</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">安装 module-resolver</span><br><span class="line">$ npm install --save-dev babel-plugin-module-resolver</span><br><span class="line"></span><br><span class="line">.webpackrc 文件中添加 extraBabelPlugins</span><br><span class="line">&#123;</span><br><span class="line">    &quot;extraBabelPlugins&quot; : [</span><br><span class="line">        [&quot;module-resolver&quot;, &#123;</span><br><span class="line">            &quot;root&quot;: [&quot;./&quot;],</span><br><span class="line">            &quot;alias&quot;: &#123;</span><br><span class="line">              &quot;components&quot;:&quot;./src/components&quot;,</span><br><span class="line">              &quot;utils&quot;:&quot;./src/utils&quot;,</span><br><span class="line">              &quot;services&quot;:&quot;./src/services&quot;,</span><br><span class="line">              &quot;models&quot;:&quot;./src/models&quot;, </span><br><span class="line">              &quot;src&quot;: &quot;./src&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;]</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">import helper from &apos;utils/helper&apos;;</span><br></pre></td></tr></table></figure>
+<h3 id="设置-alias"><a href="#设置-alias" class="headerlink" title="设置 alias"></a>设置 alias</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">安装 module-resolver</span><br><span class="line">$ npm install --save-dev babel-plugin-module-resolver</span><br><span class="line"></span><br><span class="line">.webpackrc 文件中添加 extraBabelPlugins</span><br><span class="line">&#123;</span><br><span class="line">  &quot;extraBabelPlugins&quot; : [</span><br><span class="line">    [&quot;module-resolver&quot;, &#123;</span><br><span class="line">      &quot;root&quot;: [&quot;./&quot;],</span><br><span class="line">      &quot;alias&quot;: &#123;</span><br><span class="line">        &quot;components&quot;:&quot;./src/components&quot;,</span><br><span class="line">        &quot;utils&quot;:&quot;./src/utils&quot;,</span><br><span class="line">        &quot;services&quot;:&quot;./src/services&quot;,</span><br><span class="line">        &quot;models&quot;:&quot;./src/models&quot;, </span><br><span class="line">        &quot;src&quot;: &quot;./src&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">import helper from &apos;utils/helper&apos;;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -530,7 +530,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -622,7 +622,7 @@
 
 <div class="theme-info">
   <div class="powered-by" style="display:none;"></div>
-  <span class="post-count">博客全站共13.1k字</span>
+  <span class="post-count">博客全站共13.2k字</span>
 </div>
 
 
