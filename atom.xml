@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2018-12-19T01:52:52.045Z</updated>
+  <updated>2018-12-19T02:30:23.927Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>shell 变量默认值</title>
+    <link href="https://frostbelt.github.io/2018/12/19/shell-%E5%8F%98%E9%87%8F%E9%BB%98%E8%AE%A4%E5%80%BC/"/>
+    <id>https://frostbelt.github.io/2018/12/19/shell-变量默认值/</id>
+    <published>2018-12-19T02:23:32.000Z</published>
+    <updated>2018-12-19T02:30:23.927Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 当变量 a 为 null 时则 msg=b </span><br><span class="line">msg=$&#123;a-b&#125;  </span><br><span class="line"></span><br><span class="line"># 当变量 a 为 null 或为空字符串时则 msg=b  </span><br><span class="line">msg=$&#123;a:-b&#125;</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">msg=$&#123;a:-b&#125;</span><br><span class="line">msg=$&#123;1:-fix&#125;</span><br><span class="line">注: 其中 $1-$9 为命令后的第 1-9 个参数，msg=$&#123;1:-fix&#125; 即第一个参数的默认值为 &quot;fix&quot;</span><br><span class="line">注: 在 shell 中，不要随便加空格，如 msg = $&#123;1:-fix&#125; 会报错</span><br></pre></td></tr></table></figure><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 快速 add . &amp; commit &amp; push</span><br><span class="line">## example:</span><br><span class="line">##   sh csh/fix.sh xxx</span><br><span class="line"></span><br><span class="line">msg=$&#123;1:-fix&#125;</span><br><span class="line"></span><br><span class="line">git add .</span><br><span class="line">git ci -m $msg</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;语法&quot;&gt;&lt;a href=&quot;#语法&quot; class=&quot;headerlink&quot; title=&quot;语法&quot;&gt;&lt;/a&gt;语法&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# 当变量 a 为 null 时则 msg=b &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;msg=$&amp;#123;a-b&amp;#125;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# 当变量 a 为 null 或为空字符串时则 msg=b  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;msg=$&amp;#123;a:-b&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="shell" scheme="https://frostbelt.github.io/tags/shell/"/>
+    
+  </entry>
   
   <entry>
     <title>Alfred 剪贴板</title>
@@ -487,33 +507,6 @@
       <category term="video" scheme="https://frostbelt.github.io/tags/video/"/>
     
       <category term="播放器" scheme="https://frostbelt.github.io/tags/%E6%92%AD%E6%94%BE%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>adb shell&amp;logcat</title>
-    <link href="https://frostbelt.github.io/2018/11/20/adb-shell&amp;logcat/"/>
-    <id>https://frostbelt.github.io/2018/11/20/adb-shell&amp;logcat/</id>
-    <published>2018-11-20T02:15:55.000Z</published>
-    <updated>2018-11-20T04:13:23.251Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><blockquote><p>手机输入框 focus 时<br>$ adb shell input text “hello,world”<br>输入 hello<br>注：空格、’、&amp;都是特殊字符，需要用 keyevent 输入。且只能输入 ascii 码的字符<br>$ adb shell input keyevent 61<br>tab 跳到下一个输入框<br>$ adb shell input keyevent KEYCODE_SPACE<br>输入空格</p></blockquote><p><a href="http://www.360doc.com/content/13/0807/13/5224731_305347225.shtml" target="_blank" rel="noopener">KEYCODE列表</a></p><a id="more"></a><h3 id="查看-H5-日志"><a href="#查看-H5-日志" class="headerlink" title="查看 H5 日志"></a>查看 H5 日志</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">所有日志</span><br><span class="line">$ adb logcat | grep &quot;http&quot;</span><br><span class="line"></span><br><span class="line">console 输出</span><br><span class="line">$ adb logcat | grep -E &apos;CONSOLE.*kan.com&apos; # 有高亮</span><br><span class="line">$ adb shell &quot;logcat | grep -E &apos;CONSOLE.*kan.com&apos;&quot; # 没有高亮</span><br><span class="line">注：类似 tail -f</span><br></pre></td></tr></table></figure><h3 id="点击"><a href="#点击" class="headerlink" title="点击"></a>点击</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在(x,y)处点击</span><br><span class="line">$ adb shell input tap 100 400</span><br></pre></td></tr></table></figure><h3 id="滑动"><a href="#滑动" class="headerlink" title="滑动"></a>滑动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">从屏幕(0,20)滑动到(300,500)</span><br><span class="line">$ adb shell input swipe 0 20 300 500</span><br></pre></td></tr></table></figure><h3 id="操作剪贴板"><a href="#操作剪贴板" class="headerlink" title="操作剪贴板"></a>操作剪贴板</h3><p>已经不可行了，参考<a href="https://likfe.com/2018/01/17/android-adb-set-clipboard/" target="_blank" rel="noopener">Android 必知必会 - 使用 ADB 操作 Clipboard</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;输入&quot;&gt;&lt;a href=&quot;#输入&quot; class=&quot;headerlink&quot; title=&quot;输入&quot;&gt;&lt;/a&gt;输入&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;手机输入框 focus 时&lt;br&gt;$ adb shell input text “hello,world”&lt;br&gt;输入 hello&lt;br&gt;注：空格、’、&amp;amp;都是特殊字符，需要用 keyevent 输入。且只能输入 ascii 码的字符&lt;br&gt;$ adb shell input keyevent 61&lt;br&gt;tab 跳到下一个输入框&lt;br&gt;$ adb shell input keyevent KEYCODE_SPACE&lt;br&gt;输入空格&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.360doc.com/content/13/0807/13/5224731_305347225.shtml&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;KEYCODE列表&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="adb" scheme="https://frostbelt.github.io/tags/adb/"/>
-    
-      <category term="shell" scheme="https://frostbelt.github.io/tags/shell/"/>
-    
-      <category term="logcat" scheme="https://frostbelt.github.io/tags/logcat/"/>
     
   </entry>
   
