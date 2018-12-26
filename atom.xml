@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2018-12-25T08:17:37.619Z</updated>
+  <updated>2018-12-26T09:31:43.368Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,57 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>切个图，想用 babel&amp;sass</title>
+    <link href="https://frostbelt.github.io/2018/12/26/%E5%88%87%E4%B8%AA%E5%9B%BE%EF%BC%8C%E6%83%B3%E7%94%A8-babel-sass/"/>
+    <id>https://frostbelt.github.io/2018/12/26/切个图，想用-babel-sass/</id>
+    <published>2018-12-26T09:27:16.000Z</published>
+    <updated>2018-12-26T09:31:43.368Z</updated>
+    
+    <content type="html"><![CDATA[<p>前面有 <a href="/2018/10/26/切个图，想用-sass/">切个图，想用 sass</a> [切个图，想用-babel]/2018/12/26/切个图，想用-babel/</p><p>最终还是用了 gulp<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;model&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;1.0.0&quot;,</span><br><span class="line">  &quot;description&quot;: &quot;new project package.json model&quot;,</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">    </span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;author&quot;: &quot;frostbelt&quot;,</span><br><span class="line">  &quot;license&quot;: &quot;ISC&quot;,</span><br><span class="line">  &quot;devDependencies&quot;: &#123;</span><br><span class="line">    &quot;babel-cli&quot;: &quot;^6.16.0&quot;,</span><br><span class="line">    &quot;babel-core&quot;: &quot;^6.26.3&quot;,</span><br><span class="line">    &quot;babel-loader&quot;: &quot;^6.2.5&quot;,</span><br><span class="line">    &quot;babel-plugin-lodash&quot;: &quot;^3.2.9&quot;,</span><br><span class="line">    &quot;babel-polyfill&quot;: &quot;^6.16.0&quot;,</span><br><span class="line">    &quot;babel-preset-env&quot;: &quot;^1.7.0&quot;,</span><br><span class="line">    &quot;babel-preset-es2015&quot;: &quot;^6.16.0&quot;,</span><br><span class="line">    &quot;babel-preset-stage-0&quot;: &quot;^6.24.1&quot;,</span><br><span class="line">    &quot;gulp&quot;: &quot;^3.9.1&quot;,</span><br><span class="line">    &quot;gulp-babel&quot;: &quot;^7.0.1&quot;,</span><br><span class="line">    &quot;gulp-clean&quot;: &quot;^0.3.2&quot;,</span><br><span class="line">    &quot;gulp-sass&quot;: &quot;^4.0.2&quot;,</span><br><span class="line">    &quot;gulp-uglify&quot;: &quot;^3.0.0&quot;,</span><br><span class="line">    &quot;node-sass&quot;: &quot;^4.11.0&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * new project gulpfile.js model</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">const gulp = require(&apos;gulp&apos;);</span><br><span class="line">const uglify = require(&quot;gulp-uglify&quot;);</span><br><span class="line">const babel = require(&quot;gulp-babel&quot;);</span><br><span class="line">const sass = require(&apos;gulp-sass&apos;);</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * js</span><br><span class="line"> */</span><br><span class="line">gulp.task(&quot;js&quot;, function()&#123;</span><br><span class="line">  return gulp.src(&quot;resources/assets/js/**/*.js&quot;)</span><br><span class="line">    .pipe(babel(&#123;</span><br><span class="line">      presets : [</span><br><span class="line">        &quot;env&quot;,</span><br><span class="line">      ],</span><br><span class="line">    &#125;))</span><br><span class="line">    .pipe(uglify())</span><br><span class="line">    .pipe(gulp.dest(&quot;public/dist/js&quot;)); </span><br><span class="line">&#125;);</span><br><span class="line">gulp.task(&quot;watchjs&quot;, function()&#123;</span><br><span class="line">  gulp.watch(&quot;resources/assets/js/**/*.js&quot;, [&apos;js&apos;]);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * css</span><br><span class="line"> */</span><br><span class="line">gulp.task(&quot;css&quot;, function()&#123;</span><br><span class="line">  return gulp.src(&quot;resources/assets/css/**/*.scss&quot;)</span><br><span class="line">    .pipe(sass(&#123;outputStyle: &apos;compressed&apos;&#125;).on(&apos;error&apos;, sass.logError))</span><br><span class="line">    .pipe(gulp.dest(&quot;public/dist/css&quot;)); </span><br><span class="line">&#125;);</span><br><span class="line">gulp.task(&quot;watchcss&quot;, function()&#123;</span><br><span class="line">  gulp.watch(&quot;resources/assets/css/**/*.scss&quot;, [&apos;css&apos;]);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(&quot;default&quot;, [&quot;watchjs&quot;, &quot;watchcss&quot;]);</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前面有 &lt;a href=&quot;/2018/10/26/切个图，想用-sass/&quot;&gt;切个图，想用 sass&lt;/a&gt; [切个图，想用-babel]/2018/12/26/切个图，想用-babel/&lt;/p&gt;
+&lt;p&gt;最终还是用了 gulp&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="scss" scheme="https://frostbelt.github.io/tags/scss/"/>
+    
+      <category term="sass" scheme="https://frostbelt.github.io/tags/sass/"/>
+    
+      <category term="babel" scheme="https://frostbelt.github.io/tags/babel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>切个图，想用 babel</title>
+    <link href="https://frostbelt.github.io/2018/12/26/%E5%88%87%E4%B8%AA%E5%9B%BE%EF%BC%8C%E6%83%B3%E7%94%A8-babel/"/>
+    <id>https://frostbelt.github.io/2018/12/26/切个图，想用-babel/</id>
+    <published>2018-12-26T07:18:41.000Z</published>
+    <updated>2018-12-26T07:43:01.802Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="/2018/10/26/切个图，想用-sass/">切个图，想用 sass</a>的兄弟篇…</p><h3 id="使用-babel"><a href="#使用-babel" class="headerlink" title="使用 babel"></a>使用 babel</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># 安装 babel</span><br><span class="line">$ npm install -g babel-cli</span><br><span class="line"># 配置转码规则</span><br><span class="line">$ npm install --save-dev babel-preset-es2015</span><br><span class="line"># .babelrc 文件</span><br><span class="line">&#123;</span><br><span class="line">  &quot;presets&quot;: [</span><br><span class="line">    &quot;es2015&quot;</span><br><span class="line">  ],</span><br><span class="line">  &quot;plugins&quot;: []</span><br><span class="line">&#125;</span><br><span class="line"># 编译</span><br><span class="line">$ babel test.js</span><br><span class="line">$ babel a.js --out-file b.js 或 babel a.js -o b.js</span><br><span class="line">$ babel src --out-dir lib 或 babel src -d lib</span><br><span class="line">$ babel src -w --out-dir lib 或 babel src -w -d lib</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;/2018/10/26/切个图，想用-sass/&quot;&gt;切个图，想用 sass&lt;/a&gt;的兄弟篇…&lt;/p&gt;
+&lt;h3 id=&quot;使用-babel&quot;&gt;&lt;a href=&quot;#使用-babel&quot; class=&quot;headerlink&quot; title=&quot;使用 babel&quot;&gt;&lt;/a
+      
+    
+    </summary>
+    
+    
+      <category term="scss" scheme="https://frostbelt.github.io/tags/scss/"/>
+    
+      <category term="babel" scheme="https://frostbelt.github.io/tags/babel/"/>
+    
+  </entry>
   
   <entry>
     <title>H5 能力</title>
@@ -35,9 +86,9 @@
     </summary>
     
     
-      <category term="js" scheme="https://frostbelt.github.io/tags/js/"/>
-    
       <category term="h5" scheme="https://frostbelt.github.io/tags/h5/"/>
+    
+      <category term="js" scheme="https://frostbelt.github.io/tags/js/"/>
     
       <category term="performance" scheme="https://frostbelt.github.io/tags/performance/"/>
     
@@ -441,57 +492,6 @@
       <category term="db" scheme="https://frostbelt.github.io/tags/db/"/>
     
       <category term="table" scheme="https://frostbelt.github.io/tags/table/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>阿里云服务器安装 pdo-mysql 扩展</title>
-    <link href="https://frostbelt.github.io/2018/12/10/centos-%E5%AE%89%E8%A3%85-pdo-mysql-%E6%89%A9%E5%B1%95/"/>
-    <id>https://frostbelt.github.io/2018/12/10/centos-安装-pdo-mysql-扩展/</id>
-    <published>2018-12-10T02:52:43.000Z</published>
-    <updated>2018-12-10T03:53:54.084Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>当前环境:<br>centos 系统<br>php, mysql 都是由 yum 安装的<br>相关目录:<br>/usr/bin/phpize<br>/usr/bin/php-config<br>/usr/bin/mysql<br>/usr/bin/mysql_config</p></blockquote><h3 id="踩过的坑"><a href="#踩过的坑" class="headerlink" title="踩过的坑"></a>踩过的坑</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 从 http://pecl.php.net/package/PDO_MYSQL 下载安装 pdo_mysql</span><br><span class="line">人家网站上很明确的说已经不再维护了！可以去查看 php 源码下的 ext/pdo_mysql</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="走上正确的路"><a href="#走上正确的路" class="headerlink" title="走上正确的路"></a>走上正确的路</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">因为是 yum 安装的 php，在 php 安装目录下并没有 ext/pdo_mysql</span><br><span class="line">查看已安装的 php 扩展</span><br><span class="line">$ php -m</span><br><span class="line"># 需要安装 pdo, mysqlnd, pdo_mysql。我这里已安装 pdo，下面分别安装 mysqlnd, pdo_mysql</span><br><span class="line"># 查看 php 版本</span><br><span class="line">$ php -v</span><br><span class="line">在 php 官网 http://www.php.net/downloads.php 上下载对应的 php 源码</span><br><span class="line">$ wget http://am1.php.net/distributions/php-7.0.33.tar.gz</span><br><span class="line">tar -zxvf php-7.0.33.tar.gz</span><br></pre></td></tr></table></figure><h3 id="安装-mysqlnd"><a href="#安装-mysqlnd" class="headerlink" title="安装 mysqlnd"></a>安装 mysqlnd</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ cd php-7.0.33.tar.gz/ext/mysqlnd</span><br><span class="line">$ cp config9.m4 config.m4</span><br><span class="line">$ sed -ie &quot;s&#123;ext/mysqlnd/php_mysqlnd_config.h&#123;config.h&#123;&quot; mysqlnd_portability.h</span><br><span class="line">$ /usr/bin/phpize</span><br><span class="line">$ ./configure --with-php-config=/usr/bin/php-config</span><br><span class="line"># 如果报错 error: Cannot find OpenSSL&apos;s &lt;evp.h&gt;，加 --with-openssl-dir</span><br><span class="line"># ./configure --with-php-config=/usr/bin/php-config --with-openssl-dir=/usr/include/openssl</span><br><span class="line">$ make &amp; make install</span><br><span class="line"># 安装完成，显示 Libraries have been installed in: 为 mysqlnd.so 的目录</span><br></pre></td></tr></table></figure><h3 id="安装-pdo-mysql"><a href="#安装-pdo-mysql" class="headerlink" title="安装 pdo_mysql"></a>安装 pdo_mysql</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cd php-7.0.33.tar.gz/ext/pdo_mysql</span><br><span class="line">$ /usr/bin/phpize</span><br><span class="line">$ ./configure --with-php-config=/usr/bin/php-config --with-pdo-mysql=/usr/</span><br><span class="line">$ make &amp; make install</span><br><span class="line"># 安装完成，显示 Libraries have been installed in: 为 pdo_mysql.so 的目录</span><br></pre></td></tr></table></figure><h3 id="配置-php-ini"><a href="#配置-php-ini" class="headerlink" title="配置 php.ini"></a>配置 php.ini</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 将以上生成的 .so 文件拷贝到存放 .so 文件的目录</span><br><span class="line">$ sudo cp /xxx/mysqlnd.so /usr/lib64/php/modules/</span><br><span class="line">$ sudo cp /xxx/pdo_mysql.so /usr/lib64/php/modules/</span><br><span class="line"># 修改 php.ini</span><br><span class="line">$ sudo vim /etc/php.ini</span><br><span class="line">extension_dir=&quot;/usr/lib64/php/modules/&quot;</span><br><span class="line"># 在最后加上</span><br><span class="line">extension=pdo.so</span><br><span class="line">extension=mysqlnd.so </span><br><span class="line">extension=pdo_mysql.so</span><br></pre></td></tr></table></figure><h3 id="测试是否已安装成功"><a href="#测试是否已安装成功" class="headerlink" title="测试是否已安装成功"></a>测试是否已安装成功</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ php -m </span><br><span class="line"># 查看是否已安装 pdo, mysqlnd, pdo_mysql</span><br><span class="line"># 如果报错，应该是还缺少某些扩展，继续在 ext 中安装相应的扩展</span><br></pre></td></tr></table></figure><h3 id="重启-php-fpm"><a href="#重启-php-fpm" class="headerlink" title="重启 php-fpm"></a>重启 php-fpm</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 安装成功后，重启 php-fpm</span><br><span class="line">$ sudo service php-fpm restart</span><br><span class="line"># 查看 phpinfo()，确认 pdo_mysql 已安装</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;当前环境:&lt;br&gt;centos 系统&lt;br&gt;php, mysql 都是由 yum 安装的&lt;br&gt;相关目录:&lt;br&gt;/usr/bin/phpize&lt;br&gt;/usr/bin/php-config&lt;br&gt;/usr/bin/mysql&lt;br&gt;/usr/bin/mysql_config&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;踩过的坑&quot;&gt;&lt;a href=&quot;#踩过的坑&quot; class=&quot;headerlink&quot; title=&quot;踩过的坑&quot;&gt;&lt;/a&gt;踩过的坑&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;-- 从 http://pecl.php.net/package/PDO_MYSQL 下载安装 pdo_mysql&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;人家网站上很明确的说已经不再维护了！可以去查看 php 源码下的 ext/pdo_mysql&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="php" scheme="https://frostbelt.github.io/tags/php/"/>
-    
-      <category term="pdo" scheme="https://frostbelt.github.io/tags/pdo/"/>
-    
-      <category term="mysql" scheme="https://frostbelt.github.io/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>word 中如何输入对勾</title>
-    <link href="https://frostbelt.github.io/2018/12/08/word-%E4%B8%AD%E5%A6%82%E4%BD%95%E8%BE%93%E5%85%A5%E5%AF%B9%E5%8B%BE/"/>
-    <id>https://frostbelt.github.io/2018/12/08/word-中如何输入对勾/</id>
-    <published>2018-12-08T06:51:37.000Z</published>
-    <updated>2018-12-08T06:52:33.321Z</updated>
-    
-    <content type="html"><![CDATA[<p>输入R<br>选中R，修改字体为 Wingdings 2</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;输入R&lt;br&gt;选中R，修改字体为 Wingdings 2&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-      <category term="word" scheme="https://frostbelt.github.io/tags/word/"/>
     
   </entry>
   
