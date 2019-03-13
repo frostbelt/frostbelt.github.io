@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2019-03-13T06:03:55.713Z</updated>
+  <updated>2019-03-13T06:04:25.554Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -21,17 +21,13 @@
     <link href="https://frostbelt.github.io/2019/03/13/Mac-%E5%A4%84%E7%90%86-Adobe-Genuine-Software-Integrity-Service/"/>
     <id>https://frostbelt.github.io/2019/03/13/Mac-处理-Adobe-Genuine-Software-Integrity-Service/</id>
     <published>2019-03-13T05:55:07.000Z</published>
-    <updated>2019-03-13T06:03:55.713Z</updated>
+    <updated>2019-03-13T06:04:25.554Z</updated>
     
-    <content type="html"><![CDATA[<p>使用”不明来路”的 ps, 某一天突然弹出个窗，必须点一下才能关掉，而且过一会又弹出来<br><img src="/images/adobe_盗版.png" alt="adobe_盗版"></p><p>解决方法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 关闭所有 Adobe 软件</span><br><span class="line">2. $ sudo rm /Library/Application\ Support/Adobe/AdobeGCClient/AdobeGCClient.app/Contents/MacOS/AdobeGCClient</span><br><span class="line">3. 启动 ps, 就正常了</span><br></pre></td></tr></table></figure></p><p>引自<a href="https://www.douban.com/note/670243843/?from=author" target="_blank" rel="noopener">【搞机录】破解Adobe Photoshop的正版校验Genuine Integrity Service-L1/E16</a></p>]]></content>
+    <content type="html"><![CDATA[<p>使用”不明来路”的 ps, 某一天突然弹出个窗，必须点一下才能关掉，而且过一会又弹出来<br><img src="/images/adobe_盗版.png" alt="adobe_盗版"></p><a id="more"></a><p>解决方法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 关闭所有 Adobe 软件</span><br><span class="line">2. $ sudo rm /Library/Application\ Support/Adobe/AdobeGCClient/AdobeGCClient.app/Contents/MacOS/AdobeGCClient</span><br><span class="line">3. 启动 ps, 就正常了</span><br></pre></td></tr></table></figure></p><p>引自<a href="https://www.douban.com/note/670243843/?from=author" target="_blank" rel="noopener">【搞机录】破解Adobe Photoshop的正版校验Genuine Integrity Service-L1/E16</a></p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;使用”不明来路”的 ps, 某一天突然弹出个窗，必须点一下才能关掉，而且过一会又弹出来&lt;br&gt;&lt;img src=&quot;/images/adobe_盗版.png&quot; alt=&quot;adobe_盗版&quot;&gt;&lt;/p&gt;
-&lt;p&gt;解决方法:&lt;br&gt;&lt;figure class=&quot;highlight p
-      
+      &lt;p&gt;使用”不明来路”的 ps, 某一天突然弹出个窗，必须点一下才能关掉，而且过一会又弹出来&lt;br&gt;&lt;img src=&quot;/images/adobe_盗版.png&quot; alt=&quot;adobe_盗版&quot;&gt;&lt;/p&gt;
     
     </summary>
     
