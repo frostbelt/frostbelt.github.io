@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2019-01-21T03:32:13.090Z</updated>
+  <updated>2019-03-13T06:03:09.233Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac 处理 Adobe Genuine Software Integrity Service</title>
+    <link href="https://frostbelt.github.io/2019/03/13/Mac-%E5%A4%84%E7%90%86-Adobe-Genuine-Software-Integrity-Service/"/>
+    <id>https://frostbelt.github.io/2019/03/13/Mac-处理-Adobe-Genuine-Software-Integrity-Service/</id>
+    <published>2019-03-13T05:55:07.000Z</published>
+    <updated>2019-03-13T06:03:09.233Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用”不明来路”的 ps, 某一天突然弹出个窗，必须点一下才能关掉，而且过一会又弹出来<br><img src="/images/adobe_盗版.png" alt="adobe_盗版"></p><p>解决方法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 关闭所有 Adobe 软件</span><br><span class="line">2. $ sudo rm /Library/Application\ Support/Adobe/AdobeGCClient/AdobeGCClient.app/Contents/MacOS/AdobeGCClient</span><br><span class="line">3. 启动 ps, 就正常了</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;使用”不明来路”的 ps, 某一天突然弹出个窗，必须点一下才能关掉，而且过一会又弹出来&lt;br&gt;&lt;img src=&quot;/images/adobe_盗版.png&quot; alt=&quot;adobe_盗版&quot;&gt;&lt;/p&gt;
+&lt;p&gt;解决方法:&lt;br&gt;&lt;figure class=&quot;highlight p
+      
+    
+    </summary>
+    
+    
+      <category term="mac" scheme="https://frostbelt.github.io/tags/mac/"/>
+    
+      <category term="adobe" scheme="https://frostbelt.github.io/tags/adobe/"/>
+    
+  </entry>
   
   <entry>
     <title>车辆违章处理实录</title>
@@ -481,26 +507,6 @@
       <category term="antd" scheme="https://frostbelt.github.io/tags/antd/"/>
     
       <category term="css" scheme="https://frostbelt.github.io/tags/css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>imagesLoaded 监听 background-image 加载失败</title>
-    <link href="https://frostbelt.github.io/2018/12/17/imagesLoaded-%E7%9B%91%E5%90%AC-background-image-%E5%8A%A0%E8%BD%BD%E5%A4%B1%E8%B4%A5/"/>
-    <id>https://frostbelt.github.io/2018/12/17/imagesLoaded-监听-background-image-加载失败/</id>
-    <published>2018-12-17T08:42:43.000Z</published>
-    <updated>2018-12-17T08:45:07.583Z</updated>
-    
-    <content type="html"><![CDATA[<p>见<a href="https://imagesloaded.desandro.com/#background" target="_blank" rel="noopener">imagesloaded文档</a></p><a id="more"></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;js-cover-loaded&quot; data-cover=&quot;静态图&quot; style=&quot;background-image:url(动态图)&quot;&gt;&lt;/div&gt;</span><br><span class="line">// 加载动图失败时尝试加载静态图</span><br><span class="line">var imgLoad = imagesLoaded(&quot;.js-cover-loaded&quot;, &#123; background: true &#125;);</span><br><span class="line">imgLoad.on(&quot;always&quot;, function()&#123;</span><br><span class="line">  for ( var i = 0, len = imgLoad.images.length; i &lt; len; i++ ) &#123;</span><br><span class="line">    var image = imgLoad.images[i];</span><br><span class="line">    var $ele = $(imgLoad.elements[i]);</span><br><span class="line">    $ele.removeClass(&quot;js-cover-loaded&quot;);</span><br><span class="line">    if(!image.isLoaded)&#123;</span><br><span class="line">      $ele.css(&#123;</span><br><span class="line">        backgroundImage : &quot;url(&quot; + $ele.data(&quot;cover&quot;) + &quot;)&quot;,</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;见&lt;a href=&quot;https://imagesloaded.desandro.com/#background&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;imagesloaded文档&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="imagesloaded" scheme="https://frostbelt.github.io/tags/imagesloaded/"/>
     
   </entry>
   
