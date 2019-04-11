@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2019-04-10T06:57:02.928Z</updated>
+  <updated>2019-04-11T02:35:47.460Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vue-cli store</title>
+    <link href="https://frostbelt.github.io/2019/04/11/vue-cli-store/"/>
+    <id>https://frostbelt.github.io/2019/04/11/vue-cli-store/</id>
+    <published>2019-04-11T02:17:41.000Z</published>
+    <updated>2019-04-11T02:35:47.460Z</updated>
+    
+    <content type="html"><![CDATA[<p>store.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line">import Vuex from &apos;vuex&apos;</span><br><span class="line">import axios from &apos;./assets/js/axios&apos;</span><br><span class="line"></span><br><span class="line">Vue.use(Vuex)</span><br><span class="line"></span><br><span class="line">export default new Vuex.Store(&#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">    userInfo : &#123;&#125;,</span><br><span class="line">    xxx : 0,</span><br><span class="line">  &#125;,</span><br><span class="line">  // 只有 mutations 可以更新 state</span><br><span class="line">  // 但 mutations 必须是同步方法，如果是异步使用 actions</span><br><span class="line">  mutations: &#123;</span><br><span class="line">    setUserInfo (state, userInfo) &#123;</span><br><span class="line">      state.userInfo = userInfo;</span><br><span class="line">    &#125;,</span><br><span class="line">    setXXX (state, val)&#123;</span><br><span class="line">      state.xxx = val;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  actions: &#123;</span><br><span class="line">    // actions 异步获取数据后调用 mutations 更新 state</span><br><span class="line">    updateUserInfo (context) &#123;</span><br><span class="line">      axios.get(&quot;/api/getUserInfo&quot;)</span><br><span class="line">      .then(res =&gt; &#123;</span><br><span class="line">        context.commit(&apos;setUserInfo&apos;, res.data);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p><a id="more"></a><p>main.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 别忘了把 store 挂载到 Vue 上</span><br><span class="line">import store from &apos;./store&apos;</span><br><span class="line">let app = new Vue(&#123;</span><br><span class="line">router,</span><br><span class="line">store,</span><br><span class="line">render: h =&gt; h(App)</span><br><span class="line">&#125;).$mount(&apos;#app&apos;);</span><br></pre></td></tr></table></figure></p><p>组件中:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">// 可以直接使用 state</span><br><span class="line">this.$store.state.xxx</span><br><span class="line">// 可以将 state 变量绑定到计算属性</span><br><span class="line">computed : &#123;</span><br><span class="line">  userInfo () &#123;</span><br><span class="line">    return this.$store.state.userInfo;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">// 可以使用 mapState 将多个变量绑定到计算属性</span><br><span class="line">import &#123; mapActions, mapState &#125; from &apos;vuex&apos;</span><br><span class="line">computed : &#123;</span><br><span class="line">  ...mapState([</span><br><span class="line">    &apos;userInfo&apos;,</span><br><span class="line">    &apos;xxx&apos;</span><br><span class="line">  ]),</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">// 可以调用 store 的 mutations 更新 state</span><br><span class="line">this.$store.commit(&apos;setXXX&apos;, 1);</span><br><span class="line">// 可以调用 store 的 actions 更新 state</span><br><span class="line">this.$store.dispatch(&apos;updateUserInfo&apos;);</span><br><span class="line">// 可以使用 mapActions 将多个 actions 映射到 methods</span><br><span class="line">import &#123; mapActions, mapState &#125; from &apos;vuex&apos;</span><br><span class="line">methods : &#123;</span><br><span class="line">  ...mapActions([</span><br><span class="line">    &apos;updateUserInfo&apos;</span><br><span class="line">  ]),</span><br><span class="line">&#125;,</span><br><span class="line">mounted () &#123;</span><br><span class="line">  this.updateUserInfo();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;store.js&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;import Vue from &amp;apos;vue&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;import Vuex from &amp;apos;vuex&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;import axios from &amp;apos;./assets/js/axios&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Vue.use(Vuex)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;export default new Vuex.Store(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  state: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    userInfo : &amp;#123;&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    xxx : 0,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  // 只有 mutations 可以更新 state&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  // 但 mutations 必须是同步方法，如果是异步使用 actions&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  mutations: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    setUserInfo (state, userInfo) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      state.userInfo = userInfo;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    setXXX (state, val)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      state.xxx = val;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  actions: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    // actions 异步获取数据后调用 mutations 更新 state&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    updateUserInfo (context) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      axios.get(&amp;quot;/api/getUserInfo&amp;quot;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      .then(res =&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        context.commit(&amp;apos;setUserInfo&amp;apos;, res.data);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="https://frostbelt.github.io/tags/vue/"/>
+    
+      <category term="vuex" scheme="https://frostbelt.github.io/tags/vuex/"/>
+    
+  </entry>
   
   <entry>
     <title>Laravel 注册登录</title>
@@ -430,9 +452,9 @@
     
       <category term="alias" scheme="https://frostbelt.github.io/tags/alias/"/>
     
-      <category term="git" scheme="https://frostbelt.github.io/tags/git/"/>
-    
       <category term="shell" scheme="https://frostbelt.github.io/tags/shell/"/>
+    
+      <category term="git" scheme="https://frostbelt.github.io/tags/git/"/>
     
   </entry>
   
@@ -479,32 +501,6 @@
     
     
       <category term="shell" scheme="https://frostbelt.github.io/tags/shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Alfred 剪贴板</title>
-    <link href="https://frostbelt.github.io/2018/12/19/Alfred-%E5%89%AA%E8%B4%B4%E6%9D%BF/"/>
-    <id>https://frostbelt.github.io/2018/12/19/Alfred-剪贴板/</id>
-    <published>2018-12-19T01:48:35.000Z</published>
-    <updated>2018-12-19T01:52:52.046Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>不得不说，Alfred 真是个了不起的工具，相知恨晚</p></blockquote><h3 id="打开剪贴板功能"><a href="#打开剪贴板功能" class="headerlink" title="打开剪贴板功能"></a>打开剪贴板功能</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">由于隐私的原因，Alfred 的剪切板历史记录功能默认是关闭的。</span><br><span class="line">打开方式：</span><br><span class="line">Preferences-&gt;Clipboard</span><br><span class="line">勾选你想要打开的剪贴板功能，设置快捷键</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;不得不说，Alfred 真是个了不起的工具，相知恨晚&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;打开剪贴板功能&quot;&gt;&lt;a href=&quot;#打开剪贴板功能&quot; class=&quot;headerlink&quot; title=&quot;打开剪贴板功能&quot;&gt;&lt;/a&gt;打开剪贴
-      
-    
-    </summary>
-    
-    
-      <category term="alfred" scheme="https://frostbelt.github.io/tags/alfred/"/>
     
   </entry>
   
