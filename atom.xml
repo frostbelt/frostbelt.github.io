@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2019-04-11T02:35:47.460Z</updated>
+  <updated>2019-04-19T09:58:12.063Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>moment 常用方法</title>
+    <link href="https://frostbelt.github.io/2019/04/19/moment-%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/"/>
+    <id>https://frostbelt.github.io/2019/04/19/moment-常用方法/</id>
+    <published>2019-04-19T08:44:32.000Z</published>
+    <updated>2019-04-19T09:58:12.063Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="中文"><a href="#中文" class="headerlink" title="中文"></a>中文</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment.lang(&apos;zh-cn&apos;);</span><br></pre></td></tr></table></figure><h3 id="转其它格式"><a href="#转其它格式" class="headerlink" title="转其它格式"></a>转其它格式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().toDate();      // Fri Apr 19 2019 16:52:18 GMT+0800 (中国标准时间)</span><br><span class="line">moment().valueOf();     // 1555663581967</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h3><table><thead><tr><th>格式</th><th>示例</th><th>说明</th></tr></thead><tbody><tr><td>YYYY</td><td>2019</td><td>4位年份</td></tr><tr><td>YY</td><td>19</td><td>2位年份</td></tr><tr><td>Q</td><td>2</td><td>季度</td></tr><tr><td>M</td><td>4</td><td>月份，不带前导零</td></tr><tr><td>MM</td><td>04</td><td>月份，带前导零，补齐2位</td></tr><tr><td>MMM</td><td>4月</td><td>月份，带单位</td></tr><tr><td>MMMM</td><td>四月</td><td>月份，带单位</td></tr><tr><td>D</td><td>19</td><td>日期，不带前导零</td></tr><tr><td>DD</td><td>19</td><td>日期，带前导零，补齐2位</td></tr><tr><td>Do</td><td>19日</td><td>日期，带单位</td></tr><tr><td>DDD</td><td>109</td><td>一年中的第几天，不带前导零</td></tr><tr><td>DDDD</td><td>109</td><td>一年中的第几天，带前导零，补齐3位</td></tr><tr><td>X</td><td>1555665167</td><td>时间戳，秒</td></tr><tr><td>x</td><td>1555665167319</td><td>时间戳，毫秒</td></tr><tr><td>w</td><td>16</td><td>一年中的第几周，不带前导零</td></tr><tr><td>ww</td><td>16</td><td>一年中的第几周，带前导零，补齐2位</td></tr><tr><td>ddd</td><td>周五</td><td>星期，缩写</td></tr><tr><td>dddd</td><td>星期五</td><td>星期</td></tr><tr><td>H</td><td>17</td><td>24小时制，不带前导零</td></tr><tr><td>HH</td><td>17</td><td>24小时制，带前导零，补齐2位</td></tr><tr><td>h</td><td>5</td><td>12小时制，不带前导零</td></tr><tr><td>hh</td><td>05</td><td>12小时制，带前导零，补齐2位</td></tr><tr><td>a</td><td>下午</td><td>上午下午</td></tr><tr><td>A</td><td>下午</td><td>上午下午</td></tr><tr><td>m</td><td>20</td><td>分钟，不带前导零</td></tr><tr><td>mm</td><td>20</td><td>分钟，带前导零，补齐2位</td></tr><tr><td>s</td><td>20</td><td>秒，不带前导零</td></tr><tr><td>ss</td><td>20</td><td>秒，带前导零，补齐2位</td></tr><tr><td>S</td><td>6</td><td>秒的前1位小数，即 600 毫秒</td></tr><tr><td>SS</td><td>63</td><td>秒的前2位小数，即 630 毫秒</td></tr><tr><td>SSS</td><td>637</td><td>秒的前3位小数，即 637 毫秒</td></tr></tbody></table><h3 id="格式化简写"><a href="#格式化简写" class="headerlink" title="格式化简写"></a>格式化简写</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">moment().format(&apos;L&apos;); -&gt; 2019/04/19</span><br><span class="line">moment().format(&apos;l&apos;); -&gt; 2019/4/19</span><br><span class="line">moment().format(&apos;LT&apos;); -&gt; 17:56</span><br><span class="line">moment().format(&apos;LTS&apos;); -&gt; 17:56:35</span><br><span class="line">moment().format(&apos;LL&apos;); -&gt; 2019年4月19日</span><br><span class="line">moment().format(&apos;ll&apos;); -&gt; 2019年4月19日</span><br><span class="line">moment().format(&apos;LLL&apos;); -&gt; 2019年4月19日下午5点50分</span><br><span class="line">moment().format(&apos;lll&apos;); -&gt; 2019年4月19日 17:50</span><br><span class="line">moment().format(&apos;LLLL&apos;); -&gt; 2019年4月19日星期五下午5点50分</span><br><span class="line">moment().format(&apos;llll&apos;); -&gt; 2019年4月19日星期五 17:50</span><br></pre></td></tr></table></figure><p>todo, 如何格式化为 “2019-04-19”?</p><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">moment();                           // Fri Apr 19 2019 16:52:18 GMT+0800 (中国标准时间)</span><br><span class="line">moment(&quot;2019-04-19&quot;);               // Fri Apr 19 2019 00:00:00 GMT+0800 (中国标准时间)</span><br><span class="line">moment(&quot;20190419&quot;);                 // Fri Apr 19 2019 00:00:00 GMT+0800 (中国标准时间)</span><br><span class="line">moment(&quot;2019-04-19 08:00:00&quot;);      // Fri Apr 19 2019 08:00:00 GMT+0800 (中国标准时间)</span><br><span class="line">moment(1555632000000);              // Fri Apr 19 2019 08:00:00 GMT+0800 (中国标准时间)</span><br></pre></td></tr></table></figure><h3 id="fromNow"><a href="#fromNow" class="headerlink" title="fromNow"></a>fromNow</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment(&quot;20190419&quot;).fromNow();       // 18 小时前</span><br><span class="line">moment(&quot;20100419&quot;).fromNow();       // 9 年前</span><br></pre></td></tr></table></figure><h3 id="设置时间"><a href="#设置时间" class="headerlink" title="设置时间"></a>设置时间</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">moment().startOf(&apos;year&apos;);           // 可选 year/month/quarter/week/day/hour/minute/second</span><br><span class="line">等价于</span><br><span class="line">moment().month(0).date(1).hours(0).minutes(0).seconds(0).milliseconds(0);</span><br><span class="line"></span><br><span class="line">moment().startOf(&apos;hour&apos;);</span><br><span class="line">等价于</span><br><span class="line">moment().minutes(0).seconds(0).milliseconds(0);</span><br><span class="line"></span><br><span class="line">moment().endOf(&quot;year&quot;);</span><br><span class="line">等价于</span><br><span class="line">moment().month(11).date(31).hours(23).minutes(59).seconds(59).milliseconds(999);</span><br></pre></td></tr></table></figure><p>更多请查看<a href="http://momentjs.cn/docs/" target="_blank" rel="noopener">官方文档</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;中文&quot;&gt;&lt;a href=&quot;#中文&quot; class=&quot;headerlink&quot; title=&quot;中文&quot;&gt;&lt;/a&gt;中文&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;moment.lang(&amp;apos;zh-cn&amp;apos;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;转其它格式&quot;&gt;&lt;a href=&quot;#转其它格式&quot; class=&quot;headerlink&quot; title=&quot;转其它格式&quot;&gt;&lt;/a&gt;转其它格式&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;moment().toDate();      // Fri Apr 19 2019 16:52:18 GMT+0800 (中国标准时间)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;moment().valueOf();     // 1555663581967&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="moment" scheme="https://frostbelt.github.io/tags/moment/"/>
+    
+  </entry>
   
   <entry>
     <title>vue-cli store</title>
@@ -481,26 +502,6 @@
       <category term="vscode" scheme="https://frostbelt.github.io/tags/vscode/"/>
     
       <category term="afred" scheme="https://frostbelt.github.io/tags/afred/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>shell 变量默认值</title>
-    <link href="https://frostbelt.github.io/2018/12/19/shell-%E5%8F%98%E9%87%8F%E9%BB%98%E8%AE%A4%E5%80%BC/"/>
-    <id>https://frostbelt.github.io/2018/12/19/shell-变量默认值/</id>
-    <published>2018-12-19T02:23:32.000Z</published>
-    <updated>2018-12-19T02:30:23.928Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 当变量 a 为 null 时则 msg=b </span><br><span class="line">msg=$&#123;a-b&#125;  </span><br><span class="line"></span><br><span class="line"># 当变量 a 为 null 或为空字符串时则 msg=b  </span><br><span class="line">msg=$&#123;a:-b&#125;</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">msg=$&#123;a:-b&#125;</span><br><span class="line">msg=$&#123;1:-fix&#125;</span><br><span class="line">注: 其中 $1-$9 为命令后的第 1-9 个参数，msg=$&#123;1:-fix&#125; 即第一个参数的默认值为 &quot;fix&quot;</span><br><span class="line">注: 在 shell 中，不要随便加空格，如 msg = $&#123;1:-fix&#125; 会报错</span><br></pre></td></tr></table></figure><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 快速 add . &amp; commit &amp; push</span><br><span class="line">## example:</span><br><span class="line">##   sh csh/fix.sh xxx</span><br><span class="line"></span><br><span class="line">msg=$&#123;1:-fix&#125;</span><br><span class="line"></span><br><span class="line">git add .</span><br><span class="line">git ci -m $msg</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;语法&quot;&gt;&lt;a href=&quot;#语法&quot; class=&quot;headerlink&quot; title=&quot;语法&quot;&gt;&lt;/a&gt;语法&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# 当变量 a 为 null 时则 msg=b &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;msg=$&amp;#123;a-b&amp;#125;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# 当变量 a 为 null 或为空字符串时则 msg=b  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;msg=$&amp;#123;a:-b&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="shell" scheme="https://frostbelt.github.io/tags/shell/"/>
     
   </entry>
   
