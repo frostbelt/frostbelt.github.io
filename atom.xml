@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2019-05-20T07:14:58.369Z</updated>
+  <updated>2019-06-11T01:43:52.950Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>小程序 Android 页面滚动时渲染延迟</title>
+    <link href="https://frostbelt.github.io/2019/06/11/%E5%B0%8F%E7%A8%8B%E5%BA%8F-Android-%E9%A1%B5%E9%9D%A2%E6%BB%9A%E5%8A%A8%E6%97%B6%E6%B8%B2%E6%9F%93%E5%BB%B6%E8%BF%9F/"/>
+    <id>https://frostbelt.github.io/2019/06/11/小程序-Android-页面滚动时渲染延迟/</id>
+    <published>2019-06-11T01:41:21.000Z</published>
+    <updated>2019-06-11T01:43:52.950Z</updated>
+    
+    <content type="html"><![CDATA[<p>做一个 sticky 效果，在 Android 小程序中出现页面滚动时渲染延迟</p><p>原因：小程序在 Android 下，滚动会导致所有异步阻塞，包括 setInterval、setTimeout 等。</p><p>解决：在页面配置文件里（即.json文件）添加 usingComponents 字段即可解决问题。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;usingComponents&quot;: &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;做一个 sticky 效果，在 Android 小程序中出现页面滚动时渲染延迟&lt;/p&gt;
+&lt;p&gt;原因：小程序在 Android 下，滚动会导致所有异步阻塞，包括 setInterval、setTimeout 等。&lt;/p&gt;
+&lt;p&gt;解决：在页面配置文件里（即.json文件）添加 
+      
+    
+    </summary>
+    
+    
+      <category term="小程序" scheme="https://frostbelt.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+      <category term="android" scheme="https://frostbelt.github.io/tags/android/"/>
+    
+  </entry>
   
   <entry>
     <title>vue axios post 请求</title>
@@ -482,31 +509,6 @@
       <category term="js" scheme="https://frostbelt.github.io/tags/js/"/>
     
       <category term="performance" scheme="https://frostbelt.github.io/tags/performance/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决:nvm is not compatible with the npm config prefix option...</title>
-    <link href="https://frostbelt.github.io/2018/12/24/%E8%A7%A3%E5%86%B3-nvm-is-not-compatible-with-the-npm-config-prefix-option/"/>
-    <id>https://frostbelt.github.io/2018/12/24/解决-nvm-is-not-compatible-with-the-npm-config-prefix-option/</id>
-    <published>2018-12-24T02:48:48.000Z</published>
-    <updated>2018-12-24T02:50:10.931Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># uninstall nvm</span><br><span class="line">$ sudo rm -rf ~/.nvm</span><br><span class="line"># reinstall nvm by curl (https://github.com/creationix/nvm)</span><br><span class="line">$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class
-      
-    
-    </summary>
-    
-    
-      <category term="nvm" scheme="https://frostbelt.github.io/tags/nvm/"/>
-    
-      <category term="node" scheme="https://frostbelt.github.io/tags/node/"/>
     
   </entry>
   
