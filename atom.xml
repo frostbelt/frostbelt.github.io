@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2019-06-13T08:58:53.286Z</updated>
+  <updated>2019-07-03T10:26:37.021Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,57 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决mpvue多个页面共用一个vm对象的问题</title>
+    <link href="https://frostbelt.github.io/2019/07/03/%E8%A7%A3%E5%86%B3mpvue%E5%A4%9A%E4%B8%AA%E9%A1%B5%E9%9D%A2%E5%85%B1%E7%94%A8%E4%B8%80%E4%B8%AAvm%E5%AF%B9%E8%B1%A1%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>https://frostbelt.github.io/2019/07/03/解决mpvue多个页面共用一个vm对象的问题/</id>
+    <published>2019-07-03T10:26:07.000Z</published>
+    <updated>2019-07-03T10:26:37.021Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://github.com/HelloZJW/mpvue-page-factory" target="_blank" rel="noopener">https://github.com/HelloZJW/mpvue-page-factory</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://github.com/HelloZJW/mpvue-page-factory&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/HelloZJW/mpvue-page-factory&lt;/a
+      
+    
+    </summary>
+    
+    
+      <category term="小程序" scheme="https://frostbelt.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+      <category term="mpvue" scheme="https://frostbelt.github.io/tags/mpvue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>小程序自定义导航</title>
+    <link href="https://frostbelt.github.io/2019/07/03/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AF%BC%E8%88%AA/"/>
+    <id>https://frostbelt.github.io/2019/07/03/小程序自定义导航/</id>
+    <published>2019-07-03T10:20:52.000Z</published>
+    <updated>2019-07-03T10:24:09.608Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>如何实现小红书小程序左上角那样的返回按钮？</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在 app.json 中设置 window.navigationStyle 为 &quot;custom&quot;</span><br><span class="line">可以隐藏小程序头部导航条(保留右上角胶囊)</span><br><span class="line">然后在页面上自己实现一个 fixed head 即可</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;如何实现小红书小程序左上角那样的返回按钮？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line
+      
+    
+    </summary>
+    
+    
+      <category term="小程序" scheme="https://frostbelt.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>小程序请求payload问题解决</title>
@@ -463,57 +514,6 @@
       <category term="laravel" scheme="https://frostbelt.github.io/tags/laravel/"/>
     
       <category term="小程序" scheme="https://frostbelt.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>切个图，想用 babel&amp;sass</title>
-    <link href="https://frostbelt.github.io/2018/12/26/%E5%88%87%E4%B8%AA%E5%9B%BE%EF%BC%8C%E6%83%B3%E7%94%A8-babel-sass/"/>
-    <id>https://frostbelt.github.io/2018/12/26/切个图，想用-babel-sass/</id>
-    <published>2018-12-26T09:27:16.000Z</published>
-    <updated>2018-12-26T09:31:43.368Z</updated>
-    
-    <content type="html"><![CDATA[<p>前面有 <a href="/2018/10/26/切个图，想用-sass/">切个图，想用 sass</a> [切个图，想用-babel]/2018/12/26/切个图，想用-babel/</p><p>最终还是用了 gulp<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;model&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;1.0.0&quot;,</span><br><span class="line">  &quot;description&quot;: &quot;new project package.json model&quot;,</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">    </span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;author&quot;: &quot;frostbelt&quot;,</span><br><span class="line">  &quot;license&quot;: &quot;ISC&quot;,</span><br><span class="line">  &quot;devDependencies&quot;: &#123;</span><br><span class="line">    &quot;babel-cli&quot;: &quot;^6.16.0&quot;,</span><br><span class="line">    &quot;babel-core&quot;: &quot;^6.26.3&quot;,</span><br><span class="line">    &quot;babel-loader&quot;: &quot;^6.2.5&quot;,</span><br><span class="line">    &quot;babel-plugin-lodash&quot;: &quot;^3.2.9&quot;,</span><br><span class="line">    &quot;babel-polyfill&quot;: &quot;^6.16.0&quot;,</span><br><span class="line">    &quot;babel-preset-env&quot;: &quot;^1.7.0&quot;,</span><br><span class="line">    &quot;babel-preset-es2015&quot;: &quot;^6.16.0&quot;,</span><br><span class="line">    &quot;babel-preset-stage-0&quot;: &quot;^6.24.1&quot;,</span><br><span class="line">    &quot;gulp&quot;: &quot;^3.9.1&quot;,</span><br><span class="line">    &quot;gulp-babel&quot;: &quot;^7.0.1&quot;,</span><br><span class="line">    &quot;gulp-clean&quot;: &quot;^0.3.2&quot;,</span><br><span class="line">    &quot;gulp-sass&quot;: &quot;^4.0.2&quot;,</span><br><span class="line">    &quot;gulp-uglify&quot;: &quot;^3.0.0&quot;,</span><br><span class="line">    &quot;node-sass&quot;: &quot;^4.11.0&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * new project gulpfile.js model</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">const gulp = require(&apos;gulp&apos;);</span><br><span class="line">const uglify = require(&quot;gulp-uglify&quot;);</span><br><span class="line">const babel = require(&quot;gulp-babel&quot;);</span><br><span class="line">const sass = require(&apos;gulp-sass&apos;);</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * js</span><br><span class="line"> */</span><br><span class="line">gulp.task(&quot;js&quot;, function()&#123;</span><br><span class="line">  return gulp.src(&quot;resources/assets/js/**/*.js&quot;)</span><br><span class="line">    .pipe(babel(&#123;</span><br><span class="line">      presets : [</span><br><span class="line">        &quot;env&quot;,</span><br><span class="line">      ],</span><br><span class="line">    &#125;))</span><br><span class="line">    .pipe(uglify())</span><br><span class="line">    .pipe(gulp.dest(&quot;public/dist/js&quot;)); </span><br><span class="line">&#125;);</span><br><span class="line">gulp.task(&quot;watchjs&quot;, function()&#123;</span><br><span class="line">  gulp.watch(&quot;resources/assets/js/**/*.js&quot;, [&apos;js&apos;]);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * css</span><br><span class="line"> */</span><br><span class="line">gulp.task(&quot;css&quot;, function()&#123;</span><br><span class="line">  return gulp.src(&quot;resources/assets/css/**/*.scss&quot;)</span><br><span class="line">    .pipe(sass(&#123;outputStyle: &apos;compressed&apos;&#125;).on(&apos;error&apos;, sass.logError))</span><br><span class="line">    .pipe(gulp.dest(&quot;public/dist/css&quot;)); </span><br><span class="line">&#125;);</span><br><span class="line">gulp.task(&quot;watchcss&quot;, function()&#123;</span><br><span class="line">  gulp.watch(&quot;resources/assets/css/**/*.scss&quot;, [&apos;css&apos;]);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(&quot;default&quot;, [&quot;watchjs&quot;, &quot;watchcss&quot;]);</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;前面有 &lt;a href=&quot;/2018/10/26/切个图，想用-sass/&quot;&gt;切个图，想用 sass&lt;/a&gt; [切个图，想用-babel]/2018/12/26/切个图，想用-babel/&lt;/p&gt;
-&lt;p&gt;最终还是用了 gulp&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="scss" scheme="https://frostbelt.github.io/tags/scss/"/>
-    
-      <category term="babel" scheme="https://frostbelt.github.io/tags/babel/"/>
-    
-      <category term="sass" scheme="https://frostbelt.github.io/tags/sass/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>切个图，想用 babel</title>
-    <link href="https://frostbelt.github.io/2018/12/26/%E5%88%87%E4%B8%AA%E5%9B%BE%EF%BC%8C%E6%83%B3%E7%94%A8-babel/"/>
-    <id>https://frostbelt.github.io/2018/12/26/切个图，想用-babel/</id>
-    <published>2018-12-26T07:18:41.000Z</published>
-    <updated>2018-12-26T07:43:01.802Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="/2018/10/26/切个图，想用-sass/">切个图，想用 sass</a>的兄弟篇…</p><h3 id="使用-babel"><a href="#使用-babel" class="headerlink" title="使用 babel"></a>使用 babel</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># 安装 babel</span><br><span class="line">$ npm install -g babel-cli</span><br><span class="line"># 配置转码规则</span><br><span class="line">$ npm install --save-dev babel-preset-es2015</span><br><span class="line"># .babelrc 文件</span><br><span class="line">&#123;</span><br><span class="line">  &quot;presets&quot;: [</span><br><span class="line">    &quot;es2015&quot;</span><br><span class="line">  ],</span><br><span class="line">  &quot;plugins&quot;: []</span><br><span class="line">&#125;</span><br><span class="line"># 编译</span><br><span class="line">$ babel test.js</span><br><span class="line">$ babel a.js --out-file b.js 或 babel a.js -o b.js</span><br><span class="line">$ babel src --out-dir lib 或 babel src -d lib</span><br><span class="line">$ babel src -w --out-dir lib 或 babel src -w -d lib</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;/2018/10/26/切个图，想用-sass/&quot;&gt;切个图，想用 sass&lt;/a&gt;的兄弟篇…&lt;/p&gt;
-&lt;h3 id=&quot;使用-babel&quot;&gt;&lt;a href=&quot;#使用-babel&quot; class=&quot;headerlink&quot; title=&quot;使用 babel&quot;&gt;&lt;/a
-      
-    
-    </summary>
-    
-    
-      <category term="scss" scheme="https://frostbelt.github.io/tags/scss/"/>
-    
-      <category term="babel" scheme="https://frostbelt.github.io/tags/babel/"/>
     
   </entry>
   
