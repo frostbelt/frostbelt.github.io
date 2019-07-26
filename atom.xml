@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2019-07-03T10:26:37.021Z</updated>
+  <updated>2019-07-26T02:14:59.485Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>微信reload</title>
+    <link href="https://frostbelt.github.io/2019/07/26/%E5%BE%AE%E4%BF%A1reload/"/>
+    <id>https://frostbelt.github.io/2019/07/26/微信reload/</id>
+    <published>2019-07-26T02:14:01.000Z</published>
+    <updated>2019-07-26T02:14:59.485Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">微信中 location.reload() 无效</span><br><span class="line">可以使用 location.href 或 replace 加随机数刷新</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="微信" scheme="https://frostbelt.github.io/tags/%E5%BE%AE%E4%BF%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>解决mpvue多个页面共用一个vm对象的问题</title>
@@ -491,29 +514,6 @@
       <category term="react" scheme="https://frostbelt.github.io/tags/react/"/>
     
       <category term="dva" scheme="https://frostbelt.github.io/tags/dva/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Laravel wxxcx 微信小程序获取用户信息</title>
-    <link href="https://frostbelt.github.io/2018/12/27/Laravel-wxxcx-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF/"/>
-    <id>https://frostbelt.github.io/2018/12/27/Laravel-wxxcx-微信小程序获取用户信息/</id>
-    <published>2018-12-27T01:29:25.000Z</published>
-    <updated>2018-12-27T01:53:34.784Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://github.com/lanceWan/wxxcx" target="_blank" rel="noopener">wxxcx</a> 是Laravel5微信小程序登录获取用户信息扩展</p><h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 安装</span><br><span class="line">$ composer require iwanli/wxxcx</span><br><span class="line"># 注册服务</span><br><span class="line"># 在 /config/app.php 中的 providers 数组添加</span><br><span class="line">Iwanli\Wxxcx\WxxcxServiceProvider::class,</span><br><span class="line"># 发布配置文件</span><br><span class="line">$ php artisan vendor:publish --tag=wxxcx</span><br><span class="line"># 即生成 config/wxxcx.php，在其中填写 appid 和 secret</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="获取-openid-session-key-userInfo"><a href="#获取-openid-session-key-userInfo" class="headerlink" title="获取 openid, session_key, userInfo"></a>获取 openid, session_key, userInfo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"></span><br><span class="line">use Iwanli\Wxxcx\Wxxcx;</span><br><span class="line"></span><br><span class="line">class WxxcxController extends Controller</span><br><span class="line">&#123;</span><br><span class="line">  protected $wxxcx;</span><br><span class="line"></span><br><span class="line">  function __construct(Wxxcx $wxxcx)</span><br><span class="line">  &#123;</span><br><span class="line">    $this-&gt;wxxcx = $wxxcx;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  public function getWxUserInfo()</span><br><span class="line">  &#123;</span><br><span class="line">    // code 在小程序端使用 wx.login 获取</span><br><span class="line">    $code = request(&apos;code&apos;, &apos;&apos;);</span><br><span class="line">    // encryptedData 和 iv 在小程序端使用 wx.getUserInfo 获取</span><br><span class="line">    $encryptedData = request(&apos;encryptedData&apos;, &apos;&apos;);</span><br><span class="line">    $iv = request(&apos;iv&apos;, &apos;&apos;);</span><br><span class="line"></span><br><span class="line">    // 根据 code 获取用户 openid, session_key</span><br><span class="line">    $loginInfo = $this-&gt;wxxcx-&gt;getLoginInfo($code);</span><br><span class="line"></span><br><span class="line">    // 获取解密后的用户信息</span><br><span class="line">    $userInfo = $this-&gt;wxxcx-&gt;getUserInfo($encryptedData, $iv);</span><br><span class="line"></span><br><span class="line">    return [</span><br><span class="line">      &quot;loginInfo&quot; =&gt; $loginInfo,</span><br><span class="line">      &quot;userInfo&quot; =&gt; $userInfo,</span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line">    /*</span><br><span class="line">      数据格式:</span><br><span class="line">      loginInfo : &#123;</span><br><span class="line">        openid : &quot;xxx&quot;,</span><br><span class="line">        session_key : &quot;xxx&quot;,</span><br><span class="line">      &#125;</span><br><span class="line">      userInfo : &#123;</span><br><span class="line">        openId: &quot;xxx&quot;,</span><br><span class="line">        nickName: &quot;用户昵称&quot;,</span><br><span class="line">        gender: 1,</span><br><span class="line">        language: &quot;zh_CN&quot;,</span><br><span class="line">        city: &quot;&quot;,</span><br><span class="line">        province: &quot;Beijing&quot;,</span><br><span class="line">        country: &quot;China&quot;,</span><br><span class="line">        avatarUrl: &quot;用户头像&quot;,</span><br><span class="line">        watermark: &#123;</span><br><span class="line">          timestamp: 1544277591,</span><br><span class="line">          appid: &quot;xxx&quot;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    */</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openid 即用户在当前小程序中的唯一标识，不同的小程序 openid 不同</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;https://github.com/lanceWan/wxxcx&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;wxxcx&lt;/a&gt; 是Laravel5微信小程序登录获取用户信息扩展&lt;/p&gt;
-&lt;h3 id=&quot;部署&quot;&gt;&lt;a href=&quot;#部署&quot; class=&quot;headerlink&quot; title=&quot;部署&quot;&gt;&lt;/a&gt;部署&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# 安装&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ composer require iwanli/wxxcx&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# 注册服务&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# 在 /config/app.php 中的 providers 数组添加&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Iwanli\Wxxcx\WxxcxServiceProvider::class,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# 发布配置文件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ php artisan vendor:publish --tag=wxxcx&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# 即生成 config/wxxcx.php，在其中填写 appid 和 secret&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="laravel" scheme="https://frostbelt.github.io/tags/laravel/"/>
-    
-      <category term="小程序" scheme="https://frostbelt.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
   </entry>
   
