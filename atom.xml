@@ -232,9 +232,9 @@
     <link href="https://frostbelt.github.io/2019/05/17/vscode-%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
     <id>https://frostbelt.github.io/2019/05/17/vscode-快捷键/</id>
     <published>2019-05-17T08:18:53.000Z</published>
-    <updated>2019-05-17T08:20:52.222Z</updated>
+    <updated>2019-08-15T06:14:47.167Z</updated>
     
-    <content type="html"><![CDATA[<h5 id="在选中的每一行行尾插入光标"><a href="#在选中的每一行行尾插入光标" class="headerlink" title="在选中的每一行行尾插入光标"></a>在选中的每一行行尾插入光标</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Shift + Alt + I</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h5 id="在选中的每一行行尾插入光标"><a href="#在选中的每一行行尾插入光标" class="headerlink" title="在选中的每一行行尾插入光标"></a>在选中的每一行行尾插入光标</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Shift + Alt + I</span><br></pre></td></tr></table></figure><h5 id="回到上一次编辑的位置"><a href="#回到上一次编辑的位置" class="headerlink" title="回到上一次编辑的位置"></a>回到上一次编辑的位置</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + -</span><br></pre></td></tr></table></figure><h5 id="跳到某一行"><a href="#跳到某一行" class="headerlink" title="跳到某一行"></a>跳到某一行</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + g</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
