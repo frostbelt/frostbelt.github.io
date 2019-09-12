@@ -102,18 +102,18 @@
 
 
 
-<meta name="description" content="123场景: ssh 连接开发机后启动服务，ssh 断开后服务不停$ nohup npm start &amp;gt; /var/log/nginx/xxx.log 2&amp;gt;&amp;amp;1 &amp;amp;运行 npm start 命令，并且 ssh 断开后继续执行。日志输出到 /var/log/nginx/xxx.log 详情nohup12用途: 不挂断地运行命令。语法: nohup command [ Ar">
+<meta name="description" content="123场景: ssh 连接开发机后启动服务，ssh 断开后服务不停$ nohup npm start &amp;gt; /var/log/nginx/xxx.log 2&amp;gt;&amp;amp;1 &amp;amp;运行 npm start 命令，并且 ssh 断开后继续执行。日志输出到 /var/log/nginx/xxx.log">
 <meta name="keywords" content="linux,ssh">
 <meta property="og:type" content="article">
 <meta property="og:title" content="断开ssh后继续执行--nohup">
 <meta property="og:url" content="https://frostbelt.github.io/2019/09/12/断开ssh后继续执行-nohup/index.html">
 <meta property="og:site_name" content="frostbelt&#39;s home">
-<meta property="og:description" content="123场景: ssh 连接开发机后启动服务，ssh 断开后服务不停$ nohup npm start &amp;gt; /var/log/nginx/xxx.log 2&amp;gt;&amp;amp;1 &amp;amp;运行 npm start 命令，并且 ssh 断开后继续执行。日志输出到 /var/log/nginx/xxx.log 详情nohup12用途: 不挂断地运行命令。语法: nohup command [ Ar">
+<meta property="og:description" content="123场景: ssh 连接开发机后启动服务，ssh 断开后服务不停$ nohup npm start &amp;gt; /var/log/nginx/xxx.log 2&amp;gt;&amp;amp;1 &amp;amp;运行 npm start 命令，并且 ssh 断开后继续执行。日志输出到 /var/log/nginx/xxx.log">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-12T02:08:14.899Z">
+<meta property="og:updated_time" content="2019-09-12T02:46:27.426Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="断开ssh后继续执行--nohup">
-<meta name="twitter:description" content="123场景: ssh 连接开发机后启动服务，ssh 断开后服务不停$ nohup npm start &amp;gt; /var/log/nginx/xxx.log 2&amp;gt;&amp;amp;1 &amp;amp;运行 npm start 命令，并且 ssh 断开后继续执行。日志输出到 /var/log/nginx/xxx.log 详情nohup12用途: 不挂断地运行命令。语法: nohup command [ Ar">
+<meta name="twitter:description" content="123场景: ssh 连接开发机后启动服务，ssh 断开后服务不停$ nohup npm start &amp;gt; /var/log/nginx/xxx.log 2&amp;gt;&amp;amp;1 &amp;amp;运行 npm start 命令，并且 ssh 断开后继续执行。日志输出到 /var/log/nginx/xxx.log">
 
 
 
@@ -387,6 +387,7 @@
 
       
         <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">场景: ssh 连接开发机后启动服务，ssh 断开后服务不停</span><br><span class="line">$ nohup npm start &gt; /var/log/nginx/xxx.log 2&gt;&amp;1 &amp;</span><br><span class="line">运行 npm start 命令，并且 ssh 断开后继续执行。日志输出到 /var/log/nginx/xxx.log</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="详情"><a href="#详情" class="headerlink" title="详情"></a>详情</h3><h4 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用途: 不挂断地运行命令。</span><br><span class="line">语法: nohup command [ Arg … ] [　&amp; ]</span><br></pre></td></tr></table></figure>
 <h4 id="amp"><a href="#amp" class="headerlink" title="&amp;"></a>&amp;</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用途: 在后台运行</span><br><span class="line">一般两个一起用: nohup command &amp;</span><br></pre></td></tr></table></figure>
 <h4 id="输出控制台日志到文件"><a href="#输出控制台日志到文件" class="headerlink" title="输出控制台日志到文件"></a>输出控制台日志到文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; /var/log/nginx/xxx.log 2&gt;&amp;1</span><br></pre></td></tr></table></figure>

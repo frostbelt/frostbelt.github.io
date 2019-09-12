@@ -389,15 +389,17 @@
 
       
         
-          
-            <blockquote>
+          <blockquote>
 <p>本地测试没问题，但放到阿云 ECS 上后 websocket 无法链接</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. 安全组放行 websocket 服务端口</span><br><span class="line">2. 开启防火墙并设置端口开放</span><br></pre></td></tr></table></figure>
-<h3 id="安全组放行-websocket-服务端口"><a href="#安全组放行-websocket-服务端口" class="headerlink" title="安全组放行 websocket 服务端口"></a>安全组放行 websocket 服务端口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">注: 每个 ECS 实例会有一个默认的安全组，这个安全组并不会显示在&quot;网络和安全-&gt;安全组&quot;列表中</span><br><span class="line">控制台-&gt;云服务器 ECS-&gt;实例-&gt;右键&quot;更多&quot;-&gt;网络和安全组-&gt;安全组配置-&gt;配置规则</span><br><span class="line">网卡类型: 内网</span><br><span class="line">规则方向: 入方向</span><br><span class="line">授权策略: 允许</span><br><span class="line">协议类型: 自定义TCP</span><br><span class="line">端口范围: 8000/8000 (websocket 使用的端口)</span><br><span class="line">优先级: 1</span><br><span class="line">授权类型: IPv4地址段访问</span><br><span class="line">授权对象: 0.0.0.0/0</span><br></pre></td></tr></table></figure>
-<h3 id="开启防火墙并设置端口开放"><a href="#开启防火墙并设置端口开放" class="headerlink" title="开启防火墙并设置端口开放"></a>开启防火墙并设置端口开放</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 开启防火墙</span><br><span class="line">$ systemctl start firewalld</span><br><span class="line"># 设置打开的端口号（永久打开）</span><br><span class="line">$ firewall-cmd --add-port=8000/tcp --permanent</span><br><span class="line"># 更新防火墙配置</span><br><span class="line">$ firewall-cmd --reload</span><br><span class="line"># 查看已经打开的端口</span><br><span class="line">$ firewall-cmd --list-all</span><br><span class="line">注: 需要把之前的 80、443 等对外端口都开一下，以免影响业务</span><br></pre></td></tr></table></figure>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/09/12/阿里云ECS开启websocket/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -564,15 +566,14 @@
 
       
         
-          
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">场景: ssh 连接开发机后启动服务，ssh 断开后服务不停</span><br><span class="line">$ nohup npm start &gt; /var/log/nginx/xxx.log 2&gt;&amp;1 &amp;</span><br><span class="line">运行 npm start 命令，并且 ssh 断开后继续执行。日志输出到 /var/log/nginx/xxx.log</span><br></pre></td></tr></table></figure>
-<h3 id="详情"><a href="#详情" class="headerlink" title="详情"></a>详情</h3><h4 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用途: 不挂断地运行命令。</span><br><span class="line">语法: nohup command [ Arg … ] [　&amp; ]</span><br></pre></td></tr></table></figure>
-<h4 id="amp"><a href="#amp" class="headerlink" title="&amp;"></a>&amp;</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用途: 在后台运行</span><br><span class="line">一般两个一起用: nohup command &amp;</span><br></pre></td></tr></table></figure>
-<h4 id="输出控制台日志到文件"><a href="#输出控制台日志到文件" class="headerlink" title="输出控制台日志到文件"></a>输出控制台日志到文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; /var/log/nginx/xxx.log 2&gt;&amp;1</span><br></pre></td></tr></table></figure>
-<h3 id="如何查看后台运行的命令？"><a href="#如何查看后台运行的命令？" class="headerlink" title="如何查看后台运行的命令？"></a>如何查看后台运行的命令？</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">以上 npm start 其实是运行了一条命令 node app.js</span><br><span class="line">$ ps -aux|grep node</span><br><span class="line">frostbe+ 15717  0.0  3.0 661548 30884 pts/0    SNl  09:52   0:00 node app.js</span><br><span class="line">进程号为 15717</span><br></pre></td></tr></table></figure>
-<h3 id="重启进程"><a href="#重启进程" class="headerlink" title="重启进程"></a>重启进程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ kill -usr2 15717</span><br></pre></td></tr></table></figure>
-<h3 id="杀掉进程"><a href="#杀掉进程" class="headerlink" title="杀掉进程"></a>杀掉进程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -INT 15717</span><br></pre></td></tr></table></figure>
-          
+          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">场景: ssh 连接开发机后启动服务，ssh 断开后服务不停</span><br><span class="line">$ nohup npm start &gt; /var/log/nginx/xxx.log 2&gt;&amp;1 &amp;</span><br><span class="line">运行 npm start 命令，并且 ssh 断开后继续执行。日志输出到 /var/log/nginx/xxx.log</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/09/12/断开ssh后继续执行-nohup/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
