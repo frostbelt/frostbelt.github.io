@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2019-10-19T10:38:10.279Z</updated>
+  <updated>2019-10-19T10:41:01.145Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>fiddler显示IP</title>
+    <link href="https://frostbelt.github.io/2019/10/19/fiddler%E6%98%BE%E7%A4%BAIP/"/>
+    <id>https://frostbelt.github.io/2019/10/19/fiddler显示IP/</id>
+    <published>2019-10-19T10:39:42.000Z</published>
+    <updated>2019-10-19T10:41:01.145Z</updated>
+    
+    <content type="html"><![CDATA[<p>Rules-&gt;Customize Rules…</p><p>在 static function Main() 中加一行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FiddlerObject.UI.lvSessions.AddBoundColumn(&quot;ServerIP&quot;,120,&quot;X-HostIP&quot;);</span><br></pre></td></tr></table></figure></p><p>后加在左侧的最后一栏，把它拖动到前面</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Rules-&amp;gt;Customize Rules…&lt;/p&gt;
+&lt;p&gt;在 static function Main() 中加一行&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;sp
+      
+    
+    </summary>
+    
+    
+      <category term="fiddler" scheme="https://frostbelt.github.io/tags/fiddler/"/>
+    
+  </entry>
   
   <entry>
     <title>fiddler抓包--websocket</title>
@@ -480,36 +504,6 @@
       <category term="laravel" scheme="https://frostbelt.github.io/tags/laravel/"/>
     
       <category term="mysql" scheme="https://frostbelt.github.io/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>上传大文件或 POST body 太大报错500解决</title>
-    <link href="https://frostbelt.github.io/2019/04/04/%E4%B8%8A%E4%BC%A0%E5%A4%A7%E6%96%87%E4%BB%B6%E6%88%96-POST-body-%E5%A4%AA%E5%A4%A7%E6%8A%A5%E9%94%99500%E8%A7%A3%E5%86%B3/"/>
-    <id>https://frostbelt.github.io/2019/04/04/上传大文件或-POST-body-太大报错500解决/</id>
-    <published>2019-04-04T09:11:09.000Z</published>
-    <updated>2019-04-04T09:17:50.956Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>laravel post 上传文件，上传小文件不报错，大文件报错</p></blockquote><p>尝试修改配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx conf: client_max_body_size</span><br><span class="line">php.ini: upload_max_filesize</span><br></pre></td></tr></table></figure></p><p>还是不行，看错误日志是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2019/04/04 17:03:31 [crit] 475#0: *14 open() &quot;/xxx/nginx/tmp/client_body/0000000002&quot; failed (13: Permission denied), client: 218.30.116.8, server: xxx, request: &quot;POST /xxx HTTP/1.1&quot;, host: &quot;xxx&quot;</span><br></pre></td></tr></table></figure></p><p>原来是临时文件目录权限问题，授权即可</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;laravel post 上传文件，上传小文件不报错，大文件报错&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;尝试修改配置&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter
-      
-    
-    </summary>
-    
-    
-      <category term="laravel" scheme="https://frostbelt.github.io/tags/laravel/"/>
-    
-      <category term="php" scheme="https://frostbelt.github.io/tags/php/"/>
-    
-      <category term="nginx" scheme="https://frostbelt.github.io/tags/nginx/"/>
     
   </entry>
   
