@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2019-10-17T07:08:16.681Z</updated>
+  <updated>2019-10-19T10:38:10.279Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>fiddler抓包--websocket</title>
+    <link href="https://frostbelt.github.io/2019/10/19/fiddler%E6%8A%93%E5%8C%85-websocket/"/>
+    <id>https://frostbelt.github.io/2019/10/19/fiddler抓包-websocket/</id>
+    <published>2019-10-19T10:31:31.000Z</published>
+    <updated>2019-10-19T10:38:10.279Z</updated>
+    
+    <content type="html"><![CDATA[<p>Rules-&gt;Customize Rules…</p><p>在 class Handlers 中加入以下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">static function OnWebSocketMessage(oMsg:WebSocketMessage)&#123;</span><br><span class="line">  FiddlerApplication.Log.LogString(oMsg.ToString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>然后就可以在右侧的 <code>log</code> tab 下看到 websocket 的消息了</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Rules-&amp;gt;Customize Rules…&lt;/p&gt;
+&lt;p&gt;在 class Handlers 中加入以下代码&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span cl
+      
+    
+    </summary>
+    
+    
+      <category term="fiddler" scheme="https://frostbelt.github.io/tags/fiddler/"/>
+    
+      <category term="websocket" scheme="https://frostbelt.github.io/tags/websocket/"/>
+    
+  </entry>
   
   <entry>
     <title>Laya 命令行编译(Mac)</title>
@@ -80,9 +106,9 @@
     </summary>
     
     
-      <category term="ecs" scheme="https://frostbelt.github.io/tags/ecs/"/>
-    
       <category term="websocket" scheme="https://frostbelt.github.io/tags/websocket/"/>
+    
+      <category term="ecs" scheme="https://frostbelt.github.io/tags/ecs/"/>
     
   </entry>
   
@@ -484,28 +510,6 @@
       <category term="php" scheme="https://frostbelt.github.io/tags/php/"/>
     
       <category term="nginx" scheme="https://frostbelt.github.io/tags/nginx/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mac 处理 Adobe Genuine Software Integrity Service</title>
-    <link href="https://frostbelt.github.io/2019/03/13/Mac-%E5%A4%84%E7%90%86-Adobe-Genuine-Software-Integrity-Service/"/>
-    <id>https://frostbelt.github.io/2019/03/13/Mac-处理-Adobe-Genuine-Software-Integrity-Service/</id>
-    <published>2019-03-13T05:55:07.000Z</published>
-    <updated>2019-03-13T06:04:25.554Z</updated>
-    
-    <content type="html"><![CDATA[<p>使用”不明来路”的 ps, 某一天突然弹出个窗，必须点一下才能关掉，而且过一会又弹出来<br><img src="/images/adobe_盗版.png" alt="adobe_盗版"></p><a id="more"></a><p>解决方法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 关闭所有 Adobe 软件</span><br><span class="line">2. $ sudo rm /Library/Application\ Support/Adobe/AdobeGCClient/AdobeGCClient.app/Contents/MacOS/AdobeGCClient</span><br><span class="line">3. 启动 ps, 就正常了</span><br></pre></td></tr></table></figure></p><p>引自<a href="https://www.douban.com/note/670243843/?from=author" target="_blank" rel="noopener">【搞机录】破解Adobe Photoshop的正版校验Genuine Integrity Service-L1/E16</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;使用”不明来路”的 ps, 某一天突然弹出个窗，必须点一下才能关掉，而且过一会又弹出来&lt;br&gt;&lt;img src=&quot;/images/adobe_盗版.png&quot; alt=&quot;adobe_盗版&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="mac" scheme="https://frostbelt.github.io/tags/mac/"/>
-    
-      <category term="adobe" scheme="https://frostbelt.github.io/tags/adobe/"/>
     
   </entry>
   
