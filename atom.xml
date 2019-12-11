@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2019-11-28T03:48:52.755Z</updated>
+  <updated>2019-12-11T10:34:09.597Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>阿里云日志服务日志解析</title>
+    <link href="https://frostbelt.github.io/2019/12/11/%E9%98%BF%E9%87%8C%E4%BA%91%E6%97%A5%E5%BF%97%E6%9C%8D%E5%8A%A1%E6%97%A5%E5%BF%97%E8%A7%A3%E6%9E%90/"/>
+    <id>https://frostbelt.github.io/2019/12/11/阿里云日志服务日志解析/</id>
+    <published>2019-12-11T10:16:43.000Z</published>
+    <updated>2019-12-11T10:34:09.597Z</updated>
+    
+    <content type="html"><![CDATA[<p>阿里云日志服务，设置索引时，如果字段类型为<code>String</code>，可以设置<code>分词符</code>。默认的分词符是<code>, &#39;&quot;;=()[]{}?@&amp;&lt;&gt;/:\n\t\r</code>。这个有什么用呢？</p><a id="more"></a><p>打点时，最好是各字段都有明确的含义，如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  key : &quot;update_chess_error&quot;,</span><br><span class="line">  action : &quot;1024&quot;,</span><br><span class="line">  ext : &quot;16&quot;,</span><br><span class="line">  refer : &quot;8&quot;,</span><br><span class="line">&#125;</span><br><span class="line">以上日志含义，在 1024 房间，更新牌面时发生了错误，从 8 更新到了 16</span><br></pre></td></tr></table></figure></p><p>但经常会遇到这种情况，字段不够用，需要把多个参数加到一个字段里<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  key : &quot;update_chess_error|room:1024|from:8|to:16&quot;,</span><br><span class="line">&#125;</span><br><span class="line">日志含义同上</span><br></pre></td></tr></table></figure></p><p>然而，上面的日志会非常不容易检索，因为按照分词规则，它会被切分成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">update_chess_error|room</span><br><span class="line">1024|from</span><br><span class="line">8|to</span><br><span class="line">16</span><br></pre></td></tr></table></figure></p><p>而且检索<code>|</code>时会报错</p><p>可以优化为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  key : &quot;update_chess_error,room1024,from8,to16&quot;,</span><br><span class="line">&#125;</span><br><span class="line">如查所有的该类型日志: key:update_chess_error</span><br><span class="line">如查所有房间1024的该类型日志: key:update_chess_error and key:room1024</span><br><span class="line">如查所有从8更新到16的该类型日志: key:update_chess_error and key:from8 and key:to16</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p><p>更多查询语法参与<a href="https://help.aliyun.com/document_detail/29060.html?spm=5176.2020520112.2.1.2b2634c02mUaQX" target="_blank" rel="noopener">查询语法</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;阿里云日志服务，设置索引时，如果字段类型为&lt;code&gt;String&lt;/code&gt;，可以设置&lt;code&gt;分词符&lt;/code&gt;。默认的分词符是&lt;code&gt;, &amp;#39;&amp;quot;;=()[]{}?@&amp;amp;&amp;lt;&amp;gt;/:\n\t\r&lt;/code&gt;。这个有什么用呢？&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="ali" scheme="https://frostbelt.github.io/tags/ali/"/>
+    
+      <category term="log" scheme="https://frostbelt.github.io/tags/log/"/>
+    
+  </entry>
   
   <entry>
     <title>iOS 安全区域</title>
@@ -466,33 +488,6 @@
       <category term="post" scheme="https://frostbelt.github.io/tags/post/"/>
     
       <category term="payload" scheme="https://frostbelt.github.io/tags/payload/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>小程序 Android 页面滚动时渲染延迟</title>
-    <link href="https://frostbelt.github.io/2019/06/11/%E5%B0%8F%E7%A8%8B%E5%BA%8F-Android-%E9%A1%B5%E9%9D%A2%E6%BB%9A%E5%8A%A8%E6%97%B6%E6%B8%B2%E6%9F%93%E5%BB%B6%E8%BF%9F/"/>
-    <id>https://frostbelt.github.io/2019/06/11/小程序-Android-页面滚动时渲染延迟/</id>
-    <published>2019-06-11T01:41:21.000Z</published>
-    <updated>2019-06-11T01:43:52.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>做一个 sticky 效果，在 Android 小程序中出现页面滚动时渲染延迟</p><p>原因：小程序在 Android 下，滚动会导致所有异步阻塞，包括 setInterval、setTimeout 等。</p><p>解决：在页面配置文件里（即.json文件）添加 usingComponents 字段即可解决问题。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;usingComponents&quot;: &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;做一个 sticky 效果，在 Android 小程序中出现页面滚动时渲染延迟&lt;/p&gt;
-&lt;p&gt;原因：小程序在 Android 下，滚动会导致所有异步阻塞，包括 setInterval、setTimeout 等。&lt;/p&gt;
-&lt;p&gt;解决：在页面配置文件里（即.json文件）添加 
-      
-    
-    </summary>
-    
-    
-      <category term="小程序" scheme="https://frostbelt.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
-      <category term="android" scheme="https://frostbelt.github.io/tags/android/"/>
     
   </entry>
   
