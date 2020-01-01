@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2019-12-11T10:38:11.173Z</updated>
+  <updated>2020-01-01T09:13:27.733Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>scss 中 &amp; 的使用</title>
+    <link href="https://frostbelt.github.io/2020/01/01/scss-%E4%B8%AD-%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>https://frostbelt.github.io/2020/01/01/scss-中-的使用/</id>
+    <published>2020-01-01T09:10:46.000Z</published>
+    <updated>2020-01-01T09:13:27.733Z</updated>
+    
+    <content type="html"><![CDATA[<p>在 <code>scss</code> 中，<code>&amp;</code> 表示当前路径</p><h3 id="示例一"><a href="#示例一" class="headerlink" title="示例一"></a>示例一</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.child &#123;</span><br><span class="line">  &amp;.child-cur&#123;</span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>编译后为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.child&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">.child.child-cur&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h3 id="示例二"><a href="#示例二" class="headerlink" title="示例二"></a>示例二</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.child&#123; </span><br><span class="line">  display: none;</span><br><span class="line"></span><br><span class="line">  @at-root .page-ios &amp;&#123; </span><br><span class="line">    display: block;</span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>编译后为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.child&#123; </span><br><span class="line">  display: none;</span><br><span class="line">&#125;</span><br><span class="line">.page-ios .child&#123;</span><br><span class="line">  display: block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在 &lt;code&gt;scss&lt;/code&gt; 中，&lt;code&gt;&amp;amp;&lt;/code&gt; 表示当前路径&lt;/p&gt;
+&lt;h3 id=&quot;示例一&quot;&gt;&lt;a href=&quot;#示例一&quot; class=&quot;headerlink&quot; title=&quot;示例一&quot;&gt;&lt;/a&gt;示例一&lt;/h3&gt;&lt;figure class=
+      
+    
+    </summary>
+    
+    
+      <category term="css" scheme="https://frostbelt.github.io/tags/css/"/>
+    
+      <category term="scss" scheme="https://frostbelt.github.io/tags/scss/"/>
+    
+  </entry>
   
   <entry>
     <title>阿里云日志服务日志解析</title>
@@ -458,36 +484,6 @@
     
     
       <category term="小程序" scheme="https://frostbelt.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>小程序请求payload问题解决</title>
-    <link href="https://frostbelt.github.io/2019/06/13/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%AF%B7%E6%B1%82payload%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
-    <id>https://frostbelt.github.io/2019/06/13/小程序请求payload问题解决/</id>
-    <published>2019-06-13T08:55:52.000Z</published>
-    <updated>2019-06-13T08:58:53.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>小程序 post 请求默认为 request payload 方式，导致服务端拿不到参数</p></blockquote><h6 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">增加 header content-type</span><br><span class="line"></span><br><span class="line">wx.request(&#123;</span><br><span class="line">  url: &apos;xxx&apos;,</span><br><span class="line">  data: &#123;&#125;,</span><br><span class="line">  method: &apos;POST&apos;,</span><br><span class="line">  header: &#123;&apos;content-type&apos;: &apos;application/x-www-form-urlencoded&apos;&#125;,</span><br><span class="line">  ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;小程序 post 请求默认为 request payload 方式，导致服务端拿不到参数&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h6 id=&quot;解决方式&quot;&gt;&lt;a href=&quot;#解决方式&quot; class=&quot;headerlink&quot; title=&quot;解决方式&quot;
-      
-    
-    </summary>
-    
-    
-      <category term="小程序" scheme="https://frostbelt.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
-      <category term="post" scheme="https://frostbelt.github.io/tags/post/"/>
-    
-      <category term="payload" scheme="https://frostbelt.github.io/tags/payload/"/>
     
   </entry>
   
