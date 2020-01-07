@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2020-01-01T09:13:27.733Z</updated>
+  <updated>2020-01-07T08:13:39.249Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mac 图片批量重命名</title>
+    <link href="https://frostbelt.github.io/2020/01/07/mac-%E5%9B%BE%E7%89%87%E6%89%B9%E9%87%8F%E9%87%8D%E5%91%BD%E5%90%8D/"/>
+    <id>https://frostbelt.github.io/2020/01/07/mac-图片批量重命名/</id>
+    <published>2020-01-07T08:08:18.000Z</published>
+    <updated>2020-01-07T08:13:39.249Z</updated>
+    
+    <content type="html"><![CDATA[<p>选择需要批量重命名的图片文件，右键-&gt;点击<code>给x个项目重新命名...</code></p><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>重命名为“图片1.png”, “图片2.png”…<br>选择格式，名称和索引，自定格式为“图片”，开始数字为“1”</p><p>重命名为“Photo(1).png”，“Photo(2).png”…<br>先重命名为“Photo(1.png”，“Photo(2.png”…，再选择“添加文本”，在后面加个“)”</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;选择需要批量重命名的图片文件，右键-&amp;gt;点击&lt;code&gt;给x个项目重新命名...&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;示例&quot;&gt;&lt;a href=&quot;#示例&quot; class=&quot;headerlink&quot; title=&quot;示例&quot;&gt;&lt;/a&gt;示例&lt;/h3&gt;&lt;p&gt;重命名为“图片1.png”
+      
+    
+    </summary>
+    
+    
+      <category term="mac" scheme="https://frostbelt.github.io/tags/mac/"/>
+    
+  </entry>
   
   <entry>
     <title>scss 中 &amp; 的使用</title>
@@ -458,32 +482,6 @@
       <category term="小程序" scheme="https://frostbelt.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
       <category term="mpvue" scheme="https://frostbelt.github.io/tags/mpvue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>小程序自定义导航</title>
-    <link href="https://frostbelt.github.io/2019/07/03/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AF%BC%E8%88%AA/"/>
-    <id>https://frostbelt.github.io/2019/07/03/小程序自定义导航/</id>
-    <published>2019-07-03T10:20:52.000Z</published>
-    <updated>2019-07-03T10:24:09.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>如何实现小红书小程序左上角那样的返回按钮？</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在 app.json 中设置 window.navigationStyle 为 &quot;custom&quot;</span><br><span class="line">可以隐藏小程序头部导航条(保留右上角胶囊)</span><br><span class="line">然后在页面上自己实现一个 fixed head 即可</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;如何实现小红书小程序左上角那样的返回按钮？&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line
-      
-    
-    </summary>
-    
-    
-      <category term="小程序" scheme="https://frostbelt.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
   </entry>
   
