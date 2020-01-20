@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://frostbelt.github.io/2020/01/20/git-%E5%BC%B9%E5%87%BA%E7%9A%84-vi-%E7%BC%96%E8%BE%91%E5%99%A8/</loc>
+    <lastmod>2020-01-20T03:24:18.565Z</lastmod>
+  </url>  <url>
     <loc>https://frostbelt.github.io/2020/01/17/mac-%E8%A7%A3%E5%86%B3-brew-install-%E7%9A%84-Permission-denied-%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2020-01-17T07:56:50.583Z</lastmod>
   </url>  <url>
@@ -13,10 +16,10 @@
     <loc>https://frostbelt.github.io/2019/12/11/%E9%98%BF%E9%87%8C%E4%BA%91%E6%97%A5%E5%BF%97%E6%9C%8D%E5%8A%A1%E6%97%A5%E5%BF%97%E8%A7%A3%E6%9E%90/</loc>
     <lastmod>2019-12-11T10:38:11.173Z</lastmod>
   </url>  <url>
-    <loc>https://frostbelt.github.io/2019/11/26/select%E9%9A%90%E8%97%8F%E4%B8%8B%E6%8B%89%E7%AE%AD%E5%A4%B4/</loc>
+    <loc>https://frostbelt.github.io/2019/11/26/select%E6%96%87%E6%9C%AC%E5%B1%85%E4%B8%AD/</loc>
     <lastmod>2019-11-28T03:53:57.416Z</lastmod>
   </url>  <url>
-    <loc>https://frostbelt.github.io/2019/11/26/select%E6%96%87%E6%9C%AC%E5%B1%85%E4%B8%AD/</loc>
+    <loc>https://frostbelt.github.io/2019/11/26/select%E9%9A%90%E8%97%8F%E4%B8%8B%E6%8B%89%E7%AE%AD%E5%A4%B4/</loc>
     <lastmod>2019-11-28T03:53:57.416Z</lastmod>
   </url>  <url>
     <loc>https://frostbelt.github.io/2019/11/28/iOS-%E5%AE%89%E5%85%A8%E5%8C%BA%E5%9F%9F/</loc>
