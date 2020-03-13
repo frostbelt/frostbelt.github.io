@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2020-03-13T01:34:06.300Z</updated>
+  <updated>2020-03-13T01:56:07.711Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vue cli 国际化</title>
+    <link href="https://frostbelt.github.io/2020/03/13/vue-cli-%E5%9B%BD%E9%99%85%E5%8C%96/"/>
+    <id>https://frostbelt.github.io/2020/03/13/vue-cli-国际化/</id>
+    <published>2020-03-13T01:43:44.000Z</published>
+    <updated>2020-03-13T01:56:07.711Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用<code>vue-i18n</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-i18n --save</span><br></pre></td></tr></table></figure></p><p>配置 main.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// i18n，国际化</span><br><span class="line">import VueI18n from &apos;vue-i18n&apos;</span><br><span class="line">Vue.use(VueI18n)</span><br><span class="line">const i18n = new VueI18n(&#123;</span><br><span class="line">  locale: &apos;zh&apos;,</span><br><span class="line">  messages: &#123;</span><br><span class="line">    &apos;zh&apos;: require(&apos;@/assets/languages/zh.json&apos;),</span><br><span class="line">    &apos;en&apos;: require(&apos;@/assets/languages/en.json&apos;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">let app = new Vue(&#123;</span><br><span class="line">router,</span><br><span class="line">  store,</span><br><span class="line">  // i18n，国际化</span><br><span class="line">  i18n,</span><br><span class="line">render: h =&gt; h(App)</span><br><span class="line">&#125;).$mount(&apos;#app&apos;);</span><br></pre></td></tr></table></figure></p><p>@/assets/languages/zh.json<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;common&quot; : &#123;</span><br><span class="line">    &quot;app&quot; : &#123;</span><br><span class="line">      &quot;name&quot; : &quot;app 名称&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>@/assets/languages/en.json<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;common&quot; : &#123;</span><br><span class="line">    &quot;app&quot; : &#123;</span><br><span class="line">      &quot;name&quot; : &quot;app name&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>xxx.vue<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">template:</span><br><span class="line">&#123;&#123;$t(&quot;common.app.name&quot;)&#125;&#125;</span><br><span class="line">js:</span><br><span class="line">this.$t(&quot;common.app.name&quot;)</span><br></pre></td></tr></table></figure></p><p>切换语言<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$i18n.locale = &apos;en&apos;;</span><br></pre></td></tr></table></figure></p><p>注:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. 应该根据用户的地域设置默认语言</span><br><span class="line">2. 用户切换语言后，应该种 cookie</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;使用&lt;code&gt;vue-i18n&lt;/code&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="https://frostbelt.github.io/tags/vue/"/>
+    
+  </entry>
   
   <entry>
     <title>vue cli 中图片的使用</title>
@@ -455,28 +478,6 @@
       <category term="websocket" scheme="https://frostbelt.github.io/tags/websocket/"/>
     
       <category term="ecs" scheme="https://frostbelt.github.io/tags/ecs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>断开ssh后继续执行--nohup</title>
-    <link href="https://frostbelt.github.io/2019/09/12/%E6%96%AD%E5%BC%80ssh%E5%90%8E%E7%BB%A7%E7%BB%AD%E6%89%A7%E8%A1%8C-nohup/"/>
-    <id>https://frostbelt.github.io/2019/09/12/断开ssh后继续执行-nohup/</id>
-    <published>2019-09-12T01:56:32.000Z</published>
-    <updated>2019-09-12T02:46:27.000Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">场景: ssh 连接开发机后启动服务，ssh 断开后服务不停</span><br><span class="line">$ nohup npm start &gt; /var/log/nginx/xxx.log 2&gt;&amp;1 &amp;</span><br><span class="line">运行 npm start 命令，并且 ssh 断开后继续执行。日志输出到 /var/log/nginx/xxx.log</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="详情"><a href="#详情" class="headerlink" title="详情"></a>详情</h3><h4 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用途: 不挂断地运行命令。</span><br><span class="line">语法: nohup command [ Arg … ] [　&amp; ]</span><br></pre></td></tr></table></figure><h4 id="amp"><a href="#amp" class="headerlink" title="&amp;"></a>&amp;</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用途: 在后台运行</span><br><span class="line">一般两个一起用: nohup command &amp;</span><br></pre></td></tr></table></figure><h4 id="输出控制台日志到文件"><a href="#输出控制台日志到文件" class="headerlink" title="输出控制台日志到文件"></a>输出控制台日志到文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; /var/log/nginx/xxx.log 2&gt;&amp;1</span><br></pre></td></tr></table></figure><h3 id="如何查看后台运行的命令？"><a href="#如何查看后台运行的命令？" class="headerlink" title="如何查看后台运行的命令？"></a>如何查看后台运行的命令？</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">以上 npm start 其实是运行了一条命令 node app.js</span><br><span class="line">$ ps -aux|grep node</span><br><span class="line">frostbe+ 15717  0.0  3.0 661548 30884 pts/0    SNl  09:52   0:00 node app.js</span><br><span class="line">进程号为 15717</span><br></pre></td></tr></table></figure><h3 id="重启进程"><a href="#重启进程" class="headerlink" title="重启进程"></a>重启进程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ kill -usr2 15717</span><br></pre></td></tr></table></figure><h3 id="杀掉进程"><a href="#杀掉进程" class="headerlink" title="杀掉进程"></a>杀掉进程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -INT 15717</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;场景: ssh 连接开发机后启动服务，ssh 断开后服务不停&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ nohup npm start &amp;gt; /var/log/nginx/xxx.log 2&amp;gt;&amp;amp;1 &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;运行 npm start 命令，并且 ssh 断开后继续执行。日志输出到 /var/log/nginx/xxx.log&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="https://frostbelt.github.io/tags/linux/"/>
-    
-      <category term="ssh" scheme="https://frostbelt.github.io/tags/ssh/"/>
     
   </entry>
   
