@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2020-03-13T01:56:07.711Z</updated>
+  <updated>2020-03-17T01:36:34.856Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vue 打包减小 moment 体积</title>
+    <link href="https://frostbelt.github.io/2020/03/17/vue-%E6%89%93%E5%8C%85%E5%87%8F%E5%B0%8F-moment-%E4%BD%93%E7%A7%AF/"/>
+    <id>https://frostbelt.github.io/2020/03/17/vue-打包减小-moment-体积/</id>
+    <published>2020-03-17T01:32:52.000Z</published>
+    <updated>2020-03-17T01:36:34.856Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>moment 体积较大，但一般只使用到几种语言，应该过滤一下</p></blockquote><p>vue cli 的 vue.config.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">configureWebpack: config =&gt; &#123;</span><br><span class="line">  config.plugins.push(</span><br><span class="line">    // 提取 monent 有效部分，减小体积。压缩前 611k-&gt;163k</span><br><span class="line">    // en-gb 英国 en-us 美国(默认值) vi 越南 zh-cn 中国</span><br><span class="line">    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /^\.\/(zh-cn|vi)$/i)</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line">注: 在 moment locale 目录下并没有 en-us，默认为 en-us</span><br><span class="line">moment 的这一设计也遭到不少 diss</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;moment 体积较大，但一般只使用到几种语言，应该过滤一下&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;vue cli 的 vue.config.js&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t
+      
+    
+    </summary>
+    
+    
+      <category term="moment" scheme="https://frostbelt.github.io/tags/moment/"/>
+    
+      <category term="vue" scheme="https://frostbelt.github.io/tags/vue/"/>
+    
+  </entry>
   
   <entry>
     <title>vue cli 国际化</title>
@@ -453,31 +481,6 @@
     
     
       <category term="npm" scheme="https://frostbelt.github.io/tags/npm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>阿里云ECS开启websocket</title>
-    <link href="https://frostbelt.github.io/2019/09/12/%E9%98%BF%E9%87%8C%E4%BA%91ECS%E5%BC%80%E5%90%AFwebsocket/"/>
-    <id>https://frostbelt.github.io/2019/09/12/阿里云ECS开启websocket/</id>
-    <published>2019-09-12T02:14:59.000Z</published>
-    <updated>2019-09-12T02:46:17.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>本地测试没问题，但放到阿云 ECS 上后 websocket 无法链接</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. 安全组放行 websocket 服务端口</span><br><span class="line">2. 开启防火墙并设置端口开放</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="安全组放行-websocket-服务端口"><a href="#安全组放行-websocket-服务端口" class="headerlink" title="安全组放行 websocket 服务端口"></a>安全组放行 websocket 服务端口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">注: 每个 ECS 实例会有一个默认的安全组，这个安全组并不会显示在&quot;网络和安全-&gt;安全组&quot;列表中</span><br><span class="line">控制台-&gt;云服务器 ECS-&gt;实例-&gt;右键&quot;更多&quot;-&gt;网络和安全组-&gt;安全组配置-&gt;配置规则</span><br><span class="line">网卡类型: 内网</span><br><span class="line">规则方向: 入方向</span><br><span class="line">授权策略: 允许</span><br><span class="line">协议类型: 自定义TCP</span><br><span class="line">端口范围: 8000/8000 (websocket 使用的端口)</span><br><span class="line">优先级: 1</span><br><span class="line">授权类型: IPv4地址段访问</span><br><span class="line">授权对象: 0.0.0.0/0</span><br></pre></td></tr></table></figure><h3 id="开启防火墙并设置端口开放"><a href="#开启防火墙并设置端口开放" class="headerlink" title="开启防火墙并设置端口开放"></a>开启防火墙并设置端口开放</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 开启防火墙</span><br><span class="line">$ systemctl start firewalld</span><br><span class="line"># 设置打开的端口号（永久打开）</span><br><span class="line">$ firewall-cmd --add-port=8000/tcp --permanent</span><br><span class="line"># 更新防火墙配置</span><br><span class="line">$ firewall-cmd --reload</span><br><span class="line"># 查看已经打开的端口</span><br><span class="line">$ firewall-cmd --list-all</span><br><span class="line">注: 需要把之前的 80、443 等对外端口都开一下，以免影响业务</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本地测试没问题，但放到阿云 ECS 上后 websocket 无法链接&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1. 安全组放行 websocket 服务端口&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2. 开启防火墙并设置端口开放&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="websocket" scheme="https://frostbelt.github.io/tags/websocket/"/>
-    
-      <category term="ecs" scheme="https://frostbelt.github.io/tags/ecs/"/>
     
   </entry>
   
