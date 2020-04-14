@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2020-03-17T01:36:34.856Z</updated>
+  <updated>2020-04-14T07:17:34.839Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>微信打开 chrome inspect 调试</title>
+    <link href="https://frostbelt.github.io/2020/04/14/%E5%BE%AE%E4%BF%A1%E6%89%93%E5%BC%80-chrome-inspect-%E8%B0%83%E8%AF%95/"/>
+    <id>https://frostbelt.github.io/2020/04/14/微信打开-chrome-inspect-调试/</id>
+    <published>2020-04-14T07:16:26.000Z</published>
+    <updated>2020-04-14T07:17:34.839Z</updated>
+    
+    <content type="html"><![CDATA[<p>微信打开 <a href="http://debugx5.qq.com" target="_blank" rel="noopener">http://debugx5.qq.com</a><br>选择”信息”tab，勾选”打开TBS内核xxx”一系列选项</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;微信打开 &lt;a href=&quot;http://debugx5.qq.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://debugx5.qq.com&lt;/a&gt;&lt;br&gt;选择”信息”tab，勾选”打开TBS内核xxx”一系列选项&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="chrome" scheme="https://frostbelt.github.io/tags/chrome/"/>
+    
+      <category term="微信" scheme="https://frostbelt.github.io/tags/%E5%BE%AE%E4%BF%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>vue 打包减小 moment 体积</title>
@@ -460,27 +486,6 @@
     
     
       <category term="laya" scheme="https://frostbelt.github.io/tags/laya/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>npm uninstall -g</title>
-    <link href="https://frostbelt.github.io/2019/10/17/npm-uninstall-g/"/>
-    <id>https://frostbelt.github.io/2019/10/17/npm-uninstall-g/</id>
-    <published>2019-10-17T06:47:43.000Z</published>
-    <updated>2019-10-17T06:54:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">全局安装是:</span><br><span class="line">$ npm install xxx -g</span><br><span class="line">全局卸载是:</span><br><span class="line">$ npm uninstall xxx -g</span><br><span class="line">全局卸载后，查看全局安装的包:</span><br><span class="line">$ npm list --depth=0 -global</span><br><span class="line">发现还有残留，还有大量报错信息</span><br></pre></td></tr></table></figure><h3 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h3><a id="more"></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">查看 npm 配置:</span><br><span class="line">$ npm config list</span><br><span class="line">; cli configs</span><br><span class="line">metrics-registry = &quot;https://registry.npmjs.org/&quot;</span><br><span class="line">scope = &quot;&quot;</span><br><span class="line">user-agent = &quot;npm/6.1.0 node/v10.6.0 darwin x64&quot;</span><br><span class="line"></span><br><span class="line">; node bin location = /youpath/node/v10.6.0/bin/node</span><br><span class="line">; cwd = /youpath/node/v10.6.0/lib/node_modules</span><br><span class="line">; HOME = /xxx</span><br><span class="line">; &quot;npm config ls -l&quot; to show all defaults.</span><br><span class="line">然后到 /youpath/node/v10.6.0/lib/node_modules 下 rm -rf 掉你想删掉的包</span><br><span class="line">再次 npm list --depth=0 -global 后正常</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;全局安装是:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ npm install xxx -g&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;全局卸载是:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ npm uninstall xxx -g&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;全局卸载后，查看全局安装的包:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ npm list --depth=0 -global&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;发现还有残留，还有大量报错信息&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;解决方式&quot;&gt;&lt;a href=&quot;#解决方式&quot; class=&quot;headerlink&quot; title=&quot;解决方式&quot;&gt;&lt;/a&gt;解决方式&lt;/h3&gt;
-    
-    </summary>
-    
-    
-      <category term="npm" scheme="https://frostbelt.github.io/tags/npm/"/>
     
   </entry>
   
