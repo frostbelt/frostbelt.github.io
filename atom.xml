@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2020-04-14T07:17:34.839Z</updated>
+  <updated>2020-04-17T08:34:57.415Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>当transpileDependencies无效时</title>
+    <link href="https://frostbelt.github.io/2020/04/17/%E5%BD%93transpileDependencies%E6%97%A0%E6%95%88%E6%97%B6/"/>
+    <id>https://frostbelt.github.io/2020/04/17/当transpileDependencies无效时/</id>
+    <published>2020-04-17T08:26:11.000Z</published>
+    <updated>2020-04-17T08:34:57.415Z</updated>
+    
+    <content type="html"><![CDATA[<p>vue-cli 默认 babel-loader 忽略 node_modules<br>当某个依赖(如 vue-baberrage)存在 ES6 语法时，vue 官方给出的解决方案是 <a href="https://cli.vuejs.org/zh/config/#transpiledependencies" target="_blank" rel="noopener">transpileDependencies</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">默认情况下 babel-loader 会忽略所有 node_modules 中的文件。如果你想要通过 Babel 显式转译一个依赖，可以在这个选项中列出来。</span><br><span class="line"></span><br><span class="line">vue.config.js</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  transpileDependencies : [&apos;vue-baberrage&apos;],   // 需要转译的依赖数组</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>但自测 transpileDependencies 无效，解决办法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">chainWebpack: config =&gt; &#123;</span><br><span class="line">  config.module.rule(&apos;js&apos;)</span><br><span class="line">    .test(/\.m?jsx?$/)</span><br><span class="line">    .exclude</span><br><span class="line">    .clear()</span><br><span class="line">    .add(filepath =&gt; &#123;</span><br><span class="line">      if (/\.vue\.jsx?$/.test(filepath)) &#123;</span><br><span class="line">        return false</span><br><span class="line">      &#125;</span><br><span class="line">      // exclude dynamic entries from cli-service</span><br><span class="line">      const cliServicePath = require(&apos;path&apos;).dirname(require.resolve(&apos;@vue/cli-service&apos;))</span><br><span class="line">      if (filepath.startsWith(cliServicePath)) &#123;</span><br><span class="line">        return true</span><br><span class="line">      &#125;</span><br><span class="line">      // check if this is something the user explicitly wants to transpile</span><br><span class="line">      if ([/vue-baberrage/].some(dep =&gt; filepath.match(dep))) &#123;</span><br><span class="line">        return false</span><br><span class="line">      &#125;</span><br><span class="line">      // Don&apos;t transpile node_modules</span><br><span class="line">      return /node_modules/.test(filepath)</span><br><span class="line">    &#125;)</span><br><span class="line">    .end()</span><br><span class="line">    .use(&apos;babel-loader&apos;)</span><br><span class="line">    .loader(&apos;babel-loader&apos;)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;vue-cli 默认 babel-loader 忽略 node_modules&lt;br&gt;当某个依赖(如 vue-baberrage)存在 ES6 语法时，vue 官方给出的解决方案是 &lt;a href=&quot;https://cli.vuejs.org/zh/config/#tran
+      
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="https://frostbelt.github.io/tags/vue/"/>
+    
+  </entry>
   
   <entry>
     <title>微信打开 chrome inspect 调试</title>
@@ -463,29 +486,6 @@
       <category term="fiddler" scheme="https://frostbelt.github.io/tags/fiddler/"/>
     
       <category term="websocket" scheme="https://frostbelt.github.io/tags/websocket/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Laya 命令行编译(Mac)</title>
-    <link href="https://frostbelt.github.io/2019/10/17/Laya-%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BC%96%E8%AF%91-Mac/"/>
-    <id>https://frostbelt.github.io/2019/10/17/Laya-命令行编译-Mac/</id>
-    <published>2019-10-17T06:54:58.000Z</published>
-    <updated>2019-11-18T03:35:46.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>总感觉 Laya 是一款对 Mac 很不友好的游戏引擎，一开 Layaair IDE 风扇就不停。IDE 的关闭、最大最小化还是在右上角，是在 Windows exe 上套了个壳吗？想在命令行编译，尝试了官方的 layaair2-cmd 还报错…</p></blockquote><p>后来，终于找到一个能在 Mac 上运行的命令行编译工具<a href="https://github.com/Cola-Zhang/layaair2-cmd-plus" target="_blank" rel="noopener">layaair2-cmd-plus</a></p><a id="more"></a><h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ layaair2-plus-cmd compile</span><br></pre></td></tr></table></figure><h3 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">layaair2-plus-cmd publish -c web</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;总感觉 Laya 是一款对 Mac 很不友好的游戏引擎，一开 Layaair IDE 风扇就不停。IDE 的关闭、最大最小化还是在右上角，是在 Windows exe 上套了个壳吗？想在命令行编译，尝试了官方的 layaair2-cmd 还报错…&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;后来，终于找到一个能在 Mac 上运行的命令行编译工具&lt;a href=&quot;https://github.com/Cola-Zhang/layaair2-cmd-plus&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;layaair2-cmd-plus&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="laya" scheme="https://frostbelt.github.io/tags/laya/"/>
     
   </entry>
   
