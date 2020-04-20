@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2020-04-18T12:17:31.191Z</updated>
+  <updated>2020-04-20T07:20:42.792Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hybird 开发注意点</title>
+    <link href="https://frostbelt.github.io/2020/04/20/Hybird-%E5%BC%80%E5%8F%91%E6%B3%A8%E6%84%8F%E7%82%B9/"/>
+    <id>https://frostbelt.github.io/2020/04/20/Hybird-开发注意点/</id>
+    <published>2020-04-20T07:18:16.000Z</published>
+    <updated>2020-04-20T07:20:42.792Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="客户端回调页面"><a href="#客户端回调页面" class="headerlink" title="客户端回调页面"></a>客户端回调页面</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">接口回调方法名由 js 指定，类似 jsonp，否则多次连续调用同一接口只能串行</span><br><span class="line">example:</span><br><span class="line">web-&gt;client</span><br><span class="line">Client.getUserInfo(&#123;</span><br><span class="line">  callbackName : &quot;xxx&quot;,</span><br><span class="line">&#125;);</span><br><span class="line">client-&gt;web</span><br><span class="line">window.xxx(&#123;</span><br><span class="line">  vc : 10001,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="输入法弹起时"><a href="#输入法弹起时" class="headerlink" title="输入法弹起时"></a>输入法弹起时</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入法弹起时，最好是缩小 webview 高度，可以避免以下问题:</span><br><span class="line">  a. fixed head 被顶出视野外；</span><br><span class="line">  b. fixed foot(弹幕等) 被盖住；</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;客户端回调页面&quot;&gt;&lt;a href=&quot;#客户端回调页面&quot; class=&quot;headerlink&quot; title=&quot;客户端回调页面&quot;&gt;&lt;/a&gt;客户端回调页面&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;接口回调方法名由 js 指定，类似 jsonp，否则多次连续调用同一接口只能串行&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;example:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;web-&amp;gt;client&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Client.getUserInfo(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  callbackName : &amp;quot;xxx&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;client-&amp;gt;web&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;window.xxx(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  vc : 10001,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="hybird" scheme="https://frostbelt.github.io/tags/hybird/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vscode 搜索支持通配符</title>
+    <link href="https://frostbelt.github.io/2020/04/20/vscode-%E6%90%9C%E7%B4%A2%E6%94%AF%E6%8C%81%E9%80%9A%E9%85%8D%E7%AC%A6/"/>
+    <id>https://frostbelt.github.io/2020/04/20/vscode-搜索支持通配符/</id>
+    <published>2020-04-20T07:14:16.000Z</published>
+    <updated>2020-04-20T07:14:53.705Z</updated>
+    
+    <content type="html"><![CDATA[<p>示例:<br>./src/*/page</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;示例:&lt;br&gt;./src/*/page&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="vscode" scheme="https://frostbelt.github.io/tags/vscode/"/>
+    
+  </entry>
   
   <entry>
     <title>实现CORS 服务端需要做什么</title>
@@ -432,53 +476,6 @@
       &lt;p&gt;引自&lt;a href=&quot;https://www.cnblogs.com/nihaorz/p/5455148.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Fiddler内置命令&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;?&quot;&gt;&lt;/a&gt;?&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;?google.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;高亮显示所有 url 中包含 google.com 的请求&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h3 id=&quot;gt-和-lt&quot;&gt;&lt;a href=&quot;#gt-和-lt&quot; class=&quot;headerlink&quot; title=&quot;&amp;gt; 和 &amp;lt;&quot;&gt;&lt;/a&gt;&amp;gt; 和 &amp;lt;&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;5000&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;高亮显示所有包 &amp;gt;5000 bytes 的请求&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="fiddler" scheme="https://frostbelt.github.io/tags/fiddler/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>laya js bridge</title>
-    <link href="https://frostbelt.github.io/2019/10/21/laya-js-bridge/"/>
-    <id>https://frostbelt.github.io/2019/10/21/laya-js-bridge/</id>
-    <published>2019-10-21T02:20:40.000Z</published>
-    <updated>2019-10-21T02:36:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="laya-文档"><a href="#laya-文档" class="headerlink" title="laya 文档"></a>laya 文档</h3><p><a href="https://ldc.layabox.com/doc/?nav=zh-js-7-2-3" target="_blank" rel="noopener">用反射机制实现二次开发</a></p><h3 id="注"><a href="#注" class="headerlink" title="注"></a>注</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">laya 的异步调用，内部并没有实现队列。如连续多次调用同一异步方法，回调函数会被覆盖，导致逻辑混乱。</span><br><span class="line">即异步调用需要串行调用</span><br><span class="line">方案: 所有接口使用同步方式调用，指定回调方法，客户端直接回调，类似 jsonp</span><br></pre></td></tr></table></figure><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">const os = conchConfig.getOS();</span><br><span class="line"></span><br><span class="line">let GameClient = &#123;</span><br><span class="line">  is_android : os == &quot;Conch-android&quot;,</span><br><span class="line">  is_ios_jj : os == &quot;Conch-ios&quot;,</span><br><span class="line">  bridge : os == &quot;Conch-android&quot; ? PlatformClass.createClass(&quot;com.xxx.xxx.xxx.JSBridge&quot;) : PlatformClass.createClass(&quot;JSBridge&quot;),</span><br><span class="line"></span><br><span class="line">  data : &#123;&#125;,</span><br><span class="line"></span><br><span class="line">  /**</span><br><span class="line">   * toast (同步方法示例)</span><br><span class="line">   * @param &#123;String&#125; msg </span><br><span class="line">   */</span><br><span class="line">  alert (msg) &#123;</span><br><span class="line">    this.bridge.call(&quot;showMessage&quot;, msg);</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  /**</span><br><span class="line">   * 获取用户信息 (异步方法示例)</span><br><span class="line">   * @param &#123;Function&#125; cb 回调</span><br><span class="line">   * @param &#123;Boolean&#125; force_update 强制取最新信息</span><br><span class="line">   * @example </span><br><span class="line">   *    GameClient.getUserInfo(res =&gt; &#123;</span><br><span class="line">   *      // 已登录</span><br><span class="line">   *      if(res.errno == 1)&#123;</span><br><span class="line">   *        res.data = &#123;</span><br><span class="line">   *          name : &quot;xxx&quot;,</span><br><span class="line">   *          avatar : &quot;xxx&quot;,</span><br><span class="line">   *        &#125;;</span><br><span class="line">   *      &#125;</span><br><span class="line">   *    &#125;);</span><br><span class="line">   */</span><br><span class="line">  getUserInfo (cb, force_update) &#123;</span><br><span class="line">    cb = cb || function()&#123;&#125;;</span><br><span class="line"></span><br><span class="line">    // 已记录登录状态</span><br><span class="line">    if(this.data.userInfo &amp;&amp; !force_update)&#123;</span><br><span class="line">      cb(this.data.userInfo);</span><br><span class="line">      return;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    this.bridge.callWithBack(res =&gt; &#123;</span><br><span class="line">      res = typeof res == &quot;string&quot; ? JSON.parse(res) : res;</span><br><span class="line">      if(res.errno == 1)&#123;</span><br><span class="line">        this.data.userInfo = res.data;</span><br><span class="line">      &#125;</span><br><span class="line">      else &#123;</span><br><span class="line">        this.data.userInfo = null;</span><br><span class="line">      &#125;</span><br><span class="line">      cb(this.data.userInfo);</span><br><span class="line">    &#125;, &quot;getCurrentUserInfo&quot;);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">export default GameClient;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;laya-文档&quot;&gt;&lt;a href=&quot;#laya-文档&quot; class=&quot;headerlink&quot; title=&quot;laya 文档&quot;&gt;&lt;/a&gt;laya 文档&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://ldc.layabox.com/doc/?nav=zh-js-7-
-      
-    
-    </summary>
-    
-    
-      <category term="laya" scheme="https://frostbelt.github.io/tags/laya/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>fiddler显示IP</title>
-    <link href="https://frostbelt.github.io/2019/10/19/fiddler%E6%98%BE%E7%A4%BAIP/"/>
-    <id>https://frostbelt.github.io/2019/10/19/fiddler显示IP/</id>
-    <published>2019-10-19T10:39:42.000Z</published>
-    <updated>2019-10-19T10:41:01.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Rules-&gt;Customize Rules…</p><p>在 static function Main() 中加一行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FiddlerObject.UI.lvSessions.AddBoundColumn(&quot;ServerIP&quot;,120,&quot;X-HostIP&quot;);</span><br></pre></td></tr></table></figure></p><p>后加在左侧的最后一栏，把它拖动到前面</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Rules-&amp;gt;Customize Rules…&lt;/p&gt;
-&lt;p&gt;在 static function Main() 中加一行&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;sp
-      
     
     </summary>
     
