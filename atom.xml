@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2020-04-20T07:20:42.792Z</updated>
+  <updated>2020-04-21T09:16:11.971Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vscode alias 代码提示</title>
+    <link href="https://frostbelt.github.io/2020/04/21/vscode-alias-%E4%BB%A3%E7%A0%81%E6%8F%90%E7%A4%BA/"/>
+    <id>https://frostbelt.github.io/2020/04/21/vscode-alias-代码提示/</id>
+    <published>2020-04-21T09:11:54.000Z</published>
+    <updated>2020-04-21T09:16:11.971Z</updated>
+    
+    <content type="html"><![CDATA[<p>vue 配置了 alias，如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">chainWebpack: config =&gt; &#123;</span><br><span class="line">  config.resolve.alias.set(&apos;vue$&apos;, &apos;vue/dist/vue.esm.js&apos;)</span><br><span class="line">  config.resolve.alias.set(&apos;@img&apos;, path.resolve(__dirname, &apos;src/assets/images&apos;))</span><br><span class="line">  config.resolve.alias.set(&apos;@js&apos;, path.resolve(__dirname, &apos;src/assets/js&apos;))</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>这样在 <code>import XXX from &quot;@js/xxx&quot;</code> 后，没有代码提示了</p><a id="more"></a><p>在根目录新建 <code>jsconfig.json</code>，内容:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">&quot;compilerOptions&quot;: &#123;</span><br><span class="line">&quot;baseUrl&quot;: &quot;./&quot;,</span><br><span class="line">&quot;paths&quot;: &#123;</span><br><span class="line">&quot;@img/*&quot;: [&quot;src/assets/images/*&quot;],</span><br><span class="line">&quot;@js/*&quot;: [&quot;src/assets/js/*&quot;],</span><br><span class="line">      ...</span><br><span class="line">&#125;</span><br><span class="line">&#125;,</span><br><span class="line">&quot;exclude&quot;: [&quot;node_modules&quot;, &quot;dist&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>用于配置 alias 指向的目录，然后 <code>重启 vscode!</code></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;vue 配置了 alias，如:&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;chainWebpack: config =&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  config.resolve.alias.set(&amp;apos;vue$&amp;apos;, &amp;apos;vue/dist/vue.esm.js&amp;apos;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  config.resolve.alias.set(&amp;apos;@img&amp;apos;, path.resolve(__dirname, &amp;apos;src/assets/images&amp;apos;))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  config.resolve.alias.set(&amp;apos;@js&amp;apos;, path.resolve(__dirname, &amp;apos;src/assets/js&amp;apos;))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  ...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;这样在 &lt;code&gt;import XXX from &amp;quot;@js/xxx&amp;quot;&lt;/code&gt; 后，没有代码提示了&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="vscode" scheme="https://frostbelt.github.io/tags/vscode/"/>
+    
+      <category term="vue" scheme="https://frostbelt.github.io/tags/vue/"/>
+    
+  </entry>
   
   <entry>
     <title>Hybird 开发注意点</title>
@@ -459,28 +482,6 @@
     
     
       <category term="laya" scheme="https://frostbelt.github.io/tags/laya/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>fiddler 内置命令</title>
-    <link href="https://frostbelt.github.io/2019/10/31/fiddler-%E5%86%85%E7%BD%AE%E5%91%BD%E4%BB%A4/"/>
-    <id>https://frostbelt.github.io/2019/10/31/fiddler-内置命令/</id>
-    <published>2019-10-31T11:14:09.000Z</published>
-    <updated>2019-10-31T11:49:36.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>引自<a href="https://www.cnblogs.com/nihaorz/p/5455148.html" target="_blank" rel="noopener">Fiddler内置命令</a></p><h3 id=""><a href="#" class="headerlink" title="?"></a>?</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">?google.com</span><br><span class="line">高亮显示所有 url 中包含 google.com 的请求</span><br></pre></td></tr></table></figure><h3 id="gt-和-lt"><a href="#gt-和-lt" class="headerlink" title="&gt; 和 &lt;"></a>&gt; 和 &lt;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;5000</span><br><span class="line">高亮显示所有包 &gt;5000 bytes 的请求</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="-1"><a href="#-1" class="headerlink" title="="></a>=</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">=200 </span><br><span class="line">高亮显示所有状态码为 200 的请求</span><br><span class="line">=post </span><br><span class="line">高亮显示所有 post 请求</span><br></pre></td></tr></table></figure><h3 id="-2"><a href="#-2" class="headerlink" title="@"></a>@</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@frostbelt.cn</span><br><span class="line">高亮显示所有 frostbelt.cn 域下或子域下的请求</span><br></pre></td></tr></table></figure><h3 id="bpafter"><a href="#bpafter" class="headerlink" title="bpafter"></a>bpafter</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bpafter xxx</span><br><span class="line">中断所有匹配到的请求，可以修改 response 后继续</span><br><span class="line">bpafter 解除中断</span><br></pre></td></tr></table></figure><h3 id="bps"><a href="#bps" class="headerlink" title="bps"></a>bps</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bps 200</span><br><span class="line">中断所有状态码为 200 的请求</span><br><span class="line">bps 解除中断</span><br></pre></td></tr></table></figure><h3 id="bpv-bpm"><a href="#bpv-bpm" class="headerlink" title="bpv / bpm"></a>bpv / bpm</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bpv get</span><br><span class="line">中断所有 get 请求</span><br><span class="line">bpv 解除中断</span><br></pre></td></tr></table></figure><h3 id="bpu"><a href="#bpu" class="headerlink" title="bpu"></a>bpu</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">跟 bpafter 类似，区别：bpu 是在发起请求时中断，而 bpafter 是在收到响应后中断。</span><br></pre></td></tr></table></figure><h3 id="g-go"><a href="#g-go" class="headerlink" title="g / go"></a>g / go</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">放行所有中断下来的会话。</span><br></pre></td></tr></table></figure><h3 id="cls-clear"><a href="#cls-clear" class="headerlink" title="cls / clear"></a>cls / clear</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">清除当前的所有请求</span><br></pre></td></tr></table></figure><h3 id="dump"><a href="#dump" class="headerlink" title="dump"></a>dump</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将所有请求打包成saz压缩包，保存到“我的文档\Fiddler2\Captures”目录下</span><br></pre></td></tr></table></figure><h3 id="urlreplace"><a href="#urlreplace" class="headerlink" title="urlreplace"></a>urlreplace</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">urlreplace baidu.com google.com</span><br><span class="line">将所有 url 中的 baidu.com 替换成 google.com</span><br><span class="line">urlreplace 解除替换</span><br></pre></td></tr></table></figure><h3 id="select"><a href="#select" class="headerlink" title="select"></a>select</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select image/css/html</span><br><span class="line">选中所有的图片/css/html</span><br></pre></td></tr></table></figure><h3 id="allbut-keeponly"><a href="#allbut-keeponly" class="headerlink" title="allbut / keeponly"></a>allbut / keeponly</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">keeponly image</span><br><span class="line">将所有与图片无关的请求删除</span><br><span class="line">跟 select 类似，不过 allbut 和 keeponly 会将所有无关的会话删除。</span><br></pre></td></tr></table></figure><h3 id="start-或-stop"><a href="#start-或-stop" class="headerlink" title="start 或 stop"></a>start 或 stop</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">开始监听请求 或 停止监听请求</span><br></pre></td></tr></table></figure><h3 id="bold"><a href="#bold" class="headerlink" title="bold"></a>bold</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bold google.com</span><br><span class="line">加粗显示所有 url 中有 google.com 的请求</span><br><span class="line">bold 取消加粗</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;引自&lt;a href=&quot;https://www.cnblogs.com/nihaorz/p/5455148.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Fiddler内置命令&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;?&quot;&gt;&lt;/a&gt;?&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;?google.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;高亮显示所有 url 中包含 google.com 的请求&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;gt-和-lt&quot;&gt;&lt;a href=&quot;#gt-和-lt&quot; class=&quot;headerlink&quot; title=&quot;&amp;gt; 和 &amp;lt;&quot;&gt;&lt;/a&gt;&amp;gt; 和 &amp;lt;&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;5000&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;高亮显示所有包 &amp;gt;5000 bytes 的请求&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="fiddler" scheme="https://frostbelt.github.io/tags/fiddler/"/>
     
   </entry>
   
