@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2020-04-23T06:18:15.112Z</updated>
+  <updated>2020-04-23T08:03:44.736Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vue 通用组件</title>
+    <link href="https://frostbelt.github.io/2020/04/23/vue-%E9%80%9A%E7%94%A8%E7%BB%84%E4%BB%B6/"/>
+    <id>https://frostbelt.github.io/2020/04/23/vue-通用组件/</id>
+    <published>2020-04-23T07:50:18.000Z</published>
+    <updated>2020-04-23T08:03:44.736Z</updated>
+    
+    <content type="html"><![CDATA[<p>类似 element ui 中的 <code>this.$message.success(&#39;提交成功&#39;)</code> 这种通用组件是怎么生成的?</p><p>–Loading<br> |<strong>Loading.vue<br> |</strong>index.js</p><a id="more"></a><p>Loading.vue<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div v-show=&quot;show&quot; class=&quot;loading&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &quot;loading&quot;,</span><br><span class="line">  props: &#123;&#125;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      show: false</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    init() &#123;&#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted() &#123;</span><br><span class="line">    this.init();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style lang=&quot;scss&quot; scoped&gt;</span><br><span class="line">...</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p><p>index.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line">import Loading from &quot;./Loading&quot;</span><br><span class="line"></span><br><span class="line">const LoadingConstructor = Vue.extend(Loading);</span><br><span class="line">const Ld = &#123;</span><br><span class="line">  init() &#123;</span><br><span class="line">    if (this.is_inited) &#123;</span><br><span class="line">      return;</span><br><span class="line">    &#125;</span><br><span class="line">    this.is_inited = true;</span><br><span class="line"></span><br><span class="line">    this.instance = new LoadingConstructor(&#123;</span><br><span class="line">      data: &#123;&#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">    this.instance.vm = this.instance.$mount();    // $mount() 没有参数时，模板将被渲染为文档之外的元素</span><br><span class="line">    document.body.appendChild(this.instance.$el); // 这种情况下必须使用原生 DOM API 把它插入文档中</span><br><span class="line">    this.instance.dom = this.instance.$el;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  show() &#123;</span><br><span class="line">    this.init();</span><br><span class="line">    this.instance.vm.show = true;                 // 可直接操作 Loading.vue 的 data</span><br><span class="line">  &#125;,</span><br><span class="line">  hide() &#123;</span><br><span class="line">    this.init();</span><br><span class="line">    this.instance.vm.show = false;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default Ld;</span><br></pre></td></tr></table></figure></p><p>使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import Ld from &quot;xxx/Loading&quot;;</span><br><span class="line"></span><br><span class="line">Ld.show();</span><br><span class="line">or </span><br><span class="line">Ld.hide();</span><br></pre></td></tr></table></figure></p><p>当然也可以挂下 Vue 下<br>main.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line">import Loading from &quot;xxx/Loading&quot;;</span><br><span class="line"></span><br><span class="line">Vue.prototype.$loading = Loading;</span><br></pre></td></tr></table></figure></p><p>在其它 vue 中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">this.$loading.show();</span><br><span class="line">or </span><br><span class="line">this.$loading.hide();</span><br></pre></td></tr></table></figure></p><p>参考:<br><a href="https://www.cnblogs.com/fangnianqin/p/10103216.html" target="_blank" rel="noopener">element-ui Message组件源码分析整理笔记（八）</a><br><a href="https://www.cnblogs.com/hentai-miao/p/10271652.html" target="_blank" rel="noopener">Vue 基础知识之 Vue.extend</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;类似 element ui 中的 &lt;code&gt;this.$message.success(&amp;#39;提交成功&amp;#39;)&lt;/code&gt; 这种通用组件是怎么生成的?&lt;/p&gt;
+&lt;p&gt;–Loading&lt;br&gt; |&lt;strong&gt;Loading.vue&lt;br&gt; |&lt;/strong&gt;index.js&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="https://frostbelt.github.io/tags/vue/"/>
+    
+  </entry>
   
   <entry>
     <title>git https 访问,长期存储密码</title>
@@ -459,29 +480,6 @@
       <category term="css" scheme="https://frostbelt.github.io/tags/css/"/>
     
       <category term="select" scheme="https://frostbelt.github.io/tags/select/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vscode 格式化</title>
-    <link href="https://frostbelt.github.io/2019/11/18/vscode-%E6%A0%BC%E5%BC%8F%E5%8C%96/"/>
-    <id>https://frostbelt.github.io/2019/11/18/vscode-格式化/</id>
-    <published>2019-11-18T08:49:50.000Z</published>
-    <updated>2019-11-18T09:18:46.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="Prettier-Code-formatter"><a href="#Prettier-Code-formatter" class="headerlink" title="Prettier - Code formatter"></a>Prettier - Code formatter</h3><p>支持 JavaScript、TypeScript 和 CSS 格式化</p><h3 id="修改-vscode-的默认格式化工具"><a href="#修改-vscode-的默认格式化工具" class="headerlink" title="修改 vscode 的默认格式化工具"></a>修改 vscode 的默认格式化工具</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Code -&gt; 首选项 -&gt; 设置</span><br><span class="line">搜索 &quot;editor.defaultFormatter&quot;，修改为 &quot;esbenp.prettier-vscode&quot;</span><br><span class="line">&quot;editor.defaultFormatter&quot;: &quot;esbenp.prettier-vscode&quot;,</span><br></pre></td></tr></table></figure><h3 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">1. 指定每行代码的最佳长度</span><br><span class="line">Code -&gt; 首选项 -&gt; 设置</span><br><span class="line">搜索 &quot;Prettier&quot;，修改</span><br><span class="line">Prettier: Print Width</span><br><span class="line">指定每行代码的最佳长度， 如果超出长度则换行。</span><br><span class="line">默认设置为 80，即每行超出 80 时折为 n 行。不喜欢这个设置，但关不了，就用默认值吧</span><br><span class="line">&quot;prettier.printWidth&quot;: 80</span><br><span class="line"></span><br><span class="line">2. Prettier: Single Quote</span><br><span class="line">如果为 true，将使用单引号而不是双引号</span><br><span class="line">这个很厉害了，规范化</span><br><span class="line">&quot;prettier.singleQuote&quot;: true</span><br><span class="line"></span><br><span class="line">3. Prettier: Use Tabs</span><br><span class="line">使用制表符（tab）缩进</span><br><span class="line">&quot;prettier.useTabs&quot;: true</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;Prettier-Code-formatter&quot;&gt;&lt;a href=&quot;#Prettier-Code-formatter&quot; class=&quot;headerlink&quot; title=&quot;Prettier - Code formatter&quot;&gt;&lt;/a&gt;Prettier - Code
-      
-    
-    </summary>
-    
-    
-      <category term="vscode" scheme="https://frostbelt.github.io/tags/vscode/"/>
     
   </entry>
   
