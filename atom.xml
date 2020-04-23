@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2020-04-21T09:16:11.971Z</updated>
+  <updated>2020-04-23T06:18:15.112Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git https 访问,长期存储密码</title>
+    <link href="https://frostbelt.github.io/2020/04/23/git-https-%E8%AE%BF%E9%97%AE-%E9%95%BF%E6%9C%9F%E5%AD%98%E5%82%A8%E5%AF%86%E7%A0%81/"/>
+    <id>https://frostbelt.github.io/2020/04/23/git-https-访问-长期存储密码/</id>
+    <published>2020-04-23T06:13:57.000Z</published>
+    <updated>2020-04-23T06:18:15.112Z</updated>
+    
+    <content type="html"><![CDATA[<p>git ssh 访问，只要把 ssh 公匙放到 git server 端就可以了，不需要输入账号密码</p><p>但有些情况下，不能使用 ssh 方式，比如: 万恶的公司网限制了 ssh 端口</p><a id="more"></a><p>解决方法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 长期存储 git 账号密码</span><br><span class="line">$ git config --global credential.helper store</span><br><span class="line"></span><br><span class="line"># 也可以设置缓存，默认 15 分钟内不需要再次输入账号密码</span><br><span class="line">$ git config --global credential.helper cache</span><br><span class="line"># 也可以设置缓存时间，这样就设置一个小时之后失效</span><br><span class="line">$ git config --global credential.helper &apos;cache –timeout=3600&apos;</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;git ssh 访问，只要把 ssh 公匙放到 git server 端就可以了，不需要输入账号密码&lt;/p&gt;
+&lt;p&gt;但有些情况下，不能使用 ssh 方式，比如: 万恶的公司网限制了 ssh 端口&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="git" scheme="https://frostbelt.github.io/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>vscode alias 代码提示</title>
@@ -461,27 +482,6 @@
     
     
       <category term="vscode" scheme="https://frostbelt.github.io/tags/vscode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>laya 自动编译</title>
-    <link href="https://frostbelt.github.io/2019/11/18/laya-%E8%87%AA%E5%8A%A8%E7%BC%96%E8%AF%91/"/>
-    <id>https://frostbelt.github.io/2019/11/18/laya-自动编译/</id>
-    <published>2019-11-18T03:29:08.000Z</published>
-    <updated>2019-11-18T03:34:31.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>前面使用了 <a href="/2019/10/17/Laya-命令行编译-Mac/">Laya 命令行编译</a> 工具 <a href="https://github.com/Cola-Zhang/layaair2-cmd-plus" target="_blank" rel="noopener">layaair2-cmd-plus</a>，但每次修改完手动执行 <code>layaair2-plus-cmd compile</code> 还是有点麻烦</p><p>使用 fswatch 实现了监听文件变化自动编译</p><a id="more"></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># !/bin/bash</span><br><span class="line"># 监听 src 目录，有变化时自动编译</span><br><span class="line"></span><br><span class="line"># 监听目录，有变化时停止监听，并编译</span><br><span class="line">function start_moniting()</span><br><span class="line">&#123;</span><br><span class="line">  echo &quot;正在监听 src 目录...&quot;</span><br><span class="line">  fswatch -1 ./src | while read file</span><br><span class="line">  do</span><br><span class="line">    docompile</span><br><span class="line">  done</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"># 编译完成后开始监听</span><br><span class="line">function docompile()</span><br><span class="line">&#123;</span><br><span class="line">  echo &quot;开始编译...&quot;</span><br><span class="line">  layaair2-plus-cmd compile</span><br><span class="line">  echo &quot;编译完成&quot;</span><br><span class="line">  start_moniting</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">start_moniting</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;前面使用了 &lt;a href=&quot;/2019/10/17/Laya-命令行编译-Mac/&quot;&gt;Laya 命令行编译&lt;/a&gt; 工具 &lt;a href=&quot;https://github.com/Cola-Zhang/layaair2-cmd-plus&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;layaair2-cmd-plus&lt;/a&gt;，但每次修改完手动执行 &lt;code&gt;layaair2-plus-cmd compile&lt;/code&gt; 还是有点麻烦&lt;/p&gt;
-&lt;p&gt;使用 fswatch 实现了监听文件变化自动编译&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="laya" scheme="https://frostbelt.github.io/tags/laya/"/>
     
   </entry>
   
