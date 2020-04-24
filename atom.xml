@@ -177,16 +177,15 @@
     <link href="https://frostbelt.github.io/2020/04/14/%E5%BE%AE%E4%BF%A1%E6%89%93%E5%BC%80-chrome-inspect-%E8%B0%83%E8%AF%95/"/>
     <id>https://frostbelt.github.io/2020/04/14/微信打开-chrome-inspect-调试/</id>
     <published>2020-04-14T07:16:26.000Z</published>
-    <updated>2020-04-14T07:17:34.839Z</updated>
+    <updated>2020-04-24T03:26:05.574Z</updated>
     
-    <content type="html"><![CDATA[<p>微信打开 <a href="http://debugx5.qq.com" target="_blank" rel="noopener">http://debugx5.qq.com</a><br>选择”信息”tab，勾选”打开TBS内核xxx”一系列选项</p>]]></content>
+    <content type="html"><![CDATA[<p>微信打开 <a href="http://debugx5.qq.com" target="_blank" rel="noopener">http://debugx5.qq.com</a><br>选择”信息”tab，勾选”打开TBS内核xxx”一系列选项<br>可扫码打开:<br><img src="http://p0.qhimg.com/t01d3c7cb6c0eaaa281.png" alt="http://debugx5.qq.com"></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;微信打开 &lt;a href=&quot;http://debugx5.qq.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://debugx5.qq.com&lt;/a&gt;&lt;br&gt;选择”信息”tab，勾选”打开TBS内核xxx”一系列选项&lt;/p&gt;
-
+        &lt;p&gt;微信打开 &lt;a href=&quot;http://debugx5.qq.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://debugx5.qq.com&lt;/a&gt;&lt;br&gt;选择”信息”tab，勾选”打开TBS内核xxx”一系列选项&lt;br&gt;可扫码打开:&lt;
       
     
     </summary>
