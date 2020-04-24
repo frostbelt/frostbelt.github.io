@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="frostbelt&#39;s home">
 <meta property="og:description" content="客户端回调页面12345678910接口回调方法名由 js 指定，类似 jsonp，否则多次连续调用同一接口只能串行example:web-&amp;gt;clientClient.getUserInfo(&amp;#123;  callbackName : &amp;quot;xxx&amp;quot;,&amp;#125;);client-&amp;gt;webwindow.xxx(&amp;#123;  vc : 10001,&amp;#125;);">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-20T07:20:42.792Z">
+<meta property="og:updated_time" content="2020-04-24T12:09:17.077Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hybird 开发注意点">
 <meta name="twitter:description" content="客户端回调页面12345678910接口回调方法名由 js 指定，类似 jsonp，否则多次连续调用同一接口只能串行example:web-&amp;gt;clientClient.getUserInfo(&amp;#123;  callbackName : &amp;quot;xxx&amp;quot;,&amp;#125;);client-&amp;gt;webwindow.xxx(&amp;#123;  vc : 10001,&amp;#125;);">
@@ -349,7 +349,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  104
+                  124
                 </span>
               
 
@@ -388,7 +388,7 @@
       
         <h3 id="客户端回调页面"><a href="#客户端回调页面" class="headerlink" title="客户端回调页面"></a>客户端回调页面</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">接口回调方法名由 js 指定，类似 jsonp，否则多次连续调用同一接口只能串行</span><br><span class="line">example:</span><br><span class="line">web-&gt;client</span><br><span class="line">Client.getUserInfo(&#123;</span><br><span class="line">  callbackName : &quot;xxx&quot;,</span><br><span class="line">&#125;);</span><br><span class="line">client-&gt;web</span><br><span class="line">window.xxx(&#123;</span><br><span class="line">  vc : 10001,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h3 id="输入法弹起时"><a href="#输入法弹起时" class="headerlink" title="输入法弹起时"></a>输入法弹起时</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入法弹起时，最好是缩小 webview 高度，可以避免以下问题:</span><br><span class="line">  a. fixed head 被顶出视野外；</span><br><span class="line">  b. fixed foot(弹幕等) 被盖住；</span><br></pre></td></tr></table></figure>
+<h3 id="输入法弹起时"><a href="#输入法弹起时" class="headerlink" title="输入法弹起时"></a>输入法弹起时</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入法弹起时，最好是缩小 webview 高度，可以避免以下问题:</span><br><span class="line">  a. fixed head 被顶出视野外(如果输入法把整个 webview 顶起)；</span><br><span class="line">  b. fixed foot(弹幕等) 被盖住(如果输入法把 webview 遮盖)；</span><br></pre></td></tr></table></figure>
 
       
     </div>
