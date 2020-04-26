@@ -110,10 +110,12 @@
 <meta property="og:site_name" content="frostbelt&#39;s home">
 <meta property="og:description" content="自己的全局依赖(JS 实现)，挂在 Vue.prototype 上，在其它 vue 中使用时，想有智能提示">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-26T09:57:52.042Z">
+<meta property="og:image" content="https://p.ssl.qhimg.com/t010ff2c92bb2f778b8.jpg">
+<meta property="og:updated_time" content="2020-04-26T10:13:08.871Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vscode 使用 ts 声明实现全局引用智能提示">
 <meta name="twitter:description" content="自己的全局依赖(JS 实现)，挂在 Vue.prototype 上，在其它 vue 中使用时，想有智能提示">
+<meta name="twitter:image" content="https://p.ssl.qhimg.com/t010ff2c92bb2f778b8.jpg">
 
 
 
@@ -349,7 +351,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  145
+                  141
                 </span>
               
 
@@ -392,7 +394,7 @@
 <a id="more"></a>
 <p>在根目录新建 fe.d.ts 声明文件(文件名任意)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line"></span><br><span class="line">export interface Helper &#123;</span><br><span class="line">  /**</span><br><span class="line">	 * 获取 url 参数</span><br><span class="line">   * @param &#123;String&#125; href 默认取当前页地址</span><br><span class="line">	 */</span><br><span class="line">  getParams (href?:String): Object</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">declare module &apos;vue/types/vue&apos; &#123;</span><br><span class="line">  interface Vue &#123;</span><br><span class="line">    $helper: Helper,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>然后，重启 vscode !!!</p>
-<p>这样，在其它 vue 中输入 <code>this.$helper.g</code> 时，会有智能提示<br><a href="https://p.ssl.qhimg.com/t010ff2c92bb2f778b8.jpg" target="_blank" rel="noopener">智能提示</a></p>
+<p>这样，在其它 vue 中输入 <code>this.$helper.g</code> 时，会有智能提示<br><img src="https://p.ssl.qhimg.com/t010ff2c92bb2f778b8.jpg" alt="智能提示"></p>
 <p>如果是 TS 实现，会自动生成 d.ts 声明文件，逐步重构吧</p>
 
       
