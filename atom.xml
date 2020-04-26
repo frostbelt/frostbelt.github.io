@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2020-04-23T08:03:44.736Z</updated>
+  <updated>2020-04-26T02:30:40.757Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vscode 搜索 node_modules 中的文件</title>
+    <link href="https://frostbelt.github.io/2020/04/26/vscode-%E6%90%9C%E7%B4%A2-node-modules-%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6/"/>
+    <id>https://frostbelt.github.io/2020/04/26/vscode-搜索-node-modules-中的文件/</id>
+    <published>2020-04-26T02:13:19.000Z</published>
+    <updated>2020-04-26T02:30:40.757Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>想打开 element-ui 下的 message.d.ts 文件，但 node_modules 下有几百个依赖，找到 element-ui 要翻半天</p></blockquote><p>使用扩展 search-node-modules</p><a id="more"></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. 安装扩展 search-node-modules</span><br><span class="line">2. cmd + p</span><br><span class="line">3. 输入 &gt;node，选择 search node_modules，显示 node_modules 下所有目录/文件</span><br><span class="line">3. 输入 element-ui, 选择 element-ui，显示 element-ui 下所有目录/文件</span><br><span class="line">4. 输入 types，选择 types，显示 types 下所有目录/文件</span><br><span class="line">5. 输入 message.d.ts，选择打开文件</span><br><span class="line"></span><br><span class="line">事实上，从 3 开始，就像在命令上下打开一个文件</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;想打开 element-ui 下的 message.d.ts 文件，但 node_modules 下有几百个依赖，找到 element-ui 要翻半天&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;使用扩展 search-node-modules&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="vscode" scheme="https://frostbelt.github.io/tags/vscode/"/>
+    
+  </entry>
   
   <entry>
     <title>vue 通用组件</title>
@@ -448,30 +471,6 @@
       
         &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;
       
-    
-    </summary>
-    
-    
-      <category term="css" scheme="https://frostbelt.github.io/tags/css/"/>
-    
-      <category term="select" scheme="https://frostbelt.github.io/tags/select/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>select文本居中</title>
-    <link href="https://frostbelt.github.io/2019/11/26/select%E6%96%87%E6%9C%AC%E5%B1%85%E4%B8%AD/"/>
-    <id>https://frostbelt.github.io/2019/11/26/select文本居中/</id>
-    <published>2019-11-26T06:16:36.000Z</published>
-    <updated>2019-11-28T03:53:57.416Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>一般 DOM 节点，想让文本居中，定义 <code>text-align: center</code> 就可以了，但 select 却不好使，有什么办法？</p></blockquote><a id="more"></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select&#123;</span><br><span class="line">  text-align: center;</span><br><span class="line">  text-align-last: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>看 <code>text-align-last</code> 的说明，是为了处理 <code>justify</code> 的最后一行文本，并且注明只有 <code>text-align: justify</code> 时生效。<br>然而，上述方法的确可以解决 select 文本居中的问题。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;一般 DOM 节点，想让文本居中，定义 &lt;code&gt;text-align: center&lt;/code&gt; 就可以了，但 select 却不好使，有什么办法？&lt;/p&gt;
-&lt;/blockquote&gt;
     
     </summary>
     
