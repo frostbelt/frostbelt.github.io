@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2020-04-26T10:13:08.871Z</updated>
+  <updated>2020-04-27T08:35:58.840Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>rollup 打包 js 插件</title>
+    <link href="https://frostbelt.github.io/2020/04/27/rollup-%E6%89%93%E5%8C%85-js-%E6%8F%92%E4%BB%B6/"/>
+    <id>https://frostbelt.github.io/2020/04/27/rollup-打包-js-插件/</id>
+    <published>2020-04-27T08:29:45.000Z</published>
+    <updated>2020-04-27T08:35:58.840Z</updated>
+    
+    <content type="html"><![CDATA[<p>开源插件，需要判断 JS 执行环境，实现类似以下功能:<br><a href="https://www.jianshu.com/p/f75eaa5f1fa4" target="_blank" rel="noopener">JS兼容不同环境下执行</a></p><a id="more"></a><p><a href="https://www.rollupjs.com/guide/introduction/" target="_blank" rel="noopener">rollup</a> 可以打包时自己生成这套兼容代码</p><p>查看 <a href="https://github.com/frostbelt/demo_rollup" target="_blank" rel="noopener">demo</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;开源插件，需要判断 JS 执行环境，实现类似以下功能:&lt;br&gt;&lt;a href=&quot;https://www.jianshu.com/p/f75eaa5f1fa4&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;JS兼容不同环境下执行&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="rollup" scheme="https://frostbelt.github.io/tags/rollup/"/>
+    
+      <category term="插件" scheme="https://frostbelt.github.io/tags/%E6%8F%92%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>vscode 使用 ts 声明实现全局引用智能提示</title>
@@ -455,28 +477,6 @@
       <category term="ali" scheme="https://frostbelt.github.io/tags/ali/"/>
     
       <category term="log" scheme="https://frostbelt.github.io/tags/log/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS 安全区域</title>
-    <link href="https://frostbelt.github.io/2019/11/28/iOS-%E5%AE%89%E5%85%A8%E5%8C%BA%E5%9F%9F/"/>
-    <id>https://frostbelt.github.io/2019/11/28/iOS-安全区域/</id>
-    <published>2019-11-28T03:30:43.000Z</published>
-    <updated>2019-11-28T03:48:52.755Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">为什么页面在 iPhoneX 上，上下都有一部分空白(如果是横屏，左右下都有一部分空白)？</span><br><span class="line"></span><br><span class="line">有一个 fixed top:0 的 titleBar，为什么页面滚动时，页面内容会出现在 titleBar 的上面？</span><br></pre></td></tr></table></figure><a id="more"></a><p>是 iPhoneX 的”安全区域”问题<br>解决方法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在 meta viewport 上加 viewport-fit=cover</span><br><span class="line">如: &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, viewport-fit=cover&quot;&gt;</span><br></pre></td></tr></table></figure></p><p>这样页面就可以覆盖到整个屏幕，当然也会带来一些小问题，如 titleBar 中间的内容无法显示，被前摄像头占用了<br>可以用媒体查询处理:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// iPhoneX 的适配 </span><br><span class="line">@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) &#123;</span><br><span class="line">  // 底部给麦克留出空白</span><br><span class="line">  .page&#123;padding-bottom: 1.7rem;&#125;</span><br><span class="line"></span><br><span class="line">  // 头部从摄像头留出空白</span><br><span class="line">  .titleBar &#123;padding-top: 1rem;&#125;</span><br><span class="line">  .titleBar:before &#123;</span><br><span class="line">    content: &apos;&apos;;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 1rem;</span><br><span class="line">    background-color: #000000;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">注:</span><br><span class="line">上下都留出空白了，不就和之前一样了吗？为什么还要多此一举？</span><br><span class="line">不太一样</span><br><span class="line">加 viewport-fit=cover 可以在上下空白区显示自定义的内容，可以是背景色，也可以任意别的东西</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;为什么页面在 iPhoneX 上，上下都有一部分空白(如果是横屏，左右下都有一部分空白)？&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;有一个 fixed top:0 的 titleBar，为什么页面滚动时，页面内容会出现在 titleBar 的上面？&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="css" scheme="https://frostbelt.github.io/tags/css/"/>
-    
-      <category term="ios" scheme="https://frostbelt.github.io/tags/ios/"/>
     
   </entry>
   
