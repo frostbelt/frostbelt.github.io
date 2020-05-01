@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2020-04-27T08:35:58.840Z</updated>
+  <updated>2020-05-01T02:21:09.592Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>fiddler 转 https 为 http</title>
+    <link href="https://frostbelt.github.io/2020/05/01/fiddler-%E8%BD%AC-https-%E4%B8%BA-http/"/>
+    <id>https://frostbelt.github.io/2020/05/01/fiddler-转-https-为-http/</id>
+    <published>2020-05-01T02:14:19.000Z</published>
+    <updated>2020-05-01T02:21:09.592Z</updated>
+    
+    <content type="html"><![CDATA[<p>Rules -&gt; Customize Rules…<br>Go -&gt; to OnBeforeRequst</p><p>在 OnBeforeRequst 方法的开头添加内下内容:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if (oSession.isHTTPS)&#123;</span><br><span class="line">  oSession.fullUrl = &quot;http://&quot; + oSession.hostname + oSession.PathAndQuery;</span><br><span class="line">&#125;</span><br><span class="line">注: 自测在 mi 6 系统浏览器里不好使，其它浏览器或 app 内没发现问题</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Rules -&amp;gt; Customize Rules…&lt;br&gt;Go -&amp;gt; to OnBeforeRequst&lt;/p&gt;
+&lt;p&gt;在 OnBeforeRequst 方法的开头添加内下内容:&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table
+      
+    
+    </summary>
+    
+    
+      <category term="fiddler" scheme="https://frostbelt.github.io/tags/fiddler/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>fiddler iphone 抓包 https</title>
+    <link href="https://frostbelt.github.io/2020/05/01/fiddler-iphone-%E6%8A%93%E5%8C%85-https/"/>
+    <id>https://frostbelt.github.io/2020/05/01/fiddler-iphone-抓包-https/</id>
+    <published>2020-05-01T02:09:56.000Z</published>
+    <updated>2020-05-01T02:13:44.833Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>android 一般装了 fiddler 的证书后就可以抓 https 包了，但 ios 有时不行，显示证书不被信任</p></blockquote><a id="more"></a><p>解决:<br>关于本机 -&gt; 证书信任设置<br>对已安装的证书添加信任</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;android 一般装了 fiddler 的证书后就可以抓 https 包了，但 ios 有时不行，显示证书不被信任&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="fiddler" scheme="https://frostbelt.github.io/tags/fiddler/"/>
+    
+  </entry>
   
   <entry>
     <title>rollup 打包 js 插件</title>
@@ -429,54 +475,6 @@
     
     
       <category term="mac" scheme="https://frostbelt.github.io/tags/mac/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>scss 中 &amp; 的使用</title>
-    <link href="https://frostbelt.github.io/2020/01/01/scss-%E4%B8%AD-%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>https://frostbelt.github.io/2020/01/01/scss-中-的使用/</id>
-    <published>2020-01-01T09:10:46.000Z</published>
-    <updated>2020-01-01T09:13:27.733Z</updated>
-    
-    <content type="html"><![CDATA[<p>在 <code>scss</code> 中，<code>&amp;</code> 表示当前路径</p><h3 id="示例一"><a href="#示例一" class="headerlink" title="示例一"></a>示例一</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.child &#123;</span><br><span class="line">  &amp;.child-cur&#123;</span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>编译后为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.child&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">.child.child-cur&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h3 id="示例二"><a href="#示例二" class="headerlink" title="示例二"></a>示例二</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.child&#123; </span><br><span class="line">  display: none;</span><br><span class="line"></span><br><span class="line">  @at-root .page-ios &amp;&#123; </span><br><span class="line">    display: block;</span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>编译后为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.child&#123; </span><br><span class="line">  display: none;</span><br><span class="line">&#125;</span><br><span class="line">.page-ios .child&#123;</span><br><span class="line">  display: block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;在 &lt;code&gt;scss&lt;/code&gt; 中，&lt;code&gt;&amp;amp;&lt;/code&gt; 表示当前路径&lt;/p&gt;
-&lt;h3 id=&quot;示例一&quot;&gt;&lt;a href=&quot;#示例一&quot; class=&quot;headerlink&quot; title=&quot;示例一&quot;&gt;&lt;/a&gt;示例一&lt;/h3&gt;&lt;figure class=
-      
-    
-    </summary>
-    
-    
-      <category term="css" scheme="https://frostbelt.github.io/tags/css/"/>
-    
-      <category term="scss" scheme="https://frostbelt.github.io/tags/scss/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>阿里云日志服务日志解析</title>
-    <link href="https://frostbelt.github.io/2019/12/11/%E9%98%BF%E9%87%8C%E4%BA%91%E6%97%A5%E5%BF%97%E6%9C%8D%E5%8A%A1%E6%97%A5%E5%BF%97%E8%A7%A3%E6%9E%90/"/>
-    <id>https://frostbelt.github.io/2019/12/11/阿里云日志服务日志解析/</id>
-    <published>2019-12-11T10:16:43.000Z</published>
-    <updated>2019-12-11T10:38:11.173Z</updated>
-    
-    <content type="html"><![CDATA[<p>阿里云日志服务，设置索引时，如果字段类型为<code>String</code>，可以设置<code>分词符</code>。默认的分词符是<code>, &#39;&quot;;=()[]{}?@&amp;&lt;&gt;/:\n\t\r</code>。这个有什么用呢？</p><a id="more"></a><p>打点时，最好是各字段都有明确的含义，如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  key : &quot;update_chess_error&quot;,</span><br><span class="line">  action : &quot;1024&quot;,</span><br><span class="line">  ext : &quot;16&quot;,</span><br><span class="line">  refer : &quot;8&quot;,</span><br><span class="line">&#125;</span><br><span class="line">以上日志含义，在 1024 房间，更新牌面时发生了错误，从 8 更新到了 16</span><br></pre></td></tr></table></figure></p><p>但经常会遇到这种情况，字段不够用，需要把多个参数加到一个字段里<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  key : &quot;update_chess_error|room:1024|from:8|to:16&quot;,</span><br><span class="line">&#125;</span><br><span class="line">日志含义同上</span><br></pre></td></tr></table></figure></p><p>然而，上面的日志会非常不容易检索，因为按照分词规则，它会被切分成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">update_chess_error|room</span><br><span class="line">1024|from</span><br><span class="line">8|to</span><br><span class="line">16</span><br></pre></td></tr></table></figure></p><p>而且检索<code>|</code>时会报错</p><p>可以优化为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  key : &quot;update_chess_error,room1024,from8,to16&quot;,</span><br><span class="line">&#125;</span><br><span class="line">如查所有的该类型日志: key:update_chess_error</span><br><span class="line">如查所有房间1024的该类型日志: key:update_chess_error and key:room1024</span><br><span class="line">如查所有从8更新到16的该类型日志: key:update_chess_error and key:from8 and key:to16</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p><p>更多查询语法参考<a href="https://help.aliyun.com/document_detail/29060.html?spm=5176.2020520112.2.1.2b2634c02mUaQX" target="_blank" rel="noopener">查询语法</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;阿里云日志服务，设置索引时，如果字段类型为&lt;code&gt;String&lt;/code&gt;，可以设置&lt;code&gt;分词符&lt;/code&gt;。默认的分词符是&lt;code&gt;, &amp;#39;&amp;quot;;=()[]{}?@&amp;amp;&amp;lt;&amp;gt;/:\n\t\r&lt;/code&gt;。这个有什么用呢？&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="ali" scheme="https://frostbelt.github.io/tags/ali/"/>
-    
-      <category term="log" scheme="https://frostbelt.github.io/tags/log/"/>
     
   </entry>
   
