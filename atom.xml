@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2020-05-29T06:54:58.325Z</updated>
+  <updated>2020-06-08T09:45:58.295Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>js 生成 [1, 100] 的数组</title>
+    <link href="https://frostbelt.github.io/2020/06/08/js-%E7%94%9F%E6%88%90-1-100-%E7%9A%84%E6%95%B0%E7%BB%84/"/>
+    <id>https://frostbelt.github.io/2020/06/08/js-生成-1-100-的数组/</id>
+    <published>2020-06-08T09:45:20.000Z</published>
+    <updated>2020-06-08T09:45:58.295Z</updated>
+    
+    <content type="html"><![CDATA[<p>let arr = Array.from({ length:100 }, (v, k) =&gt; k + 1);</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;let arr = Array.from({ length:100 }, (v, k) =&amp;gt; k + 1);&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="js" scheme="https://frostbelt.github.io/tags/js/"/>
+    
+  </entry>
   
   <entry>
     <title>vue 组件开发神器 vue-sfc-cli</title>
@@ -448,31 +472,6 @@
     
     
       <category term="git" scheme="https://frostbelt.github.io/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>mac 解决 brew install 的 Permission denied 问题</title>
-    <link href="https://frostbelt.github.io/2020/01/17/mac-%E8%A7%A3%E5%86%B3-brew-install-%E7%9A%84-Permission-denied-%E9%97%AE%E9%A2%98/"/>
-    <id>https://frostbelt.github.io/2020/01/17/mac-解决-brew-install-的-Permission-denied-问题/</id>
-    <published>2020-01-17T07:55:17.000Z</published>
-    <updated>2020-01-17T07:56:50.583Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ brew install graphicsmagick</span><br><span class="line">Error: Permission denied @ apply2files - /usr/local/lib/node_modules/umi/node_modules/_clipboardy@1.2.3@clipboardy/fallbacks/.DS_Store</span><br></pre></td></tr></table></figure><h3 id="解决权限问题"><a href="#解决权限问题" class="headerlink" title="解决权限问题"></a>解决权限问题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R $(whoami):admin /usr/local</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span 
-      
-    
-    </summary>
-    
-    
-      <category term="mac" scheme="https://frostbelt.github.io/tags/mac/"/>
-    
-      <category term="brew" scheme="https://frostbelt.github.io/tags/brew/"/>
     
   </entry>
   
