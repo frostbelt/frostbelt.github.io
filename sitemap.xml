@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://frostbelt.github.io/2019/09/12/%E6%96%AD%E5%BC%80ssh%E5%90%8E%E7%BB%A7%E7%BB%AD%E6%89%A7%E8%A1%8C-nohup/</loc>
+    
+    <lastmod>2020-06-09T10:11:08.691Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://frostbelt.github.io/2020/06/08/js-%E7%94%9F%E6%88%90-1-100-%E7%9A%84%E6%95%B0%E7%BB%84/</loc>
     
     <lastmod>2020-06-08T09:45:58.295Z</lastmod>
@@ -243,13 +250,6 @@
     <loc>https://frostbelt.github.io/2019/10/17/npm-uninstall-g/</loc>
     
     <lastmod>2019-10-17T06:54:28.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://frostbelt.github.io/2019/09/12/%E6%96%AD%E5%BC%80ssh%E5%90%8E%E7%BB%A7%E7%BB%AD%E6%89%A7%E8%A1%8C-nohup/</loc>
-    
-    <lastmod>2019-09-12T02:46:27.000Z</lastmod>
     
   </url>
   
