@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2020-06-17T01:41:39.748Z</updated>
+  <updated>2020-07-13T03:12:06.251Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>阿里云配置 node 服务器</title>
+    <link href="https://frostbelt.github.io/2020/07/13/%E9%98%BF%E9%87%8C%E4%BA%91%E9%85%8D%E7%BD%AE-node-%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <id>https://frostbelt.github.io/2020/07/13/阿里云配置-node-服务器/</id>
+    <published>2020-07-13T03:09:24.000Z</published>
+    <updated>2020-07-13T03:12:06.251Z</updated>
+    
+    <content type="html"><![CDATA[<p>node 服务器占用的端口为 3000</p><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在 ECS 安全组策略中开放 3000 端口，用 http://xxx.xxx.xxx:3000/ 访问</span><br></pre></td></tr></table></figure><h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">配置 nginx 代理:</span><br><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  server_name xxx.xxx.xxx;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">    proxy_pass http://127.0.0.1:3000;</span><br><span class="line">    root 1;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">用 http://xxx.xxx.xxx/ 访问</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;node 服务器占用的端口为 3000&lt;/p&gt;
+&lt;h3 id=&quot;方法一&quot;&gt;&lt;a href=&quot;#方法一&quot; class=&quot;headerlink&quot; title=&quot;方法一&quot;&gt;&lt;/a&gt;方法一&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr
+      
+    
+    </summary>
+    
+    
+      <category term="nginx" scheme="https://frostbelt.github.io/tags/nginx/"/>
+    
+      <category term="ali" scheme="https://frostbelt.github.io/tags/ali/"/>
+    
+      <category term="node" scheme="https://frostbelt.github.io/tags/node/"/>
+    
+  </entry>
   
   <entry>
     <title>video 隐藏下载/全屏按钮</title>
@@ -451,29 +479,6 @@
       
       
         &lt;p&gt;vue.config.js&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/
-      
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="https://frostbelt.github.io/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue 公用 scss</title>
-    <link href="https://frostbelt.github.io/2020/03/13/vue-%E5%85%AC%E7%94%A8-scss/"/>
-    <id>https://frostbelt.github.io/2020/03/13/vue-公用-scss/</id>
-    <published>2020-03-13T01:29:35.000Z</published>
-    <updated>2020-03-13T01:30:40.414Z</updated>
-    
-    <content type="html"><![CDATA[<p>vue.config.js 中引入全局 scss<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  css : &#123;</span><br><span class="line">    loaderOptions : &#123;</span><br><span class="line">      sass : &#123;</span><br><span class="line">        data : `</span><br><span class="line">          @import &quot;@/assets/styles/config.scss&quot;;</span><br><span class="line">          @import &quot;@/assets/styles/common.scss&quot;;</span><br><span class="line">        `,</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;vue.config.js 中引入全局 scss&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class
       
     
     </summary>
