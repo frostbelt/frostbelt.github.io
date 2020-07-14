@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2020-07-13T03:12:06.251Z</updated>
+  <updated>2020-07-14T08:28:27.941Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>node 用户输入</title>
+    <link href="https://frostbelt.github.io/2020/07/14/node-%E7%94%A8%E6%88%B7%E8%BE%93%E5%85%A5/"/>
+    <id>https://frostbelt.github.io/2020/07/14/node-用户输入/</id>
+    <published>2020-07-14T08:28:12.000Z</published>
+    <updated>2020-07-14T08:28:27.941Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">process.stdin.setEncoding(&quot;utf8&quot;);</span><br><span class="line"> </span><br><span class="line">process.stdout.write(&quot;请输入ID:\n&quot;);</span><br><span class="line">process.stdin.on(&quot;data&quot;, (input) =&gt; &#123;</span><br><span class="line">  input = input.toString().trim();</span><br><span class="line">  console.log(`输入的ID为$&#123;input&#125;`);</span><br><span class="line">  process.exit(0);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class
+      
+    
+    </summary>
+    
+    
+      <category term="node" scheme="https://frostbelt.github.io/tags/node/"/>
+    
+  </entry>
   
   <entry>
     <title>阿里云配置 node 服务器</title>
@@ -36,11 +59,11 @@
     </summary>
     
     
+      <category term="node" scheme="https://frostbelt.github.io/tags/node/"/>
+    
       <category term="nginx" scheme="https://frostbelt.github.io/tags/nginx/"/>
     
       <category term="ali" scheme="https://frostbelt.github.io/tags/ali/"/>
-    
-      <category term="node" scheme="https://frostbelt.github.io/tags/node/"/>
     
   </entry>
   
@@ -456,29 +479,6 @@
       
       
         &lt;p&gt;使用&lt;code&gt;vue-i18n&lt;/code&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;
-      
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="https://frostbelt.github.io/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue cli 中图片的使用</title>
-    <link href="https://frostbelt.github.io/2020/03/13/vue-cli-%E4%B8%AD%E5%9B%BE%E7%89%87%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>https://frostbelt.github.io/2020/03/13/vue-cli-中图片的使用/</id>
-    <published>2020-03-13T01:31:42.000Z</published>
-    <updated>2020-03-13T01:34:06.300Z</updated>
-    
-    <content type="html"><![CDATA[<p>vue.config.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  ...</span><br><span class="line">  chainWebpack: config =&gt; &#123;</span><br><span class="line">    // images alias</span><br><span class="line">    config.resolve.alias.set(&apos;@img&apos;, path.resolve(__dirname, &apos;src/assets/images&apos;))</span><br><span class="line">    ...</span><br><span class="line">  &#125;,</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>在 js 中使用图片<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">require(&apos;@img/ksp_72.png&apos;)</span><br><span class="line">eg: </span><br><span class="line">:style=&quot;&apos;background:url(&apos; + require(&apos;@img/ksp_72.png&apos;) + &apos;)&apos;&quot;</span><br></pre></td></tr></table></figure></p><p>在 scss 中使用图片<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&apos;~@img/ksp_72.png&apos; </span><br><span class="line">eg: </span><br><span class="line">background: url(~@img/ksp_72.png)</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;vue.config.js&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/
       
     
     </summary>
