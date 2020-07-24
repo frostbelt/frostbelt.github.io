@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2020-07-23T13:35:03.066Z</updated>
+  <updated>2020-07-24T07:31:42.269Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MediaSource 音视频合并</title>
+    <link href="https://frostbelt.github.io/2020/07/24/MediaSource-%E9%9F%B3%E8%A7%86%E9%A2%91%E5%90%88%E5%B9%B6/"/>
+    <id>https://frostbelt.github.io/2020/07/24/MediaSource-音视频合并/</id>
+    <published>2020-07-24T07:30:34.000Z</published>
+    <updated>2020-07-24T07:31:42.269Z</updated>
+    
+    <content type="html"><![CDATA[<p>引自<a href="https://blog.csdn.net/camike/article/details/82797768" target="_blank" rel="noopener">Javascrit中使用MediaSource播放加密视频</a></p><a id="more"></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;title&gt;MSE Demo&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">      video &#123;</span><br><span class="line">        max-width: 100%;</span><br><span class="line">      &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line"> </span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line"> </span><br><span class="line">    var audioFragments = [</span><br><span class="line">      &quot;media/audio/init.mp4&quot;,</span><br><span class="line">      &quot;media/audio/seg-1.mp4&quot;,</span><br><span class="line">      &quot;media/audio/seg-2.mp4&quot;,</span><br><span class="line">      &quot;media/audio/seg-3.mp4&quot;,</span><br><span class="line">      &quot;media/audio/seg-4.mp4&quot;,</span><br><span class="line">      &quot;media/audio/seg-5.mp4&quot;,</span><br><span class="line">      &quot;media/audio/seg-6.mp4&quot;,</span><br><span class="line">      &quot;media/audio/seg-7.mp4&quot;,</span><br><span class="line">    ];</span><br><span class="line">    var videoFragments = [</span><br><span class="line">      &quot;media/video/init.mp4&quot;,</span><br><span class="line">      &quot;media/video/seg-1.mp4&quot;,</span><br><span class="line">      &quot;media/video/seg-2.mp4&quot;,</span><br><span class="line">      &quot;media/video/seg-3.mp4&quot;,</span><br><span class="line">      &quot;media/video/seg-4.mp4&quot;,</span><br><span class="line">      &quot;media/video/seg-5.mp4&quot;,</span><br><span class="line">      &quot;media/video/seg-6.mp4&quot;,</span><br><span class="line">      &quot;media/video/seg-7.mp4&quot;,</span><br><span class="line">    ];</span><br><span class="line"> </span><br><span class="line">    function MSELoadTrack(fragments, type, mediaSource, name) &#123;</span><br><span class="line">       return new Promise(function(resolve, reject) &#123;</span><br><span class="line">          var sourceBuffer;</span><br><span class="line">          var curFragment = 0;</span><br><span class="line"> </span><br><span class="line">          function addNextFragment() &#123;</span><br><span class="line">              if (mediaSource.readyState == &quot;closed&quot;) &#123;</span><br><span class="line">                return;</span><br><span class="line">              &#125;</span><br><span class="line">              if (curFragment &gt;= fragments.length) &#123;</span><br><span class="line">                resolve();</span><br><span class="line">                return;</span><br><span class="line">              &#125;</span><br><span class="line"> </span><br><span class="line">              var fragmentFile = fragments[curFragment++];</span><br><span class="line"> </span><br><span class="line">              var req = new XMLHttpRequest();</span><br><span class="line">              req.open(&quot;GET&quot;, fragmentFile);</span><br><span class="line">              req.responseType = &quot;arraybuffer&quot;;</span><br><span class="line"> </span><br><span class="line">              req.addEventListener(&quot;load&quot;, function() &#123;</span><br><span class="line">                  sourceBuffer.appendBuffer(new Uint8Array(req.response));</span><br><span class="line">              &#125;);</span><br><span class="line"> </span><br><span class="line">              req.addEventListener(&quot;error&quot;, function()&#123;reject();&#125;);</span><br><span class="line">              req.addEventListener(&quot;abort&quot;, function()&#123;reject();&#125;);</span><br><span class="line"> </span><br><span class="line">              req.send(null);</span><br><span class="line">          &#125;</span><br><span class="line"> </span><br><span class="line">          sourceBuffer = mediaSource.addSourceBuffer(type);</span><br><span class="line">          sourceBuffer.addEventListener(&quot;updateend&quot;, addNextFragment);</span><br><span class="line">          addNextFragment();</span><br><span class="line"> </span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    &lt;/script&gt;</span><br><span class="line"> </span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;h1&gt;Media Source Extensions Demo&lt;/h1&gt;</span><br><span class="line"> </span><br><span class="line">    &lt;video id=&quot;v&quot; controls preload=&quot;auto&quot;&gt;&lt;/video&gt;</span><br><span class="line"> </span><br><span class="line">    &lt;script&gt;</span><br><span class="line"> </span><br><span class="line">      function Load() &#123;</span><br><span class="line"> </span><br><span class="line">        var video = document.getElementById(&quot;v&quot;);</span><br><span class="line"> </span><br><span class="line">        const audioContentType = &apos;audio/mp4; codecs=&quot;mp4a.40.2&quot;&apos;; // AAC-LC</span><br><span class="line">        const videoContentType = &apos;video/mp4; codecs=&quot;avc1.64001F&quot;&apos;; // High profile level 3.1</span><br><span class="line"> </span><br><span class="line">        var ms = new MediaSource();</span><br><span class="line">        video.src = URL.createObjectURL(ms);</span><br><span class="line"> </span><br><span class="line">        var SourceOpen = function () &#123;</span><br><span class="line">          ms.removeEventListener(&quot;sourceopen&quot;, SourceOpen);</span><br><span class="line"> </span><br><span class="line">          Promise.all([MSELoadTrack(videoFragments, videoContentType, ms, &quot;video&quot;), MSELoadTrack(audioFragments, audioContentType, ms, &quot;audio&quot;)]).then(function()&#123;ms.endOfStream();&#125;);</span><br><span class="line"> </span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        ms.addEventListener(&quot;sourceopen&quot;, SourceOpen);</span><br><span class="line">        video.addEventListener(&quot;canplay&quot;, function()&#123;video.play();&#125;);</span><br><span class="line">      &#125;</span><br><span class="line"> </span><br><span class="line">      Load();</span><br><span class="line"> </span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;引自&lt;a href=&quot;https://blog.csdn.net/camike/article/details/82797768&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Javascrit中使用MediaSource播放加密视频&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="video" scheme="https://frostbelt.github.io/tags/video/"/>
+    
+  </entry>
   
   <entry>
     <title>video 加载字幕</title>
@@ -116,9 +136,9 @@
     </summary>
     
     
-      <category term="css" scheme="https://frostbelt.github.io/tags/css/"/>
-    
       <category term="video" scheme="https://frostbelt.github.io/tags/video/"/>
+    
+      <category term="css" scheme="https://frostbelt.github.io/tags/css/"/>
     
   </entry>
   
@@ -461,34 +481,6 @@
       <category term="chrome" scheme="https://frostbelt.github.io/tags/chrome/"/>
     
       <category term="微信" scheme="https://frostbelt.github.io/tags/%E5%BE%AE%E4%BF%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue 打包减小 moment 体积</title>
-    <link href="https://frostbelt.github.io/2020/03/17/vue-%E6%89%93%E5%8C%85%E5%87%8F%E5%B0%8F-moment-%E4%BD%93%E7%A7%AF/"/>
-    <id>https://frostbelt.github.io/2020/03/17/vue-打包减小-moment-体积/</id>
-    <published>2020-03-17T01:32:52.000Z</published>
-    <updated>2020-03-17T01:36:34.856Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>moment 体积较大，但一般只使用到几种语言，应该过滤一下</p></blockquote><p>vue cli 的 vue.config.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">configureWebpack: config =&gt; &#123;</span><br><span class="line">  config.plugins.push(</span><br><span class="line">    // 提取 monent 有效部分，减小体积。压缩前 611k-&gt;163k</span><br><span class="line">    // en-gb 英国 en-us 美国(默认值) vi 越南 zh-cn 中国</span><br><span class="line">    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /^\.\/(zh-cn|vi)$/i)</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line">注: 在 moment locale 目录下并没有 en-us，默认为 en-us</span><br><span class="line">moment 的这一设计也遭到不少 diss</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;moment 体积较大，但一般只使用到几种语言，应该过滤一下&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;vue cli 的 vue.config.js&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t
-      
-    
-    </summary>
-    
-    
-      <category term="moment" scheme="https://frostbelt.github.io/tags/moment/"/>
-    
-      <category term="vue" scheme="https://frostbelt.github.io/tags/vue/"/>
     
   </entry>
   
