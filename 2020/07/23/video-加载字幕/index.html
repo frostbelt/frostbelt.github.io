@@ -102,18 +102,21 @@
 
 
 
-<meta name="description" content="video 中加 track12345只支持 vtt 格式&amp;lt;video autoplay controls&amp;gt;  &amp;lt;source src=&amp;quot;xxx.mp4&amp;quot; type=&amp;quot;video/mp4&amp;quot;&amp;gt;  &amp;lt;track src=&amp;quot;xxx.vtt&amp;quot; kind=&amp;quot;subtitles&amp;quot; label=&amp;quo">
+<meta name="description" content="先看下效果(PC chrome) video 中加 track 标签12345只支持 vtt 格式&amp;lt;video autoplay controls&amp;gt;  &amp;lt;source src=&amp;quot;xxx.mp4&amp;quot; type=&amp;quot;video/mp4&amp;quot;&amp;gt;  &amp;lt;track src=&amp;quot;xxx.vtt&amp;quot; kind=&amp;quot;subtit">
 <meta name="keywords" content="js,video,track,todo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="video 加载字幕">
+<meta property="og:title" content="网页 video 中如何加载字幕">
 <meta property="og:url" content="https://frostbelt.github.io/2020/07/23/video-加载字幕/index.html">
 <meta property="og:site_name" content="frostbelt&#39;s home">
-<meta property="og:description" content="video 中加 track12345只支持 vtt 格式&amp;lt;video autoplay controls&amp;gt;  &amp;lt;source src=&amp;quot;xxx.mp4&amp;quot; type=&amp;quot;video/mp4&amp;quot;&amp;gt;  &amp;lt;track src=&amp;quot;xxx.vtt&amp;quot; kind=&amp;quot;subtitles&amp;quot; label=&amp;quo">
+<meta property="og:description" content="先看下效果(PC chrome) video 中加 track 标签12345只支持 vtt 格式&amp;lt;video autoplay controls&amp;gt;  &amp;lt;source src=&amp;quot;xxx.mp4&amp;quot; type=&amp;quot;video/mp4&amp;quot;&amp;gt;  &amp;lt;track src=&amp;quot;xxx.vtt&amp;quot; kind=&amp;quot;subtit">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-23T13:35:03.066Z">
+<meta property="og:image" content="https://p0.ssl.qhimg.com/t01340314555436f099.jpg">
+<meta property="og:image" content="https://p0.ssl.qhimg.com/t01949c67e2705dcda5.jpg">
+<meta property="og:updated_time" content="2020-07-29T03:03:15.788Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="video 加载字幕">
-<meta name="twitter:description" content="video 中加 track12345只支持 vtt 格式&amp;lt;video autoplay controls&amp;gt;  &amp;lt;source src=&amp;quot;xxx.mp4&amp;quot; type=&amp;quot;video/mp4&amp;quot;&amp;gt;  &amp;lt;track src=&amp;quot;xxx.vtt&amp;quot; kind=&amp;quot;subtitles&amp;quot; label=&amp;quo">
+<meta name="twitter:title" content="网页 video 中如何加载字幕">
+<meta name="twitter:description" content="先看下效果(PC chrome) video 中加 track 标签12345只支持 vtt 格式&amp;lt;video autoplay controls&amp;gt;  &amp;lt;source src=&amp;quot;xxx.mp4&amp;quot; type=&amp;quot;video/mp4&amp;quot;&amp;gt;  &amp;lt;track src=&amp;quot;xxx.vtt&amp;quot; kind=&amp;quot;subtit">
+<meta name="twitter:image" content="https://p0.ssl.qhimg.com/t01340314555436f099.jpg">
 
 
 
@@ -149,7 +152,7 @@
 
 
 
-  <title>video 加载字幕 | frostbelt's home</title>
+  <title>网页 video 中如何加载字幕 | frostbelt's home</title>
   
 
 
@@ -292,7 +295,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">video 加载字幕</h1>
+          <h1 class="post-title" itemprop="name headline">网页 video 中如何加载字幕</h1>
         
 
         <div class="post-meta">
@@ -322,7 +325,7 @@
 
           
           
-             <span id="/2020/07/23/video-加载字幕/" class="leancloud_visitors" data-flag-title="video 加载字幕">
+             <span id="/2020/07/23/video-加载字幕/" class="leancloud_visitors" data-flag-title="网页 video 中如何加载字幕">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -349,7 +352,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  367
+                  416
                 </span>
               
 
@@ -365,7 +368,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -386,12 +389,14 @@
       
 
       
-        <h3 id="video-中加-track"><a href="#video-中加-track" class="headerlink" title="video 中加 track"></a>video 中加 track</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">只支持 vtt 格式</span><br><span class="line">&lt;video autoplay controls&gt;</span><br><span class="line">  &lt;source src=&quot;xxx.mp4&quot; type=&quot;video/mp4&quot;&gt;</span><br><span class="line">  &lt;track src=&quot;xxx.vtt&quot; kind=&quot;subtitles&quot; label=&quot;中文字幕&quot; srclang=&quot;zh&quot; default&gt;</span><br><span class="line">&lt;/video&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="在已生成的-video-中加-track-用了人家的播放器，又没有添加字幕-API"><a href="#在已生成的-video-中加-track-用了人家的播放器，又没有添加字幕-API" class="headerlink" title="在已生成的 video 中加 track(用了人家的播放器，又没有添加字幕 API)"></a>在已生成的 video 中加 track(用了人家的播放器，又没有添加字幕 API)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let track = document.createElement(&quot;track&quot;);</span><br><span class="line">track.src = &quot;xxx.vtt&quot;;</span><br><span class="line">track.srclang = &quot;zh&quot;;</span><br><span class="line">track.setAttribute(&quot;label&quot;, &quot;中文字幕&quot;);</span><br><span class="line">track.setAttribute(&quot;kind&quot;, &quot;captions&quot;);</span><br><span class="line">track.setAttribute(&quot;default&quot;, &quot;&quot;);</span><br><span class="line">videoEle.appendChild(track);</span><br></pre></td></tr></table></figure>
+        <h3 id="先看下效果-PC-chrome"><a href="#先看下效果-PC-chrome" class="headerlink" title="先看下效果(PC chrome)"></a>先看下效果(PC chrome)</h3><p><img src="https://p0.ssl.qhimg.com/t01340314555436f099.jpg" alt="效果"></p>
+<h3 id="video-中加-track-标签"><a href="#video-中加-track-标签" class="headerlink" title="video 中加 track 标签"></a>video 中加 track 标签</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">只支持 vtt 格式</span><br><span class="line">&lt;video autoplay controls&gt;</span><br><span class="line">  &lt;source src=&quot;xxx.mp4&quot; type=&quot;video/mp4&quot;&gt;</span><br><span class="line">  &lt;track src=&quot;xxx.vtt&quot; kind=&quot;subtitles&quot; label=&quot;中文字幕&quot; srclang=&quot;zh&quot; default&gt;</span><br><span class="line">&lt;/video&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="track-的兼容性"><a href="#track-的兼容性" class="headerlink" title="track 的兼容性"></a>track 的兼容性</h3><p><img src="https://p0.ssl.qhimg.com/t01949c67e2705dcda5.jpg" alt="效果"></p>
+<h3 id="在已生成的-video-中加-track"><a href="#在已生成的-video-中加-track" class="headerlink" title="在已生成的 video 中加 track"></a>在已生成的 video 中加 track</h3><p>如果不能在 video 生成时插入 track 标题，就用 JS 插入 track。比如用了人家的播放器，又没有添加字幕 API<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let track = document.createElement(&quot;track&quot;);</span><br><span class="line">track.src = &quot;xxx.vtt&quot;;</span><br><span class="line">track.srclang = &quot;zh&quot;;</span><br><span class="line">track.setAttribute(&quot;label&quot;, &quot;中文字幕&quot;);</span><br><span class="line">track.setAttribute(&quot;kind&quot;, &quot;captions&quot;);</span><br><span class="line">track.setAttribute(&quot;default&quot;, &quot;&quot;);</span><br><span class="line">videoEle.appendChild(track);</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <h3 id="如果-vtt-文件在-CDN-上"><a href="#如果-vtt-文件在-CDN-上" class="headerlink" title="如果 vtt 文件在 CDN 上"></a>如果 vtt 文件在 CDN 上</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">videoEle.setAttribute(&quot;crossdomain&quot;, &quot;true&quot;);</span><br><span class="line"></span><br><span class="line">并且 vtt 请求要支持 CORS</span><br></pre></td></tr></table></figure>
 <h3 id="如果-CDN-并不能支持-CORS"><a href="#如果-CDN-并不能支持-CORS" class="headerlink" title="如果 CDN 并不能支持 CORS"></a>如果 CDN 并不能支持 CORS</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">搞个代理接口拿到 vtt 文件内容，如:</span><br><span class="line"></span><br><span class="line">srt 格式:</span><br><span class="line">00:00:03,334 --&gt; 00:00:06,971</span><br><span class="line">From his new album, &quot;Yo Hago Lo Que Me Da La Gana,&quot;</span><br><span class="line"></span><br><span class="line">vtt 格式:</span><br><span class="line">00:00:03.334 --&gt; 00:00:06.971</span><br><span class="line">From his new album, &quot;Yo Hago Lo Que Me Da La Gana,&quot;</span><br><span class="line"></span><br><span class="line">转换成如下格式(中间态，可以忽略):</span><br><span class="line">trackList = [</span><br><span class="line">  &#123;</span><br><span class="line">    begin : 3.334,</span><br><span class="line">    end : 6.971,</span><br><span class="line">    text : &apos;From his new album, &quot;Yo Hago Lo Que Me Da La Gana,&quot;&apos;,</span><br><span class="line">  &#125;,</span><br><span class="line">];</span><br><span class="line">let track = video.addTextTrack(&quot;captions&quot;, &quot;English&quot;, &quot;en&quot;);</span><br><span class="line">track.mode = &quot;showing&quot;;  // showing/hidden/disabled 因为可以添加多个字幕，一般默认显示一个就可以了</span><br><span class="line">trackList.forEach(item =&gt; &#123;</span><br><span class="line">  track.addCue(new VTTCue(item.begin, item.end, item.text));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="播放器切换视频时，清空字幕"><a href="#播放器切换视频时，清空字幕" class="headerlink" title="播放器切换视频时，清空字幕"></a>播放器切换视频时，清空字幕</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">video 有 addTextTrack 方法，但并没有对应的 removeTextTrack ！</span><br><span class="line">未解决 todo，目前只能重置 video，显然不是好办法</span><br></pre></td></tr></table></figure>
+<h3 id="播放器切换视频时，清空字幕"><a href="#播放器切换视频时，清空字幕" class="headerlink" title="播放器切换视频时，清空字幕"></a>播放器切换视频时，清空字幕</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">video 有 addTextTrack 方法，但并没有对应的 removeTextTrack ！</span><br><span class="line">未解决，目前只能重置 video，显然不是好办法。</span><br><span class="line">如果您有更好的办法，请留言，谢谢！</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -587,7 +592,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#video-中加-track"><span class="nav-text">video 中加 track</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在已生成的-video-中加-track-用了人家的播放器，又没有添加字幕-API"><span class="nav-text">在已生成的 video 中加 track(用了人家的播放器，又没有添加字幕 API)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果-vtt-文件在-CDN-上"><span class="nav-text">如果 vtt 文件在 CDN 上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果-CDN-并不能支持-CORS"><span class="nav-text">如果 CDN 并不能支持 CORS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#播放器切换视频时，清空字幕"><span class="nav-text">播放器切换视频时，清空字幕</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#先看下效果-PC-chrome"><span class="nav-text">先看下效果(PC chrome)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#video-中加-track-标签"><span class="nav-text">video 中加 track 标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#track-的兼容性"><span class="nav-text">track 的兼容性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在已生成的-video-中加-track"><span class="nav-text">在已生成的 video 中加 track</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果-vtt-文件在-CDN-上"><span class="nav-text">如果 vtt 文件在 CDN 上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果-CDN-并不能支持-CORS"><span class="nav-text">如果 CDN 并不能支持 CORS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#播放器切换视频时，清空字幕"><span class="nav-text">播放器切换视频时，清空字幕</span></a></li></ol></div>
             
 
           </div>
