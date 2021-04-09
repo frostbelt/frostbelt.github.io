@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2020-08-14T02:12:02.424Z</updated>
+  <updated>2021-04-09T02:52:43.377Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如果重新构建一个项目</title>
+    <link href="https://frostbelt.github.io/2021/04/09/%E5%A6%82%E6%9E%9C%E9%87%8D%E6%96%B0%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE/"/>
+    <id>https://frostbelt.github.io/2021/04/09/如果重新构建一个项目/</id>
+    <published>2021-04-09T02:27:42.000Z</published>
+    <updated>2021-04-09T02:52:43.377Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="封装基础功能-20210409"><a href="#封装基础功能-20210409" class="headerlink" title="封装基础功能 20210409"></a>封装基础功能 20210409</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">navigateTo, request 等</span><br><span class="line">如 navigateTo</span><br><span class="line">想加一个公共参数，或定义页面间传递的参数时很方便</span><br><span class="line">想加路由权限控制时很方便</span><br></pre></td></tr></table></figure><h3 id="基础功能也要细化-20210409"><a href="#基础功能也要细化-20210409" class="headerlink" title="基础功能也要细化 20210409"></a>基础功能也要细化 20210409</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如把 helper 拆分为 core/local/server/client 等</span><br></pre></td></tr></table></figure><h3 id="异步都用-Promise-处理-20210409"><a href="#异步都用-Promise-处理-20210409" class="headerlink" title="异步都用 Promise 处理 20210409"></a>异步都用 Promise 处理 20210409</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">callback 方式不美观</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="调试工具-20210409"><a href="#调试工具-20210409" class="headerlink" title="调试工具 20210409"></a>调试工具 20210409</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">做好调试工具</span><br><span class="line">将一些重要的信息记录到本地，方便调试</span><br><span class="line">将一些特别重要的信息上报到日志服务</span><br></pre></td></tr></table></figure><h3 id="基础的东西，不能有依赖；没有依赖的方法，尽量放在基础里-20210409"><a href="#基础的东西，不能有依赖；没有依赖的方法，尽量放在基础里-20210409" class="headerlink" title="基础的东西，不能有依赖；没有依赖的方法，尽量放在基础里 20210409"></a>基础的东西，不能有依赖；没有依赖的方法，尽量放在基础里 20210409</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">示例:</span><br><span class="line">依赖关系 config =&gt; helper =&gt; client</span><br><span class="line">有个 getFixedHost 方法，应该放在哪里？没有依赖，放在 config 或 helper 里</span><br><span class="line">后期可能有页面不引用 client，但是想使用 getFixedHost 方法</span><br></pre></td></tr></table></figure><h3 id="dist-除-index-html-外，不要加入-git-小程序除外-20210409"><a href="#dist-除-index-html-外，不要加入-git-小程序除外-20210409" class="headerlink" title="dist 除 index.html 外，不要加入 git (小程序除外) 20210409"></a>dist 除 index.html 外，不要加入 git (小程序除外) 20210409</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">文件的修改可以通过 .gitattributes 定义合并策略，强制合并</span><br><span class="line">但文件的修改和增删还是会报冲突</span><br><span class="line">.gitignore:</span><br><span class="line">dist/*</span><br><span class="line">!dist/index.html</span><br><span class="line">如果发布系统已支持自动拉代码或自动 build，当然不需要把 dist 加入 git</span><br></pre></td></tr></table></figure><h3 id="将常用的与业务无关的底层代码提交-npm-20210409"><a href="#将常用的与业务无关的底层代码提交-npm-20210409" class="headerlink" title="将常用的与业务无关的底层代码提交 npm 20210409"></a>将常用的与业务无关的底层代码提交 npm 20210409</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如 normal.scss</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;封装基础功能-20210409&quot;&gt;&lt;a href=&quot;#封装基础功能-20210409&quot; class=&quot;headerlink&quot; title=&quot;封装基础功能 20210409&quot;&gt;&lt;/a&gt;封装基础功能 20210409&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;navigateTo, request 等&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;如 navigateTo&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;想加一个公共参数，或定义页面间传递的参数时很方便&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;想加路由权限控制时很方便&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;基础功能也要细化-20210409&quot;&gt;&lt;a href=&quot;#基础功能也要细化-20210409&quot; class=&quot;headerlink&quot; title=&quot;基础功能也要细化 20210409&quot;&gt;&lt;/a&gt;基础功能也要细化 20210409&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;如把 helper 拆分为 core/local/server/client 等&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;异步都用-Promise-处理-20210409&quot;&gt;&lt;a href=&quot;#异步都用-Promise-处理-20210409&quot; class=&quot;headerlink&quot; title=&quot;异步都用 Promise 处理 20210409&quot;&gt;&lt;/a&gt;异步都用 Promise 处理 20210409&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;callback 方式不美观&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="fe" scheme="https://frostbelt.github.io/tags/fe/"/>
+    
+  </entry>
   
   <entry>
     <title>就医杂记</title>
@@ -166,9 +188,9 @@
     </summary>
     
     
-      <category term="video" scheme="https://frostbelt.github.io/tags/video/"/>
-    
       <category term="css" scheme="https://frostbelt.github.io/tags/css/"/>
+    
+      <category term="video" scheme="https://frostbelt.github.io/tags/video/"/>
     
   </entry>
   
@@ -464,28 +486,6 @@
       <category term="php" scheme="https://frostbelt.github.io/tags/php/"/>
     
       <category term="cors" scheme="https://frostbelt.github.io/tags/cors/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>当transpileDependencies无效时</title>
-    <link href="https://frostbelt.github.io/2020/04/17/%E5%BD%93transpileDependencies%E6%97%A0%E6%95%88%E6%97%B6/"/>
-    <id>https://frostbelt.github.io/2020/04/17/当transpileDependencies无效时/</id>
-    <published>2020-04-17T08:26:11.000Z</published>
-    <updated>2020-04-17T08:38:55.416Z</updated>
-    
-    <content type="html"><![CDATA[<p>vue-cli 默认 babel-loader 忽略 node_modules<br>当某个依赖(如 vue-baberrage)存在 ES6 语法时，vue 官方给出的解决方案是 <a href="https://cli.vuejs.org/zh/config/#transpiledependencies" target="_blank" rel="noopener">transpileDependencies</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">默认情况下 babel-loader 会忽略所有 node_modules 中的文件。如果你想要通过 Babel 显式转译一个依赖，可以在这个选项中列出来。</span><br><span class="line"></span><br><span class="line">vue.config.js</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  transpileDependencies : [&apos;vue-baberrage&apos;],   // 需要转译的依赖数组</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>但自测 transpileDependencies 无效，解决办法:</p><a id="more"></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">chainWebpack: config =&gt; &#123;</span><br><span class="line">  config.module.rule(&apos;js&apos;)</span><br><span class="line">    .test(/\.m?jsx?$/)</span><br><span class="line">    .exclude</span><br><span class="line">    .clear()</span><br><span class="line">    .add(filepath =&gt; &#123;</span><br><span class="line">      if (/\.vue\.jsx?$/.test(filepath)) &#123;</span><br><span class="line">        return false</span><br><span class="line">      &#125;</span><br><span class="line">      // exclude dynamic entries from cli-service</span><br><span class="line">      const cliServicePath = require(&apos;path&apos;).dirname(require.resolve(&apos;@vue/cli-service&apos;))</span><br><span class="line">      if (filepath.startsWith(cliServicePath)) &#123;</span><br><span class="line">        return true</span><br><span class="line">      &#125;</span><br><span class="line">      // check if this is something the user explicitly wants to transpile</span><br><span class="line">      if ([/vue-baberrage/].some(dep =&gt; filepath.match(dep))) &#123;</span><br><span class="line">        return false</span><br><span class="line">      &#125;</span><br><span class="line">      // Don&apos;t transpile node_modules</span><br><span class="line">      return /node_modules/.test(filepath)</span><br><span class="line">    &#125;)</span><br><span class="line">    .end()</span><br><span class="line">    .use(&apos;babel-loader&apos;)</span><br><span class="line">    .loader(&apos;babel-loader&apos;)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;vue-cli 默认 babel-loader 忽略 node_modules&lt;br&gt;当某个依赖(如 vue-baberrage)存在 ES6 语法时，vue 官方给出的解决方案是 &lt;a href=&quot;https://cli.vuejs.org/zh/config/#transpiledependencies&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;transpileDependencies&lt;/a&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;默认情况下 babel-loader 会忽略所有 node_modules 中的文件。如果你想要通过 Babel 显式转译一个依赖，可以在这个选项中列出来。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;vue.config.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;module.exports = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  transpileDependencies : [&amp;apos;vue-baberrage&amp;apos;],   // 需要转译的依赖数组&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;但自测 transpileDependencies 无效，解决办法:&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="https://frostbelt.github.io/tags/vue/"/>
     
   </entry>
   
