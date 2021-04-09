@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2021-04-09T02:52:43.377Z</updated>
+  <updated>2021-04-09T03:03:19.075Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>cryptico 处理 UTF-8</title>
+    <link href="https://frostbelt.github.io/2021/04/09/cryptico-%E5%A4%84%E7%90%86-UTF-8/"/>
+    <id>https://frostbelt.github.io/2021/04/09/cryptico-处理-UTF-8/</id>
+    <published>2021-04-09T02:59:55.000Z</published>
+    <updated>2021-04-09T03:03:19.075Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://github.com/wwwtyro/cryptico" target="_blank" rel="noopener">cryptico</a> 处理中文时会有问题</p><p>可以使用 <a href="https://github.com/jpfox/cryptico" target="_blank" rel="noopener">jpfox/cryptico</a><br>在 <code>cryptico</code> 的基础上，<a href="https://github.com/jpfox/cryptico/commit/73db107f8e1e0d59696e1aece9e7a2bc82268707" target="_blank" rel="noopener">支持 UTF-8</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://github.com/wwwtyro/cryptico&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;cryptico&lt;/a&gt; 处理中文时会有问题&lt;/p&gt;
+&lt;p&gt;可以使用 &lt;a href=&quot;https://github.c
+      
+    
+    </summary>
+    
+    
+      <category term="js" scheme="https://frostbelt.github.io/tags/js/"/>
+    
+      <category term="crypte" scheme="https://frostbelt.github.io/tags/crypte/"/>
+    
+      <category term="AES" scheme="https://frostbelt.github.io/tags/AES/"/>
+    
+  </entry>
   
   <entry>
     <title>如果重新构建一个项目</title>
@@ -188,9 +216,9 @@
     </summary>
     
     
-      <category term="css" scheme="https://frostbelt.github.io/tags/css/"/>
-    
       <category term="video" scheme="https://frostbelt.github.io/tags/video/"/>
+    
+      <category term="css" scheme="https://frostbelt.github.io/tags/css/"/>
     
   </entry>
   
@@ -461,31 +489,6 @@
     
     
       <category term="vscode" scheme="https://frostbelt.github.io/tags/vscode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>实现CORS 服务端需要做什么</title>
-    <link href="https://frostbelt.github.io/2020/04/18/%E5%AE%9E%E7%8E%B0CORS-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E9%9C%80%E8%A6%81%E5%81%9A%E4%BB%80%E4%B9%88/"/>
-    <id>https://frostbelt.github.io/2020/04/18/实现CORS-服务端需要做什么/</id>
-    <published>2020-04-18T12:15:41.000Z</published>
-    <updated>2020-04-18T12:17:31.191Z</updated>
-    
-    <content type="html"><![CDATA[<p>PHP 实现，在构造函数中:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// host 白名单</span><br><span class="line">$hostList = [</span><br><span class="line">  &apos;http://xxx.xxx.xxx&apos;,</span><br><span class="line">  &apos;http://localhost:8080&apos;,</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">if( !empty($_SERVER[&apos;HTTP_ORIGIN&apos;]) &amp;&amp; in_array($_SERVER[&apos;HTTP_ORIGIN&apos;], $hostList))&#123;</span><br><span class="line">  header(&apos;Access-Control-Allow-Origin:&apos;.$_SERVER[&apos;HTTP_ORIGIN&apos;]);</span><br><span class="line">  header(&apos;Access-Control-Allow-Credentials:true&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;PHP 实现，在构造函数中:&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;
-      
-    
-    </summary>
-    
-    
-      <category term="php" scheme="https://frostbelt.github.io/tags/php/"/>
-    
-      <category term="cors" scheme="https://frostbelt.github.io/tags/cors/"/>
     
   </entry>
   
