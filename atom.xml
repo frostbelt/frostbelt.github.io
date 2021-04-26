@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2021-04-20T02:00:06.972Z</updated>
+  <updated>2021-04-26T07:32:54.155Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux 下记录所有用户的操作历史</title>
+    <link href="https://frostbelt.github.io/2021/04/26/Linux-%E4%B8%8B%E8%AE%B0%E5%BD%95%E6%89%80%E6%9C%89%E7%94%A8%E6%88%B7%E7%9A%84%E6%93%8D%E4%BD%9C%E5%8E%86%E5%8F%B2/"/>
+    <id>https://frostbelt.github.io/2021/04/26/Linux-下记录所有用户的操作历史/</id>
+    <published>2021-04-26T07:27:51.000Z</published>
+    <updated>2021-04-26T07:32:54.155Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用 <code>history</code> 命令可查看当前登录用户的所有操作历史<br>但即使是 root 用户，也不能查看其它用户的操作记录<br>这就需要将所有用户的操作历史，以日志的方式保存下来</p><a id="more"></a><p>$su root<br>$vim /etc/profile</p><p>在最后面加入以下代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># user&apos;s operate history</span><br><span class="line">history 2&gt;/dev/null</span><br><span class="line">USER_IP=`who -u am i 2&gt;/dev/null| awk &apos;&#123;print $NF&#125;&apos;|sed -e &apos;s/[()]//g&apos;`</span><br><span class="line">if [ &quot;$USER_IP&quot; = &quot;&quot; ]</span><br><span class="line">then</span><br><span class="line">USER_IP=`hostname`</span><br><span class="line">fi</span><br><span class="line">if [ ! -d /tmp/dbasky ]</span><br><span class="line">then</span><br><span class="line">mkdir /tmp/dbasky</span><br><span class="line">chmod 777 /tmp/dbasky</span><br><span class="line">fi</span><br><span class="line">if [ ! -d /tmp/dbasky/$&#123;LOGNAME&#125; ]</span><br><span class="line">then</span><br><span class="line">mkdir /tmp/dbasky/$&#123;LOGNAME&#125;</span><br><span class="line">chmod 300 /tmp/dbasky/$&#123;LOGNAME&#125;</span><br><span class="line">fi</span><br><span class="line">export HISTSIZE=4096</span><br><span class="line">DT=`date &quot;+%Y-%m-%d_%H:%M:%S&quot;`</span><br><span class="line">export HISTFILE=&quot;/tmp/dbasky/$&#123;LOGNAME&#125;/$&#123;USER_IP&#125; dbasky.$DT&quot;</span><br><span class="line">chmod 600 /tmp/dbasky/$&#123;LOGNAME&#125;/*dbasky* 2&gt;/dev/null</span><br></pre></td></tr></table></figure></p><p>$source /etc/profile</p><p>退出，重新登录<br>可在 <code>/tmp/dbasky</code> 下查看所有用户的操作历史</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;使用 &lt;code&gt;history&lt;/code&gt; 命令可查看当前登录用户的所有操作历史&lt;br&gt;但即使是 root 用户，也不能查看其它用户的操作记录&lt;br&gt;这就需要将所有用户的操作历史，以日志的方式保存下来&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://frostbelt.github.io/tags/linux/"/>
+    
+      <category term="sh" scheme="https://frostbelt.github.io/tags/sh/"/>
+    
+  </entry>
   
   <entry>
     <title>解决Element弹窗被盖住的问题</title>
@@ -477,26 +499,6 @@
       <category term="vscode" scheme="https://frostbelt.github.io/tags/vscode/"/>
     
       <category term="vue" scheme="https://frostbelt.github.io/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hybird 开发注意点</title>
-    <link href="https://frostbelt.github.io/2020/04/20/Hybird-%E5%BC%80%E5%8F%91%E6%B3%A8%E6%84%8F%E7%82%B9/"/>
-    <id>https://frostbelt.github.io/2020/04/20/Hybird-开发注意点/</id>
-    <published>2020-04-20T07:18:16.000Z</published>
-    <updated>2020-04-24T12:09:17.077Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="客户端回调页面"><a href="#客户端回调页面" class="headerlink" title="客户端回调页面"></a>客户端回调页面</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">接口回调方法名由 js 指定，类似 jsonp，否则多次连续调用同一接口只能串行</span><br><span class="line">example:</span><br><span class="line">web-&gt;client</span><br><span class="line">Client.getUserInfo(&#123;</span><br><span class="line">  callbackName : &quot;xxx&quot;,</span><br><span class="line">&#125;);</span><br><span class="line">client-&gt;web</span><br><span class="line">window.xxx(&#123;</span><br><span class="line">  vc : 10001,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="输入法弹起时"><a href="#输入法弹起时" class="headerlink" title="输入法弹起时"></a>输入法弹起时</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入法弹起时，最好是缩小 webview 高度，可以避免以下问题:</span><br><span class="line">  a. fixed head 被顶出视野外(如果输入法把整个 webview 顶起)；</span><br><span class="line">  b. fixed foot(弹幕等) 被盖住(如果输入法把 webview 遮盖)；</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;客户端回调页面&quot;&gt;&lt;a href=&quot;#客户端回调页面&quot; class=&quot;headerlink&quot; title=&quot;客户端回调页面&quot;&gt;&lt;/a&gt;客户端回调页面&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;接口回调方法名由 js 指定，类似 jsonp，否则多次连续调用同一接口只能串行&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;example:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;web-&amp;gt;client&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Client.getUserInfo(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  callbackName : &amp;quot;xxx&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;client-&amp;gt;web&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;window.xxx(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  vc : 10001,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="hybird" scheme="https://frostbelt.github.io/tags/hybird/"/>
     
   </entry>
   
