@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frostbelt.github.io/"/>
-  <updated>2021-05-24T08:08:37.927Z</updated>
+  <updated>2021-06-30T02:20:29.945Z</updated>
   <id>https://frostbelt.github.io/</id>
   
   <author>
@@ -15,6 +15,105 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>当 async/await 遇上 forEach</title>
+    <link href="https://frostbelt.github.io/2021/06/30/%E5%BD%93-async-await-%E9%81%87%E4%B8%8A-forEach/"/>
+    <id>https://frostbelt.github.io/2021/06/30/当-async-await-遇上-forEach/</id>
+    <published>2021-06-30T02:10:42.000Z</published>
+    <updated>2021-06-30T02:20:29.945Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">var getNumbers = () =&gt; &#123;</span><br><span class="line">  return Promise.resolve([1, 2, 3])</span><br><span class="line">&#125;</span><br><span class="line">var multi = num =&gt; &#123;</span><br><span class="line">  return new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">      if (num) &#123;</span><br><span class="line">        resolve(num * num)</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        reject(new Error(&apos;num not specified&apos;))</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, 1000)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">async function test () &#123;</span><br><span class="line">  var nums = await getNumbers()</span><br><span class="line">  nums.forEach(async x =&gt; &#123;</span><br><span class="line">    var res = await multi(x)</span><br><span class="line">    console.log(res)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">test()</span><br></pre></td></tr></table></figure><p>在这个例子中，通过 <code>forEach</code> 遍历的将每一个数字都执行 <code>multi</code> 操作。代码执行的结果是：1 秒后，一次性输出1，4，9。这个结果和我们的预期有些区别，我们是希望每间隔 1 秒，然后依次输出 1，4，9；所以当前代码应该是并行执行了，而我们期望的应该是串行执行。</p><a id="more"></a><h3 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h3><h4 id="JavaScript-中的循环数组遍历"><a href="#JavaScript-中的循环数组遍历" class="headerlink" title="JavaScript 中的循环数组遍历"></a>JavaScript 中的循环数组遍历</h4><p>在 JavaScript 中提供了如下四种循环遍历数组元素的方式：</p><ul><li><p>for<br>这是循环遍历数组元素最简单的方式</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">  console.log(arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>for-in</p></li></ul><p><code>for-in</code> 语句以任意顺序遍历一个对象的可枚举属性，对于数组即是数组下标，对于对象即是对象的 key 值。注意 <code>for-in</code> 遍历返回的对象属性都是字符串类型，即使是数组下标，也是字符串 “0”, “1”, “2” 等等。[不推荐使用 <code>for-in</code> 语句]</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (var index in myArray) &#123;</span><br><span class="line">  console.log(myArray[index]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>forEach</li></ul><p><code>forEach</code> 方法用于调用数组的每个元素，并将元素传递给回调函数；注意在回调函数中无法使用 <code>break</code> 跳出当前循环，也无法使用 <code>return</code> 返回值</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">myArray.forEach(function (value) &#123;</span><br><span class="line">  console.log(value);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><ul><li>for-of</li></ul><p><code>for-of</code> 语句为各种 collection 集合对象专门定制的，遍历集合对象的属性值，注意和 <code>for-in</code> 的区别</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (var value of myArray) &#123;</span><br><span class="line">  console.log(value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="分析问题"><a href="#分析问题" class="headerlink" title="分析问题"></a>分析问题</h4><p>在本例中 <code>forEach</code> 的回调函数是一个异步函数，异步函数中包含一个 <code>await</code> 等待 Promise 返回结果，我们期望数组元素串行执行这个异步操作，但是实际却是并行执行了。</p><p><code>forEach</code> 的 polyfill 参考：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach" target="_blank" rel="noopener">MDN-Array.prototype.forEach()</a>，简单点理解：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Array.prototype.forEach = function (callback) &#123;</span><br><span class="line">  // this represents our array</span><br><span class="line">  for (let index = 0; index &lt; this.length; index++) &#123;</span><br><span class="line">    // We call the callback for each entry</span><br><span class="line">    callback(this[index], index, this)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>相当于 <code>for</code> 循环执行了这个异步函数，所以是并行执行，导致了一次性全部输出结果：1，4，9<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">async function test () &#123;</span><br><span class="line">  var nums = await getNumbers()</span><br><span class="line">  // nums.forEach(async x =&gt; &#123;</span><br><span class="line">  //   var res = await multi(x)</span><br><span class="line">  //   console.log(res)</span><br><span class="line">  // &#125;)</span><br><span class="line">  for(let index = 0; index &lt; nums.length; index++) &#123;</span><br><span class="line">    (async x =&gt; &#123;</span><br><span class="line">      var res = await multi(x)</span><br><span class="line">      console.log(res)</span><br><span class="line">    &#125;)(nums[index])</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h3 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h3><h4 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h4><p>我们可以改造一下 <code>forEach</code>，确保每一个异步的回调执行完成后，才执行下一个<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">async function asyncForEach(array, callback) &#123;</span><br><span class="line">  for (let index = 0; index &lt; array.length; index++) &#123;</span><br><span class="line">    await callback(array[index], index, array)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">async function test () &#123;</span><br><span class="line">  var nums = await getNumbers()</span><br><span class="line">  asyncForEach(nums, async x =&gt; &#123;</span><br><span class="line">    var res = await multi(x)</span><br><span class="line">    console.log(res)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h4 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h4><p>使用 <code>for-of</code> 替代 <code>for-each</code>。</p><p><code>for-of</code> 可以遍历各种集合对象的属性值，要求被遍历的对象需要实现迭代器 (iterator) 方法，例如 <code>myObject[Symbol.iterator]()</code> 用于告知 JS 引擎如何遍历该对象。一个拥有 <code>[Symbol.iterator]()</code> 方法的对象被认为是可遍历的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var zeroesForeverIterator = &#123;</span><br><span class="line">  [Symbol.iterator]: function () &#123;</span><br><span class="line">    return this;</span><br><span class="line">  &#125;,</span><br><span class="line">  next: function () &#123;</span><br><span class="line">    return &#123;done: false, value: 0&#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p><p>如上就是一个最简单的迭代器对象；<code>for-of</code> 遍历对象时，先调用遍历对象的迭代器方法 <code>[Symbol.iterator]()</code>，该方法返回一个迭代器对象(迭代器对象中包含一个 <code>next</code> 方法)；然后调用该迭代器对象上的 <code>next</code> 方法。</p><p>每次调用 <code>next</code> 方法都返回一个对象，其中 <code>done</code> 和 <code>value</code> 属性用来表示遍历是否结束和当前遍历的属性值，当 <code>done</code> 的值为 <code>true</code> 时，遍历就停止了。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (VAR of ITERABLE) &#123;</span><br><span class="line">  STATEMENTS</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>等价于：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var $iterator = ITERABLE[Symbol.iterator]();</span><br><span class="line">var $result = $iterator.next();</span><br><span class="line">while (!$result.done) &#123;</span><br><span class="line">  VAR = $result.value;</span><br><span class="line">  STATEMENTS</span><br><span class="line">  $result = $iterator.next();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>由此可以知道 <code>for-of</code> 和 <code>forEach</code> 遍历元素时处理的方式是不同的。使用 <code>for-of</code> 替代 <code>for-each</code> 后代码为：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">async function test () &#123;</span><br><span class="line">  var nums = await getNumbers()</span><br><span class="line">  for(let x of nums) &#123;</span><br><span class="line">    var res = await multi(x)</span><br><span class="line">    console.log(res)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>搬运自<a href="http://objcer.com/2017/10/12/async-await-with-forEach/" target="_blank" rel="noopener">当 async/await 遇上 forEach</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var getNumbers = () =&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  return Promise.resolve([1, 2, 3])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var multi = num =&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  return new Promise((resolve, reject) =&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    setTimeout(() =&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      if (num) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        resolve(num * num)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125; else &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        reject(new Error(&amp;apos;num not specified&amp;apos;))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;, 1000)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;async function test () &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  var nums = await getNumbers()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  nums.forEach(async x =&amp;gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    var res = await multi(x)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    console.log(res)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;test()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在这个例子中，通过 &lt;code&gt;forEach&lt;/code&gt; 遍历的将每一个数字都执行 &lt;code&gt;multi&lt;/code&gt; 操作。代码执行的结果是：1 秒后，一次性输出1，4，9。这个结果和我们的预期有些区别，我们是希望每间隔 1 秒，然后依次输出 1，4，9；所以当前代码应该是并行执行了，而我们期望的应该是串行执行。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="js" scheme="https://frostbelt.github.io/tags/js/"/>
+    
+      <category term="async" scheme="https://frostbelt.github.io/tags/async/"/>
+    
+      <category term="forEach" scheme="https://frostbelt.github.io/tags/forEach/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MacOS 系统安装 Adobe 系列软件报错</title>
+    <link href="https://frostbelt.github.io/2021/06/30/MacOS-%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85-Adobe-%E7%B3%BB%E5%88%97%E8%BD%AF%E4%BB%B6%E6%8A%A5%E9%94%99/"/>
+    <id>https://frostbelt.github.io/2021/06/30/MacOS-系统安装-Adobe-系列软件报错/</id>
+    <published>2021-06-30T01:56:58.000Z</published>
+    <updated>2021-06-30T01:59:36.683Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>MacOS 系统安装 Adobe 系列软件提示 “The installation cannot continue as the installer file may be damaged Download the installer file again”</p></blockquote><p>解决办法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、双击打开 dmg 安装包</span><br><span class="line">2、在 install.app 上右键，选择 显示包内容</span><br><span class="line">3、依次进入 Contents 下的 MacOS  目录</span><br><span class="line">4、双击 MacOS  目录中的 install 即可开始正常的安装流程了</span><br></pre></td></tr></table></figure></p><p>参考<a href="http://www.sunqizheng.com/blog/1794.html" target="_blank" rel="noopener">MacOS系统安装Adobe系列软件提示“The installation cannot continue as the installer file may be damaged Download the installer file again”错误的解决方案</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;MacOS 系统安装 Adobe 系列软件提示 “The installation cannot continue as the installer file may be damaged Download the installer file a
+      
+    
+    </summary>
+    
+    
+      <category term="mac" scheme="https://frostbelt.github.io/tags/mac/"/>
+    
+      <category term="adobe" scheme="https://frostbelt.github.io/tags/adobe/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解决 &#39;Can&#39;t connect to local MySQL server through socket&#39;</title>
+    <link href="https://frostbelt.github.io/2021/06/30/%E8%A7%A3%E5%86%B3-Can-t-connect-to-local-MySQL-server-through-socket/"/>
+    <id>https://frostbelt.github.io/2021/06/30/解决-Can-t-connect-to-local-MySQL-server-through-socket/</id>
+    <published>2021-06-30T01:42:34.000Z</published>
+    <updated>2021-06-30T01:48:01.304Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>命令行 <code>mysql</code> 时报错 <code>ERROR 2002 (HY000): Can&#39;t connect to local MySQL server through socket</code>，但用 msyql 客户端可以连接</p></blockquote><p>是因为 mysql socket 出了问题，有可能是 my.conf 没有正确配置，有可能是没有权限生成 socket 文件</p><p>但不必管那么多，可以用这个解决办法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">指定 Host</span><br><span class="line">$ mysql -h 127.0.0.1 -u root -p</span><br></pre></td></tr></table></figure></p><p>参考<a href="https://blog.csdn.net/bedisdover/article/details/52567269" target="_blank" rel="noopener">[解决]ERROR 2002 (HY000): Can’t connect to local MySQL server</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;命令行 &lt;code&gt;mysql&lt;/code&gt; 时报错 &lt;code&gt;ERROR 2002 (HY000): Can&amp;#39;t connect to local MySQL server through socket&lt;/code&gt;，但用 msyql 
+      
+    
+    </summary>
+    
+    
+      <category term="mysql" scheme="https://frostbelt.github.io/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>el-image lazy 不生效的问题</title>
+    <link href="https://frostbelt.github.io/2021/06/30/el-image-lazy-%E4%B8%8D%E7%94%9F%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>https://frostbelt.github.io/2021/06/30/el-image-lazy-不生效的问题/</id>
+    <published>2021-06-30T01:35:49.000Z</published>
+    <updated>2021-06-30T01:42:25.433Z</updated>
+    
+    <content type="html"><![CDATA[<p>在 el-image 上设置 :lazy=”true” 无效，页面加载时还是把所有图片都加载了</p><p>查看文档，意思是<code>开启懒加载后，会监听最近一个 overflow 值为 auto 或 scroll 的父元素的 scroll 事件</code></p><p>所以，没有生效的原因是: 并没有这样的父元素，即使到 body 也没有设置 overflow 为 auto 或 scroll</p><a id="more"></a><p>解决办法:<br>在某一级父元素上设置 overflow 为 auto 或 scroll<br>但这种做法实在有不合理的地方，希望 element 能改进一下</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在 el-image 上设置 :lazy=”true” 无效，页面加载时还是把所有图片都加载了&lt;/p&gt;
+&lt;p&gt;查看文档，意思是&lt;code&gt;开启懒加载后，会监听最近一个 overflow 值为 auto 或 scroll 的父元素的 scroll 事件&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;所以，没有生效的原因是: 并没有这样的父元素，即使到 body 也没有设置 overflow 为 auto 或 scroll&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="element" scheme="https://frostbelt.github.io/tags/element/"/>
+    
+      <category term="vue" scheme="https://frostbelt.github.io/tags/vue/"/>
+    
+  </entry>
   
   <entry>
     <title>pr 导出视频时有黑边</title>
@@ -314,9 +413,9 @@
     </summary>
     
     
-      <category term="video" scheme="https://frostbelt.github.io/tags/video/"/>
-    
       <category term="css" scheme="https://frostbelt.github.io/tags/css/"/>
+    
+      <category term="video" scheme="https://frostbelt.github.io/tags/video/"/>
     
   </entry>
   
@@ -360,9 +459,9 @@
     </summary>
     
     
-      <category term="npm" scheme="https://frostbelt.github.io/tags/npm/"/>
-    
       <category term="vue" scheme="https://frostbelt.github.io/tags/vue/"/>
+    
+      <category term="npm" scheme="https://frostbelt.github.io/tags/npm/"/>
     
   </entry>
   
@@ -409,96 +508,6 @@
     
     
       <category term="fiddler" scheme="https://frostbelt.github.io/tags/fiddler/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>rollup 打包 js 插件</title>
-    <link href="https://frostbelt.github.io/2020/04/27/rollup-%E6%89%93%E5%8C%85-js-%E6%8F%92%E4%BB%B6/"/>
-    <id>https://frostbelt.github.io/2020/04/27/rollup-打包-js-插件/</id>
-    <published>2020-04-27T08:29:45.000Z</published>
-    <updated>2020-04-27T08:35:58.840Z</updated>
-    
-    <content type="html"><![CDATA[<p>开源插件，需要判断 JS 执行环境，实现类似以下功能:<br><a href="https://www.jianshu.com/p/f75eaa5f1fa4" target="_blank" rel="noopener">JS兼容不同环境下执行</a></p><a id="more"></a><p><a href="https://www.rollupjs.com/guide/introduction/" target="_blank" rel="noopener">rollup</a> 可以打包时自己生成这套兼容代码</p><p>查看 <a href="https://github.com/frostbelt/demo_rollup" target="_blank" rel="noopener">demo</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;开源插件，需要判断 JS 执行环境，实现类似以下功能:&lt;br&gt;&lt;a href=&quot;https://www.jianshu.com/p/f75eaa5f1fa4&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;JS兼容不同环境下执行&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="rollup" scheme="https://frostbelt.github.io/tags/rollup/"/>
-    
-      <category term="插件" scheme="https://frostbelt.github.io/tags/%E6%8F%92%E4%BB%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vscode 使用 ts 声明实现全局引用智能提示</title>
-    <link href="https://frostbelt.github.io/2020/04/26/vscode-%E4%BD%BF%E7%94%A8-ts-%E5%A3%B0%E6%98%8E%E5%AE%9E%E7%8E%B0%E5%85%A8%E5%B1%80%E5%BC%95%E7%94%A8%E6%99%BA%E8%83%BD%E6%8F%90%E7%A4%BA/"/>
-    <id>https://frostbelt.github.io/2020/04/26/vscode-使用-ts-声明实现全局引用智能提示/</id>
-    <published>2020-04-26T06:19:04.000Z</published>
-    <updated>2020-04-26T10:13:08.871Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>自己的全局依赖(JS 实现)，挂在 Vue.prototype 上，在其它 vue 中使用时，想有智能提示</p></blockquote><a id="more"></a><p>在根目录新建 fe.d.ts 声明文件(文件名任意)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line"></span><br><span class="line">export interface Helper &#123;</span><br><span class="line">  /**</span><br><span class="line"> * 获取 url 参数</span><br><span class="line">   * @param &#123;String&#125; href 默认取当前页地址</span><br><span class="line"> */</span><br><span class="line">  getParams (href?:String): Object</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">declare module &apos;vue/types/vue&apos; &#123;</span><br><span class="line">  interface Vue &#123;</span><br><span class="line">    $helper: Helper,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>然后，重启 vscode !!!</p><p>这样，在其它 vue 中输入 <code>this.$helper.g</code> 时，会有智能提示<br><img src="https://p.ssl.qhimg.com/t010ff2c92bb2f778b8.jpg" alt="智能提示"></p><p>如果是 TS 实现，会自动生成 d.ts 声明文件，逐步重构吧</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;自己的全局依赖(JS 实现)，挂在 Vue.prototype 上，在其它 vue 中使用时，想有智能提示&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="vscode" scheme="https://frostbelt.github.io/tags/vscode/"/>
-    
-      <category term="types" scheme="https://frostbelt.github.io/tags/types/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vscode 搜索 node_modules 中的文件</title>
-    <link href="https://frostbelt.github.io/2020/04/26/vscode-%E6%90%9C%E7%B4%A2-node-modules-%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6/"/>
-    <id>https://frostbelt.github.io/2020/04/26/vscode-搜索-node-modules-中的文件/</id>
-    <published>2020-04-26T02:13:19.000Z</published>
-    <updated>2020-04-26T02:30:40.757Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>想打开 element-ui 下的 message.d.ts 文件，但 node_modules 下有几百个依赖，找到 element-ui 要翻半天</p></blockquote><p>使用扩展 search-node-modules</p><a id="more"></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. 安装扩展 search-node-modules</span><br><span class="line">2. cmd + p</span><br><span class="line">3. 输入 &gt;node，选择 search node_modules，显示 node_modules 下所有目录/文件</span><br><span class="line">3. 输入 element-ui, 选择 element-ui，显示 element-ui 下所有目录/文件</span><br><span class="line">4. 输入 types，选择 types，显示 types 下所有目录/文件</span><br><span class="line">5. 输入 message.d.ts，选择打开文件</span><br><span class="line"></span><br><span class="line">事实上，从 3 开始，就像在命令上下打开一个文件</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;想打开 element-ui 下的 message.d.ts 文件，但 node_modules 下有几百个依赖，找到 element-ui 要翻半天&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;使用扩展 search-node-modules&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="vscode" scheme="https://frostbelt.github.io/tags/vscode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue 通用组件</title>
-    <link href="https://frostbelt.github.io/2020/04/23/vue-%E9%80%9A%E7%94%A8%E7%BB%84%E4%BB%B6/"/>
-    <id>https://frostbelt.github.io/2020/04/23/vue-通用组件/</id>
-    <published>2020-04-23T07:50:18.000Z</published>
-    <updated>2020-04-23T08:03:44.736Z</updated>
-    
-    <content type="html"><![CDATA[<p>类似 element ui 中的 <code>this.$message.success(&#39;提交成功&#39;)</code> 这种通用组件是怎么生成的?</p><p>–Loading<br> |<strong>Loading.vue<br> |</strong>index.js</p><a id="more"></a><p>Loading.vue<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div v-show=&quot;show&quot; class=&quot;loading&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &quot;loading&quot;,</span><br><span class="line">  props: &#123;&#125;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      show: false</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    init() &#123;&#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted() &#123;</span><br><span class="line">    this.init();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style lang=&quot;scss&quot; scoped&gt;</span><br><span class="line">...</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p><p>index.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line">import Loading from &quot;./Loading&quot;</span><br><span class="line"></span><br><span class="line">const LoadingConstructor = Vue.extend(Loading);</span><br><span class="line">const Ld = &#123;</span><br><span class="line">  init() &#123;</span><br><span class="line">    if (this.is_inited) &#123;</span><br><span class="line">      return;</span><br><span class="line">    &#125;</span><br><span class="line">    this.is_inited = true;</span><br><span class="line"></span><br><span class="line">    this.instance = new LoadingConstructor(&#123;</span><br><span class="line">      data: &#123;&#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">    this.instance.vm = this.instance.$mount();    // $mount() 没有参数时，模板将被渲染为文档之外的元素</span><br><span class="line">    document.body.appendChild(this.instance.$el); // 这种情况下必须使用原生 DOM API 把它插入文档中</span><br><span class="line">    this.instance.dom = this.instance.$el;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  show() &#123;</span><br><span class="line">    this.init();</span><br><span class="line">    this.instance.vm.show = true;                 // 可直接操作 Loading.vue 的 data</span><br><span class="line">  &#125;,</span><br><span class="line">  hide() &#123;</span><br><span class="line">    this.init();</span><br><span class="line">    this.instance.vm.show = false;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default Ld;</span><br></pre></td></tr></table></figure></p><p>使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import Ld from &quot;xxx/Loading&quot;;</span><br><span class="line"></span><br><span class="line">Ld.show();</span><br><span class="line">or </span><br><span class="line">Ld.hide();</span><br></pre></td></tr></table></figure></p><p>当然也可以挂下 Vue 下<br>main.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line">import Loading from &quot;xxx/Loading&quot;;</span><br><span class="line"></span><br><span class="line">Vue.prototype.$loading = Loading;</span><br></pre></td></tr></table></figure></p><p>在其它 vue 中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">this.$loading.show();</span><br><span class="line">or </span><br><span class="line">this.$loading.hide();</span><br></pre></td></tr></table></figure></p><p>参考:<br><a href="https://www.cnblogs.com/fangnianqin/p/10103216.html" target="_blank" rel="noopener">element-ui Message组件源码分析整理笔记（八）</a><br><a href="https://www.cnblogs.com/hentai-miao/p/10271652.html" target="_blank" rel="noopener">Vue 基础知识之 Vue.extend</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;类似 element ui 中的 &lt;code&gt;this.$message.success(&amp;#39;提交成功&amp;#39;)&lt;/code&gt; 这种通用组件是怎么生成的?&lt;/p&gt;
-&lt;p&gt;–Loading&lt;br&gt; |&lt;strong&gt;Loading.vue&lt;br&gt; |&lt;/strong&gt;index.js&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="https://frostbelt.github.io/tags/vue/"/>
     
   </entry>
   
